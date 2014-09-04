@@ -14,10 +14,13 @@ cd ${TOP}
 
 epicsEnvSet("W", "WIENER-CRATE-MIB::")
 epicsEnvSet("P", "PowerNet-MIB::")
+epicsEnvSet("XK", "Printer-MIB::")
 epicsEnvSet("C", "admin")
+epicsEnvSet("p", "public")
 epicsEnvSet("WIENER", "10.1.5.122")
 epicsEnvSet("PDU", "10.1.5.142")
-
+epicsEnvSet("XEROX", "10.1.4.182")
+epicsEnvSet("KYOCERA", "10.1.4.184")
 
 
 
