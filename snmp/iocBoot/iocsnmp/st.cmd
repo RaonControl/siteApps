@@ -10,15 +10,17 @@ cd ${TOP}
 
 ##devSnmpSetSnmpVersion("10.1.5.122","SNMP_VERSION_1")
 ##devSnmpSetSnmpVersion("10.1.5.142","SNMP_VERSION_2")
+devSnmpSetSnmpVersion("10.1.4.184","SNMP_VERSION_1")
+
 
 
 epicsEnvSet("W", "WIENER-CRATE-MIB::")
-epicsEnvSet("P", "PowerNet-MIB::")
-epicsEnvSet("XK", "Printer-MIB::")
-epicsEnvSet("C", "admin")
-epicsEnvSet("p", "public")
+epicsEnvSet("PO", "PowerNet-MIB::")
+epicsEnvSet("PR", "Printer-MIB::")
+epicsEnvSet("CM1", "admin")
+epicsEnvSet("CM2", "public")
 epicsEnvSet("WIENER", "10.1.5.122")
-epicsEnvSet("PDU", "10.1.5.142")
+epicsEnvSet("PDU", "10.1.5.141")
 epicsEnvSet("XEROX", "10.1.4.182")
 epicsEnvSet("KYOCERA", "10.1.4.184")
 
