@@ -12,7 +12,7 @@ dbLoadDatabase "dbd/tr5.dbd"
 tr5_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
-dbLoadRecords("db/dbIfstat.vdb","user=kaffee")
+dbLoadRecords("db/dbIfstat.vdb","user=sileeHost")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
