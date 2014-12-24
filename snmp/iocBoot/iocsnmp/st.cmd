@@ -7,7 +7,7 @@
 
 cd ${TOP}
 
-
+epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
 ##devSnmpSetSnmpVersion("10.1.5.122","SNMP_VERSION_1")
 ##devSnmpSetSnmpVersion("10.1.5.142","SNMP_VERSION_2")
 devSnmpSetSnmpVersion("10.1.4.184","SNMP_VERSION_1")
