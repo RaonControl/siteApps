@@ -8,6 +8,7 @@ record(snmp, "${USER}:PDU_Outlet8") {
   field(DESC, "PDU outlet8 control")
   field(DTYP, "Soft Channel")
   field(SCAN, "1 second")
+#  field(SVAL, "2")
 }
 
 #! Further lines contain data used by VisualDCT
