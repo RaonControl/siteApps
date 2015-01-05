@@ -1,0 +1,46 @@
+program seqled
+
+option +r;
+
+int button;
+int led;
+
+assign button to "inp1";
+assign led to "out4";
+
+monitor button;
+
+ss ssStartLEDSeq
+{
+	state init
+	{
+		when(delay(0.1))
+		{
+			led = 0;
+			pvPut(led);
+
+			printf("LED OnOff Sequence Start\n");
+
+		} state ledOff
+	}
+
+	state ledOn
+	{
+		when(button == 0)
+		{
+			led = 0;
+			pvPut(led);
+
+		} state ledOff
+	}
+
+	state ledOff
+	{
+		when(button == 1)
+		{
+			led = 1;
+			pvPut(led);
+
+		} state ledOn
+	}
+}
