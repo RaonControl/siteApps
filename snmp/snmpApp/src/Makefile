@@ -24,6 +24,7 @@ DBD += snmp.dbd
 snmp_DBD += base.dbd
 snmp_DBD += snmpRecord.dbd
 
+
 # Include dbd files from all support applications:
 #snmp_DBD += xxx.dbd
 snmp_DBD += snmpDevSoft.dbd
@@ -52,4 +53,3 @@ snmp_LIBS += $(EPICS_BASE_IOC_LIBS)
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
-
