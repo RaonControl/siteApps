@@ -1,0 +1,12 @@
+	record(bi, "inp1")
+	{
+	  field(DTYP, "GPIO")
+	  field(SCAN, "1 second")
+	  field(INP, "@1")
+	}
+
+	record(bo, "out4")
+	{
+	  field(DTYP, "GPIO")
+	  field(OUT, "@4")
+	}

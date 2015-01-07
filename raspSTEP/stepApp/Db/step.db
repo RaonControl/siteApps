@@ -1,0 +1,67 @@
+record(bo, "STEP:PWM")
+{
+  field(DTYP, "GPIO")
+  field(OUT, "@1")
+}
+
+record(bo, "STEP:DIR")
+{
+  field(DTYP, "GPIO")
+  field(OUT, "@4")
+}
+
+record(bi, "STEP:JCCW")
+{
+  field(DESC, "Jog Move to CCW")
+}
+
+record(bi, "STEP:JCW")
+{
+  field(DESC, "Jog Move to CW")
+}
+
+record(longout, "STEP:PLS")
+{
+  field(DESC, "Set Pulse")
+}
+
+record(ai, "STEP:SPD")
+{
+  field(DESC, "Set Speed")
+  field(PREC, "3")
+}
+
+record(longin, "STEP:CUR")
+{
+  field(DESC, "Current Pulse")
+}
+
+record(bi, "STEP:STOP")
+{
+  field(DESC, "Force Stop")
+}
+
+record(bi, "STEP:RST")
+{
+  field(DESC, "Current Pulse Reset")
+}
+
+record(longin, "STEP:REL")
+{
+  field(DESC, "Relative Move Pulse")
+}
+
+record(longin, "STEP:ABS")
+{
+  field(DESC, "Absolute Move Pulse")
+}
+
+record(bi, "STEP:MOVR")
+{
+  field(DESC, "Move Relative")
+}
+
+record(bi, "STEP:MOVA")
+{
+  field(DESC, "Move Absolute")
+}
