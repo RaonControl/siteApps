@@ -2,6 +2,7 @@ program seqStep
 
 option +r;
 
+int spd;
 double speed;
 int jog;
 int current;
@@ -15,22 +16,31 @@ int relPulse;
 int absPulse;
 int jogCW;
 int jogCCW;
+int max;
+int min;
+int maxFlag;
+int minFlag;
 
-assign speed to "STEP:SPD";
-assign current to "STEP:CUR";
+assign spd to "STEP:SET:SPD";
+assign speed to "STEP:CVT:SPD";
+assign current to "STEP:PLS:CUR";
 assign pwm to "STEP:PWM";
 assign dir to "STEP:DIR";
 assign stop to "STEP:STOP";
 assign reset to "STEP:RST";
 assign relMove to "STEP:MOVR";
 assign absMove to "STEP:MOVA";
-assign relPulse to "STEP:REL";
-assign absPulse to "STEP:ABS";
+assign relPulse to "STEP:PLS:REL";
+assign absPulse to "STEP:PLS:ABS";
 
 assign jogCW to "STEP:JCW";
 assign jogCCW to "STEP:JCCW";
 
-monitor speed;
+assign max to "STEP:PLS:MAX";
+assign min to "STEP:PLS:MIN";
+assign maxFlag to "STEP:MAXF";
+assign minFlag to "STEP:MINF";
+
 monitor reset;
 monitor stop;
 monitor relMove;
@@ -42,6 +52,7 @@ monitor jogCCW;
 int pulse;
 int count;
 int count_sign;
+int limitCheck;
 
 ss ssMain
 {
@@ -50,7 +61,6 @@ ss ssMain
     when(delay(0.1))
     {
       pulse = 0;
-      speed = 0.002;
       pwm = 0;
       current = 0;
       count = 0;
@@ -58,7 +68,6 @@ ss ssMain
       relPulse = 0;
       absPulse = 0;
 
-      pvPut(speed);
       pvPut(current);
 
       printf("Step Motor Sequence Start\n");
@@ -68,9 +77,11 @@ ss ssMain
 
   state High
   {
-    when(pulse == count || stop == 1)
+    when(pulse == count || stop == 1 || maxFlag == 1 || minFlag == 1)
     {
-      current = current + (count * count_sign);
+      pvPut(maxFlag);
+      pvPut(minFlag);
+      
       pvPut(current);
 
       relMove = 0;
@@ -100,6 +111,11 @@ ss ssMain
 
       count++;
 
+      current += count_sign;
+
+      if(current >= max) maxFlag = 1;      
+      else if(current <= min) minFlag = 1;      
+
     } state High
   }
 
@@ -109,20 +125,33 @@ ss ssMain
     {
       pvGet(speed);
       pvGet(relPulse);
+      pvGet(min);
+      pvGet(max);
 
       if(relPulse < 0) 
       {
         count_sign = -1;
-        dir = 0;
+        dir = 1;
       }
       else
       {
         count_sign = 1;
-        dir = 1;
+        dir = 0;
       }
 
       pulse = count_sign * relPulse;
       pvPut(dir);
+
+      limitCheck = current + pulse * count_sign;
+
+      if(limitCheck < max && limitCheck > min)
+      {
+        maxFlag = 0;
+        minFlag = 0;
+
+        pvPut(maxFlag);
+        pvPut(minFlag);
+      }
 
     } state High
 
@@ -130,16 +159,18 @@ ss ssMain
     {
       pvGet(speed);
       pvGet(absPulse);
+      pvGet(min);
+      pvGet(max);
       
       if(absPulse > current)
       {
         count_sign = 1;
-        dir = 1;
+        dir = 0;
       }
       else if(absPulse < current)
       {
         count_sign = -1;
-        dir = 0;
+        dir = 1;
       }
       else
       {
@@ -149,30 +180,58 @@ ss ssMain
 
       pulse = count_sign * (absPulse - current);
       pvPut(dir);
+  
+      limitCheck = current + pulse * count_sign;
+
+      if(limitCheck < max && limitCheck > min)
+      {
+        maxFlag = 0;
+        minFlag = 0;
+
+        pvPut(maxFlag);
+        pvPut(minFlag);
+      }
 
     } state High
-
 
     when(jogCW == 1)
     { 
       pvGet(speed);
+      pvGet(min);
+      pvGet(max);
+
       dir = 1;
-      count_sign = 1;
+      count_sign = -1;
       pvPut(dir);
-     
+
+      maxFlag = 0;
+      pvPut(minFlag);
+
     } state JogHigh
 
     when(jogCCW == 1)
     { 
       pvGet(speed);
+      pvGet(min);
+      pvGet(max);
+
       dir = 0;
-      count_sign = -1;
+      count_sign = 1;
       pvPut(dir);
 
-    } state JogLow
+      minFlag = 0; 
+      pvPut(minFlag);
+ 
+    } state JogHigh
 
     when(reset == 1)
     {
+      maxFlag = 0;
+      minFlag = 0;
+
+      pvPut(maxFlag);
+      pvPut(minFlag);
+
       current = 0;
       pvPut(current);
 
@@ -181,9 +240,11 @@ ss ssMain
 
   state JogHigh
   {
-    when((jogCW | jogCCW) == 0)
+    when((jogCW | jogCCW) == 0 || maxFlag == 1 || minFlag == 1)
     {
-      current = current + (count * count_sign);
+      pvPut(maxFlag);
+      pvPut(minFlag);
+
       pvPut(current);
 
       count = 0;
@@ -207,7 +268,11 @@ ss ssMain
 
       count++;
 
+      current += count_sign;
+
+      if(current >= max) maxFlag = 1;
+      else if(current <= min) minFlag = 1;
+
     } state JogHigh
   }
-
 }
