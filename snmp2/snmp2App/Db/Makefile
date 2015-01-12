@@ -11,7 +11,9 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 #DB += xxx.db
-DB += snmp2.vdb
+#DB += snmp2.vdb
+#DB += snmp2_1.vdb
+DB += snmp.vdb
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
