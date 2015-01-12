@@ -126,14 +126,14 @@ record(longin, "STEP:ANG:MIN")
 
 record(calc, "STEP:PLS:MAX")
 {
-  field(DESC, "For Maximum limit, Convert Angle to Pulse")
+  field(DESC, "For Maximum limit Convert Angle to Pulse")
   field(INPA, "STEP:ANG:MAX")
   field(CALC, "A/0.072")
 }
 
 record(calc, "STEP:PLS:MIN")
 {
-  field(DESC, "For Minimum limit, Convert Angle to Pulse")
+  field(DESC, "For Minimum limit Convert Angle to Pulse")
   field(INPA, "STEP:ANG:MIN")
   field(CALC, "A/0.072")
 }
