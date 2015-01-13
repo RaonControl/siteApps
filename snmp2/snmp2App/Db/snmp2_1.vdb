@@ -4,24 +4,13 @@
 #! DBDEND
 
 
-record(snmp, "${USER}:PDU_Outlet8") {
-  field(DESC, "PDU outlet8 control")
+record(snmp, "${USER}:sPDUOutletPowerOnTime8") {
   field(DESC, "PDU Power on time")
   field(DTYP, "Soft Channel")
   field(SCAN, "1 second")
   field(INP, "@${ip} ${name} ${oids}")
   #  field(SVAL, "2")
 }
-
-
-
-
-
-
-
-
-
-
 
 #! Further lines contain data used by VisualDCT
 #! View(2000,2115,1.0)
