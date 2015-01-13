@@ -1,0 +1,3 @@
+device(rdbpostgreSQL,CONSTANT,devRdbpostgreSQLSoft, "SoftChannel")
+device(rdbpostgreSQL,CONSTANT,devRdbpostgreSQLSoft, "Query")
+variable(RdbpostgreSQLDebug)
