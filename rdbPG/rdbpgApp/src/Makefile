@@ -38,6 +38,7 @@ rdbpg_DBD += rdbpostgreSQLRecord.dbd
 
 # Include dbd files from all support applications:
 #rdbpg_DBD += xxx.dbd
+rdbpg_DBD += rdbpostgreSQLDevSoft.dbd
 
 # Add all the support libraries needed by this IOC
 rdbpg_LIBS += rdbPostgreSQL

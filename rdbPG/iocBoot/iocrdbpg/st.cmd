@@ -11,8 +11,12 @@ cd ${TOP}
 dbLoadDatabase "dbd/rdbpg.dbd"
 rdbpg_registerRecordDeviceDriver pdbbase
 
+drvRDBConnInit("epics_db","postgres","qwer1234","127.0.0.1","5432");
+
+
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=sileeHost")
+dbLoadRecords("db/PGRDB.vdb","SYS=RDB")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit

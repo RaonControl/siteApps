@@ -1,3 +1,10 @@
+menu(queryType) {
+	choice(queryNone, "None")
+	choice(querySelect, "Select")
+	choice(queryUpdate, "Update")
+	choice(queryInsert, "Insert")
+}
+
 recordtype(rdbpostgreSQL) {
 	include "dbCommon.dbd" 
 	field(VAL,DBF_DOUBLE) {
@@ -113,5 +120,29 @@ recordtype(rdbpostgreSQL) {
 		prompt("Last Val Monitored")
 		special(SPC_NOMOD)
 		interest(3)
+	}
+	field(HOST,DBF_STRING) {
+		prompt("RDB Connection")
+		promptgroup(GUI_DISPLAY)
+		interest(1)
+		size(16)
+	}
+	field(TABL,DBF_STRING) {
+		prompt("Table")
+		promptgroup(GUI_DISPLAY)
+		interest(1)
+		size(16)
+	}
+	field(FILD,DBF_STRING) {
+		prompt("Field")
+		promptgroup(GUI_DISPLAY)
+		interest(1)
+		size(16)
+	}
+	field(QRY,DBF_MENU) {
+		prompt("Query type")
+		promptgroup(GUI_DISPLAY)
+		interest(2)
+		menu(queryType)
 	}
 }
