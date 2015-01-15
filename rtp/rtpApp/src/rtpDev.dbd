@@ -1,0 +1,4 @@
+device(ai,CONSTANT,devRTPRead, "RTP_ReadAI")
+device(ao,CONSTANT,devRTPWrite, "RTP_WriteAo")
+#registrar(drvRDBConnInitRegisterCommands)
+#variable(RdbpostgreSQLDebug)
