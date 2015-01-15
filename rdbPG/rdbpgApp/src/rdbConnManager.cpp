@@ -1,6 +1,15 @@
 #include <iostream>
 #include "rdbConnManager.h"
 
+#if 1
+typedef struct devRDBPvt {
+	ELLNODE		devRDBNode;
+	IOSCANPVT	ioScanPvt;
+	dbCommon	*prec;
+	epicsMutexId mutexId;
+} devRDBPvt;
+#endif
+
 //drvRDBConnInit IOC Shell command registration
 static const iocshArg drvRDBConnInitArg0 = {"dbname", iocshArgString};
 static const iocshArg drvRDBConnInitArg1 = {"user", iocshArgString};
@@ -30,32 +39,93 @@ static void drvRDBConnInitRegisterCommands(void)
 epicsExportRegistrar(drvRDBConnInitRegisterCommands);
 
 static RDBManager mRdbManager;
+static ELLLIST    devRDBList;
 
 //drvRDBConnInit
 epicsShareFunc int drvRDBConnInit(const char *dbname, const char *user, const char *password, 
 		const char *hostaddr, const char *port )
 {
 	mRdbManager.Connect(dbname, user, password, hostaddr, port);
+	ellInit(&devRDBList);
 
-	//epicsAtExit();
+    epicsThreadCreate("drvRDBConnInit", epicsThreadPriorityHigh, epicsThreadGetStackSize(epicsThreadStackSmall),
+                     (EPICSTHREADFUNC)devRDBScanThread,NULL);
 	return 0;
 };
+
+static void devRDBScanThread(void)
+{
+	ELLLIST *pdevRDBList = &devRDBList;
+	devRDBPvt *pRDBPvt;
+
+	while(!pdevRDBList->count) {
+		epicsThreadSleep(0.5);
+	}
+
+    while(TRUE) 
+	{
+        pRDBPvt = (devRDBPvt*) ellFirst(pdevRDBList);
+        do {
+            epicsMutexLock(pRDBPvt->mutexId);
+			//critical section
+            epicsMutexUnlock(pRDBPvt->mutexId);
+			scanIoRequest(pRDBPvt->ioScanPvt);
+        } while( (pRDBPvt = (devRDBPvt*) ellNext(&pRDBPvt->devRDBNode)) );
+        epicsThreadSleep(0.1);
+    }
+	
+}
 
 int RdbpostgreSQLDebug = 0;
 epicsExportAddress(int, RdbpostgreSQLDebug);
 
-devRdbpostgreSQLSoft rdbReadpostgreSQL={ 5, NULL, NULL, init_record, getIoIntInfo, read_rdb };
-devRdbpostgreSQLSoft rdbWritepostgreSQL={ 5, NULL, NULL, init_record, NULL, write_rdb };
+devRdbpostgreSQLSoft rdbReadpostgreSQL={ 5, NULL, NULL, read_init_record, NULL, read_rdb };
+devRdbpostgreSQLSoft rdbWritepostgreSQL={ 5, NULL, NULL, write_init_record, getIoIntInfo, write_rdb };
 
 epicsExportAddress(dset,rdbReadpostgreSQL);
 epicsExportAddress(dset,rdbWritepostgreSQL);
 
-long init_record(void	*precord)
+
+long write_init_record(void *precord)
 {
 	rdbpostgreSQLRecord	*prdbpostgreSQL = (rdbpostgreSQLRecord*)precord;
+	devRdbpostgreSQLSoft *pdset = (devRdbpostgreSQLSoft*)prdbpostgreSQL->dset;
 
     if(recGblInitConstantLink(&prdbpostgreSQL->inp,DBF_DOUBLE,&prdbpostgreSQL->val))
          prdbpostgreSQL->udf = FALSE;
+
+	devRDBPvt *pdev = (devRDBPvt *)malloc(sizeof (devRDBPvt));
+	if(pdev == NULL) return -1;
+
+	pdev->mutexId = epicsMutexCreate();
+	scanIoInit(&pdev->ioScanPvt);
+	prdbpostgreSQL->dpvt = pdev;
+
+	ellAdd(&devRDBList, &(((devRDBPvt*)prdbpostgreSQL->dpvt)->devRDBNode) );
+
+	return(0);
+}
+long getIoIntInfo(int cmd, dbCommon *pr, IOSCANPVT *iopvt)
+{
+	devRDBPvt *pdev = (devRDBPvt*)pr ->dpvt; 
+	*iopvt = pdev->ioScanPvt;
+    return 0;
+}
+
+long read_init_record(void	*precord)
+{
+	rdbpostgreSQLRecord	*prdbpostgreSQL = (rdbpostgreSQLRecord*)precord;
+	devRdbpostgreSQLSoft *pdset = (devRdbpostgreSQLSoft*)prdbpostgreSQL->dset;
+
+    if(recGblInitConstantLink(&prdbpostgreSQL->inp,DBF_DOUBLE,&prdbpostgreSQL->val))
+         prdbpostgreSQL->udf = FALSE;
+
+	devRDBPvt *pdev = (devRDBPvt *)malloc(sizeof (devRDBPvt));
+	if(pdev == NULL) return -1;
+
+	prdbpostgreSQL->dpvt = pdev;
+	pdev -> prec = (dbCommon*)precord;
+	pdev -> ioScanPvt = NULL;
 
     return(0);
 }
@@ -67,8 +137,8 @@ long read_rdb(void	*precord)
 	epicsTimeStamp currTime;
 	epicsTimeGetCurrent (&currTime);
 
-	if(RdbpostgreSQLDebug)
-		printf("Scan(%d)\n",prdbpostgreSQL->scan);
+	//if(RdbpostgreSQLDebug)
+	//	printf("Scan(%d)\n",prdbpostgreSQL->scan);
 
     status = dbGetLink(&(prdbpostgreSQL->inp),DBF_DOUBLE, &(prdbpostgreSQL->val),0,0);
     /*If return was succesful then set undefined false*/
@@ -93,8 +163,8 @@ long write_rdb(void	*precord)
     /*If return was succesful then set undefined false*/
     if(!status) prdbpostgreSQL->udf = FALSE;
 
-
-	mRdbManager.WriteValue(prdbpostgreSQL);
+	if(prdbpostgreSQL->oval!=prdbpostgreSQL->val)
+		mRdbManager.WriteValue(prdbpostgreSQL);
 #if 0
 	switch(rdbpostgreSQL->qry)
 	{
@@ -107,43 +177,6 @@ long write_rdb(void	*precord)
 #endif
 
     return(0);
-}
-long getIoIntInfo(int cmd, dbCommon *pr, IOSCANPVT *iopvt)
-{
-#if 0
-	//long int (*)(int, dbCommon*, io_scan_list**)
-    devPvt *pdevPvt = (devPvt *)pr->dpvt;
-    asynStatus status;
-
-    /* If initCommon failed then pdevPvt->poctet is NULL, return error */
-    if (!pdevPvt->poctet) return -1;
-
-    if (cmd == 0) {
-        /* Add to scan list.  Register interrupts */
-        asynPrint(pdevPvt->pasynUser, ASYN_TRACE_FLOW,
-            "%s devAsynOctet::getIoIntInfo registering interrupt\n",
-            pr->name);
-        status = pdevPvt->poctet->registerInterruptUser(
-           pdevPvt->octetPvt,pdevPvt->pasynUser,
-           pdevPvt->asynCallback,pdevPvt,&pdevPvt->registrarPvt);
-        if(status!=asynSuccess) {
-            printf("%s devAsynOctet registerInterruptUser %s\n",
-                   pr->name,pdevPvt->pasynUser->errorMessage);
-        }
-    } else {
-        asynPrint(pdevPvt->pasynUser, ASYN_TRACE_FLOW,
-            "%s devAsynOctet::getIoIntInfo cancelling interrupt\n",
-             pr->name);
-        status = pdevPvt->poctet->cancelInterruptUser(pdevPvt->octetPvt,
-             pdevPvt->pasynUser,pdevPvt->registrarPvt);
-        if(status!=asynSuccess) {
-            printf("%s devAsynOctet cancelInterruptUser %s\n",
-                   pr->name,pdevPvt->pasynUser->errorMessage);
-        }
-    }
-    *iopvt = pdevPvt->ioScanPvt;
-#endif
-    return 0;
 }
 
 template <typename T> string valtostr(const T& t) { 
@@ -171,7 +204,7 @@ RDBManager::RDBManager()
 
 connection * RDBManager::Connect(const string info)
 {
-	connection *conn = 0;
+	//connection *conn = 0;
 	try{
 		//conn = new connection("dbname=epics_db user=postgres password=qwer1234 hostaddr=127.0.0.1 port=5432");
 		mpConn = new connection(info.c_str());
@@ -256,6 +289,7 @@ int RDBManager::updateValue(const void *precord)
 		work w(*mpConn);
 		w.exec(sql.c_str());
 		w.commit();
+		prdbpostgreSQL->oval = prdbpostgreSQL->val;
 	}catch(const exception &e)
 	{
 		cerr << e.what() << endl;

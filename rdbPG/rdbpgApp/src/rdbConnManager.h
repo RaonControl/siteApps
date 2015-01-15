@@ -2,8 +2,8 @@
 #define __RDB_CONN_MANAGER_H
 
 #include <vector>
+#include <stdlib.h>
 #include <pqxx/pqxx>
-#include "iocsh.h"
 #include "alarm.h"
 #include "cvtTable.h"
 #include "dbDefs.h"
@@ -18,16 +18,27 @@
 #include "shareLib.h"
 #include "dbCommon.h"
 #include "dbScan.h"
+#include "callback.h"
+#include "cantProceed.h"
+#include "epicsStdio.h"
+#include "epicsMutex.h"
+#include "epicsEvent.h"
+#include "epicsThread.h"
+#include "iocsh.h"
+
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-long init_record(void *);
+long read_init_record(void *);
+long write_init_record(void *);
 long read_rdb(void*);
 long write_rdb(void*);
 long getIoIntInfo(int cmd, dbCommon *pr, IOSCANPVT *iopvt);
 //long int (*)(int, dbCommon*, io_scan_list**);
+static void devRDBScanThread(void);
+
 
 epicsShareFunc int drvRDBConnInit(const char *dbname, const char *user, const char *password, 
 		const char *hostaddr, const char *port );

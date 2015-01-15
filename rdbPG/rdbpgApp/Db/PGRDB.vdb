@@ -9,6 +9,7 @@ record(rdbpostgreSQL, "$(SYS):READ_DATA") {
   field(PINI, "YES")
   field(TABL, "EPICS_TABLE")
   field(FILD, "DATA_FLOAT")
+  field(SCAN, "2 second")
 }
 
 record(rdbpostgreSQL, "$(SYS):WRITE_DATA") {
@@ -17,9 +18,10 @@ record(rdbpostgreSQL, "$(SYS):WRITE_DATA") {
   field(TABL, "EPICS_TABLE")
   field(FILD, "DATA_FLOAT")
   field(QRY, "Update")
+  field(SCAN, "I/O Intr")
 }
 
 #! Further lines contain data used by VisualDCT
 #! View(0,0,1.0)
-#! Record("$(SYS):READ_DATA",260,148,0,0,"$(SYS):READ_DATA")
-#! Record("$(SYS):WRITE_DATA",500,134,0,0,"$(SYS):WRITE_DATA")
+#! Record("$(SYS):READ_DATA",260,134,0,0,"$(SYS):READ_DATA")
+#! Record("$(SYS):WRITE_DATA",500,120,0,0,"$(SYS):WRITE_DATA")

@@ -145,4 +145,8 @@ recordtype(rdbpostgreSQL) {
 		interest(2)
 		menu(queryType)
 	}
+	field(OVAL,DBF_DOUBLE) {
+		prompt(" Old Value")
+		asl(ASL0)
+	}
 }
