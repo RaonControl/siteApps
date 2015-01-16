@@ -1,0 +1,6 @@
+record (stringout, "Test:read")
+{
+    field (DTYP, "stream")
+    field (OUT,  "@test.proto read test")
+}
+
