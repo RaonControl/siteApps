@@ -11,6 +11,7 @@ record(snmp, "${USER}:PDU_Outlet8") {
   field(HOST, "10.1.5.142")
   field(COMM, "mijoy")
   field(OIDS, "PowerNet-MIB::sPDUOutletCtl.8")
+  field(RVAL, "1")
 }
 
 
@@ -21,17 +22,11 @@ record(snmp, "${USER}:PDU_OutletOffTime8") {
   field(HOST, "10.1.5.142")
   field(COMM, "mijoy")
   field(OIDS, "PowerNet-MIB::sPDUOutletPowerOffTime.8")
+  field(RVAL, "10")
+
 }
 
 
-record(snmp, "${USER}:PDU_OutletName1") {
-  field(DESC, "PDU outlet1 Name")
-  field(DTYP, "Soft Channel")
-  field(SCAN, "2 second")
-  field(HOST, "10.1.5.142")
-  field(COMM, "mijoy")
-  field(OIDS, "PowerNet-MIB::sPDUOutletCtlName.1")
-}
 
 
 

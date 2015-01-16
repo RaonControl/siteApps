@@ -13,7 +13,8 @@ include $(TOP)/configure/CONFIG
 #DB += xxx.db
 #DB += snmp2.vdb
 #DB += snmp2_1.vdb
-DB += snmp.vdb
+#DB += snmp.vdb
+DB += snmp_set.vdb
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
