@@ -79,7 +79,8 @@ static void devRDBScanThread(void)
 int RdbpostgreSQLDebug = 0;
 epicsExportAddress(int, RdbpostgreSQLDebug);
 
-devRdbpostgreSQLSoft rdbReadpostgreSQL={ 5, NULL, NULL, read_init_record, NULL, read_rdb };
+//devRdbpostgreSQLSoft rdbReadpostgreSQL={ 5, NULL, NULL, read_init_record, NULL, read_rdb };
+devRdbpostgreSQLSoft rdbReadpostgreSQL={ 5, NULL, NULL, read_init_record, getIoIntInfo, read_rdb };
 devRdbpostgreSQLSoft rdbWritepostgreSQL={ 5, NULL, NULL, write_init_record, getIoIntInfo, write_rdb };
 
 epicsExportAddress(dset,rdbReadpostgreSQL);
@@ -123,9 +124,12 @@ long read_init_record(void	*precord)
 	devRDBPvt *pdev = (devRDBPvt *)malloc(sizeof (devRDBPvt));
 	if(pdev == NULL) return -1;
 
+	pdev->mutexId = epicsMutexCreate();
+	scanIoInit(&pdev->ioScanPvt);
 	prdbpostgreSQL->dpvt = pdev;
 	pdev -> prec = (dbCommon*)precord;
-	pdev -> ioScanPvt = NULL;
+
+	ellAdd(&devRDBList, &(((devRDBPvt*)prdbpostgreSQL->dpvt)->devRDBNode) );
 
     return(0);
 }
@@ -134,9 +138,8 @@ long read_rdb(void	*precord)
 {
 	rdbpostgreSQLRecord	*prdbpostgreSQL = (rdbpostgreSQLRecord*)precord;
     long status;
-	epicsTimeStamp currTime;
-	epicsTimeGetCurrent (&currTime);
-
+	//epicsTimeStamp currTime;
+	//epicsTimeGetCurrent (&currTime);
 	//if(RdbpostgreSQLDebug)
 	//	printf("Scan(%d)\n",prdbpostgreSQL->scan);
 
@@ -146,6 +149,7 @@ long read_rdb(void	*precord)
 
 	//ReadValue(const char *table, const char *field)
 	prdbpostgreSQL->val = mRdbManager.ReadValue(prdbpostgreSQL->tabl,prdbpostgreSQL->fild);
+	prdbpostgreSQL->oval = prdbpostgreSQL->val;
 
     return(0);
 }
