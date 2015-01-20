@@ -11,6 +11,9 @@ cd ${TOP}
 dbLoadDatabase "dbd/rtp.dbd"
 rtp_registerRecordDeviceDriver pdbbase
 
+#drvAsynIPPortConfigure("portName","hostInfo(e.g. IP:port protocol", priority, noAutoConnect, noProcessEos)
+#drvAsynIPPortConfigure("RTPDevice","192.168.10.100:6001 TCP", 0, 0, 0)
+
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=sileeHost")
 

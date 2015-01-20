@@ -5,6 +5,15 @@
 #include <cmath>
 #include <cstdlib>
 #include <cstring>
+#include <ctype.h>
+#include <fcntl.h>
+#include "osiUnistd.h"
+#include "osiSock.h"
+#include "errlog.h"
+#include "epicsAssert.h"
+#include "epicsExit.h"
+#include "epicsString.h"
+#include "epicsTime.h"
 #include "alarm.h"
 #include "cvtTable.h"
 #include "dbDefs.h"
@@ -25,6 +34,7 @@
 #include "epicsEvent.h"
 #include "epicsThread.h"
 #include "iocsh.h"
+#include "shareLib.h"
 
 #include "asynEpicsUtils.h"
 #include "asynDriver.h"
@@ -32,8 +42,12 @@
 #include "asynInt32.h"
 #include "asynInt32SyncIO.h" 
 #include "asynFloat64.h"
+#include "asynOctet.h"
 #include "asynEnum.h"
 #include "asynEnumSyncIO.h"
+#include "asynInterposeCom.h"
+#include "asynInterposeEos.h"
+
 
 // RTP 프로토콜 관련
 #define SYNC_BYTE         0xC3                // sync byte                            
@@ -82,8 +96,10 @@ void	setEnums(char *outStrings, int *outVals, epicsEnum16 *outSeverities, char *
 
 void processCallbackInput(asynUser *pasynUser);
 void interruptCallbackInput(void *drvPvt, asynUser *pasynUser, epicsInt32 value);
-
+char *ReadMsgCmd(const int node, const int type, const int mul_single, const int index); 
 unsigned short getcrc(unsigned char *writecmd, int loopcnt);
+
+epicsShareFunc int drvAsynRTPConfigure(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect, int noProcessEos);
 
 #ifdef __cplusplus
 }

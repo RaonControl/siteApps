@@ -11,7 +11,8 @@ USR_INCLUDES  += -I$(RAON_SITELIBS)/include
 
 rtpDev_LIBS += asyn
 
-rtpDev_SRCS += rtpDevManager.cpp
+rtpDev_SRCS += rtpDevManager.cpp rtpSyncManager.cpp
+
 
 #=============================
 # Build the IOC application
