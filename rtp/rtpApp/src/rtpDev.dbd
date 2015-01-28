@@ -1,4 +1,5 @@
-device(ai,CONSTANT,devRTPRead, "RTP_ReadAI")
-device(ao,CONSTANT,devRTPWrite, "RTP_WriteAo")
+device(ai,INST_IO,devAsynRTPRead,  "rtpAsynReadAI")
+device(ao,INST_IO,devAsynRTPWrite, "rtpAsynWriteAo")
+device(ai,INST_IO,devSyncRTPRead,  "rtpSyncReadAI")
 #registrar(drvRDBConnInitRegisterCommands)
 #variable(RdbpostgreSQLDebug)

@@ -9,7 +9,7 @@ record(rdbpostgreSQL, "$(SYS):READ_DATA") {
   field(PINI, "YES")
   field(TABL, "EPICS_TABLE")
   field(FILD, "DATA_FLOAT")
-  field(SCAN, "2 second")
+  field(SCAN, "I/O Intr")
 }
 
 record(rdbpostgreSQL, "$(SYS):WRITE_DATA") {
