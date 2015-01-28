@@ -4,32 +4,31 @@
 #! DBDEND
 
 
-record(snmp, "${USER}:PDU_Outlet8") {
+record(snmp, "${USER}:PDU_Outlet8_R") {
   field(DESC, "PDU outlet8 control")
-  field(DTYP, "Soft Channel")
-  field(SCAN, "2 second")
-  field(HOST, "10.1.5.142")
-  field(COMM, "mijoy")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  # field(HOST, "10.1.5.142")
+  # field(COMM, "mijoy")
   field(OIDS, "PowerNet-MIB::sPDUOutletCtl.8")
-  field(RVAL, "1")
+  # field(RVAL, "1")
+  # field(STYPE, "i")
+  # field(PINI, "NO")
 }
 
-
-record(snmp, "${USER}:PDU_OutletOffTime8") {
+record(snmp, "${USER}:PDU_OutletOffTime8_R") {
   field(DESC, "PDU outlet8 Power Off Time")
-  field(DTYP, "Soft Channel")
-  field(SCAN, "2 second")
-  field(HOST, "10.1.5.142")
-  field(COMM, "mijoy")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  # field(HOST, "10.1.5.142")
+  # field(COMM, "mijoy")
   field(OIDS, "PowerNet-MIB::sPDUOutletPowerOffTime.8")
-  field(RVAL, "10")
-
+  # field(RVAL, "10")
+  # field(STYPE, "i")
+  # field(PINI, "NO")
 }
-
-
-
-
 
 #! Further lines contain data used by VisualDCT
-#! View(2000,2115,1.0)
-#! Record("${USER}:test",2380,2262,0,1,"${USER}:test")
+#! View(0,0,1.0)
+#! Record("${USER}:PDU_Outlet8",20,19,0,0,"${USER}:PDU_Outlet8")
+#! Record("${USER}:PDU_OutletOffTime8",260,19,0,0,"${USER}:PDU_OutletOffTime8")
