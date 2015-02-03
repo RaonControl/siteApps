@@ -1,0 +1,50 @@
+record(snmp, "${USER}:MainPower") {
+  field(DESC, "WIENER Main Power Switch") # ON: 1, OFF: 0
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "${W}sysMainSwitch.0")
+}
+
+record(snmp, "${USER}:FanairTemp") {
+  field(DESC, "WIENER Fan Temperature") # Read only
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "${W}fanAirTemperature.0")
+}
+
+record(snmp, "${USER}:FanNominalSpeed") {
+  field(DESC, "WIENER Fan rotation speed") # MIN: 1200, MAX: 3600
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "${W}fanNominalSpeed.0")
+}
+
+
+record(snmp, "${USER}:VMEsysReset") {
+  field(DESC, "WIENER sys reset") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "${W}sysVmeSysReset.0")
+}
+# Read: Always 0
+# Write: Trigger the generation of the VME SYSRESET or CPIC RESET signal.
+# This signal will be active for a time of 200 ms
+
+record(snmp, "${USER}:VMEhwReset") {
+  field(DESC, "WIENER H/W reset") # ON: 1, OFF: 0
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "WIENER-CRATE-MIB::sysHardwareReset.0")
+}
+# Triggered a Reset via Watchdog or ResetLine.
+
