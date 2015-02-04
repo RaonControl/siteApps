@@ -25,6 +25,27 @@ record(snmp, "${USER}:FanNominalSpeed") {
   field(OIDS, "${W}fanNominalSpeed.0")
 }
 
+record(snmp, "${USER}:CrateStatus") {
+  field(DESC, "WIENER Crate Status") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "${W}sysStatus.0")
+}
+# mainOn(0), mainInhibit(1), localControlOnly(2), inputFailure(3), outputFailure(4), fantrayFailure(5), sensorFailure(6), 
+# vmeSysfail(7), plugAndPlayIncompatible(8), busReset(9), supplyDerating(10), supplyFailure(11),supplyDerating2(12), supplyFailure2(13)
+
+record(snmp, "${USER}:MainPower") {
+  field(DESC, "WIENER Main Switch") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "${W}sysMainSwitch.0")
+}
+
+
 
 # record(snmp, "${USER}:VMEsysReset") {
 #   field(DESC, "WIENER sys reset") 
