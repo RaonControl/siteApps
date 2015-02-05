@@ -3,48 +3,52 @@
 #! DBD("../../dbd/snmp2.dbd")
 #! DBDEND
 
-
-record(snmp, "${USER}:PDU_Outlet8_R") {
+record(snmp, "${A}:PDU_Outlet8_R") {
   field(DESC, "PDU outlet8 control")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "2 second")
   field(HOST, "10.1.5.142")
   field(COMM, "mijoy")
-  field(OIDS, "PowerNet-MIB::sPDUOutletCtl.8")
-  # field(PINI, "NO")
+  field(OIDS, "${PO}sPDUOutletCtl.8")
 }
 
-record(snmp, "${USER}:PDU_OutletOffTime8_R") {
-  field(DESC, "PDU outlet8 Power Off Time")
+record(snmp, "${A}:PDU_Outlet8_W") {
+  field(DESC, "PDU outlet8 control")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "2 second")
   field(HOST, "10.1.5.142")
   field(COMM, "mijoy")
-  field(OIDS, "PowerNet-MIB::sPDUOutletPowerOffTime.8")
+  field(OIDS, "${PO}sPDUOutletCtl.8")
   field(RVAL, "1")
 }
 
-# record(snmp, "${USER}:PDU_Outlet8_W") {
-#   field(DESC, "PDU outlet8 control")
-#   field(DTYP, "SNMP Write")
-#   field(SCAN, "2 second")
+record(snmp, "${A}:PDU_OutletOffTime8_R") {
+  field(DESC, "PDU outlet8 Power Off Time")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "2 second")
+  field(HOST, "10.1.5.142")
+  field(COMM, "mijoy")
+  field(OIDS, "${PO}sPDUOutletPowerOffTime.8")
+}
+
+record(snmp, "${A}:PDU_OutletOffTime8_W") {
+  field(DESC, "PDU outlet8 Power Off Time")
+  field(DTYP, "SNMP Write")
+  field(SCAN, "2 second")
+  field(HOST, "10.1.5.142")
+  field(COMM, "mijoy")
+  field(OIDS, "${PO}sPDUOutletPowerOffTime.8")
+  field(RVAL, "10")
+}
+
+# record(snmpstr, "${A}:PDU_OutletName8") {
+#   field(DESC, "PDU Outlet Name")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
 #   field(HOST, "10.1.5.142")
 #   field(COMM, "mijoy")
-#   field(OIDS, "PowerNet-MIB::sPDUOutletCtl.8")
-#   field(RVAL, "1")
+#   field(OIDS, "${PO}rPDUOutletStatusOutletName.8")
 # }
-
-# record(snmp, "${USER}:PDU_OutletOffTime8_W") {
-#   field(DESC, "PDU outlet8 Power Off Time")
-#   field(DTYP, "SNMP Write")
-#   field(SCAN, "2 second")
-#   field(HOST, "10.1.5.142")
-#   field(COMM, "mijoy")
-#   field(OIDS, "PowerNet-MIB::sPDUOutletPowerOffTime.8")
-#   field(RVAL, "10")
-# }
-
-
 
 
 
@@ -58,5 +62,3 @@ record(snmp, "${USER}:PDU_OutletOffTime8_R") {
 
 #! Further lines contain data used by VisualDCT
 #! View(0,0,1.0)
-#! Record("${USER}:PDU_Outlet8",20,19,0,0,"${USER}:PDU_Outlet8")
-#! Record("${USER}:PDU_OutletOffTime8",260,19,0,0,"${USER}:PDU_OutletOffTime8")
