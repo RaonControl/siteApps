@@ -14,8 +14,8 @@ include $(TOP)/configure/CONFIG
 #DB += snmp2.vdb
 #DB += snmp2_1.vdb
 #DB += snmp.vdb
-DB += snmp.vdb
-#DB += wiener.vdb
+#DB += snmp.vdb
+DB += wiener.vdb
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
