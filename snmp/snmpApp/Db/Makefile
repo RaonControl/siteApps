@@ -13,6 +13,7 @@ include $(TOP)/configure/CONFIG
 #DB += xxx.db
 DB += pdu.vdb
 DB += wiener.vdb
+DB += wiener_fan.vdb
 DB += snmp.vdb
 DB += printer.vdb
 
