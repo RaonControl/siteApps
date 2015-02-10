@@ -19,13 +19,34 @@ record(snmp, "${USER}:FanairTemp") {
 record(snmp, "${USER}:FanNominalSpeed") {
   field(DESC, "WIENER Fan rotation speed") # MIN: 1200, MAX: 3600
   field(DTYP, "SNMP Read")
+  # field(DTYP, "SNMP Write")
   field(SCAN, "1 second")
   field(HOST, "10.1.5.123")
   field(COMM, "wiener")
   field(OIDS, "${W}fanNominalSpeed.0")
+  # field(RVAL, "1200")
 }
 
-# record(snmp, "${USER}:CrateStatus") {
+# record(snmpstr, "${USER}:Current") {
+#   field(DESC, "WIENER Crate Status") 
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "wiener")
+#   field(OIDS, "${W}outputMeasurementCurrent.u0")
+# }
+
+record(snmpstr, "${USER}:public") {
+  field(DTYP, "SNMP STRING Read")
+  field(SCAN, "1 second")
+  field(HOST, "10.1.5.123")
+  field(COMM, "wiener")
+  field(OIDS, "${W}snmpCommunityName.public")
+}
+
+
+
+# record(snmpstr, "${USER}:CrateStatus") {
 #   field(DESC, "WIENER Crate Status") 
 #   field(DTYP, "SNMP Read")
 #   field(SCAN, "1 second")
