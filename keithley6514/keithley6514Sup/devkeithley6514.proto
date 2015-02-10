@@ -1,5 +1,12 @@
 # 
+@writetimeout { disconnect; }
+@replytimeout { disconnect; }
+@readtimeout  { disconnect; }
+@mismatch     { disconnect; }
+
 ReplyTimeout = 3000;
+InTerminator = "\r";
+OutTerminator = "\r";
 Terminator = CR LF;
 
 getIDN {
@@ -14,9 +21,12 @@ cmd {
 
 setD {
     out "\$1 %d";
+    @init { out "\$1?"; in "%d"; }
 }
+
 getD {
     out "\$1?";
     in "%d";
     ExtraInput = Ignore;
 }
+
