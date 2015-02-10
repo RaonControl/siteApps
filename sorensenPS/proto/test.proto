@@ -1,7 +1,0 @@
-#terminator = CR LF;
-
-read {
-    out "%s";
-    in "%s";
-}
-
