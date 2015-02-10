@@ -11,11 +11,9 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 #DB += xxx.db
-DB += pdu.vdb
-DB += wiener.vdb
-DB += wiener_fan.vdb
-DB += snmp.vdb
-DB += printer.vdb
+
+DB_INSTALLS += $(ASYN)/db/asynRecord.db
+
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

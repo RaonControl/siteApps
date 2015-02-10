@@ -1,6 +1,55 @@
-record (stringout, "Test:read")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):CLS")
 {
-    field (DTYP, "stream")
-    field (OUT,  "@test.proto read test")
+  field(DESC, "Clears all status reporting data structures")
+  field(DTYP, "stream")
+  field(OUT, "sgi.proto setCommon(*CLS) $(P)")
 }
 
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):RST")
+{
+  field(DESC, "Reset the supply to its Power ON state")
+  field(DTYP, "stream")
+  field(OUT, "sgi.proto setCommon(*RST) $(P)")
+}
+
+record(ao, "$(SYS)-$(SUBSYS):$(DEV):Iset")
+{
+  field(DESC, "Program output current")
+  field(DTYP, "stream")
+  field(OUT, "sgi.proto setSourceCurrent $(P)")
+}
+
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):Iget")
+{
+  field(DESC, "Check the output current setting")
+  field(DTYP, "stream")
+  field(INP, "sgi.proto getSourceCurrent $(P)")
+}
+
+record(ao, "$(SYS)-$(SUBSYS):$(DEV):Vset")
+{
+  field(DESC, "Program output voltage")
+  field(DTYP, "stream")
+  field(OUT, "sgi.proto setSourceVoltage $(P)")
+}
+
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):Vget")
+{
+  field(DESC, "Check the output voltage setting")
+  field(DTYP, "stream")
+  field(INP, "sgi.proto getSourceVoltage $(P)")
+}
+
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):Imon")
+{
+  field(DESC, "Measure the actual output current")
+  field(DTYP, "stream")
+  field(INP, "sgi.proto getMeasureCurrent $(P)")
+}
+
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):Vmon")
+{
+  field(DESC, "Measure the actual output voltage")
+  field(DTYP, "stream")
+  field(INP, "sgi.proto getMeasureVoltage $(P)")
+}
