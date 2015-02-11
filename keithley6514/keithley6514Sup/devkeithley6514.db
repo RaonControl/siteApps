@@ -11,6 +11,9 @@ record(stringin, "$(SYS)-$(SUBSYS):$(DEV):FwVer")
     field(DESC, "SCPI identification string")
     field(DTYP, "stream")
     field(INP,  "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
+    field(PINI, "YES") 
+    field(FTVL, "CHAR") 
+    field(NELM, "200") 
  }
 
 # record(waveform, "$(SYS)-$(SUBSYS):$(DEV):FwVerwf")
@@ -32,7 +35,7 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):Rst")
 {
     field(DESC, "SCPI Reset")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto cmd(*RST) $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto cmd(*RST) $(PORT) $(A)")
     field(PINI, "YES")
 }
 
@@ -40,71 +43,72 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):Clr")
 {
     field(DESC, "SCPI Clear status")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto cmd(*CLS) $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto cmd(*CLS) $(PORT) $(A)")
 }
 
 record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSTB")
 {
     field(DESC, "SCPI get status byte")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getD(*STB) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getD(*STB) $(PORT) $(A)")
 }
 
 record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESR")
 {                                                                                                    
     field(DESC, "SCPI get event status")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getD(*ESR) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getD(*ESR) $(PORT) $(A)")
 }
 
 record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetESE")
 {
     field(DESC, "SCPI enable event status")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto setD(*ESE) $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto setD(*ESE) $(PORT) $(A)")
 }
 
 record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESE")
 {
     field(DESC, "SCPI enabled event status")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getD(*ESE) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getD(*ESE) $(PORT) $(A)")
 }
 
 record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetSRE")
 {
     field(DESC, "SCPI enable service requests")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto setD(*SRE) $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto setD(*SRE) $(PORT) $(A)")
 }
 
 record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSRE")
 {
     field(DESC, "Enabled service requests")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getD(*SRE) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getD(*SRE) $(PORT) $(A)")
 }
 
 record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetOPC")
 {
     field(DESC, "Output completion status")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getD(*OPC) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getD(*OPC) $(PORT) $(A)")
 }
 
 
 #
 # Zero Check
+# Default : ON on Manual 16-8, Table 16-3
 #
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckSet")
 {
     field(DESC, "Disable/Enable zero check")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto setD(SYST:ZCH) $(PORT) $(A)")
+    field( OUT,  "@devkeithley6514.proto setD(SYST:ZCH) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
-    field(VAL, "0")
     field(PINI, "YES")
+    field( VAL, "1")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckRB")
 }
 
@@ -113,24 +117,27 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckRB")
 {
     field(DESC, "Readback zero check status")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getD(SYST:ZCH) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getD(SYST:ZCH) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
-    # field(PINI, "YES")
+#    field(PINI, "YES")
 }
 
 
 
 #
 # Zero Correction
-#
+# Default : OFF on Manual 16-8 Table 16-3
+# 
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrect")
 {
     field(DESC, "Enable or disable zero correct")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto setD(SYST:ZCOR) $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto setD(SYST:ZCOR) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
+    field( VAL, "0")
+    field(PINI, "YES")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrectRB")
 }
 
@@ -139,10 +146,96 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrectRB")
 {
     field(DESC, "Readback zero correct")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getD(SYST:ZCOR) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getD(SYST:ZCOR) $(PORT) $(A)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+#    field(PINI, "YES")
+}
+
+
+#
+# DISPlay:ENABle <b>
+# With front panel circuitry turned off, the instrument operates at higher speed. While disabled, the 
+# display is frozen and all front panel controls (execpt LOCAL) are disabled. Normal display operations
+# can be resumed by using :ENABle to enable the display, pressing the LOCAL key, or cycling power.
+#
+
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplay")
+{
+    field(DESC, "Enable or disable front panel (FP) display")
+    field(DTYP, "stream")
+    field( OUT, "@devkeithley6514.proto setD(DISP:ENAB) $(PORT) $(A)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    # field( VAL, "0")
+    # field(PINI, "YES")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
+}
+
+
+
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
+{
+    field(DESC, "Readback FP display status")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getD(DISP:ENAB) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
     field(PINI, "YES")
 }
 
+
+
+#  
+# Somehow, strange behaviors are seen in combinations of the following commands as
+# caput ECR11-Diag:FC01:Remote Local
+# caput ECR11-Diag:FC01:Remote Remote
+# caput ECR11-Diag:FC01:RWLockSet On
+# 
+# The Error code -113 is shown in FP from time to time, but 
+# I cannot reproduce this error message.
+# 
+# Leave them for future studies.
+#
+# Wednesday, February 11 16:41:49 KST 2015, jhlee
+#
+
+# SYSTem:LOCal
+# SYSTem:REMote
+# SYSTem:RWLock
+#
+
+
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetRemote")
+{
+    field(DESC, "Set into local/remote mode")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto setLocRem $(PORT) $(A)")
+    field(ZNAM, "Local")
+    field(ONAM, "Remote")
+    field(PINI, "YES")
+    field(VAL,  "1")
+}
+  
+
+#
+# The command has no ? option, and it says
+# Enable or disable local lockout, but I cannot disable local lockout by sending
+# SYST:RWL in both EPICS IOC and minicom. To disable local lockout is to send the 
+# following :
+# caput ECR11-Diag:FC01:Remote Local
+# 
+# Wednesday, February 11 16:44:25 KST 2015, jhlee
+
+
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockSet")
+{
+    field(DESC, "Enable or disable local lockout of Model 6514")
+    field(DTYP, "stream")
+    field( OUT, "@devkeithley6514.proto cmd(SYST:RWL) $(PORT) $(A)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field( VAL, "1")
+    field(PINI, "YES")
+}
 

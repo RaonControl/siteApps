@@ -30,3 +30,20 @@ getD {
     ExtraInput = Ignore;
 }
 
+
+setS {
+    out "\$1 %s"; 
+}
+
+getS {
+    out "\$1?";
+    in "%s";
+     ExtraInput = Ignore; 
+}
+
+
+
+setLocRem {
+    out "SYST:%{LOC|REM}";
+}
+  
