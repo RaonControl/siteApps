@@ -4,9 +4,11 @@
 ## everywhere it appears in this file
 
 < envPaths
+
 epicsEnvSet "STREAM_PROTOCOL_PATH" "$(TOP)/db" 
-epicsEnvSet "P" "$(P=k6514)"
-epicsEnvSet "R" "$(R=Test)"
+epicsEnvSet "SYS" "$(SYS=ECR11)"
+epicsEnvSet "SUBSYS" "$(SUBSYS=Diag)"
+epicsEnvSet "DEV" "$(DEV=FC01)"
 epicsEnvSet "TTY" "$(TTY=/dev/ttyS0)"
 
 cd ${TOP}
@@ -43,7 +45,7 @@ asynSetOption("L0", -1, "crtscts", "N")
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=jhleeHost")
-dbLoadRecords("db/devkeithley6514.db","P=$(P),R=$(R),PORT=L0,A=0") 
+dbLoadRecords("db/devkeithley6514.db","SYS=$(SYS),SUBSYS=$(SUBSYS),DEV=$(DEV), PORT=L0,A=0") 
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
