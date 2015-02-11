@@ -1,0 +1,153 @@
+record(bo, "STEP:PWM")
+{
+  field(DTYP, "GPIO")
+  field(OUT, "@1")
+}
+
+record(bo, "STEP:DIR")
+{
+  field(DTYP, "GPIO")
+  field(OUT, "@4")
+}
+
+record(bi, "STEP:JCCW")
+{
+  field(DESC, "Jog Move to CCW")
+  field(PINI, "YES")
+  field(VAL, "0")
+}
+
+record(bi, "STEP:JCW")
+{
+  field(DESC, "Jog Move to CW")
+  field(PINI, "YES")
+  field(VAL, "0")
+}
+
+record(longout, "STEP:PLS")
+{
+  field(DESC, "Set Pulse")
+}
+
+record(longin, "STEP:SET:SPD")
+{
+  field(DESC, "Set Speed")
+  field(FLNK, "STEP:CVT:SPD")
+  field(PINI, "YES")
+  field(VAL, "5")
+}
+
+record(calc, "STEP:CVT:SPD")
+{
+  field(DESC, "Convert decimal speed to real speed")
+  field(INPA, "STEP:SET:SPD")
+  field(CALC, "0.01/A")
+}
+
+record(longin, "STEP:PLS:CUR")
+{
+  field(DESC, "Current Pulse")
+  field(FLNK, "STEP:ANG:CUR")
+}
+
+record(calc, "STEP:ANG:CUR")
+{
+  field(DESC, "Convert pulse to angle")
+  field(CALC, "A*0.072")
+  field(INPA, "STEP:PLS:CUR")
+  field(PREC, "3")
+}
+
+record(bi, "STEP:STOP")
+{
+  field(DESC, "Force Stop")
+}
+
+record(bi, "STEP:RST")
+{
+  field(DESC, "Current Pulse Reset")
+}
+
+record(ai, "STEP:ANG:REL")
+{
+  field(DESC, "Relative Move Pulse")
+  field(FLNK, "STEP:PLS:REL")
+}
+
+record(ai, "STEP:ANG:ABS")
+{
+  field(DESC, "Absolute Move Pulse")
+  field(FLNK, "STEP:PLS:ABS")
+}
+
+record(calc, "STEP:PLS:ABS")
+{
+  field(DESC, "Convert Absolute Degree to Pulse")
+  field(INPA, "STEP:ANG:ABS")
+  field(CALC, "A/0.072")
+}
+
+record(calc, "STEP:PLS:REL")
+{
+  field(DESC, "Convert Relative Degree to Pulse")
+  field(INPA, "STEP:ANG:REL")
+  field(CALC, "A/0.072")
+}
+
+record(bi, "STEP:MOVR")
+{
+  field(DESC, "Move Relative")
+  field(PINI, "YES")
+  field(VAL, "0")
+}
+
+record(bi, "STEP:MOVA")
+{
+  field(DESC, "Move Absolute")
+  field(PINI, "YES")
+  field(VAL, "0")
+}
+
+record(longin, "STEP:ANG:MAX")
+{
+  field(DESC, "Maximum Limit")
+  field(PINI, "YES")
+  field(VAL, "720")
+  field(FLNK, "STEP:PLS:MAX")
+}
+
+record(longin, "STEP:ANG:MIN")
+{
+  field(DESC, "Minimum Limit")
+  field(PINI, "YES")
+  field(VAL, "-10")
+  field(FLNK, "STEP:PLS:MIN")
+}
+
+record(calc, "STEP:PLS:MAX")
+{
+  field(DESC, "For Maximum limit Convert Angle to Pulse")
+  field(INPA, "STEP:ANG:MAX")
+  field(CALC, "A/0.072")
+}
+
+record(calc, "STEP:PLS:MIN")
+{
+  field(DESC, "For Minimum limit Convert Angle to Pulse")
+  field(INPA, "STEP:ANG:MIN")
+  field(CALC, "A/0.072")
+}
+
+record(bi, "STEP:MINF")
+{
+  field(DESC, "Minimum Limit Flag")
+  field(PINI, "YES")
+  field(VAL, "0")
+}
+
+record(bi, "STEP:MAXF")
+{
+  field(DESC, "Maximum Limit Flag")
+  field(PINI, "YES")
+  field(VAL, "0")
+}
