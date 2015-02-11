@@ -1,0 +1,148 @@
+#
+# Simple database and stream protocol file for basic SCPI (IEEE488.2) commands
+#
+
+#
+# Short and long form of identification string
+#
+# 
+record(stringin, "$(SYS)-$(SUBSYS):$(DEV):FwVer")
+{
+    field(DESC, "SCPI identification string")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
+ }
+
+# record(waveform, "$(SYS)-$(SUBSYS):$(DEV):FwVerwf")
+# {
+#     field(DESC, "SCPI identification string")
+#     field(DTYP, "stream")
+#     field(INP,  "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
+#     field(PINI, "YES")
+#     field(FTVL, "CHAR")
+#     field(NELM, "200")
+# }
+
+# RST
+# 1. Returns Model 6514 to the RST default conditions
+# 2. Cancels all pending commands
+# 3. Cancels response to any previously received *OPC and *OPC? commands
+#
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):Rst")
+{
+    field(DESC, "SCPI Reset")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto cmd(*RST) $(PORT) $(A)")
+    field(PINI, "YES")
+}
+
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):Clr")
+{
+    field(DESC, "SCPI Clear status")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto cmd(*CLS) $(PORT) $(A)")
+}
+
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSTB")
+{
+    field(DESC, "SCPI get status byte")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getD(*STB) $(PORT) $(A)")
+}
+
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESR")
+{                                                                                                    
+    field(DESC, "SCPI get event status")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getD(*ESR) $(PORT) $(A)")
+}
+
+record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetESE")
+{
+    field(DESC, "SCPI enable event status")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto setD(*ESE) $(PORT) $(A)")
+}
+
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESE")
+{
+    field(DESC, "SCPI enabled event status")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getD(*ESE) $(PORT) $(A)")
+}
+
+record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetSRE")
+{
+    field(DESC, "SCPI enable service requests")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto setD(*SRE) $(PORT) $(A)")
+}
+
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSRE")
+{
+    field(DESC, "Enabled service requests")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getD(*SRE) $(PORT) $(A)")
+}
+
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetOPC")
+{
+    field(DESC, "Output completion status")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getD(*OPC) $(PORT) $(A)")
+}
+
+
+#
+# Zero Check
+#
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckSet")
+{
+    field(DESC, "Disable/Enable zero check")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto setD(SYST:ZCH) $(PORT) $(A)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(VAL, "0")
+    field(PINI, "YES")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckRB")
+}
+
+
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckRB")
+{
+    field(DESC, "Readback zero check status")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getD(SYST:ZCH) $(PORT) $(A)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    # field(PINI, "YES")
+}
+
+
+
+#
+# Zero Correction
+#
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrect")
+{
+    field(DESC, "Enable or disable zero correct")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto setD(SYST:ZCOR) $(PORT) $(A)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrectRB")
+}
+
+
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrectRB")
+{
+    field(DESC, "Readback zero correct")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto getD(SYST:ZCOR) $(PORT) $(A)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(PINI, "YES")
+}
+
+
