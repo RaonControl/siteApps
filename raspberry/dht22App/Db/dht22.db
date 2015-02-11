@@ -1,0 +1,13 @@
+record(ai, "DHT22:TEM")
+{
+  field(DTYP, "DHT22")
+  field(SCAN, "1 second")
+  field(INP, "@1 temperature")
+}
+
+record(ai, "DHT22:HUM")
+{
+  field(DTYP, "DHT22")
+  field(SCAN, "1 second")
+  field(INP, "@1 humidity")
+}
