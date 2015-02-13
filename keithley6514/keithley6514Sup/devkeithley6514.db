@@ -11,9 +11,6 @@ record(stringin, "$(SYS)-$(SUBSYS):$(DEV):FwVer")
     field(DESC, "SCPI identification string")
     field(DTYP, "stream")
     field(INP,  "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
-    field(PINI, "YES") 
-    field(FTVL, "CHAR") 
-    field(NELM, "200") 
  }
 
 # record(waveform, "$(SYS)-$(SUBSYS):$(DEV):FwVerwf")
@@ -100,20 +97,20 @@ record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetOPC")
 # Zero Check
 # Default : ON on Manual 16-8, Table 16-3
 #
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckSet")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCheck")
 {
     field(DESC, "Disable/Enable zero check")
     field(DTYP, "stream")
-    field( OUT,  "@devkeithley6514.proto setD(SYST:ZCH) $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto setD(SYST:ZCH) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
     field(PINI, "YES")
     field( VAL, "1")
-    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckRB")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck")
 }
 
 
-record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckRB")
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck")
 {
     field(DESC, "Readback zero check status")
     field(DTYP, "stream")
@@ -129,7 +126,7 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCheckRB")
 # Zero Correction
 # Default : OFF on Manual 16-8 Table 16-3
 # 
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrect")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCorrect")
 {
     field(DESC, "Enable or disable zero correct")
     field(DTYP, "stream")
@@ -138,11 +135,11 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrect")
     field(ONAM, "On")
     field( VAL, "0")
     field(PINI, "YES")
-    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrectRB")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
 }
 
 
-record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrectRB")
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
 {
     field(DESC, "Readback zero correct")
     field(DTYP, "stream")
@@ -160,15 +157,13 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):ZeroCorrectRB")
 # can be resumed by using :ENABle to enable the display, pressing the LOCAL key, or cycling power.
 #
 
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplay")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayEnable")
 {
-    field(DESC, "Enable or disable front panel (FP) display")
+    field(DESC, "Enable or disable front panel display")
     field(DTYP, "stream")
     field( OUT, "@devkeithley6514.proto setD(DISP:ENAB) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
-    # field( VAL, "0")
-    # field(PINI, "YES")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
 }
 
@@ -206,7 +201,7 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
 #
 
 
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetRemote")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetLocalRemote")
 {
     field(DESC, "Set into local/remote mode")
     field(DTYP, "stream")
@@ -228,14 +223,153 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetRemote")
 # Wednesday, February 11 16:44:25 KST 2015, jhlee
 
 
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockSet")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockEnable")
 {
-    field(DESC, "Enable or disable local lockout of Model 6514")
+    field(DESC, "Enable/disable local lockout")
     field(DTYP, "stream")
     field( OUT, "@devkeithley6514.proto cmd(SYST:RWL) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
-    field( VAL, "1")
     field(PINI, "YES")
 }
 
+
+
+#
+# CurrentRange Auto
+#
+
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeEnable")
+{
+    field(DESC, "Enable/disable current auto range")
+    field(DTYP, "stream")
+    field( OUT, "@devkeithley6514.proto setD(CURR:RANG:AUTO) $(PORT) $(A)")
+    field(ZNAM, "Fixed")
+    field(ONAM, "Auto")
+    field( VAL, "1")
+    field(PINI, "YES")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeRB")
+}
+
+
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeRB")
+{
+    field(DESC, "Readback the current auto range")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getD(CURR:RANG:AUTO) $(PORT) $(A)")
+    field(ZNAM, "Fixed")
+    field(ONAM, "Auto")
+}
+
+#
+#
+# AMPS, RANGE 
+#
+# idx, input, proto, current range
+#
+# 0, 9, 2E-9,   2 nA
+# 1, 8, 2E-8,  20 nA 
+# 2, 7, 2E-7, 200 nA
+# 3, 6, 2E-6,   2 uA
+# 4, 5, 2E-5,  20 uA 
+# 5, 4, 2E-4, 200 uA
+# 6, 3, 2E-3,   2 mA
+# 7, 2, 2E-2,  20 mA 
+#
+# caput ECR11-Diag:FC01:CurrentRangSet 0
+# caput ECR11-Diag:FC01:CurrentRangSet 6
+#
+# camonitor  -S ECR11-Diag:FC01:CurrentRangeRB
+# ECR11-Diag:FC01:CurrentRangeRB 2015-02-11 18:37:39.408003 2 nA
+# ECR11-Diag:FC01:CurrentRangeRB 2015-02-11 18:38:57.964737 2 mA 
+#
+# Wednesday, February 11 18:42:03 KST 2015, jhlee
+#
+record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetCurrRange")
+{
+    field(DESC, "Set Current fixed scale range")
+    field(DTYP, "stream")
+    field( OUT, "@devkeithley6514.proto setCurrentRange $(PORT) $(A)")
+    field(ZRVL, "11")
+    field(ZRST, "20 pA")
+    field(ONVL, "10")
+    field(ONST, "200 pA")
+    field(TWVL, "9")
+    field(TWST, "2 nA")
+    field(THVL, "8")
+    field(THST, "20 nA")
+    field(FRVL, "7")
+    field(FRST, "200 nA")
+    field(FVVL, "6")
+    field(FVST, "2 uA")
+    field(SXVL, "5")
+    field(SXST, "20 uA")
+    field(SVVL, "4")
+    field(SVST, "200 uA")
+    field(EIVL, "3")
+    field(EIST, "2 mA")
+    field(NIVL, "2")
+    field(NIST, "20 mA")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
+}
+
+record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
+{
+    field(DESC, "Current fixed scale range readback")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getCurrentRange $(PORT) $(A)")
+    field(ZRVL, "11")
+    field(ZRST, "20 pA")
+    field(ONVL, "10")
+    field(ONST, "200 pA")
+    field(TWVL, "9")
+    field(TWST, "2 nA")
+    field(THVL, "8")
+    field(THST, "20 nA")
+    field(FRVL, "7")
+    field(FRST, "200 nA")
+    field(FVVL, "6")
+    field(FVST, "2 uA")
+    field(SXVL, "5")
+    field(SXST, "20 uA")
+    field(SVVL, "4")
+    field(SVST, "200 uA")
+    field(EIVL, "3")
+    field(EIST, "2 mA")
+    field(NIVL, "2")
+    field(NIST, "20 mA")
+    field(PINI, "YES")
+}
+
+
+
+record(stringout, "$(SYS)-$(SUBSYS):$(DEV):SetFunction") 
+{
+    field(DESC, "Proper function Set")
+    field(DTYP, "stream")
+    field( OUT, "@devkeithley6514.proto setFunc $(PORT) $(A)")  
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetFunction")
+}
+
+record(stringin, "$(SYS)-$(SUBSYS):$(DEV):GetFunction") 
+{
+#    field(SCAN, "2 second")
+    field(DESC, "Selected function RB")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getFunc $(PORT) $(A)")  
+    field(PINI, "YES")
+
+}
+
+
+#
+# Reading
+#
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):MeasureCurrent")
+{
+    field(DESC, "Measure current")
+    field(DTYP, "stream")
+    field(INP,  "@devkeithley6514.proto measureCurrent $(PORT) $(A)")
+    field(EGU,  "A")
+    field(PREC, "5")
+}

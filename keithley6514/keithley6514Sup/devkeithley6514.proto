@@ -1,4 +1,6 @@
-# 
+#
+#
+
 @writetimeout { disconnect; }
 @replytimeout { disconnect; }
 @readtimeout  { disconnect; }
@@ -9,41 +11,66 @@ InTerminator = "\r";
 OutTerminator = "\r";
 Terminator = CR LF;
 
-getIDN {
+getIDN {    
+    ExtraInput = Ignore;
     out "*IDN?";
     in "%\$1[^\r\n]";
-    ExtraInput = Ignore;
 }
 
 cmd {
     out "\$1";
 }
 
-setD {
-    out "\$1 %d";
-    @init { out "\$1?"; in "%d"; }
-}
 
 getD {
+    ExtraInput = Ignore;
     out "\$1?";
     in "%d";
-    ExtraInput = Ignore;
 }
 
 
-setS {
-    out "\$1 %s"; 
+setD {
+    out "\$1 %d";
+#    @init { out "\$1?"; in "%d"; }
+    @init { getD; }
 }
-
-getS {
-    out "\$1?";
-    in "%s";
-     ExtraInput = Ignore; 
-}
-
 
 
 setLocRem {
     out "SYST:%{LOC|REM}";
 }
-  
+
+
+
+getCurrentRange {    
+    ExtraInput = Ignore;
+    out "CURR:RANG?";
+    in "%*[^E]E-%d";
+}
+
+setCurrentRange {
+    out "CURR:RANG 2E-%d";
+#    @init { out "CURR:RANG?"; in "%*[^E]E-%d"; }
+    @init { getCurrentRange; }
+}
+
+
+# stringin
+getFunc {
+    ExtraInput = Ignore;
+    out "FUNC?";
+    in  "%s";
+}
+
+# stringout
+setFunc {
+    out "FUNC \'%s\'";
+}
+
+
+measureCurrent {
+    ReplyTimeout = 5000;
+    out "READ?";
+    in "%f";
+    ExtraInput = Ignore;
+}
