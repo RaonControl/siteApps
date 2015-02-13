@@ -1,7 +1,10 @@
 #
-# Simple database and stream protocol file for basic SCPI (IEEE488.2) commands
+# EPICS DB with STREAM device for Keithley 6514 System Electrometer
+# based on StreamSCPI template, and so many other EPICS db files
 #
-
+#
+# Friday, February 13 17:02:38 KST 2015, jhlee
+#
 #
 # Short and long form of identification string
 #
@@ -10,18 +13,9 @@ record(stringin, "$(SYS)-$(SUBSYS):$(DEV):FwVer")
 {
     field(DESC, "SCPI identification string")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
+    field( INP, "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
+    field(PINI, "YES")
  }
-
-# record(waveform, "$(SYS)-$(SUBSYS):$(DEV):FwVerwf")
-# {
-#     field(DESC, "SCPI identification string")
-#     field(DTYP, "stream")
-#     field(INP,  "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
-#     field(PINI, "YES")
-#     field(FTVL, "CHAR")
-#     field(NELM, "200")
-# }
 
 # RST
 # 1. Returns Model 6514 to the RST default conditions
@@ -35,6 +29,7 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):Rst")
     field( OUT, "@devkeithley6514.proto cmd(*RST) $(PORT) $(A)")
     field(PINI, "YES")
 }
+
 
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):Clr")
 {
@@ -109,7 +104,6 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCheck")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck")
 }
 
-
 record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck")
 {
     field(DESC, "Readback zero check status")
@@ -119,7 +113,6 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck")
     field(ONAM, "On")
 #    field(PINI, "YES")
 }
-
 
 
 #
@@ -138,7 +131,6 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCorrect")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
 }
 
-
 record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
 {
     field(DESC, "Readback zero correct")
@@ -152,9 +144,10 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
 
 #
 # DISPlay:ENABle <b>
-# With front panel circuitry turned off, the instrument operates at higher speed. While disabled, the 
-# display is frozen and all front panel controls (execpt LOCAL) are disabled. Normal display operations
-# can be resumed by using :ENABle to enable the display, pressing the LOCAL key, or cycling power.
+# With front panel circuitry turned off, the instrument operates at higher speed. 
+# While disabled, the display is frozen and all front panel controls (execpt LOCAL) 
+# are disabled. Normal display operations can be resumed by using :ENABle to enable 
+# the display, pressing the LOCAL key, or cycling power.
 #
 
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayEnable")
@@ -167,8 +160,6 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayEnable")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
 }
 
-
-
 record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
 {
     field(DESC, "Readback FP display status")
@@ -178,7 +169,6 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
     field(ONAM, "On")
     field(PINI, "YES")
 }
-
 
 
 #  
@@ -200,7 +190,6 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
 # SYSTem:RWLock
 #
 
-
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetLocalRemote")
 {
     field(DESC, "Set into local/remote mode")
@@ -212,7 +201,6 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetLocalRemote")
     field(VAL,  "1")
 }
   
-
 #
 # The command has no ? option, and it says
 # Enable or disable local lockout, but I cannot disable local lockout by sending
@@ -221,7 +209,6 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetLocalRemote")
 # caput ECR11-Diag:FC01:Remote Local
 # 
 # Wednesday, February 11 16:44:25 KST 2015, jhlee
-
 
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockEnable")
 {
@@ -238,7 +225,6 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockEnable")
 #
 # CurrentRange Auto
 #
-
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeEnable")
 {
     field(DESC, "Enable/disable current auto range")
@@ -267,14 +253,16 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeRB")
 #
 # idx, input, proto, current range
 #
-# 0, 9, 2E-9,   2 nA
-# 1, 8, 2E-8,  20 nA 
-# 2, 7, 2E-7, 200 nA
-# 3, 6, 2E-6,   2 uA
-# 4, 5, 2E-5,  20 uA 
-# 5, 4, 2E-4, 200 uA
-# 6, 3, 2E-3,   2 mA
-# 7, 2, 2E-2,  20 mA 
+# 0, 11, 2E-11,  20 pA
+# 1, 10, 2E-10, 200 pA 
+# 2,  9, 2E- 9,   2 nA
+# 3,  8, 2E- 8,  20 nA 
+# 4,  7, 2E- 7, 200 nA
+# 5,  6, 2E- 6,   2 uA
+# 6,  5, 2E- 5,  20 uA 
+# 7,  4, 2E- 4, 200 uA
+# 8,  3, 2E- 3,   2 mA
+# 9,  2, 2E- 2,  20 mA 
 #
 # caput ECR11-Diag:FC01:CurrentRangSet 0
 # caput ECR11-Diag:FC01:CurrentRangSet 6
@@ -341,7 +329,11 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
     field(PINI, "YES")
 }
 
-
+#
+# Set the proper function, even if we only care CURR, this function can be
+# used for general purpose later. 
+# Friday, February 13 17:08:33 KST 2015, jhlee
+#
 
 record(stringout, "$(SYS)-$(SUBSYS):$(DEV):SetFunction") 
 {
@@ -373,3 +365,107 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):MeasureCurrent")
     field(EGU,  "A")
     field(PREC, "5")
 }
+
+
+#
+# Get System Error
+#
+record(stringin, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError")
+{
+    field(DESC, "SCPI identification string")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getError(199) $(PORT) $(A)")
+    field(PINI, "YES")
+ }
+
+
+
+# record(waveform, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError")
+# {
+#     field(DESC, "SCPI identification string")
+#     field(DTYP, "stream")
+#     field( INP, "@devkeithley6514.proto getError $(PORT) $(A)")
+# #    field(PINI, "YES")
+# }
+
+
+
+#
+# Power line frequency 
+# 50 or 60 (Hz)
+# caput ECR11-Diag:FC01:SetLineFreq 60
+# caput ECR11-Diag:FC01:SetLineFreq 1
+# camonitor ECR11-Diag:FC01:GetLineFreq 
+# caget ECR11-Diag:FC01:GetLineFreq 
+
+record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetLineFreq")
+{
+    field(DESC, "Set Line Freq value")
+    field(DTYP, "stream")
+    field( OUT, "@devkeithley6514.proto setLineF $(PORT) $(A)")
+    field(ZRVL, "50")
+    field(ZRST, "50")
+    field(ONVL, "60")
+    field(ONST, "60")
+#    field(PINI, "YES")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
+}
+
+record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
+{
+    field(DESC, "Get Line Freq value")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getLineF $(PORT) $(A)")
+    field(ZRVL, "50")
+    field(ZRST, "50")
+    field(ONVL, "60")
+    field(ONST, "60")
+    field(PINI, "YES")
+}
+
+
+
+
+
+
+#
+# RATE : Integration time of the A/D converter, see 6-6 Rate
+# 
+# - the period of time the input signal is meausred. 
+# - the integration time is specified in parameters based on
+#   a number of power line cycles (NPLC), where 
+#   1 PLC for 60Hz is 16.67 ms (1/60) and
+#   1 PLC for 50Hz is 20    ms (1/50) 
+# - the rate setting is global for all measurement functions.
+# - Model 6514 is optimized for the 1 PLC to 10 PLC reading rate. 
+#
+# - SLOW :  6   PLC
+# - MED  :  1   PLC
+# - FAST :  0.1 PLC
+#
+
+#  record ao : DRVL<=LOPR<=HOPR<=DRVH. 
+
+record(ao, "$(SYS)-$(SUBSYS):$(DEV):SetNPLC")
+{
+    field(DESC, "Set NPLC value")
+    field(DTYP, "stream")
+    field(OUT,  "@devkeithley6514.proto setF(CURR:NPLC) $(PORT) $(A)")
+    field(LOPR, "0.01")
+    field(HOPR, "10")
+    field(DRVL, "0.01")
+    field(DRVH, "10")
+    field( VAL, "1")
+    field(PINI, "YES")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
+}
+
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
+{
+    field(DESC, "Get NPLC value")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getF(CURR:NPLC) $(PORT) $(A)")
+}
+
+
+

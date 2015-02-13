@@ -22,6 +22,18 @@ cmd {
 }
 
 
+getF {
+    ExtraInput = Ignore;
+    out "\$1?";
+    in "%f";
+}
+
+setF {
+    out "\$1 %f";
+#    @init { out "\$1?"; in "%f"; }
+    @init { getF; }
+}
+
 getD {
     ExtraInput = Ignore;
     out "\$1?";
@@ -67,10 +79,33 @@ setFunc {
     out "FUNC \'%s\'";
 }
 
+# stringin
+getError {
+    ExtraInput = Ignore;
+    out "SYST:ERR?";
+    in  "%\$1[^\r\n]";
+#    in "%#s";
+}
+
+
 
 measureCurrent {
     ReplyTimeout = 5000;
     out "READ?";
     in "%f";
     ExtraInput = Ignore;
+}
+
+
+
+
+getLineF {    
+    out "SYST:LFR?";
+    in "%d";
+}
+
+setLineF {
+    out "SYST:LFR %d";
+#    @init { out "CURR:RANG?"; in "%*[^E]E-%d"; }
+    @init { getLineF; }
 }
