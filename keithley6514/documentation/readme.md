@@ -10,4 +10,6 @@ caput  ECR11-Diag:FC01:SetZeroCheck 0
 caput  ECR11-Diag:FC01:MeasureCurrent 0
 
 
- caget  ECR11-Diag:FC01:GetSystemError 
+caget  ECR11-Diag:FC01:GetSystemError
+
+caput ECR11-Diag:FC01:SetNPLC 0.1
