@@ -13,20 +13,18 @@
 record(snmp, "${A}:${P}_Outlet8_R") {
     field(DESC, "PDU outlet8 control")
     field(DTYP, "SNMP Read")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
   # field(SCAN, "I/O Intr")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}sPDUOutletCtl.8")
 }
 
 record(snmp, "${A}:${P}_Outlet8_W") {
     field(DESC, "PDU outlet8 control")
     field(DTYP, "SNMP Write")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(VERS, "SNMP_VERSION_3")
     field(AUTH, "qwertyuiop12345")
     field(PRIV, "qwertyuiop12345")
@@ -34,33 +32,6 @@ record(snmp, "${A}:${P}_Outlet8_W") {
     field(COMM, "mijoy")
     field(OIDS, "${PO}sPDUOutletCtl.8")
     # field(RVAL, "1")
-}
-# ----------------------------------------------------------------------
-## Set time OutletOnWithDelay
-# The amount of time (in seconds) the outlet will delay powering on when the MasterSwitch is powered on
-# Allowed values are:
-# -1 never power on automatically.
-# 0  power on with the Master Switch.
-# 15 power on 15 seconds after the MasterSwitch has power applied.
-# 30 power on 30 seconds after the MasterSwitch has power applied.
-# 45 power on 45 seconds after the MasterSwitch has power applied.
-# 60 power on 60 seconds (1 minute) after the MasterSwitch has power applied.
-# 120 power on 120 seconds (2 minutes) after the MasterSwitch has power applied.
-# 300 power on 300 seconds (5 minutes) after the MasterSwitch has power applied.
-# If a value other than a supported value is provided in a set request, the PDU interprets it as the next lower acceptable value.  
-# If the provided value is lower than the lowest acceptable value, the lowest acceptable value is used.
-record(snmp, "${A}:${P}_OutletOnime8_R") {
-    field(DESC, "PDU outlet8 Power Off Time")
-    field(DTYP, "SNMP Read")
-  # field(SCAN, "I/O Intr")
-    field(SCAN, "5 second")
-    field(EGU, "second")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
-    field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
-    field(OIDS, "${PO}sPDUOutletPowerOnTime.8")
 }
 # ----------------------------------------------------------------------
 ## Set time OutletOffWithDelay
@@ -80,20 +51,18 @@ record(snmp, "${A}:${P}_OutletOffTime8_R") {
     field(DESC, "PDU outlet8 Power Off Time")
     field(DTYP, "SNMP Read")
   # field(SCAN, "I/O Intr")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "second")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.8")
 }
 
 record(snmp, "${A}:${P}_OutletOffTime8_W") {
     field(DESC, "PDU outlet8 Power Off Time")
     field(DTYP, "SNMP Write")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "second")
     field(VERS, "SNMP_VERSION_3")
     field(AUTH, "qwertyuiop12345")
@@ -103,20 +72,42 @@ record(snmp, "${A}:${P}_OutletOffTime8_W") {
     field(OIDS, "${PO}sPDUOutletPowerOffTime.8")
     # field(RVAL, "0")
 }
-
+# ----------------------------------------------------------------------
+## Set time OutletOnWithDelay
+# The amount of time (in seconds) the outlet will delay powering on when the MasterSwitch is powered on
+# Allowed values are:
+# -1 never power on automatically.
+# 0  power on with the Master Switch.
+# 15 power on 15 seconds after the MasterSwitch has power applied.
+# 30 power on 30 seconds after the MasterSwitch has power applied.
+# 45 power on 45 seconds after the MasterSwitch has power applied.
+# 60 power on 60 seconds (1 minute) after the MasterSwitch has power applied.
+# 120 power on 120 seconds (2 minutes) after the MasterSwitch has power applied.
+# 300 power on 300 seconds (5 minutes) after the MasterSwitch has power applied.
+# If a value other than a supported value is provided in a set request, the PDU interprets it as the next lower acceptable value.  
+# If the provided value is lower than the lowest acceptable value, the lowest acceptable value is used.
+record(snmp, "${A}:${P}_OutletOnime8_R") {
+    field(DESC, "PDU outlet8 Power Off Time")
+    field(DTYP, "SNMP Read")
+  # field(SCAN, "I/O Intr")
+    field(SCAN, "1 second")
+    field(EGU, "second")
+    field(VERS, "SNMP_VERSION_2c")
+    field(HOST, "10.1.5.142")
+    field(COMM, "public")
+    field(OIDS, "${PO}sPDUOutletPowerOnTime.8")
+}
 # ----------------------------------------------------------------------
 ## Power Load
 # Getting/setting this OID will return/set the Power Factor in thousanths (1000 is power factor of 1). Valid range is from 0 to 1000.
 record(snmp, "${A}:${P}_PowerLoad_R") {
     field(DESC, "PDU PowerLoad")
     field(DTYP, "SNMP Read")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "A")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}rPDULoadStatusLoad.1")
 }
 # ----------------------------------------------------------------------
@@ -125,13 +116,11 @@ record(snmp, "${A}:${P}_PowerLoad_R") {
 record(snmp, "${A}:${P}_Rating_R") {
     field(DESC, "rating of the device in Amps")
     field(DTYP, "SNMP Read")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "A")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}rPDUIdentDeviceRating.0")
 }
 ## Line to Line Voltage
@@ -139,13 +128,11 @@ record(snmp, "${A}:${P}_Rating_R") {
 record(snmp, "${A}:${P}_LineVoltage_R") {
     field(DESC, "Line to Line Voltage")
     field(DTYP, "SNMP Read")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "V")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}rPDUIdentDeviceLinetoLineVoltage.0")
 }
 ## PowerWatts
@@ -153,13 +140,11 @@ record(snmp, "${A}:${P}_LineVoltage_R") {
 record(snmp, "${A}:${P}_PowerWatts_R") {
     field(DESC, "PowerWatts")
     field(DTYP, "SNMP Read")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "V")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}rPDUIdentDevicePowerWatts.0")
 }
 
@@ -168,13 +153,11 @@ record(snmp, "${A}:${P}_PowerWatts_R") {
 record(snmp, "${A}:${P}_PowerFactor_R") {
     field(DESC, "Power Factor")
     field(DTYP, "SNMP Read")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "V")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}rPDUIdentDevicePowerFactor.0")
 }
 # ----------------------------------------------------------------------
@@ -194,13 +177,11 @@ record(snmp, "${A}:${P}_PowerFactor_R") {
 record(snmp, "${A}:${P}_RebootTime_Outlet8_R") {
     field(DESC, "Power Factor")
     field(DTYP, "SNMP Read")
-    field(SCAN, "5 second")
+    field(SCAN, "1 second")
     field(EGU, "second")
-    field(VERS, "SNMP_VERSION_3")
-    field(AUTH, "qwertyuiop12345")
-    field(PRIV, "qwertyuiop12345")
+    field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
-    field(COMM, "mijoy")
+    field(COMM, "public")
     field(OIDS, "${PO}sPDUOutletRebootDuration.8")
 }
 

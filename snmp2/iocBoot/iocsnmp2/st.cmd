@@ -13,14 +13,14 @@ epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
 dbLoadDatabase "dbd/snmp2.dbd"
 snmp2_registerRecordDeviceDriver pdbbase
 
-drvSNMPConnInit("SNMP_VERSION_3", "10.1.5.142", "mijoy", "qwertyuiop12345", "qwertyuiop12345");
+#drvSNMPConnInit("SNMP_VERSION_3", "10.1.5.142", "mijoy", "qwertyuiop12345", "qwertyuiop12345");
 #drvSNMPConnInit("SNMP_VERSION_2c", "10.1.5.142", "public", NULL, NULL);
 
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
-dbLoadRecords("db/snmp.vdb", "A=APC, PO=PowerNet-MIB::")
-#dbLoadRecords("db/wiener.vdb", "USER=mijoy0909Host, W=WIENER-CRATE-MIB::")
+dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, PO=PowerNet-MIB::")
+#dbLoadRecords("db/wiener.vdb", "W=WIENER, WI=WIENER-CRATE-MIB::")
 
 
 cd ${TOP}/iocBoot/${IOC}
