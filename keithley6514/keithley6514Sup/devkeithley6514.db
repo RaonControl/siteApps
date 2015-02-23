@@ -364,6 +364,7 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):MeasureCurrent")
     field(INP,  "@devkeithley6514.proto measureCurrent $(PORT) $(A)")
     field(EGU,  "A")
     field(PREC, "5")
+    field(SCAN, "0.1 second")
 }
 
 

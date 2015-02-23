@@ -9,7 +9,7 @@ epicsEnvSet "STREAM_PROTOCOL_PATH" "$(TOP)/db"
 epicsEnvSet "SYS" "$(SYS=ECR11)"
 epicsEnvSet "SUBSYS" "$(SUBSYS=Diag)"
 epicsEnvSet "DEV" "$(DEV=FC01)"
-epicsEnvSet "TTY" "$(TTY=/dev/ttyS0)"
+epicsEnvSet "TTY" "$(TTY=/dev/ttyUSB0)"
 
 cd ${TOP}
 ## Register all support components
