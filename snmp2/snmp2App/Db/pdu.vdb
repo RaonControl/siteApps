@@ -14,7 +14,7 @@ record(snmp, "${A}:${P}_Outlet8_R") {
     field(DESC, "PDU outlet8 control")
     field(DTYP, "SNMP Read")
     field(SCAN, "1 second")
-  # field(SCAN, "I/O Intr")
+    # field(SCAN, "I/O Intr")
     field(VERS, "SNMP_VERSION_2c")
     field(HOST, "10.1.5.142")
     field(COMM, "public")
@@ -50,7 +50,7 @@ record(snmp, "${A}:${P}_Outlet8_W") {
 record(snmp, "${A}:${P}_OutletOffTime8_R") {
     field(DESC, "PDU outlet8 Power Off Time")
     field(DTYP, "SNMP Read")
-  # field(SCAN, "I/O Intr")
+    # field(SCAN, "I/O Intr")
     field(SCAN, "1 second")
     field(EGU, "second")
     field(VERS, "SNMP_VERSION_2c")
@@ -147,7 +147,6 @@ record(snmp, "${A}:${P}_PowerWatts_R") {
     field(COMM, "public")
     field(OIDS, "${PO}rPDUIdentDevicePowerWatts.0")
 }
-
 ## Power Factor
 # Getting/setting this OID will return/set the Power Factor in thousanths (1000 is power factor of 1). Valid range is from 0 to 1000.
 record(snmp, "${A}:${P}_PowerFactor_R") {
@@ -185,20 +184,15 @@ record(snmp, "${A}:${P}_RebootTime_Outlet8_R") {
     field(OIDS, "${PO}sPDUOutletRebootDuration.8")
 }
 
-
-# record(snmpstr, "${A}:${P}_OutletName8_R") {
-#   field(DESC, "Outlet8 Name")
-#   field(DTYP, "SNMP Read")
-#   # field(SCAN, "I/O Intr")
-#   field(SCAN, "2 second")
-#   field(HOST, "10.1.5.142")
-#   field(COMM, "mijoy")
-#   field(OIDS, "${PO}sPDUOutletCtlName.8")
-# }
-
-
-
-
+record(snmpstr, "${A}:${P}_OutletName8_R") {
+  field(DESC, "Outlet Name")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.142")
+  field(COMM, "public")
+  field(OIDS, "${PO}sPDUOutletCtlName.8")
+}
 
 #! Further lines contain data used by VisualDCT
 #! View(-390,-228,1.0)

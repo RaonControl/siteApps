@@ -7,13 +7,13 @@
 
 cd ${TOP}
 
-epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
+#epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
 
 ## Register all support components
 dbLoadDatabase "dbd/snmp2.dbd"
 snmp2_registerRecordDeviceDriver pdbbase
 
-#drvSNMPConnInit("SNMP_VERSION_3", "10.1.5.142", "mijoy", "qwertyuiop12345", "qwertyuiop12345");
+#drvSNMPConnInit("10.1.5.142", "qwertyuiop12345", "qwertyuiop12345");
 #drvSNMPConnInit("SNMP_VERSION_2c", "10.1.5.142", "public", NULL, NULL);
 
 
