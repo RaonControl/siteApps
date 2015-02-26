@@ -1,81 +1,535 @@
-record(snmp, "${USER}:MainPower") {
-  field(DESC, "WIENER Main Power Switch") # ON: 1, OFF: 0
-  field(DTYP, "SNMP Read")
+#***********************************************************************
+# WIENER CRATE
+#***********************************************************************
+
+## Main switch power
+# read-write off(0), on(1)
+record(snmp, "${W}:${C}_MainPower_W") {
+  field(DESC, "WIENER Main Power Switch") 
+  field(DTYP, "SNMP Write")
   field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_3")
+  field(AUTH, "MySecret")
+  field(PRIV, "MySecret")
   field(HOST, "10.1.5.123")
-  field(COMM, "wiener")
-  field(OIDS, "${W}sysMainSwitch.0")
+  field(COMM, "admin")
+  field(OIDS, "${WI}sysMainSwitch.0")
 }
 
-record(snmp, "${USER}:FanairTemp") {
+record(snmp, "${W}:${C}_MainPower_R") {
+  field(DESC, "WIENER Main Power Switch") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}sysMainSwitch.0")
+}
+
+## reset
+# Read: Always 0.
+# Write: Trigger the generation of the VME SYSRESET or CPIC RESET signal.  This signal will be active for a time of 200 ms
+record(snmp, "${W}:${C}_VMEsysReset_W") {
+  field(DESC, "WIENER sys reset") 
+  field(DTYP, "SNMP Write")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_3")
+  field(AUTH, "MySecret")
+  field(PRIV, "MySecret")
+  field(HOST, "10.1.5.123")
+  field(COMM, "admin")
+  field(OIDS, "${WI}sysVmeSysReset.0")
+}
+
+record(snmp, "${W}:${C}_VMEsysReset_R") {
+  field(DESC, "WIENER sys reset") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}sysVmeSysReset.0")
+}
+
+# Read: Always 0
+# Write: Trigger the generation of the VME SYSRESET or CPIC RESET signal. This signal will be active for a time of 200 ms
+# ON: 1, OFF: 0
+record(snmp, "${W}:${C}_VMEhwReset_W") {
+  field(DESC, "WIENER H/W reset") 
+  field(DTYP, "SNMP Write")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_3")
+  field(AUTH, "MySecret")
+  field(PRIV, "MySecret")
+  field(HOST, "10.1.5.123")
+  field(COMM, "admin")
+  field(OIDS, "${WI}sysHardwareReset.0")
+}
+
+record(snmp, "${W}:${C}_VMEhwReset_R") {
+  field(DESC, "WIENER H/W reset") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}sysHardwareReset.0")
+}
+
+#----------------------------------------------------------------------
+##PowerSupply OperatingTime
+record(snmp, "${W}:${C}_PsOperatingTime") {
+  field(DESC, "WIENER sys reset") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}psOperatingTime.0")
+}
+
+##Fan OperatingTime
+record(snmp, "${W}:${C}_FanOperatingTime") {
+  field(DESC, "WIENER sys reset") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}fanOperatingTime.0")
+}
+
+#----------------------------------------------------------------------
+## Crate status
+# mainOn (0),                 system is switched on, individual outputs may be controlled by their specific ON/INHIBIT
+# mainInhibit(1),             external (hardware-)inhibit of the complete system
+# localControlOnly (2),       local control only (CANBUS write access denied)
+# inputFailure (3),           any input failure (e.g. power fail)
+# outputFailure (4),          any output failure, details in outputTable
+# fantrayFailure (5),         fantray failure
+# sensorFailure (6),          temperature of the external sensors too high
+# vmeSysfail(7),              VME SYSFAIL signal is active
+# plugAndPlayIncompatible (8) wrong power supply and rack connected
+# busReset (9)                The sytem bus (e.g. VME or CPCI) reset signal is active.        
+# supplyDerating (10)         The (first) system power supply has the DEG signal active.
+# supplyFailure (11)          The (first) system power supply has the FAL signal active.
+# supplyDerating2 (12)        The second system power supply has the DEG signal active.
+# supplyFailure2 (13)         The second system power supply has the FAL signal active.
+
+# record(snmp, "${W}:${C}_CrateStatus") {
+#   field(DESC, "WIENER Crate Status") 
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sysStatus.0")
+# }
+
+#--------------------------------------------------------------
+# The measured voltage at the sense input lines.
+
+record(snmp, "${W}:${C}_Voltage0") {
+  field(DESC, "+5V supply")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementSenseVoltage.u0")
+  field(EGU,  "V")
+  field(PREC, "4")
+  field(LOPR, "0")
+  field(HOPR, "5")
+  field(LOLO, "4.45")
+  field(LOW,  "4.75")
+  field(HIGH, "5.25")
+  field(HIHI, "5.55")
+  field(LLSV, "MAJOR")
+  field(LSV,  "MINOR")
+  field(HSV,  "MINOR")
+  field(HHSV, "MAJOR")
+  field(HYST, "0.5")
+}
+
+record(snmp, "${W}:${C}_Voltage1") {
+  field(DESC, "+12V supply")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementSenseVoltage.u1")
+  field(EGU,  "V")
+  field(PREC, "4")
+  field(LOPR, "0")
+  field(HOPR, "12")
+  field(LOLO, "11.1")
+  field(LOW,  "11.4")
+  field(HIGH, "12.59")
+  field(HIHI, "12.89")
+  field(LLSV, "MAJOR")
+  field(LSV,  "MINOR")
+  field(HSV,  "MINOR")
+  field(HHSV, "MAJOR")
+  field(HYST, "0.12")
+
+}
+
+record(snmp, "${W}:${C}_Voltage3") {
+  field(DESC, "+3.3V supply")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementSenseVoltage.u3")
+  field(EGU,  "V")
+  field(PREC, "4")
+  field(LOPR, "0")
+  field(HOPR, "13")
+  field(LOLO, "2.83")
+  field(LOW,  "3.13")
+  field(HIGH, "3.47")
+  field(HIHI, "3.77")
+  field(LLSV, "MAJOR")
+  field(LSV,  "MINOR")
+  field(HSV,  "MINOR")
+  field(HHSV, "MAJOR")
+  field(HYST, "0.33")
+}
+
+record(snmp, "${W}:${C}_Voltage5") {
+  field(DESC, "-12V supply")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementSenseVoltage.u5")
+  field(EGU,  "V")
+  field(PREC, "4")
+  field(LOPR, "0")
+  field(HOPR, "12")
+  field(LOLO, "11.1")
+  field(LOW,  "11.4")
+  field(HIGH, "12.59")
+  field(HIHI, "12.89")
+  field(LLSV, "MAJOR")
+  field(LSV,  "MINOR")
+  field(HSV,  "MINOR")
+  field(HHSV, "MAJOR")
+  field(HYST, "-0.12")
+}
+
+#--------------------------------------------------------------
+# The measured output current.
+
+record(snmp, "${W}:${C}_Current0") {
+  field(DESC, "+5V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementCurrent.u0")
+  field(EGU,  "A")
+  field(PREC, "4")
+}
+
+record(snmp, "${W}:${C}_Current1") {
+  field(DESC, "+12V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementCurrent.u1")
+  field(EGU,  "A")
+  field(PREC, "4")
+}
+
+record(snmp, "${W}:${C}_Current3") {
+  field(DESC, "+3.3V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementCurrent.u3")
+  field(EGU,  "A")
+  field(PREC, "4")
+}
+
+record(snmp, "${W}:${C}_Current5") {
+  field(DESC, "-12V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementCurrent.u5")
+  field(EGU,  "A")
+  field(PREC, "4")
+}
+
+
+#--------------------------------------------------------------
+# The measured temperature of the power module.  
+# ok (-128), failure(127) 
+
+record(snmp, "${W}:${C}_Temp0") {
+  field(DESC, "+3.3V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementTemperature.u0")
+}
+
+record(snmp, "${W}:${C}_Temp1") {
+  field(DESC, "+5V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementTemperature.u1")
+}
+
+record(snmp, "${W}:${C}_Temp3") {
+  field(DESC, "+12V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementTemperature.u3")
+}
+
+record(snmp, "${W}:${C}_Temp5") {
+  field(DESC, "-12V supply current")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputMeasurementTemperature.u5")
+}
+
+#--------------------------------------------------------------
+# The measured temperature of the sensor.Unused temperature probes have the special value -128
+
+# record(snmp, "${W}:${C}_SensorTemp1") {
+#   field(DESC, "Temperarature sensor1")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp1")
+#   field(EGU,  "deg C")
+#  }
+
+# record(snmp, "${W}:${C}_SensorTemp2") {
+#   field(DESC, "Temperarature sensor 2")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp2" )
+#   field(EGU,  "deg C")
+# }
+
+# record(snmp, "${W}:${C}_SensorTemp3") {
+#   field(DESC, "Temperarature sensor 3")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp3" )
+#   field(EGU,  "deg C")
+# }
+
+# record(snmp, "${W}:${C}_SensorTemp4") {
+#   field(DESC, "Temperarature sensor 4")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp4" )
+#   field(EGU,  "deg C")
+# }
+
+# record(snmp, "${W}:${C}_SensorTemp5") {
+#   field(DESC, "Temperarature sensor 5")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp5")
+#   field(EGU,  "deg C")
+# }
+
+# record(snmp, "${W}:${C}_SensorTemp6") {
+#   field(DESC, "Temperarature sensor 6")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp6" )
+#   field(EGU,  "deg C")
+# }
+
+# record(snmp, "${W}:${C}_SensorTemp7") {
+#   field(DESC, "Temperarature sensor 7")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp7" )
+#   field(EGU,  "deg C")
+# }
+
+# record(snmp, "${W}:${C}_SensorTemp8") {
+#   field(DESC, "Temperarature sensor 8")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "1 second")
+#   field(VERS, "SNMP_VERSION_2c")
+#   field(HOST, "10.1.5.123")
+#   field(COMM, "public")
+#   field(OIDS, "${WI}sensorTemperature.temp8" )
+#   field(EGU,  "deg C")
+# }
+
+#--------------------------------------------------------------
+# The nominal fan rotation speed (RPM, Revolutions Per Minute) Value 0 does switch off the fans 
+#(only allowed if at least one rack temperature sensor is present). Values 1..1199 are not allowed
+record(snmp, "${W}:${C}_FanNominalSpeed_W") {
+  field(DESC, "WIENER Fan rotation speed") # MIN: 1200, MAX: 3600
+  field(DTYP, "SNMP Write")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_3")
+  field(AUTH, "MySecret")
+  field(PRIV, "MySecret")
+  field(HOST, "10.1.5.123")
+  field(COMM, "admin")
+  field(OIDS, "${WI}fanNominalSpeed.0")
+  field(EGU,  "RPM")
+  field(LOPR, "1200")
+  field(DRVL, "1200")
+  field(HOPR, "3600")
+  field(DRVH, "3600")
+}
+
+record(snmp, "${W}:${C}_FanNominalSpeed_R") {
+  field(DESC, "WIENER Fan rotation speed") # MIN: 1200, MAX: 3600
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}fanNominalSpeed.0")
+  field(EGU,  "RPM")
+  field(LOPR, "1200")
+  field(DRVL, "1200")
+  field(HOPR, "3600")
+  field(DRVH, "3600")
+}
+
+#--------------------------------------------------------------
+# The measured fan rotation speed (RPM, Revolutions Per Minute)
+
+record(snmp, "${W}:${C}_Fanspeed1") {
+  field(DESC, "Fan 1 speed")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}fanSpeed.1")
+  field(EGU,  "RPM")
+}
+
+record(snmp, "${W}:${C}_Fanspeed2") {
+  field(DESC, "Fan 1 speed")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}fanSpeed.2")
+  field(EGU,  "RPM")
+}
+
+record(snmp, "${W}:${C}_Fanspeed3") {
+  field(DESC, "Fan 1 speed")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}fanSpeed.3")
+  field(EGU,  "RPM")
+}
+
+# The temperature of the fan tray inlet air.
+record(snmp, "${W}:${C}_FanairTemp") {
   field(DESC, "WIENER Fan Temperature") # Read only
   field(DTYP, "SNMP Read")
   field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
-  field(COMM, "wiener")
-  field(OIDS, "${W}fanAirTemperature.0")
+  field(COMM, "public")
+  field(OIDS, "${WI}fanAirTemperature.0")
+  field(EGU,  "deg C")
 }
 
-record(snmp, "${USER}:FanNominalSpeed") {
-  field(DESC, "WIENER Fan rotation speed") # MIN: 1200, MAX: 3600
+# # The maximum time in seconds for which the fans will continue running after the power supply has been switched off. 
+# # This feature is used to cool down the electronics after switching off.
+
+record(snmp, "${W}:${C}_FanSwitchOffDelay_W") {
+  field(DESC, "FanSwitchOffDelay")
+  field(DTYP, "SNMP Write")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_3")
+  field(AUTH, "MySecret")
+  field(PRIV, "MySecret")
+  field(HOST, "10.1.5.123")
+  field(COMM, "admin")
+  field(OIDS, "${WI}fanSwitchOffDelay.0")
+}
+
+record(snmp, "${W}:${C}_FanSwitchOffDelay_R") {
+  field(DESC, "FanSwitchOffDelay")
   field(DTYP, "SNMP Read")
-  # field(DTYP, "SNMP Write")
   field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
-  field(COMM, "wiener")
-  field(OIDS, "${W}fanNominalSpeed.0")
-  # field(RVAL, "1200")
-}
-
-# record(snmpstr, "${USER}:Current") {
-#   field(DESC, "WIENER Crate Status") 
-#   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
-#   field(HOST, "10.1.5.123")
-#   field(COMM, "wiener")
-#   field(OIDS, "${W}outputMeasurementCurrent.u0")
-# }
-
-record(snmpstr, "${USER}:public") {
-  field(DTYP, "SNMP STRING Read")
-  field(SCAN, "1 second")
-  field(HOST, "10.1.5.123")
-  field(COMM, "wiener")
-  field(OIDS, "${W}snmpCommunityName.public")
+  field(COMM, "public")
+  field(OIDS, "${WI}fanSwitchOffDelay.0")
 }
 
 
 
-# record(snmpstr, "${USER}:CrateStatus") {
-#   field(DESC, "WIENER Crate Status") 
-#   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
-#   field(HOST, "10.1.5.123")
-#   field(COMM, "wiener")
-#   field(OIDS, "${W}sysStatus.0")
-# }
-# mainOn(0), mainInhibit(1), localControlOnly(2), inputFailure(3), outputFailure(4), fantrayFailure(5), sensorFailure(6), 
-# vmeSysfail(7), plugAndPlayIncompatible(8), busReset(9), supplyDerating(10), supplyFailure(11),supplyDerating2(12), supplyFailure2(13)
+record(snmpstr, "${W}:${C}_test") {
+  field(DESC, "FanSwitchOffDelay")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "1 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}outputName.u0")
+}
 
-# record(snmp, "${USER}:VMEsysReset") {
-#   field(DESC, "WIENER sys reset") 
-#   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
-#   field(HOST, "10.1.5.123")
-#   field(COMM, "wiener")
-#   field(OIDS, "${W}sysVmeSysReset.0")
-# }
-# Read: Always 0
-# Write: Trigger the generation of the VME SYSRESET or CPIC RESET signal.
-# This signal will be active for a time of 200 ms
 
-# record(snmp, "${USER}:VMEhwReset") {
-#   field(DESC, "WIENER H/W reset") # ON: 1, OFF: 0
-#   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
-#   field(HOST, "10.1.5.123")
-#   field(COMM, "wiener")
-#   field(OIDS, "WIENER-CRATE-MIB::sysHardwareReset.0")
-# }
-# Triggered a Reset via Watchdog or ResetLine.
+
+
 
