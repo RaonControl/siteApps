@@ -7,7 +7,7 @@
 
 cd ${TOP}
 
-#epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
+epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
 
 ## Register all support components
 dbLoadDatabase "dbd/snmp2.dbd"
