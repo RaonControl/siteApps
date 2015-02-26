@@ -7,8 +7,6 @@
 
 cd ${TOP}
 
-epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib2/mibs")
-
 ## Register all support components
 dbLoadDatabase "dbd/snmp2.dbd"
 snmp2_registerRecordDeviceDriver pdbbase
@@ -19,7 +17,7 @@ snmp2_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
-#dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, PO=PowerNet-MIB::")
+dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, PO=PowerNet-MIB::")
 dbLoadRecords("db/wiener.vdb", "W=WIENER, C=CRATE3,  WI=WIENER-CRATE-MIB::")
 dbLoadRecords("db/timestamp.vdb", "S=SNMPIOC")
 

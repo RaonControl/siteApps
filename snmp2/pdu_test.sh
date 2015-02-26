@@ -10,7 +10,7 @@ echo "caget ---------------------------------------------------------"
 caget APC:PDU_Outlet8_R
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.141 PowerNet-MIB::sPDUOutletCtl.8
-echo "caset ---------------------------------------------------------"
+echo "caput ---------------------------------------------------------"
 caput APC:PDU_Outlet8_W.RVAL 1
 sleep 300
 
@@ -23,7 +23,7 @@ echo "caget ---------------------------------------------------------"
 caget APC:PDU_Outlet8_R
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.141 PowerNet-MIB::sPDUOutletCtl.8
-echo "caset ---------------------------------------------------------"
+echo "caput ---------------------------------------------------------"
 caput APC:PDU_Outlet8_W.RVAL 2
 sleep 300
 done
