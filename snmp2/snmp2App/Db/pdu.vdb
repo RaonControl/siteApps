@@ -186,7 +186,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet8_R") {
 record(snmpstr, "${A}:${P}_OutletName8_R") {
   field(DESC, "Outlet Name")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.142")
   field(COMM, "public")

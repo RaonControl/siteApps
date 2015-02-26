@@ -1,7 +1,6 @@
 #***********************************************************************
 # WIENER CRATE
 #***********************************************************************
-
 ## Main switch power
 # read-write off(0), on(1)
 record(snmp, "${W}:${C}_MainPower_W") {
@@ -116,15 +115,15 @@ record(snmp, "${W}:${C}_FanOperatingTime") {
 # supplyDerating2 (12)        The second system power supply has the DEG signal active.
 # supplyFailure2 (13)         The second system power supply has the FAL signal active.
 
-# record(snmp, "${W}:${C}_CrateStatus") {
-#   field(DESC, "WIENER Crate Status") 
-#   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
-#   field(VERS, "SNMP_VERSION_2c")
-#   field(HOST, "10.1.5.123")
-#   field(COMM, "public")
-#   field(OIDS, "${WI}sysStatus.0")
-# }
+record(snmpstr, "${W}:${C}_CrateStatus") {
+  field(DESC, "WIENER Crate Status") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "2 second")
+  field(VERS, "SNMP_VERSION_2c")
+  field(HOST, "10.1.5.123")
+  field(COMM, "public")
+  field(OIDS, "${WI}sysStatus.0")
+}
 
 #--------------------------------------------------------------
 # The measured voltage at the sense input lines.
@@ -515,18 +514,6 @@ record(snmp, "${W}:${C}_FanSwitchOffDelay_R") {
   field(HOST, "10.1.5.123")
   field(COMM, "public")
   field(OIDS, "${WI}fanSwitchOffDelay.0")
-}
-
-
-
-record(snmpstr, "${W}:${C}_test") {
-  field(DESC, "FanSwitchOffDelay")
-  field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
-  field(VERS, "SNMP_VERSION_2c")
-  field(HOST, "10.1.5.123")
-  field(COMM, "public")
-  field(OIDS, "${WI}outputName.u0")
 }
 
 

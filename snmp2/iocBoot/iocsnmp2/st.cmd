@@ -21,6 +21,7 @@ snmp2_registerRecordDeviceDriver pdbbase
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
 dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, PO=PowerNet-MIB::")
 dbLoadRecords("db/wiener.vdb", "W=WIENER, C=CRATE3,  WI=WIENER-CRATE-MIB::")
+dbLoadRecords("db/timestamp.vdb", "S=SNMPIOC")
 
 
 cd ${TOP}/iocBoot/${IOC}

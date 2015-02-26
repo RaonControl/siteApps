@@ -215,10 +215,6 @@ record(snmp, "${A}:${P}_RebootTime_Outlet8_R") {
 #   field(OIDS, "${PO}sPDUOutletCtlName.8")
 # }
 
-
-
-
-
 #! Further lines contain data used by VisualDCT
 #! View(-390,-228,1.0)
 #! Record("${A}:${P}_Outlet8_R",20,20,0,0,"${A}:${P}_Outlet8_R")

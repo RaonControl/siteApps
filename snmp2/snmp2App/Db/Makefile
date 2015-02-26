@@ -13,6 +13,8 @@ include $(TOP)/configure/CONFIG
 #DB += xxx.db
 DB += pdu.vdb
 DB += wiener.vdb
+DB += timestamp.vdb
+
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
