@@ -12,7 +12,7 @@ include $(TOP)/configure/CONFIG
 # databases, templates, substitutions like this
 #DB += xxx.db
 DB += pdu.vdb
-#DB += wiener.vdb
+DB += wiener.vdb
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

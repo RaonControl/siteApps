@@ -20,7 +20,7 @@ snmp2_registerRecordDeviceDriver pdbbase
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
 dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, PO=PowerNet-MIB::")
-#dbLoadRecords("db/wiener.vdb", "W=WIENER, WI=WIENER-CRATE-MIB::")
+dbLoadRecords("db/wiener.vdb", "W=WIENER, C=CRATE3,  WI=WIENER-CRATE-MIB::")
 
 
 cd ${TOP}/iocBoot/${IOC}

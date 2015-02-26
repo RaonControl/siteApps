@@ -3,12 +3,11 @@
 #! DBD("../../dbd/snmp2.dbd")
 #! DBDEND
 
-# ----------------------------------------------------------------------
 #***********************************************************************
 # PDU
 #***********************************************************************
-# ----------------------------------------------------------------------
-#Set Outlet
+
+##Set Outlet
 # outletOn(1), outletOff(2), outletReboot(3), outletUnknown(4), outletOnWithDelay(5), outletOffWithDelay(6), outletRebootWithDelay(7)
 record(snmp, "${A}:${P}_Outlet8_R") {
     field(DESC, "PDU outlet8 control")
