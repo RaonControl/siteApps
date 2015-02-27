@@ -7,7 +7,7 @@ echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
-caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R
+caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W.RVAL
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
 echo "caput ---------------------------------------------------------"
@@ -22,7 +22,7 @@ echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
-caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R
+caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W.RVAL
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
 echo "caput ---------------------------------------------------------"
