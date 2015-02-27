@@ -10,8 +10,12 @@ echo "caget ---------------------------------------------------------"
 caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W.RVAL
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
-echo "caput ---------------------------------------------------------"
-caput WIENER:CRATE3_FanNominalSpeed_W.RVAL $i
+# echo "caput ---------------------------------------------------------"
+# caput WIENER:CRATE3_FanNominalSpeed_W.RVAL $i
+echo "snmpset -------------------------------------------------------"
+snmpset -v 3 -u admin -l authPriv -a MD5 -A MySecret -x DES -X MySecret 10.1.5.123 WIENER-CRATE-MIB::fanNominalSpeed.0 i $i
+
+
 # echo $i
 sleep 300
 done
@@ -25,8 +29,10 @@ echo "caget ---------------------------------------------------------"
 caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W.RVAL
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
-echo "caput ---------------------------------------------------------"
-caput WIENER:CRATE3_FanNominalSpeed_W.RVAL $i
+# echo "caput ---------------------------------------------------------"
+# caput WIENER:CRATE3_FanNominalSpeed_W.RVAL $i
+echo "snmpset -------------------------------------------------------"
+snmpset -v 3 -u admin -l authPriv -a MD5 -A MySecret -x DES -X MySecret 10.1.5.123 WIENER-CRATE-MIB::fanNominalSpeed.0 i $i
 # echo $i
 sleep 300
 done
