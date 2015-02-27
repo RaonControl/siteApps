@@ -7,6 +7,8 @@
 
 cd ${TOP}
 
+epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib2/mibs")
+
 ## Register all support components
 dbLoadDatabase "dbd/snmp2.dbd"
 snmp2_registerRecordDeviceDriver pdbbase
