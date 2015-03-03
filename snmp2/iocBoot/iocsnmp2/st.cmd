@@ -7,21 +7,20 @@
 
 cd ${TOP}
 
-epicsEnvSet("MIBDIRS", "+$(TOP)/mibs")
+#epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib2/mibs")
 
 ## Register all support components
 dbLoadDatabase "dbd/snmp2.dbd"
 snmp2_registerRecordDeviceDriver pdbbase
 
-drvSNMPConnInit("SNMP_VERSION_3", "10.1.5.142", "mijoy", "qwertyuiop12345", "qwertyuiop12345");
+#drvSNMPConnInit("10.1.5.142", "qwertyuiop12345", "qwertyuiop12345");
 #drvSNMPConnInit("SNMP_VERSION_2c", "10.1.5.142", "public", NULL, NULL);
-
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
-dbLoadRecords("db/snmp.vdb", "A=APC, PO=PowerNet-MIB::")
-#dbLoadRecords("db/wiener.vdb", "USER=mijoy0909Host, W=WIENER-CRATE-MIB::")
-
+dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, HOST=10.1.5.142, COM=public, USER=mijoy, V2C=SNMP_VERSION_2c, V3=SNMP_VERSION_3, PO=PowerNet-MIB::, AUTH_P=qwertyuiop12345, PRIV_P=qwertyuiop12345")
+dbLoadRecords("db/wiener.vdb", "W=WIENER, C=CRATE3, HOST=10.1.5.123, COM=public, USER=admin, V2C=SNMP_VERSION_2c, V3=SNMP_VERSION_3, WI=WIENER-CRATE-MIB::, AUTH_P=MySecret, PRIV_P=MySecret")
+dbLoadRecords("db/timestamp.vdb", "S=SNMPIOC")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
