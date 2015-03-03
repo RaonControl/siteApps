@@ -470,3 +470,45 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
 
 
 
+################################################################################
+# P01: Controller provides the following modes of movement, however software 
+# limits are always monitored by the motor record, so only modes 0 and 1 are 
+# exposed to the user
+# 0: Rotational movement
+# 1: Hardware limit switches are monitored
+# 2: Software limit switch are monitored
+# 3: Hardware and software limit switches are monitored
+# 
+# 0: SLOW : 6   PLC
+# 1: MED  : 1   PLC
+# 2: FAST : 0.1 PLC
+################################################################################
+record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate")
+{
+    field(DESC, "Set Predefined Rate")
+    field(DTYP, "stream")
+    field( OUT, "@devkeithley6514.proto setADRate $(PORT) $(A)") # need to modify 
+    field(ZRST, "Slow")
+    field(ZRVL, "0")        
+    field(ONST, "Med") 
+    field(ONVL, "1")
+    field(TWST, "Fast")
+    field(TWVL, "2")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")   
+}
+
+record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")
+{
+    field(DESC, "Get Predefined Rate")
+    field(DTYP, "stream")
+    field( INP, "@devkeithley6514.proto getADRate $(PORT) $(A)") # need to modify 
+    field(ZRST, "Slow")
+    field(ZRVL, "0")        
+    field(ONST, "Med") 
+    field(ONVL, "1")
+    field(TWST, "Fast")
+    field(TWVL, "2")
+    field(PINI, "YES")
+}
+
+
