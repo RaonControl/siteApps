@@ -470,18 +470,20 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
 
 
 
-################################################################################
-# P01: Controller provides the following modes of movement, however software 
-# limits are always monitored by the motor record, so only modes 0 and 1 are 
-# exposed to the user
-# 0: Rotational movement
-# 1: Hardware limit switches are monitored
-# 2: Software limit switch are monitored
-# 3: Hardware and software limit switches are monitored
+
+# RATE :  Integration time of the A/D converter, see 6-6 Rate
+# 
+# In the most case, we don't need to use SetNPLC individually.
+# Here I was told, they need to set only MED or FAST. 
+# This PV can be used to set SLOW, MED, or FAST by
+# caput ECR11-Diag:FC01:SetADRate {Med|Slow|Fast} 
+#       or
+# caput ECR11-Diag:FC01:SetADRate {0|1|2}
 # 
 # 0: SLOW : 6   PLC
 # 1: MED  : 1   PLC
 # 2: FAST : 0.1 PLC
+#
 ################################################################################
 record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate")
 {
@@ -494,6 +496,9 @@ record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate")
     field(ONVL, "1")
     field(TWST, "Fast")
     field(TWVL, "2")
+#    field(NOBT, "3")
+#    field( UDF, "1")
+    field(DISS, "INVALID")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")   
 }
 
@@ -508,6 +513,9 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")
     field(ONVL, "1")
     field(TWST, "Fast")
     field(TWVL, "2")
+#    field(NOBT, "3")
+#    field( UDF, "1")
+    field(DISS, "INVALID")
     field(PINI, "YES")
 }
 
