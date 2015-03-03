@@ -22,7 +22,6 @@ dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, HOST=10.1.5.142, COM=public, USER=mi
 dbLoadRecords("db/wiener.vdb", "W=WIENER, C=CRATE3, HOST=10.1.5.123, COM=public, USER=admin, V2C=SNMP_VERSION_2c, V3=SNMP_VERSION_3, WI=WIENER-CRATE-MIB::, AUTH_P=MySecret, PRIV_P=MySecret")
 dbLoadRecords("db/timestamp.vdb", "S=SNMPIOC")
 
-
 cd ${TOP}/iocBoot/${IOC}
 iocInit
 

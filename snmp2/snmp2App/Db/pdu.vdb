@@ -2,7 +2,6 @@
 #! DBDSTART
 #! DBD("../../dbd/snmp2.dbd")
 #! DBDEND
-
 #***********************************************************************
 # PDU
 #***********************************************************************
@@ -16,6 +15,7 @@ record(snmp, "${A}:${P}_PowerSupply1Status") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUPowerSupply1Status.0")
+    field(MDEL, "-1")
 }
 # powerSupplyTwoOk (1), powerSupplyTwoFailed (2), powerSupplyTwoNotPresent (3)
 record(snmp, "${A}:${P}_PowerSupply2Status") {
@@ -26,6 +26,7 @@ record(snmp, "${A}:${P}_PowerSupply2Status") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUPowerSupply2Status.0")
+    field(MDEL, "-1")
 }
 
 # allAvailablePowerSuppliesOK (1), powerSupplyOneFailed (2), powerSupplyTwoFailed (3), powerSupplyOneandTwoFailed (4)
@@ -37,6 +38,7 @@ record(snmp, "${A}:${P}_PowerSupplyAlarm") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUPowerSupplyAlarm.0")
+    field(MDEL, "-1")
 }
 
 # Outlet Dev Command
@@ -49,6 +51,7 @@ record(snmp, "${A}:${P}_OutletDevCommand_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUOutletDevCommand.0")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletDevCommand_W") {
     field(DESC, "Outlet Dev Command")
@@ -75,6 +78,7 @@ record(snmp, "${A}:${P}_Outlet1_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.1")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet1_W") {
     field(DESC, "PDU outlet8 control")
@@ -99,6 +103,7 @@ record(snmp, "${A}:${P}_Outlet2_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.2")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet2_W") {
     field(DESC, "PDU outlet8 control")
@@ -124,6 +129,7 @@ record(snmp, "${A}:${P}_Outlet3_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.3")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet3_W") {
     field(DESC, "PDU outlet8 control")
@@ -149,6 +155,7 @@ record(snmp, "${A}:${P}_Outlet4_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.4")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet4_W") {
     field(DESC, "PDU outlet8 control")
@@ -201,7 +208,7 @@ record(snmp, "${A}:${P}_Outlet6_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.6")
-
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet6_W") {
     field(DESC, "PDU outlet8 control")
@@ -227,6 +234,7 @@ record(snmp, "${A}:${P}_Outlet7_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.7")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet7_W") {
     field(DESC, "PDU outlet8 control")
@@ -252,6 +260,7 @@ record(snmp, "${A}:${P}_Outlet8_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.8")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet8_W") {
     field(DESC, "PDU outlet8 control")
@@ -289,6 +298,7 @@ record(snmp, "${A}:${P}_OutletOffTime1_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.1")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOffTime1_W") {
     field(DESC, "PDU outlet1 Power Off Time")
@@ -315,6 +325,7 @@ record(snmp, "${A}:${P}_OutletOffTime2_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.2")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOffTime2_W") {
     field(DESC, "PDU outlet2 Power Off Time")
@@ -341,6 +352,7 @@ record(snmp, "${A}:${P}_OutletOffTime3_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.3")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOffTime3_W") {
     field(DESC, "PDU outlet3 Power Off Time")
@@ -367,6 +379,7 @@ record(snmp, "${A}:${P}_OutletOffTime4_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.4")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOffTime4_W") {
     field(DESC, "PDU outlet4 Power Off Time")
@@ -393,6 +406,7 @@ record(snmp, "${A}:${P}_OutletOffTime5_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.5")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOffTime5_W") {
     field(DESC, "PDU outlet5 Power Off Time")
@@ -419,7 +433,9 @@ record(snmp, "${A}:${P}_OutletOffTime6_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.6")
-}
+    field(MDEL, "-1")
+}    
+
 record(snmp, "${A}:${P}_OutletOffTime6_W") {
     field(DESC, "PDU outlet6 Power Off Time")
     field(DTYP, "SNMP Write")
@@ -445,6 +461,7 @@ record(snmp, "${A}:${P}_OutletOffTime7_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.7")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOffTime7_W") {
     field(DESC, "PDU outlet7 Power Off Time")
@@ -471,6 +488,7 @@ record(snmp, "${A}:${P}_OutletOffTime8_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOffTime.8")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOffTime8_W") {
     field(DESC, "PDU outlet8 Power Off Time")
@@ -510,6 +528,7 @@ record(snmp, "${A}:${P}_OutletOnime1_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.1")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime1_W") {
     field(DESC, "PDU outlet1 Power On Time")
@@ -536,6 +555,7 @@ record(snmp, "${A}:${P}_OutletOnime2_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.2")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime2_W") {
     field(DESC, "PDU outlet2 Power On Time")
@@ -562,6 +582,7 @@ record(snmp, "${A}:${P}_OutletOnime3_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.3")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime3_W") {
     field(DESC, "PDU outlet3 Power On Time")
@@ -588,6 +609,7 @@ record(snmp, "${A}:${P}_OutletOnime4_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.4")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime4_W") {
     field(DESC, "PDU outlet4 Power On Time")
@@ -614,6 +636,7 @@ record(snmp, "${A}:${P}_OutletOnime5_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.5")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime5_W") {
     field(DESC, "PDU outlet5 Power On Time")
@@ -640,6 +663,7 @@ record(snmp, "${A}:${P}_OutletOnime6_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.6")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime6_W") {
     field(DESC, "PDU outlet6 Power On Time")
@@ -666,6 +690,7 @@ record(snmp, "${A}:${P}_OutletOnime7_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.7")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime7_W") {
     field(DESC, "PDU outlet7 Power On Time")
@@ -692,6 +717,7 @@ record(snmp, "${A}:${P}_OutletOnime8_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletPowerOnTime.8")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OutletOnime8_W") {
     field(DESC, "PDU outlet8 Power On Time")
@@ -720,6 +746,7 @@ record(snmp, "${A}:${P}_PowerLoad") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDULoadStatusLoad.1")
+    field(MDEL, "-1")
 }
 # ----------------------------------------------------------------------
 ## Rating
@@ -733,6 +760,7 @@ record(snmp, "${A}:${P}_Rating") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUIdentDeviceRating.0")
+    field(MDEL, "-1")
 }
 ## Line to Line Voltage
 # Getting/Setting this OID will return/set the Line to Line Voltage. This OID defaults to the nominal input line voltage in volts AC.
@@ -745,6 +773,7 @@ record(snmp, "${A}:${P}_LineVoltage_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUIdentDeviceLinetoLineVoltage.0")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_LineVoltage_W") {
     field(DESC, "Line to Line Voltage")
@@ -771,6 +800,7 @@ record(snmp, "${A}:${P}_PowerWatts") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUIdentDevicePowerWatts.0")
+    field(MDEL, "-1")
 }
 ## Power Factor
 # Getting/setting this OID will return/set the Power Factor in thousanths (1000 is power factor of 1). Valid range is from 0 to 1000.
@@ -783,6 +813,7 @@ record(snmp, "${A}:${P}_PowerFactor_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDUIdentDevicePowerFactor.0")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_PowerFactor_W") {
     field(DESC, "Line to Line Voltage")
@@ -810,6 +841,7 @@ record(snmp, "${A}:${P}_LowLoadThreshold_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDULoadPhaseConfigLowLoadThreshold.phase1")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_LowLoadThreshold_W") {
     field(DESC, "LowLoad Threshold")
@@ -835,6 +867,7 @@ record(snmp, "${A}:${P}_NearOverloadThreshold_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDULoadPhaseConfigNearOverloadThreshold.phase1")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_NearOverloadThreshold_W") {
     field(DESC, "Near Overload Threshold")
@@ -860,6 +893,7 @@ record(snmp, "${A}:${P}_OverloadThreshold_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDULoadPhaseConfigOverloadThreshold.phase1")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_OverloadThreshold_W") {
     field(DESC, "Overload Threshold")
@@ -885,6 +919,7 @@ record(snmp, "${A}:${P}_LoadStatus") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDULoadStatusLoadState.1")
+    field(MDEL, "-1")
 }
 
 # current Phase Alarm
@@ -897,6 +932,7 @@ record(snmp, "${A}:${P}_currentPhaseAlarm") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}rPDULoadPhaseConfigAlarm.phase1")
+    field(MDEL, "-1")
 }
 # ----------------------------------------------------------------------
 ## Set time OutletRebootWithDelay
@@ -922,6 +958,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet1_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.1")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet1_W") {
     field(DESC, "PDU outlet1 Reboot Time")
@@ -949,6 +986,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet2_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.2")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet2_W") {
     field(DESC, "PDU outlet1 Reboot Time")
@@ -975,6 +1013,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet3_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.3")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet3_W") {
     field(DESC, "PDU outlet1 Reboot Time")
@@ -1001,6 +1040,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet4_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.4")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet4_W") {
     field(DESC, "PDU outlet1 Reboot Time")
@@ -1027,6 +1067,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet5_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.5")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet5_W") {
     field(DESC, "PDU outlet1 Reboot Time")
@@ -1053,6 +1094,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet6_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.6")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet6_W") {
     field(DESC, "PDU outlet1 Reboot Time")
@@ -1079,6 +1121,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet7_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.7")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet7_W") {
     field(DESC, "PDU outlet1 Reboot Time")
@@ -1105,6 +1148,7 @@ record(snmp, "${A}:${P}_RebootTime_Outlet8_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletRebootDuration.8")
+    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_RebootTime_Outlet8_W") {
     field(DESC, "PDU outlet1 Reboot Time")

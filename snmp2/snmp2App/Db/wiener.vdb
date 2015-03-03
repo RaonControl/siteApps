@@ -14,7 +14,6 @@ record(snmp, "${W}:${C}_MainPower_W") {
   field(COMM, "${USER}")
   field(OIDS, "${WI}sysMainSwitch.0")
   field(MDEL, "-1")
-
 }
 
 record(snmp, "${W}:${C}_MainPower_R") {
@@ -25,6 +24,7 @@ record(snmp, "${W}:${C}_MainPower_R") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}sysMainSwitch.0")
+  field(MDEL, "-1")
 }
 
 ## reset
@@ -41,7 +41,6 @@ record(snmp, "${W}:${C}_VMEsysReset_W") {
   field(COMM, "${USER}")
   field(OIDS, "${WI}sysVmeSysReset.0")
   field(MDEL, "-1")
-
 }
 
 record(snmp, "${W}:${C}_VMEsysReset_R") {
@@ -52,6 +51,7 @@ record(snmp, "${W}:${C}_VMEsysReset_R") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}sysVmeSysReset.0")
+  field(MDEL, "-1")
 }
 
 # Read: Always 0
@@ -68,7 +68,6 @@ record(snmp, "${W}:${C}_VMEhwReset_W") {
   field(COMM, "${USER}")
   field(OIDS, "${WI}sysHardwareReset.0")
   field(MDEL, "-1")
-
 }
 
 record(snmp, "${W}:${C}_VMEhwReset_R") {
@@ -79,6 +78,7 @@ record(snmp, "${W}:${C}_VMEhwReset_R") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}sysHardwareReset.0")
+  field(MDEL, "-1")
 }
 
 #----------------------------------------------------------------------
@@ -91,6 +91,7 @@ record(snmp, "${W}:${C}_PsOperatingTime") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}psOperatingTime.0")
+  field(MDEL, "-1")
 }
 
 ##Fan OperatingTime
@@ -102,6 +103,7 @@ record(snmp, "${W}:${C}_FanOperatingTime") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}fanOperatingTime.0")
+  field(MDEL, "-1")
 }
 
 #----------------------------------------------------------------------
@@ -129,6 +131,7 @@ record(snmpstr, "${W}:${C}_CrateStatus") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}sysStatus.0")
+  field(MDEL, "-1")
 }
 
 #--------------------------------------------------------------
@@ -155,6 +158,7 @@ record(snmp, "${W}:${C}_Voltage0") {
   field(HSV,  "MINOR")
   field(HHSV, "MAJOR")
   field(HYST, "0.5")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Voltage1") {
@@ -178,7 +182,7 @@ record(snmp, "${W}:${C}_Voltage1") {
   field(HSV,  "MINOR")
   field(HHSV, "MAJOR")
   field(HYST, "0.12")
-
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Voltage3") {
@@ -202,6 +206,7 @@ record(snmp, "${W}:${C}_Voltage3") {
   field(HSV,  "MINOR")
   field(HHSV, "MAJOR")
   field(HYST, "0.33")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Voltage5") {
@@ -225,6 +230,7 @@ record(snmp, "${W}:${C}_Voltage5") {
   field(HSV,  "MINOR")
   field(HHSV, "MAJOR")
   field(HYST, "-0.12")
+  field(MDEL, "-1")
 }
 
 # --------------------------------------------------------------
@@ -240,6 +246,7 @@ record(snmp, "${W}:${C}_Current0") {
   field(OIDS, "${WI}outputMeasurementCurrent.u0")
   field(EGU,  "A")
   field(PREC, "4")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Current1") {
@@ -252,6 +259,7 @@ record(snmp, "${W}:${C}_Current1") {
   field(OIDS, "${WI}outputMeasurementCurrent.u1")
   field(EGU,  "A")
   field(PREC, "4")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Current3") {
@@ -264,6 +272,7 @@ record(snmp, "${W}:${C}_Current3") {
   field(OIDS, "${WI}outputMeasurementCurrent.u3")
   field(EGU,  "A")
   field(PREC, "4")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Current5") {
@@ -276,6 +285,7 @@ record(snmp, "${W}:${C}_Current5") {
   field(OIDS, "${WI}outputMeasurementCurrent.u5")
   field(EGU,  "A")
   field(PREC, "4")
+  field(MDEL, "-1")
 }
 
 
@@ -291,6 +301,7 @@ record(snmp, "${W}:${C}_Temp0") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}outputMeasurementTemperature.u0")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Temp1") {
@@ -301,6 +312,7 @@ record(snmp, "${W}:${C}_Temp1") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}outputMeasurementTemperature.u1")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Temp3") {
@@ -311,6 +323,7 @@ record(snmp, "${W}:${C}_Temp3") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}outputMeasurementTemperature.u3")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Temp5") {
@@ -321,6 +334,7 @@ record(snmp, "${W}:${C}_Temp5") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}outputMeasurementTemperature.u5")
+  field(MDEL, "-1")
 }
 
 #--------------------------------------------------------------
@@ -335,6 +349,7 @@ record(snmp, "${W}:${C}_SensorTemp1") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp1")
   field(EGU,  "deg C")
+  field(MDEL, "-1")
  }
 
 record(snmp, "${W}:${C}_SensorTemp2") {
@@ -346,6 +361,7 @@ record(snmp, "${W}:${C}_SensorTemp2") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp2" )
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_SensorTemp3") {
@@ -357,6 +373,7 @@ record(snmp, "${W}:${C}_SensorTemp3") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp3" )
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_SensorTemp4") {
@@ -368,6 +385,7 @@ record(snmp, "${W}:${C}_SensorTemp4") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp4" )
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_SensorTemp5") {
@@ -379,6 +397,7 @@ record(snmp, "${W}:${C}_SensorTemp5") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp5")
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_SensorTemp6") {
@@ -390,6 +409,7 @@ record(snmp, "${W}:${C}_SensorTemp6") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp6" )
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_SensorTemp7") {
@@ -401,6 +421,7 @@ record(snmp, "${W}:${C}_SensorTemp7") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp7" )
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_SensorTemp8") {
@@ -412,6 +433,7 @@ record(snmp, "${W}:${C}_SensorTemp8") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sensorTemperature.temp8" )
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 #--------------------------------------------------------------
@@ -449,6 +471,7 @@ record(snmp, "${W}:${C}_FanNominalSpeed_R") {
   field(DRVL, "1200")
   field(HOPR, "3600")
   field(DRVH, "3600")
+  field(MDEL, "-1")
 }
 
 #--------------------------------------------------------------
@@ -463,6 +486,7 @@ record(snmp, "${W}:${C}_Fanspeed1") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}fanSpeed.1")
   field(EGU,  "RPM")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Fanspeed2") {
@@ -474,6 +498,7 @@ record(snmp, "${W}:${C}_Fanspeed2") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}fanSpeed.2")
   field(EGU,  "RPM")
+  field(MDEL, "-1")
 }
 
 record(snmp, "${W}:${C}_Fanspeed3") {
@@ -485,7 +510,9 @@ record(snmp, "${W}:${C}_Fanspeed3") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}fanSpeed.3")
   field(EGU,  "RPM")
-}
+  field(MDEL, "-1")
+}  
+
 
 # The temperature of the fan tray inlet air.
 record(snmp, "${W}:${C}_FanairTemp") {
@@ -497,6 +524,7 @@ record(snmp, "${W}:${C}_FanairTemp") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}fanAirTemperature.0")
   field(EGU,  "deg C")
+  field(MDEL, "-1")
 }
 
 # The maximum time in seconds for which the fans will continue running after the power supply has been switched off. 
@@ -524,6 +552,7 @@ record(snmp, "${W}:${C}_FanSwitchOffDelay_R") {
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
   field(OIDS, "${WI}fanSwitchOffDelay.0")
+  field(MDEL, "-1")
 }
 
 
