@@ -6,7 +6,7 @@
 record(snmp, "${W}:${C}_MainPower_W") {
   field(DESC, "WIENER Main Power Switch") 
   field(DTYP, "SNMP Write")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_3")
   field(AUTH, "MySecret")
   field(PRIV, "MySecret")
@@ -18,7 +18,7 @@ record(snmp, "${W}:${C}_MainPower_W") {
 record(snmp, "${W}:${C}_MainPower_R") {
   field(DESC, "WIENER Main Power Switch") 
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -31,7 +31,7 @@ record(snmp, "${W}:${C}_MainPower_R") {
 record(snmp, "${W}:${C}_VMEsysReset_W") {
   field(DESC, "WIENER sys reset") 
   field(DTYP, "SNMP Write")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_3")
   field(AUTH, "MySecret")
   field(PRIV, "MySecret")
@@ -43,7 +43,7 @@ record(snmp, "${W}:${C}_VMEsysReset_W") {
 record(snmp, "${W}:${C}_VMEsysReset_R") {
   field(DESC, "WIENER sys reset") 
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -56,7 +56,7 @@ record(snmp, "${W}:${C}_VMEsysReset_R") {
 record(snmp, "${W}:${C}_VMEhwReset_W") {
   field(DESC, "WIENER H/W reset") 
   field(DTYP, "SNMP Write")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_3")
   field(AUTH, "MySecret")
   field(PRIV, "MySecret")
@@ -68,7 +68,7 @@ record(snmp, "${W}:${C}_VMEhwReset_W") {
 record(snmp, "${W}:${C}_VMEhwReset_R") {
   field(DESC, "WIENER H/W reset") 
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -80,7 +80,7 @@ record(snmp, "${W}:${C}_VMEhwReset_R") {
 record(snmp, "${W}:${C}_PsOperatingTime") {
   field(DESC, "WIENER sys reset") 
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -91,7 +91,7 @@ record(snmp, "${W}:${C}_PsOperatingTime") {
 record(snmp, "${W}:${C}_FanOperatingTime") {
   field(DESC, "WIENER sys reset") 
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -131,7 +131,7 @@ record(snmpstr, "${W}:${C}_CrateStatus") {
 record(snmp, "${W}:${C}_Voltage0") {
   field(DESC, "+5V supply")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -154,7 +154,7 @@ record(snmp, "${W}:${C}_Voltage0") {
 record(snmp, "${W}:${C}_Voltage1") {
   field(DESC, "+12V supply")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -178,7 +178,7 @@ record(snmp, "${W}:${C}_Voltage1") {
 record(snmp, "${W}:${C}_Voltage3") {
   field(DESC, "+3.3V supply")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -201,7 +201,7 @@ record(snmp, "${W}:${C}_Voltage3") {
 record(snmp, "${W}:${C}_Voltage5") {
   field(DESC, "-12V supply")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -227,7 +227,7 @@ record(snmp, "${W}:${C}_Voltage5") {
 record(snmp, "${W}:${C}_Current0") {
   field(DESC, "+5V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -239,7 +239,7 @@ record(snmp, "${W}:${C}_Current0") {
 record(snmp, "${W}:${C}_Current1") {
   field(DESC, "+12V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -251,7 +251,7 @@ record(snmp, "${W}:${C}_Current1") {
 record(snmp, "${W}:${C}_Current3") {
   field(DESC, "+3.3V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -263,7 +263,7 @@ record(snmp, "${W}:${C}_Current3") {
 record(snmp, "${W}:${C}_Current5") {
   field(DESC, "-12V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -280,7 +280,7 @@ record(snmp, "${W}:${C}_Current5") {
 record(snmp, "${W}:${C}_Temp0") {
   field(DESC, "+3.3V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -290,7 +290,7 @@ record(snmp, "${W}:${C}_Temp0") {
 record(snmp, "${W}:${C}_Temp1") {
   field(DESC, "+5V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -300,7 +300,7 @@ record(snmp, "${W}:${C}_Temp1") {
 record(snmp, "${W}:${C}_Temp3") {
   field(DESC, "+12V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -310,7 +310,7 @@ record(snmp, "${W}:${C}_Temp3") {
 record(snmp, "${W}:${C}_Temp5") {
   field(DESC, "-12V supply current")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -323,7 +323,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp1") {
 #   field(DESC, "Temperarature sensor1")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -334,7 +334,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp2") {
 #   field(DESC, "Temperarature sensor 2")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -345,7 +345,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp3") {
 #   field(DESC, "Temperarature sensor 3")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -356,7 +356,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp4") {
 #   field(DESC, "Temperarature sensor 4")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -367,7 +367,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp5") {
 #   field(DESC, "Temperarature sensor 5")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -378,7 +378,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp6") {
 #   field(DESC, "Temperarature sensor 6")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -389,7 +389,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp7") {
 #   field(DESC, "Temperarature sensor 7")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -400,7 +400,7 @@ record(snmp, "${W}:${C}_Temp5") {
 # record(snmp, "${W}:${C}_SensorTemp8") {
 #   field(DESC, "Temperarature sensor 8")
 #   field(DTYP, "SNMP Read")
-#   field(SCAN, "1 second")
+#   field(SCAN, "5 second")
 #   field(VERS, "SNMP_VERSION_2c")
 #   field(HOST, "10.1.5.123")
 #   field(COMM, "public")
@@ -414,7 +414,7 @@ record(snmp, "${W}:${C}_Temp5") {
 record(snmp, "${W}:${C}_FanNominalSpeed_W") {
   field(DESC, "WIENER Fan rotation speed") # MIN: 1200, MAX: 3600
   field(DTYP, "SNMP Write")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_3")
   field(AUTH, "MySecret")
   field(PRIV, "MySecret")
@@ -431,7 +431,7 @@ record(snmp, "${W}:${C}_FanNominalSpeed_W") {
 record(snmp, "${W}:${C}_FanNominalSpeed_R") {
   field(DESC, "WIENER Fan rotation speed") # MIN: 1200, MAX: 3600
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -449,7 +449,7 @@ record(snmp, "${W}:${C}_FanNominalSpeed_R") {
 record(snmp, "${W}:${C}_Fanspeed1") {
   field(DESC, "Fan 1 speed")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -460,7 +460,7 @@ record(snmp, "${W}:${C}_Fanspeed1") {
 record(snmp, "${W}:${C}_Fanspeed2") {
   field(DESC, "Fan 1 speed")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -471,7 +471,7 @@ record(snmp, "${W}:${C}_Fanspeed2") {
 record(snmp, "${W}:${C}_Fanspeed3") {
   field(DESC, "Fan 1 speed")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -483,7 +483,7 @@ record(snmp, "${W}:${C}_Fanspeed3") {
 record(snmp, "${W}:${C}_FanairTemp") {
   field(DESC, "WIENER Fan Temperature") # Read only
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
@@ -497,7 +497,7 @@ record(snmp, "${W}:${C}_FanairTemp") {
 record(snmp, "${W}:${C}_FanSwitchOffDelay_W") {
   field(DESC, "FanSwitchOffDelay")
   field(DTYP, "SNMP Write")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_3")
   field(AUTH, "MySecret")
   field(PRIV, "MySecret")
@@ -509,7 +509,7 @@ record(snmp, "${W}:${C}_FanSwitchOffDelay_W") {
 record(snmp, "${W}:${C}_FanSwitchOffDelay_R") {
   field(DESC, "FanSwitchOffDelay")
   field(DTYP, "SNMP Read")
-  field(SCAN, "1 second")
+  field(SCAN, "5 second")
   field(VERS, "SNMP_VERSION_2c")
   field(HOST, "10.1.5.123")
   field(COMM, "public")
