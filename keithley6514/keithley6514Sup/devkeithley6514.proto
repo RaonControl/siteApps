@@ -11,37 +11,43 @@ InTerminator = "\r";
 OutTerminator = "\r";
 Terminator = CR LF;
 
-getIDN {    
-    ExtraInput = Ignore;
+getIDN 
+{    
     out "*IDN?";
-    in "%\$1[^\r\n]";
+    in  "%\$1[^\r\n]";
+    ExtraInput = Ignore;
 }
 
-cmd {
+cmd 
+{
     out "\$1";
 }
 
 
-getF {
-    ExtraInput = Ignore;
+getF 
+{
     out "\$1?";
-    in "%f";
+    in  "%f";
+    ExtraInput = Ignore;
 }
 
-setF {
+setF 
+{
     out "\$1 %f";
 #    @init { out "\$1?"; in "%f"; }
     @init { getF; }
 }
 
-getD {
-    ExtraInput = Ignore;
+getD 
+{
     out "\$1?";
-    in "%d";
+    in  "%d";
+    ExtraInput = Ignore;
 }
 
 
-setD {
+setD 
+{
     out "\$1 %d";
 #    @init { out "\$1?"; in "%d"; }
     @init { getD; }
@@ -55,13 +61,15 @@ setLocRem {
 # CURR:RANGE?                                                                                                 
 # +2.100000E-04  
 
-getCurrentRange {    
-    ExtraInput = Ignore;
+getCurrentRange 
+{    
     out "CURR:RANG?";
-    in "%*[^E]E-%d";
+    in  "%*[^E]E-%d";
+    ExtraInput = Ignore;
 }
 
-setCurrentRange {
+setCurrentRange 
+{
     out "CURR:RANG 2E-%d";
 #    @init { out "CURR:RANG?"; in "%*[^E]E-%d"; }
     @init { getCurrentRange; }
@@ -69,68 +77,65 @@ setCurrentRange {
 
 
 # stringin
-getFunc {
-    ExtraInput = Ignore;
+getFunc 
+{
     out "FUNC?";
     in  "%s";
+    ExtraInput = Ignore;
 }
 
 # stringout
-setFunc {
+setFunc 
+{
     out "FUNC \'%s\'";
 }
 
 # stringin
-getError {
-    ExtraInput = Ignore;
+getError 
+{
     out "SYST:ERR?";
     in  "%\$1[^\r\n]";
-#    in "%#s";
+    ExtraInput = Ignore;
 }
 
 
 
-measureCurrent {
+measureCurrent 
+{
     ReplyTimeout = 5000;
     out "READ?";
-    in "%f";
+    in  "%f";
     ExtraInput = Ignore;
 }
 
 
 
 
-getLineF {    
+getLineF 
+{    
     out "SYST:LFR?";
-    in "%d";
+    in  "%d";
 }
 
-setLineF {
+setLineF 
+{
     out "SYST:LFR %d";
 #    @init { out "CURR:RANG?"; in "%*[^E]E-%d"; }
     @init { getLineF; }
 }
 
 
-
-# getADRate {
-#     out "CURR:NPLC?";
-#     in "%s";
-# }
-
-# setADRate {
-#     out "CURR:NPLC %s";
-#     @init { getADRate; }
-# }
-
-setADRate {
+setADRate 
+{
     out "CURR:NPLC %{6.00|1.00|0.10}";
     @init { out "CURR:NPLC?"; in "%{6.00|1.00|0.10}"; }
 }
 
 
-getADRate {
-    out "CURR:NPLC?"; in "%{6.00|1.00|0.10}";
+getADRate 
+{
+    out "CURR:NPLC?"; 
+    in  "%{6.00|1.00|0.10}";
     ExtraInput = Ignore;
 }
 
