@@ -11,13 +11,13 @@
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-SUPPORT=/home/rtems/epics/R3.14.12.4/modules/synApps_5_7/support
--include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
+#SUPPORT=/home/rtems/epics/R3.14.12.4/modules/synApps_5_7/support
+#-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 #  EPICS_BASE 3.14.6 or later is required
-EPICS_BASE=/home/rtems/epics/R3.14.12.4/base
--include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
-
+#EPICS_BASE=/home/rtems/epics/R3.14.12.4/base
+#-include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
+EPICS_BASE=${EPICS_PATH}/base
 
 # Optional Modules
 # Commenting out any line will prevent dependent targets
@@ -28,6 +28,15 @@ EPICS_BASE=/home/rtems/epics/R3.14.12.4/base
 
 # Required Modules
 # These modules must be present
+
+#DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-7
+#AUTOSAVE=$(SUPPORT)/autosave-5-1
+#ASYN=$(SUPPORT)/asyn-4-21
+#CALC=$(SUPPORT)/calc-3-2
+#STREAM=$(SUPPORT)/stream-2-6
+#SSCAN=$(SUPPORT)/sscan-2-9
+
+SUPPORT=${EPICS_PATH}/epicsLibs/synApps_5_7/support
 
 DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-7
 AUTOSAVE=$(SUPPORT)/autosave-5-1
