@@ -84,7 +84,7 @@ record(snmp, "${W}:${C}_VMEhwReset_R") {
 #----------------------------------------------------------------------
 ##PowerSupply OperatingTime
 record(snmp, "${W}:${C}_PsOperatingTime") {
-  field(DESC, "WIENER sys reset") 
+  field(DESC, "WIENER PsOperatingTime") 
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
   field(VERS, "${V2C}")
@@ -95,7 +95,7 @@ record(snmp, "${W}:${C}_PsOperatingTime") {
 
 ##Fan OperatingTime
 record(snmp, "${W}:${C}_FanOperatingTime") {
-  field(DESC, "WIENER sys reset") 
+  field(DESC, "WIENER FanOperatingTime") 
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
   field(VERS, "${V2C}")
@@ -132,6 +132,74 @@ record(snmpstr, "${W}:${C}_CrateStatus") {
   field(MDEL, "-1")
 }
 
+#----------------------------------------------------------------------
+##output status
+# outputOn (0),                           output channel is on
+# outputInhibit(1),                       external (hardware-)inhibit of the output channel
+# outputFailureMinSenseVoltage (2)        Supervision limit hurt: Sense voltage is too low
+# outputFailureMaxSenseVoltage (3),       Supervision limit hurt: Sense voltage is too high
+# outputFailureMaxTerminalVoltage (4),    Supervision limit hurt: Terminal voltage is too high
+# outputFailureMaxCurrent (5),            Supervision limit hurt: Current is too high
+# outputFailureMaxTemperature (6),        Supervision limit hurt: Heat sink temperature is too high
+# outputFailureMaxPower (7),              Supervision limit hurt: Output power is too high
+# outputFailureTimeout (9),               Communication timeout between output channel and main control
+# outputCurrentLimited (10),              Current limiting is active (constant current mode)
+# outputRampUp (11),                      Output voltage is increasing (e.g. after switch on)
+# outputRampDown (12),                    Output voltage is decreasing (e.g. after switch off)
+# outputEnableKill (13),                  EnableKill is active
+# outputEmergencyOff (14),                EmergencyOff event is active
+# outputAdjusting (15),                   Fine adjustment is working
+# outputConstantVoltage (16),             Voltage control (constant voltage mode)
+# outputVoltageBoundsExceeded (17),       output Voltage out of bounds
+# outputCurrentBoundsExceeded (18),       output Current out of bounds
+# outputFailureCurrentLimit (19)          Hardware current limit (EHS) / trip (EDS, EBS) was exceeded
+
+
+record(snmpstr, "${W}:${C}_outputStatus0") {
+  field(DESC, "WIENER output 0 Status") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputStatus.u0")
+  field(MDEL, "-1")
+}
+
+record(snmpstr, "${W}:${C}_outputStatus1") {
+  field(DESC, "WIENER output 1 Status") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputStatus.u1")
+  field(MDEL, "-1")
+}
+
+
+record(snmpstr, "${W}:${C}_outputStatus3") {
+  field(DESC, "WIENER output 3 Status") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputStatus.u3")
+  field(MDEL, "-1")
+}
+
+
+record(snmpstr, "${W}:${C}_outputStatus5") {
+  field(DESC, "WIENER output 5 Status") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputStatus.u5")
+  field(MDEL, "-1")
+}
 #--------------------------------------------------------------
 # The measured voltage at the sense input lines.
 
