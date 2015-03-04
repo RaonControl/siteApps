@@ -13,7 +13,7 @@ exSysMon_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=sileeHost")
-dbLoadRecords("db/dbSysMon.db","SYS=sileeHost")
+dbLoadRecords("db/dbSysMon.db","SYS=jhleeHost")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
