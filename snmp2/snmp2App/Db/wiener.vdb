@@ -25,6 +25,7 @@ record(snmp, "${W}:${C}_MainPower_R") {
   field(COMM, "${COM}")
   field(OIDS, "${WI}sysMainSwitch.0")
   field(MDEL, "-1")
+  field(RVAL, "1")
 }
 
 ## reset
