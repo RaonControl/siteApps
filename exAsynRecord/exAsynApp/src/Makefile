@@ -5,10 +5,10 @@ include $(TOP)/configure/CONFIG
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
 
-ASYN += ${EPICS_PATH}/modules/synApps_5_7/support/asyn-4-21
+#ASYN += ${EPICS_PATH}/modules/synApps_5_7/support/asyn-4-21
 
 USR_INCLUDES  += -I$(RAON_SITELIBS)/include
-USR_DBDFLAGS  += -I$(RAON_SITELIBS)/dbd -I$(ASYN)/dbd
+USR_DBDFLAGS  += -I$(RAON_SITELIBS)/dbd
 USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
 
 asyn_DIR += $(ASYN)/lib/$(T_A)
