@@ -11,13 +11,22 @@ DBD         += rdbpostgreSQLRecord.dbd
 DBD         += rdbpostgreSQLDevSoft.dbd
 DBDINC      += rdbpostgreSQLRecord
 
-SYSLIB = /usr/lib
+SYSLIB = /usr/lib/
+
 SYSINC = /usr/include
 USR_INCLUDES  += -I$(RAON_SITELIBS)/include
 USR_INCLUDES  += -I$(SYSINC)
 
 pq_DIR += $(SYSLIB)
 pqxx_DIR += $(SYSLIB)
+
+# need to find the better way in the different OS distribution version
+# jhlee
+JESSIE_SYSLIB = /usr/lib/x86_64-linux-gnu
+pq_DIR += $(JESSIE_SYSLIB)
+pqxx_DIR += $(JESSIE_SYSLIB)
+
+
 
 #rdbPostgreSQL_SRCS += devRdbpostgreSQL.c rdbpostgreSQLRecord.c rdbConnManager.cpp
 rdbPostgreSQL_SRCS += rdbpostgreSQLRecord.c rdbConnManager.cpp
