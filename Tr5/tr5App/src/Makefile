@@ -3,11 +3,11 @@ TOP=../..
 include $(TOP)/configure/CONFIG
 
 
-USR_INCLUDES += -I$(EPICS_PATH)/siteLib/include
+USR_INCLUDES += -I$(EPICS_PATH)/siteLibs/include
 USR_INCLUDES += -I$(EPICS_PATH)/extensions/include
-USR_DBDFLAGS += -I$(EPICS_PATH)/siteLib/dbd
+USR_DBDFLAGS += -I$(EPICS_PATH)/siteLibs/dbd
 
-ifStatMon_DIR   += $(EPICS_PATH)/siteLib/lib/$(T_A)
+ifStatMon_DIR   += $(EPICS_PATH)/siteLibs/lib/$(T_A)
 
 
 #----------------------------------------
