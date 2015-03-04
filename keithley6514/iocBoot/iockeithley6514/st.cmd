@@ -47,6 +47,7 @@ asynSetOption("L0", -1, "crtscts", "N")
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=jhleeHost")
 dbLoadRecords("db/devkeithley6514.db","SYS=$(SYS),SUBSYS=$(SUBSYS),DEV=$(DEV), PORT=L0,A=0") 
+dbLoadRecords("db/dbTimeStamp.db", "SYS=$(SYS),SUBSYS=$(SUBSYS),DEV=$(DEV)")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit

@@ -5,24 +5,22 @@
 #
 # Friday, February 13 17:02:38 KST 2015, jhlee
 #
-#
 # Short and long form of identification string
 #
-# 
-record(stringin, "$(SYS)-$(SUBSYS):$(DEV):FwVer")
+record(stringin, "$(SYS)-$(SUBSYS):$(DEV):FwVer") 
 {
     field(DESC, "SCPI identification string")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getIDN(199) $(PORT) $(A)")
     field(PINI, "YES")
- }
+}
 
 # RST
 # 1. Returns Model 6514 to the RST default conditions
 # 2. Cancels all pending commands
 # 3. Cancels response to any previously received *OPC and *OPC? commands
 #
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):Rst")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):Rst") 
 {
     field(DESC, "SCPI Reset")
     field(DTYP, "stream")
@@ -30,69 +28,67 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):Rst")
     field(PINI, "YES")
 }
 
-
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):Clr")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):Clr") 
 {
     field(DESC, "SCPI Clear status")
     field(DTYP, "stream")
     field( OUT, "@devkeithley6514.proto cmd(*CLS) $(PORT) $(A)")
 }
 
-record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSTB")
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSTB") 
 {
     field(DESC, "SCPI get status byte")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getD(*STB) $(PORT) $(A)")
 }
 
-record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESR")
-{                                                                                                    
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESR") 
+{
     field(DESC, "SCPI get event status")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getD(*ESR) $(PORT) $(A)")
 }
 
-record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetESE")
+record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetESE") 
 {
     field(DESC, "SCPI enable event status")
     field(DTYP, "stream")
     field( OUT, "@devkeithley6514.proto setD(*ESE) $(PORT) $(A)")
 }
 
-record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESE")
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetESE") 
 {
     field(DESC, "SCPI enabled event status")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getD(*ESE) $(PORT) $(A)")
 }
 
-record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetSRE")
+record(longout, "$(SYS)-$(SUBSYS):$(DEV):SetSRE") 
 {
     field(DESC, "SCPI enable service requests")
     field(DTYP, "stream")
     field( OUT, "@devkeithley6514.proto setD(*SRE) $(PORT) $(A)")
 }
 
-record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSRE")
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetSRE") 
 {
     field(DESC, "Enabled service requests")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getD(*SRE) $(PORT) $(A)")
 }
 
-record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetOPC")
+record(longin, "$(SYS)-$(SUBSYS):$(DEV):GetOPC") 
 {
     field(DESC, "Output completion status")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getD(*OPC) $(PORT) $(A)")
 }
 
-
 #
 # Zero Check
 # Default : ON on Manual 16-8, Table 16-3
 #
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCheck")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCheck") 
 {
     field(DESC, "Disable/Enable zero check")
     field(DTYP, "stream")
@@ -104,22 +100,20 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCheck")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck")
 }
 
-record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck")
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCheck") 
 {
     field(DESC, "Readback zero check status")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getD(SYST:ZCH) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
-#    field(PINI, "YES")
 }
-
 
 #
 # Zero Correction
 # Default : OFF on Manual 16-8 Table 16-3
-# 
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCorrect")
+#
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCorrect") 
 {
     field(DESC, "Enable or disable zero correct")
     field(DTYP, "stream")
@@ -131,16 +125,14 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetZeroCorrect")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
 }
 
-record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect") 
 {
     field(DESC, "Readback zero correct")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getD(SYST:ZCOR) $(PORT) $(A)")
     field(ZNAM, "Off")
     field(ONAM, "On")
-#    field(PINI, "YES")
 }
-
 
 #
 # DISPlay:ENABle <b>
@@ -149,8 +141,7 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):GetZeroCorrect")
 # are disabled. Normal display operations can be resumed by using :ENABle to enable 
 # the display, pressing the LOCAL key, or cycling power.
 #
-
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayEnable")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayEnable") 
 {
     field(DESC, "Enable or disable front panel display")
     field(DTYP, "stream")
@@ -160,7 +151,7 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayEnable")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
 }
 
-record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB") 
 {
     field(DESC, "Readback FP display status")
     field(DTYP, "stream")
@@ -169,7 +160,6 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
     field(ONAM, "On")
     field(PINI, "YES")
 }
-
 
 #  
 # Somehow, strange behaviors are seen in combinations of the following commands as
@@ -184,23 +174,21 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):FPDisplayRB")
 #
 # Wednesday, February 11 16:41:49 KST 2015, jhlee
 #
-
 # SYSTem:LOCal
 # SYSTem:REMote
 # SYSTem:RWLock
 #
-
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetLocalRemote")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetLocalRemote") 
 {
     field(DESC, "Set into local/remote mode")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto setLocRem $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto setLocRem $(PORT) $(A)")
     field(ZNAM, "Local")
     field(ONAM, "Remote")
     field(PINI, "YES")
-    field(VAL,  "1")
+    field( VAL, "1")
 }
-  
+
 #
 # The command has no ? option, and it says
 # Enable or disable local lockout, but I cannot disable local lockout by sending
@@ -209,8 +197,7 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetLocalRemote")
 # caput ECR11-Diag:FC01:Remote Local
 # 
 # Wednesday, February 11 16:44:25 KST 2015, jhlee
-
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockEnable")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockEnable") 
 {
     field(DESC, "Enable/disable local lockout")
     field(DTYP, "stream")
@@ -220,12 +207,10 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):RWLockEnable")
     field(PINI, "YES")
 }
 
-
-
 #
 # CurrentRange Auto
 #
-record(bo, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeEnable")
+record(bo, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeEnable") 
 {
     field(DESC, "Enable/disable current auto range")
     field(DTYP, "stream")
@@ -237,8 +222,7 @@ record(bo, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeEnable")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeRB")
 }
 
-
-record(bi, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeRB")
+record(bi, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeRB") 
 {
     field(DESC, "Readback the current auto range")
     field(DTYP, "stream")
@@ -273,7 +257,7 @@ record(bi, "$(SYS)-$(SUBSYS):$(DEV):CurrAutoRangeRB")
 #
 # Wednesday, February 11 18:42:03 KST 2015, jhlee
 #
-record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetCurrRange")
+record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetCurrRange") 
 {
     field(DESC, "Set Current fixed scale range")
     field(DTYP, "stream")
@@ -301,7 +285,7 @@ record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetCurrRange")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
 }
 
-record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
+record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB") 
 {
     field(DESC, "Current fixed scale range readback")
     field(DTYP, "stream")
@@ -334,52 +318,45 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
 # used for general purpose later. 
 # Friday, February 13 17:08:33 KST 2015, jhlee
 #
-
 record(stringout, "$(SYS)-$(SUBSYS):$(DEV):SetFunction") 
 {
     field(DESC, "Proper function Set")
     field(DTYP, "stream")
-    field( OUT, "@devkeithley6514.proto setFunc $(PORT) $(A)")  
+    field( OUT, "@devkeithley6514.proto setFunc $(PORT) $(A)")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetFunction")
 }
 
 record(stringin, "$(SYS)-$(SUBSYS):$(DEV):GetFunction") 
 {
-#    field(SCAN, "2 second")
     field(DESC, "Selected function RB")
     field(DTYP, "stream")
-    field( INP, "@devkeithley6514.proto getFunc $(PORT) $(A)")  
+    field( INP, "@devkeithley6514.proto getFunc $(PORT) $(A)")
     field(PINI, "YES")
-
 }
-
 
 #
 # Reading
 #
-record(ai, "$(SYS)-$(SUBSYS):$(DEV):MeasureCurrent")
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):MeasureCurrent") 
 {
     field(DESC, "Measure current")
     field(DTYP, "stream")
-    field(INP,  "@devkeithley6514.proto measureCurrent $(PORT) $(A)")
-    field(EGU,  "A")
+    field( INP, "@devkeithley6514.proto measureCurrent $(PORT) $(A)")
+    field( EGU, "A")
     field(PREC, "5")
-    field(SCAN, "0.1 second")
+    field(SCAN, ".1 second")
 }
-
 
 #
 # Get System Error
 #
-record(stringin, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError")
+record(stringin, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError") 
 {
     field(DESC, "SCPI identification string")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getError(199) $(PORT) $(A)")
     field(PINI, "YES")
- }
-
-
+}
 
 # record(waveform, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError")
 # {
@@ -388,18 +365,15 @@ record(stringin, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError")
 #     field( INP, "@devkeithley6514.proto getError $(PORT) $(A)")
 # #    field(PINI, "YES")
 # }
-
-
-
 #
 # Power line frequency 
 # 50 or 60 (Hz)
 # caput ECR11-Diag:FC01:SetLineFreq 60
 # caput ECR11-Diag:FC01:SetLineFreq 1
 # camonitor ECR11-Diag:FC01:GetLineFreq 
-# caget ECR11-Diag:FC01:GetLineFreq 
+# caget ECR11-Diag:FC01:GetLineFreq
 
-record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetLineFreq")
+record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetLineFreq") 
 {
     field(DESC, "Set Line Freq value")
     field(DTYP, "stream")
@@ -412,7 +386,7 @@ record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetLineFreq")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
 }
 
-record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
+record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq") 
 {
     field(DESC, "Get Line Freq value")
     field(DTYP, "stream")
@@ -423,11 +397,6 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
     field(ONST, "60")
     field(PINI, "YES")
 }
-
-
-
-
-
 
 #
 # RATE : Integration time of the A/D converter, see 6-6 Rate
@@ -444,14 +413,12 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
 # - MED  :  1   PLC
 # - FAST :  0.1 PLC
 #
-
-#  record ao : DRVL<=LOPR<=HOPR<=DRVH. 
-
-record(ao, "$(SYS)-$(SUBSYS):$(DEV):SetNPLC")
+#  record ao : DRVL<=LOPR<=HOPR<=DRVH.
+record(ao, "$(SYS)-$(SUBSYS):$(DEV):SetNPLC") 
 {
     field(DESC, "Set NPLC value")
     field(DTYP, "stream")
-    field(OUT,  "@devkeithley6514.proto setF(CURR:NPLC) $(PORT) $(A)")
+    field( OUT, "@devkeithley6514.proto setF(CURR:NPLC) $(PORT) $(A)")
     field(LOPR, "0.01")
     field(HOPR, "10")
     field(DRVL, "0.01")
@@ -461,15 +428,12 @@ record(ao, "$(SYS)-$(SUBSYS):$(DEV):SetNPLC")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
 }
 
-record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC") 
 {
     field(DESC, "Get NPLC value")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getF(CURR:NPLC) $(PORT) $(A)")
 }
-
-
-
 
 # RATE :  Integration time of the A/D converter, see 6-6 Rate
 # 
@@ -484,39 +448,91 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
 # 1: MED  : 1   PLC
 # 2: FAST : 0.1 PLC
 #
+# If we set SetADRate outside of the enum index, such as -1, 3,4,5, etc
+#
+# $ caput  ECR11-Diag:FC01:SetADRate 0 && bash test.sh
+# Old : ECR11-Diag:FC01:SetADRate      Illegal Value
+# New : ECR11-Diag:FC01:SetADRate      Slow
+# ECR11-Diag:FC01:SetADRate.VAL  Slow
+# ECR11-Diag:FC01:SetADRate.RVAL 0
+# ECR11-Diag:FC01:SetADRate.STAT NO_ALARM
+# ECR11-Diag:FC01:SetADRate.SEVR NO_ALARM
+#
+# $ caput  ECR11-Diag:FC01:SetADRate -1 && bash test.sh
+# Old : ECR11-Diag:FC01:SetADRate      Slow
+# CA.Client.Exception...............................................
+#     Warning: "Channel write request failed"
+#     Context: "op=1, channel=ECR11-Diag:FC01:SetADRate, type=DBR_DOUBLE, count=1, ctx="ECR11-Diag:FC01:SetADRate""
+#     Source File: ../oldChannelNotify.cpp line 160
+# New : ECR11-Diag:FC01:SetADRate      Illegal Value
+#     Current Time: Wed Mar 04 2015 07:56:05.867136097
+# ..................................................................
+# ECR11-Diag:FC01:SetADRate.VAL  Illegal Value
+# ECR11-Diag:FC01:SetADRate.RVAL 0
+# ECR11-Diag:FC01:SetADRate.STAT SOFT
+# ECR11-Diag:FC01:SetADRate.SEVR INVALID
+#
+#
+# $ caput  ECR11-Diag:FC01:SetADRate 0 && bash test.sh
+# Old : ECR11-Diag:FC01:SetADRate      Illegal Value
+# New : ECR11-Diag:FC01:SetADRate      Slow
+# ECR11-Diag:FC01:SetADRate.VAL  Slow
+# ECR11-Diag:FC01:SetADRate.RVAL 0
+# ECR11-Diag:FC01:SetADRate.STAT NO_ALARM
+# ECR11-Diag:FC01:SetADRate.SEVR NO_ALARM
+#
+# $ caput  ECR11-Diag:FC01:SetADRate 3 && bash test.sh
+# Warning: enum index value '3' may be too large.
+# Old : ECR11-Diag:FC01:SetADRate      Slow
+# CA.Client.Exception...............................................
+#    Warning: "Channel write request failed"
+#    Context: "op=1, channel=ECR11-Diag:FC01:SetADRate, type=DBR_DOUBLE, count=1, ctx="ECR11-Diag:FC01:SetADRate""
+#    Source File: ../oldChannelNotify.cpp line 160
+# New : ECR11-Diag:FC01:SetADRate      
+#    Current Time: Wed Mar 04 2015 07:56:12.932662247
+# ..................................................................
+# ECR11-Diag:FC01:SetADRate.VAL  
+# ECR11-Diag:FC01:SetADRate.RVAL 0
+# ECR11-Diag:FC01:SetADRate.STAT CALC
+# ECR11-Diag:FC01:SetADRate.SEVR INVALID
+#
+# $ caput  ECR11-Diag:FC01:SetADRate 0 && bash test.sh
+# Old : ECR11-Diag:FC01:SetADRate      
+# New : ECR11-Diag:FC01:SetADRate      Slow
+# ECR11-Diag:FC01:SetADRate.VAL  Slow
+# ECR11-Diag:FC01:SetADRate.RVAL 0
+# ECR11-Diag:FC01:SetADRate.STAT NO_ALARM
+# ECR11-Diag:FC01:SetADRate.SEVR NO_ALARM
+#
+#
+#
 ################################################################################
-record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate")
+record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate") 
 {
     field(DESC, "Set Predefined Rate")
     field(DTYP, "stream")
-    field( OUT, "@devkeithley6514.proto setADRate $(PORT) $(A)") # need to modify 
+    field( OUT, "@devkeithley6514.proto setADRate $(PORT) $(A)")
     field(ZRST, "Slow")
-    field(ZRVL, "0")        
-    field(ONST, "Med") 
+    field(ZRVL, "0")
+    field(ONST, "Med")
     field(ONVL, "1")
     field(TWST, "Fast")
     field(TWVL, "2")
-#    field(NOBT, "3")
-#    field( UDF, "1")
-    field(DISS, "INVALID")
-    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")   
+#    field(IVOA, "NO_OUTPUT")
+    field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")
 }
 
-record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")
+record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetADRate") 
 {
     field(DESC, "Get Predefined Rate")
     field(DTYP, "stream")
-    field( INP, "@devkeithley6514.proto getADRate $(PORT) $(A)") # need to modify 
+    field( INP, "@devkeithley6514.proto getADRate $(PORT) $(A)")
+# need to modify
     field(ZRST, "Slow")
-    field(ZRVL, "0")        
-    field(ONST, "Med") 
+    field(ZRVL, "0")
+    field(ONST, "Med")
     field(ONVL, "1")
     field(TWST, "Fast")
     field(TWVL, "2")
-#    field(NOBT, "3")
-#    field( UDF, "1")
-    field(DISS, "INVALID")
     field(PINI, "YES")
 }
-
-
