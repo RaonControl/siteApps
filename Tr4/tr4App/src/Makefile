@@ -17,14 +17,14 @@ SYS_LIB = /usr/lib
 #netsnmp_DIR = ${SYS_LIB}
 
 # xxxRecord.h will be created from xxxRecord.dbd
-DBDINC += xxxRecord
+#DBDINC += xxxRecord
 DBDINC += ifstatRecord
 # Install devXxxSoft.dbd into <top>/dbd
-DBD += xxxSupport.dbd
+#DBD += xxxSupport.dbd
 
 # Compile and add the code to the support library
-tr4Support_SRCS += xxxRecord.c
-tr4Support_SRCS += devXxxSoft.c
+#tr4Support_SRCS += xxxRecord.c
+#tr4Support_SRCS += devXxxSoft.c
 tr4Support_SRCS += ifstatRecord.c
 tr4Support_SRCS += devIfstatSoft.c
 #tr4Support_SRCS += data.c drivers.c ifstat.c 
@@ -47,7 +47,7 @@ DBD += tr4.dbd
 
 # tr4.dbd will be made up from these files:
 tr4_DBD += base.dbd
-tr4_DBD += xxxSupport.dbd
+#tr4_DBD += xxxSupport.dbd
 tr4_DBD += ifstatRecord.dbd
 tr4_DBD += dbSubExample.dbd
 tr4_DBD += tr4Hello.dbd

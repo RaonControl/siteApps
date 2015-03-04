@@ -1,3 +1,8 @@
+menu(menuInOut) {
+	choice(menuInOutIn,"In")
+	choice(menuInOutOut,"Out")
+	choice(menuInOutTot,"Total")
+}   
 recordtype(ifstat) {
 	include "dbCommon.dbd" 
 	field(VAL,DBF_DOUBLE) {
