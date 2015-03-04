@@ -1,0 +1,18 @@
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:16:07
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 3400
+WIENER:CRATE3_FanNominalSpeed_W 0
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 0
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 20 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 0
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1200
