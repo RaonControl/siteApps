@@ -201,6 +201,113 @@ record(snmpstr, "${W}:${C}_outputStatus5") {
   field(OIDS, "${WI}outputStatus.u5")
   field(MDEL, "-1")
 }
+
+# --------------------------------------------------------------
+# outputSwitch
+# off (0), on (1), resetEmergencyOff (2),  setEmergencyOff (3), clearEvents (10), setVoltageRippleMeasurementOff(20), setVoltageMeasurementOn(21), setRippleMeasurementOn(22), setVoltageRippleMeasurementOn(23)
+
+record(snmp, "${W}:${C}_outputSwitch0_W") {
+  field(DESC, "WIENER output0 Switch") 
+  field(DTYP, "SNMP Write")
+  field(SCAN, "5 second")
+  field(VERS, "${V3}")
+  field(AUTH, "${AUTH_P}")
+  field(PRIV, "${PRIV_P}")
+  field(HOST, "${HOST}")
+  field(COMM, "${USER}")
+  field(OIDS, "${WI}outputSwitch.u0")
+  field(MDEL, "-1")
+  field(RVAL, "1")
+}
+
+record(snmp, "${W}:${C}_outputSwitch0_R") {
+  field(DESC, "WIENER output0 Switch") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputSwitch.u0")
+  field(MDEL, "-1")
+}
+
+record(snmp, "${W}:${C}_outputSwitch1_W") {
+  field(DESC, "WIENER output1 Switch") 
+  field(DTYP, "SNMP Write")
+  field(SCAN, "5 second")
+  field(VERS, "${V3}")
+  field(AUTH, "${AUTH_P}")
+  field(PRIV, "${PRIV_P}")
+  field(HOST, "${HOST}")
+  field(COMM, "${USER}")
+  field(OIDS, "${WI}outputSwitch.u1")
+  field(MDEL, "-1")
+  field(RVAL, "1")
+}
+
+record(snmp, "${W}:${C}_outputSwitch1_R") {
+  field(DESC, "WIENER output1 Switch") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputSwitch.u1")
+  field(MDEL, "-1")
+}
+
+
+record(snmp, "${W}:${C}_outputSwitch3_W") {
+  field(DESC, "WIENER output3 Switch") 
+  field(DTYP, "SNMP Write")
+  field(SCAN, "5 second")
+  field(VERS, "${V3}")
+  field(AUTH, "${AUTH_P}")
+  field(PRIV, "${PRIV_P}")
+  field(HOST, "${HOST}")
+  field(COMM, "${USER}")
+  field(OIDS, "${WI}outputSwitch.u3")
+  field(MDEL, "-1")
+  field(RVAL, "1")
+}
+
+record(snmp, "${W}:${C}_outputSwitch3_R") {
+  field(DESC, "WIENER output3 Switch") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputSwitch.u3")
+  field(MDEL, "-1")
+}
+
+record(snmp, "${W}:${C}_outputSwitch5_W") {
+  field(DESC, "WIENER output5 Switch") 
+  field(DTYP, "SNMP Write")
+  field(SCAN, "5 second")
+  field(VERS, "${V3}")
+  field(AUTH, "${AUTH_P}")
+  field(PRIV, "${PRIV_P}")
+  field(HOST, "${HOST}")
+  field(COMM, "${USER}")
+  field(OIDS, "${WI}outputSwitch.u5")
+  field(MDEL, "-1")
+  field(RVAL, "1")
+}
+
+record(snmp, "${W}:${C}_outputSwitch5_R") {
+  field(DESC, "WIENER output5 Switch") 
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${WI}outputSwitch.u5")
+  field(MDEL, "-1")
+}
+
+
 #--------------------------------------------------------------
 # The measured voltage at the sense input lines.
 
