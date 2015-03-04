@@ -1,0 +1,1278 @@
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:16:07
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 3400
+WIENER:CRATE3_FanNominalSpeed_W 0
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 0
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 20 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 0
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:21:07
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1200
+WIENER:CRATE3_FanNominalSpeed_W 1200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:26:07
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 1300
+WIENER:CRATE3_FanNominalSpeed_W 1300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:31:07
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1400
+WIENER:CRATE3_FanNominalSpeed_W 1400
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:36:07
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1500
+WIENER:CRATE3_FanNominalSpeed_W 1500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:41:07
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1600
+WIENER:CRATE3_FanNominalSpeed_W 1600
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 20 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:46:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 1700
+WIENER:CRATE3_FanNominalSpeed_W 1700
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1700 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:51:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1800
+WIENER:CRATE3_FanNominalSpeed_W 1800
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1800 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 09:56:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 1900
+WIENER:CRATE3_FanNominalSpeed_W 1900
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1900 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:01:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 2000
+WIENER:CRATE3_FanNominalSpeed_W 2000
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:06:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2100
+WIENER:CRATE3_FanNominalSpeed_W 2100
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 20 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2100 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:11:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2200
+WIENER:CRATE3_FanNominalSpeed_W 2200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:16:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2300
+WIENER:CRATE3_FanNominalSpeed_W 2300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:21:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2400
+WIENER:CRATE3_FanNominalSpeed_W 0
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 0
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 0
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:26:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2500
+WIENER:CRATE3_FanNominalSpeed_W 2500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:31:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2600
+WIENER:CRATE3_FanNominalSpeed_W 2600
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2600 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:36:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 2700
+WIENER:CRATE3_FanNominalSpeed_W 2700
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2700 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:41:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 2800
+WIENER:CRATE3_FanNominalSpeed_W 2800
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2800 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:46:08
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2900
+WIENER:CRATE3_FanNominalSpeed_W 2900
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2900 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:51:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 3000
+WIENER:CRATE3_FanNominalSpeed_W 3000
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3000 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 10:56:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 3100
+WIENER:CRATE3_FanNominalSpeed_W 3100
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 20 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3100 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:01:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 3200
+WIENER:CRATE3_FanNominalSpeed_W 3200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:06:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 3300
+WIENER:CRATE3_FanNominalSpeed_W 3300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:11:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 3400
+WIENER:CRATE3_FanNominalSpeed_W 3400
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3400
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3400
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:16:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3500
+WIENER:CRATE3_FanNominalSpeed_W 3500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:21:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3600
+WIENER:CRATE3_FanNominalSpeed_W 3600
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3600
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3600 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3600
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:26:09
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3500
+WIENER:CRATE3_FanNominalSpeed_W 3500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:31:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3400
+WIENER:CRATE3_FanNominalSpeed_W 3400
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3400
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3400
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:36:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 3300
+WIENER:CRATE3_FanNominalSpeed_W 3300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:41:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 3200
+WIENER:CRATE3_FanNominalSpeed_W 3200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:46:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3100
+WIENER:CRATE3_FanNominalSpeed_W 3100
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3100 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:51:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3000
+WIENER:CRATE3_FanNominalSpeed_W 3000
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3000 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 11:56:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2900
+WIENER:CRATE3_FanNominalSpeed_W 2900
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 20 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2900 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:01:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2800
+WIENER:CRATE3_FanNominalSpeed_W 2800
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2800 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:06:10
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2700
+WIENER:CRATE3_FanNominalSpeed_W 2700
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2700 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:11:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2600
+WIENER:CRATE3_FanNominalSpeed_W 2600
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2600 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:16:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2500
+WIENER:CRATE3_FanNominalSpeed_W 2500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:21:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2400
+WIENER:CRATE3_FanNominalSpeed_W 2400
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2400
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2400
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:26:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2300
+WIENER:CRATE3_FanNominalSpeed_W 2300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:31:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2200
+WIENER:CRATE3_FanNominalSpeed_W 2200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:36:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2100
+WIENER:CRATE3_FanNominalSpeed_W 2100
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2100 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:41:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2000
+WIENER:CRATE3_FanNominalSpeed_W 2000
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:46:11
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 1900
+WIENER:CRATE3_FanNominalSpeed_W 1900
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1900 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:51:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1800
+WIENER:CRATE3_FanNominalSpeed_W 1800
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1800 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 12:56:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1700
+WIENER:CRATE3_FanNominalSpeed_W 1700
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1700 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:01:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1600
+WIENER:CRATE3_FanNominalSpeed_W 1600
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 20 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:06:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1500
+WIENER:CRATE3_FanNominalSpeed_W 1500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:11:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1400
+WIENER:CRATE3_FanNominalSpeed_W 1400
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:16:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1300
+WIENER:CRATE3_FanNominalSpeed_W 1300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:21:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 1200
+WIENER:CRATE3_FanNominalSpeed_W 1200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:26:12
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 1300
+WIENER:CRATE3_FanNominalSpeed_W 1300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:31:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 1400
+WIENER:CRATE3_FanNominalSpeed_W 1400
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1400
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:36:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1500
+WIENER:CRATE3_FanNominalSpeed_W 1500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:41:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1600
+WIENER:CRATE3_FanNominalSpeed_W 1600
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1600
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:46:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1700
+WIENER:CRATE3_FanNominalSpeed_W 1700
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1700 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1700
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:51:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1800
+WIENER:CRATE3_FanNominalSpeed_W 1800
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1800 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1800
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 13:56:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 1900
+WIENER:CRATE3_FanNominalSpeed_W 1900
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1900 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 1900
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:01:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2000
+WIENER:CRATE3_FanNominalSpeed_W 2000
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2000
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:06:13
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 2100
+WIENER:CRATE3_FanNominalSpeed_W 2100
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2100 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2100
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:11:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2200
+WIENER:CRATE3_FanNominalSpeed_W 2200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:16:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       20
+WIENER:CRATE3_FanNominalSpeed_R 2300
+WIENER:CRATE3_FanNominalSpeed_W 2300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:21:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2400
+WIENER:CRATE3_FanNominalSpeed_W 2400
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2400
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2400
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:26:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 2500
+WIENER:CRATE3_FanNominalSpeed_W 2500
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2500
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:31:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2600
+WIENER:CRATE3_FanNominalSpeed_W 2600
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2600 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2600
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:36:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2700
+WIENER:CRATE3_FanNominalSpeed_W 2700
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2700 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2700
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:41:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2800
+WIENER:CRATE3_FanNominalSpeed_W 2800
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2800 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2800
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:46:14
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2900
+WIENER:CRATE3_FanNominalSpeed_W 2900
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2900 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 2900
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:51:15
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       21
+WIENER:CRATE3_FanNominalSpeed_R 3000
+WIENER:CRATE3_FanNominalSpeed_W 3000
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3000 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3000
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 14:56:15
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3100
+WIENER:CRATE3_FanNominalSpeed_W 3100
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3100 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3100
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 15:01:15
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 3200
+WIENER:CRATE3_FanNominalSpeed_W 3200
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3200 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3200
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/04 15:06:15
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_CrateStatus      80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 3300
+WIENER:CRATE3_FanNominalSpeed_W 3300
+WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3300 RPM
+caput ---------------------------------------------------------
+Old : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3300
+New : WIENER:CRATE3_FanNominalSpeed_W.RVAL 3400
