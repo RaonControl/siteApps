@@ -13,7 +13,7 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 #DB += xxx.db
-DB += /home/silee/epics/R3.14.12.4/siteLibs/db/dbSysMon.db
+DB += ${RAON_SITELIBS}/db/dbSysMon.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
