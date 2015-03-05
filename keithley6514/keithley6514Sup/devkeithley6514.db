@@ -455,6 +455,7 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
 # - FAST :  0.1 PLC
 #
 #  record ao : DRVL<=LOPR<=HOPR<=DRVH.
+#
 record(ao, "$(SYS)-$(SUBSYS):$(DEV):SetNPLC") 
 {
     field(DESC, "Set NPLC value")
@@ -480,15 +481,23 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
 # RATE :  Integration time of the A/D converter, see 6-6 Rate
 # 
 # In the most case, we don't need to use SetNPLC individually.
-# Here I was told, they need to set only MED or FAST. 
-# This PV can be used to set SLOW, MED, or FAST by
+# Here I was told, end users want to set only MED or FAST. 
+# So, we need a simple PV instead of SetNPLC.
+# 
+# This PV can be used to set SLOW, MED, or FAST 
+#  by
 # caput ECR11-Diag:FC01:SetADRate {Med|Slow|Fast} 
-#       or
+#  or
 # caput ECR11-Diag:FC01:SetADRate {0|1|2}
 # 
 # 0: SLOW : 6   PLC
 # 1: MED  : 1   PLC
 # 2: FAST : 0.1 PLC
+#
+# Used bits are 0,1,and 2. 
+# Unused bits are 3 - 15, so I add its severity as "INVALID" 
+# in order to suppress error messages in an IOC console. 
+# Thursday, March  5 13:10:09 KST 2015, jhlee
 #
 ################################################################################
 record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate") 
@@ -549,3 +558,22 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")
     field(UNSV, "INVALID")
     field(PINI, "YES")
 }
+
+
+
+# # Query current settings and one-time parameters (ID and SN)
+# record(bo, "$(SYS)-$(SUBSYS):$(DEV):SetReady") 
+# {
+#     field(DESC, "Ready to measure currents")
+#     field(PINI, "YES")
+#     field(ZNAM, "Ready")
+#     field(ONAM, "ready")
+#     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):SetReady-Fout_")
+# }
+
+# record(fanout, "$(SYS)-$(SUBSYS):$(DEV):SetReady-Fout_") 
+# {
+#     field(LNK1, "$(SYS)-$(SUBSYS):$(DEV):Rst")
+#     field(LNK2, "$(P)LockMode-RB")
+#  }
+
