@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="11" version="2.0">
+<workbenchAdvisor/>
+<window height="1200" maximized="true" width="1920" x="0" y="0">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="file" itemType="typeToolBarContribution" x="70" y="32"/>
+<coolItem id="user" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.csstudio.diag.pvmanager.probe.toolbar" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="org.csstudio.logbook.ui.toolbar" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="org.csstudio.security.toolbar" itemType="typeToolBarContribution" x="68" y="32"/>
+<coolItem id="org.csstudio.trends.databrowser.toolbar" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="48" y="32"/>
+<coolItem id="org.csstudio.opibuilder.actionSet" itemType="typeToolBarContribution" x="48" y="32"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.annotationNavigation" itemType="typeToolBarContribution" x="84" y="32"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.navigation" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.csstudio.opibuilder.OPIEditor" itemType="typeToolBarContribution" x="759" y="32"/>
+<coolItem id="org.eclipse.ui.DefaultTextEditor" itemType="typePlaceholder" x="-1" y="-1"/>
+<coolItem id="org.csstudio.opibuilder.OPIRunner" itemType="typeToolBarContribution" x="333" y="32"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.presentation" itemType="typeToolBarContribution" x="68" y="32"/>
+</coolbarLayout>
+<page focus="true" label="&lt;Unknown Label&gt; - OPI Editor">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+<part id="4"/>
+<part id="5"/>
+</presentation>
+</folder>
+</info>
+</editorArea>
+<editor id="org.csstudio.opibuilder.OPIRunner" name="10_widgets.opi" partName="Widgets" title="Widgets" tooltip="BOY Examples/10_widgets.opi" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BOY Examples/10_widgets.opi"/>
+</editor>
+<editor id="org.csstudio.opibuilder.OPIRunner" name="2_5_2_XY_Graph.opi" partName="XY_Graph" path="/BOY Examples/widgets/2_5_2_XY_Graph.opi" title="XY_Graph" tooltip="/BOY Examples/widgets/2_5_2_XY_Graph.opi" workbook="DefaultEditorWorkbook">
+<input factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_5_2_XY_Graph.opi"/>
+</editor>
+<editor id="org.csstudio.opibuilder.OPIEditor" name="1_2_Image.opi" partName="1_2_Image.opi" title="1_2_Image.opi" tooltip="BOY Examples/widgets/1_2_Image.opi" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BOY Examples/widgets/1_2_Image.opi"/>
+</editor>
+<editor id="org.csstudio.opibuilder.jseditor" name="MoveImage.js" partName="MoveImage.js" path="/home/mijoy0909/Desktop/opi/BOY Examples/scripts/MoveImage.js" title="MoveImage.js" tooltip="BOY Examples/scripts/MoveImage.js" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BOY Examples/scripts/MoveImage.js"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="0"/>
+</editor>
+<editor id="org.csstudio.opibuilder.OPIEditor" name="printer_opi.opi" partName="printer_opi.opi" title="printer_opi.opi" tooltip="CSS/printer_opi.opi" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/CSS/printer_opi.opi"/>
+</editor>
+<editor activePart="true" focus="true" id="org.csstudio.opibuilder.OPIEditor" name="2_5_2_XY_Graph.opi" partName="2_5_2_XY_Graph.opi" title="2_5_2_XY_Graph.opi" tooltip="BOY Examples/widgets/2_5_2_XY_Graph.opi" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/BOY Examples/widgets/2_5_2_XY_Graph.opi"/>
+</editor>
+</editors>
+<views>
+<view id="org.eclipse.ui.views.PropertySheet" partName="Properties">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ResourceNavigator" partName="Navigator">
+<viewState LINK_NAVIGATOR_TO_EDITOR="0" sorter="1">
+<filters>
+<filter element=".*" isEnabled="false"/>
+</filters>
+<expanded>
+<element path="/BOY Examples"/>
+<element path="/BOY Examples/scripts"/>
+<element path="/BOY Examples/widgets"/>
+<element path="/CSS"/>
+</expanded>
+<selection>
+<element path="/BOY Examples/widgets/2_5_2_XY_Graph.opi"/>
+</selection>
+</viewState>
+</view>
+<view id="org.eclipse.ui.console.ConsoleView" partName="Console">
+<viewState/>
+</view>
+<view id="org.eclipse.ui.views.ContentOutline" partName="Outline">
+<viewState/>
+</view>
+</views>
+<perspectives activePart="org.csstudio.opibuilder.OPIEditor" activePerspective="org.csstudio.opibuilder.opieditor">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.csstudio.opibuilder.runmode.OPIRunnerPerspective" id="org.csstudio.opibuilder.OPIRunner" label="OPI Runtime"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.actionSet"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.editor.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<fastViewBars/>
+<layout>&#x0A;<mainWindow>&#x0A;<info folder="true" part="LEFT">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.csstudio.opibuilder.opiView:*LEFT" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.7495069" ratioLeft="760" ratioRight="254" relationship="2" relative="LEFT">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="TOP" ratio="0.2495069" ratioLeft="253" ratioRight="761" relationship="2" relative="LEFT">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.csstudio.opibuilder.opiView:*TOP" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="RIGHT" ratio="0.7495069" ratioLeft="760" ratioRight="254" relationship="2" relative="TOP">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.csstudio.opibuilder.opiView:*RIGHT" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.24916388" ratioLeft="149" ratioRight="449" relationship="4" relative="TOP"/>
+<info folder="true" part="BOTTOM" ratio="0.74916387" ratioLeft="448" ratioRight="150" relationship="4" relative="org.eclipse.ui.editorss">&#x0A;<folder appearance="2" expanded="2">&#x0A;<page content="org.csstudio.opibuilder.opiView:*BOTTOM" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.csstudio.opibuilder.editor.OPIEditorPerspective" id="org.csstudio.opibuilder.opieditor" label="OPI Editor"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.actionSet"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.editor.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<show_view_action id="org.eclipse.ui.views.PropertySheet"/>
+<show_view_action id="org.eclipse.ui.views.ContentOutline"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.help.ui.HelpView"/>
+<new_wizard_action id="org.eclipse.ui.wizards.new.folder"/>
+<new_wizard_action id="org.csstudio.opibuilder.wizards.newOPIWizard"/>
+<new_wizard_action id="org.csstudio.opibuilder.wizards.newJSWizard"/>
+<new_wizard_action id="org.csstudio.opibuilder.wizards.newPyWizard"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<view id="org.eclipse.ui.views.ResourceNavigator"/>
+<view id="org.eclipse.ui.views.PropertySheet"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
+<view id="org.eclipse.ui.views.ContentOutline"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="left">
+<folder activePageID="org.eclipse.ui.views.ResourceNavigator" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ResourceNavigator" label="Navigator"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.75" ratioLeft="1434" ratioRight="478" relationship="2" relative="left">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.10843374" ratioLeft="207" ratioRight="1702" relationship="2" relative="left"/>
+<info folder="true" part="right" ratio="0.7174809" ratioLeft="1219" ratioRight="480" relationship="2" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.views.PropertySheet" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.PropertySheet" label="Properties"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="bottom" ratio="0.9332604" ratioLeft="853" ratioRight="61" relationship="4" relative="org.eclipse.ui.editorss">
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
+<page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+<info folder="true" part="leftBottom" ratio="0.69941634" ratioLeft="719" ratioRight="309" relationship="4" relative="left">
+<folder activePageID="org.eclipse.ui.views.ContentOutline" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ContentOutline" label="Outline"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+</presentation>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory>
+<editors>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIRunner" path="/BOY Examples/10_widgets.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/1_6_Connection.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_5_1_XY_Graph.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_1_LED.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/1_4_Arc.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/1_1_Rectangle_Ellipse.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/1_2_Image.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/1_5_Polyline_Polygon.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_2_Text_Update.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_3_Gauge_Meter.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_4_Tank_Thermo.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_6_1_IntensityGraph.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/SymbolWidgets.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/3_1_Action_Button.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/3_4_1_Text_Input.opi"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" path="/BOY Examples/widgets/3_4_1_Text_Input.opi"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" path="/BOY Examples/widgets/1_2_Image.opi"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.jseditor" path="/BOY Examples/scripts/MoveImage.js"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" path="/CSS/printer_opi.opi"/>
+<editor factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" macro="&quot;false&quot;" path="/BOY Examples/widgets/2_5_2_XY_Graph.opi"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" path="/BOY Examples/widgets/2_5_2_XY_Graph.opi"/>
+</editors>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Polyline/Polygon" index="7"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Polyline/Polygon" index="7"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Connection" index="1"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="LED" index="3"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Text Update" index="8"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Gauge/Meter" index="9"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Tank/Thermo" index="10"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="XY_Graph" index="2"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Intensity Graph" index="11"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Intensity Graph" index="11"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="SymbolWidgets.opi" index="12"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Action Button" index="13"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Text Input" index="14"/>
+<item historyLabel="3_4_1_Text_Input.opi" index="15"/>
+<item historyLabel="Text Input" index="14"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="LED" index="3"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Polyline/Polygon" index="7"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Arc" index="4"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Rectangel_Ellipse" index="5"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="Image" index="6"/>
+<item historyLabel="Widgets" index="0"/>
+<item historyLabel="1_2_Image.opi" index="16"/>
+<item historyLabel="MoveImage.js" index="17">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="1_2_Image.opi" index="16"/>
+<item historyLabel="MoveImage.js" index="17">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="1_2_Image.opi" index="16"/>
+<item historyLabel="printer_opi.opi" index="18"/>
+<item historyLabel="XY_Graph" index="19"/>
+<item historyLabel="2_5_2_XY_Graph.opi" index="20"/>
+<item historyLabel="MoveImage.js" index="17">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="1_2_Image.opi" index="16"/>
+<item active="true" historyLabel="2_5_2_XY_Graph.opi" index="20"/>
+</navigationHistory>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="16384">
+<trimItem IMemento.internal.id="left"/>
+<trimItem IMemento.internal.id="leftBottom"/>
+</trimArea>
+<trimArea IMemento.internal.id="131072">
+<trimItem IMemento.internal.id="right"/>
+</trimArea>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="bottom"/>
+<trimItem IMemento.internal.id="org.csstudio.security.ui.infobar"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="2_5_2_XY_Graph.opi" tooltip="/BOY Examples/widgets/2_5_2_XY_Graph.opi">
+<persistable path="/BOY Examples/widgets/2_5_2_XY_Graph.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="2_5_2_XY_Graph.opi" tooltip="BOY Examples/widgets/2_5_2_XY_Graph.opi">
+<persistable path="/BOY Examples/widgets/2_5_2_XY_Graph.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="printer_opi.opi" tooltip="CSS/printer_opi.opi">
+<persistable path="/CSS/printer_opi.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.jseditor" name="MoveImage.js" tooltip="BOY Examples/scripts/MoveImage.js">
+<persistable path="/BOY Examples/scripts/MoveImage.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="1_2_Image.opi" tooltip="BOY Examples/widgets/1_2_Image.opi">
+<persistable path="/BOY Examples/widgets/1_2_Image.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="1_2_Image.opi" tooltip="/BOY Examples/widgets/1_2_Image.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/1_2_Image.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="1_1_Rectangle_Ellipse.opi" tooltip="/BOY Examples/widgets/1_1_Rectangle_Ellipse.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/1_1_Rectangle_Ellipse.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="1_4_Arc.opi" tooltip="/BOY Examples/widgets/1_4_Arc.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/1_4_Arc.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="1_5_Polyline_Polygon.opi" tooltip="/BOY Examples/widgets/1_5_Polyline_Polygon.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/1_5_Polyline_Polygon.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="2_1_LED.opi" tooltip="/BOY Examples/widgets/2_1_LED.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/2_1_LED.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="3_4_1_Text_Input.opi" tooltip="BOY Examples/widgets/3_4_1_Text_Input.opi">
+<persistable path="/BOY Examples/widgets/3_4_1_Text_Input.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="3_4_1_Text_Input.opi" tooltip="/BOY Examples/widgets/3_4_1_Text_Input.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/3_4_1_Text_Input.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="3_1_Action_Button.opi" tooltip="/BOY Examples/widgets/3_1_Action_Button.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/3_1_Action_Button.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="SymbolWidgets.opi" tooltip="/BOY Examples/widgets/SymbolWidgets.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/SymbolWidgets.opi"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="2_6_1_IntensityGraph.opi" tooltip="/BOY Examples/widgets/2_6_1_IntensityGraph.opi">
+<persistable macro="&quot;false&quot;" path="/BOY Examples/widgets/2_6_1_IntensityGraph.opi"/>
+</file>
+</mruList>
+</workbench>

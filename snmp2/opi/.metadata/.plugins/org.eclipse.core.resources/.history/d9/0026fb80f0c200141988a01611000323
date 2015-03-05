@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="auto_complete_history">
+		<list key="Formula">
+			<item value="mijoy0909Host:APC-PDU2:Outlet_Status"/>
+			<item value="mijoy0909Host:APC-PDU2:Outlet8"/>
+			<item value="Boolean Switch"/>
+			<item value="mijoy0909Host:APC-PDU2:PowerWatts"/>
+			<item value="mijoy0909Host:xerox_hex"/>
+			<item value="mijoy0909Host:xerox_waste.RVAL"/>
+			<item value="mijoy0909Host:xerox_state"/>
+			<item value="mijoy0909Host:xerox_scantomailbox"/>
+			<item value="mijoy0909Host:xerox_scantohome"/>
+			<item value="mijoy0909Host:xerox_scantoemail"/>
+			<item value="mijoy0909Host:xerox_print"/>
+			<item value="mijoy0909Host:xerox_scan"/>
+			<item value="CTR-PI0:DUST"/>
+			<item value="PI2:DUST"/>
+			<item value="PI2:DHT11:HUM"/>
+			<item value="PI2:DHT11:TEM"/>
+			<item value="mijoy0909Host:xerox_state_sub"/>
+			<item value="mijoy0909Host:xerox_TR5"/>
+			<item value="mijoy0909Host:xerox_TR4"/>
+			<item value="mijoy0909Host:xerox_TR3"/>
+			<item value="mijoy0909Host:xerox_TR2"/>
+			<item value="xerox_TR1"/>
+			<item value="mijoy0909Host:kyocera_TR5"/>
+			<item value="mijoy0909Host:kyocera_TR4"/>
+			<item value="mijoy0909Host:kyocera_TR3"/>
+			<item value="mijoy0909Host:kyocera_TR2"/>
+			<item value="mijoy0909Host:kyocera_TR1"/>
+			<item value="mijoy0909Host:kyocera_power"/>
+			<item value="mijoy0909Host:kyocera_state"/>
+			<item value="mijoy0909Host:kyocera_state.VAL"/>
+			<item value="CTR-PI0:DHT11:HUM"/>
+			<item value="CTR-PI0:DHT11:TEM"/>
+			<item value="mijoy0909Host:xerox_state_state"/>
+			<item value="pv0==Print-User Action"/>
+			<item value="mijoy0909Host:xerox_power"/>
+			<item value="mijoy0909Host:Test"/>
+			<item value="mijoy0909Host:xerox_state.VAL"/>
+			<item value="mijoy0909Host:xerox_width5"/>
+			<item value="mijoy0909Host:xerox_toner_C"/>
+			<item value="mijoy0909Host:xerox_toner_M"/>
+			<item value="mijoy0909Host:xerox_toner_"/>
+			<item value="mijoy0909Host:xerox_toner_Y"/>
+		</list>
+	</section>
+</section>

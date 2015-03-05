@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workbench progressCount="1" version="2.0">
+<workbenchAdvisor/>
+<window height="765" maximized="true" width="845" x="2005" y="159">
+<fastViewData fastViewLocation="1024"/>
+<perspectiveBar>
+<itemSize x="160"/>
+</perspectiveBar>
+<coolbarLayout>
+<coolItem id="file" itemType="typeToolBarContribution" x="70" y="32"/>
+<coolItem id="user" itemType="typeToolBarContribution" x="-1" y="-1"/>
+<coolItem id="org.csstudio.diag.pvmanager.probe.toolbar" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="org.csstudio.logbook.ui.toolbar" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="org.csstudio.security.toolbar" itemType="typeToolBarContribution" x="68" y="32"/>
+<coolItem id="org.csstudio.trends.databrowser.toolbar" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="org.eclipse.search.searchActionSet" itemType="typeToolBarContribution" x="48" y="32"/>
+<coolItem id="org.csstudio.opibuilder.actionSet" itemType="typeToolBarContribution" x="48" y="32"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.annotationNavigation" itemType="typeToolBarContribution" x="84" y="32"/>
+<coolItem id="org.eclipse.ui.edit.text.actionSet.navigation" itemType="typeToolBarContribution" x="40" y="32"/>
+<coolItem id="group.editor" itemType="typeGroupMarker"/>
+<coolItem id="org.csstudio.opibuilder.OPIRunner" itemType="typePlaceholder" x="333" y="32"/>
+</coolbarLayout>
+<page focus="true" label="&lt;Unknown Label&gt; - OPI Runtime">
+<editors>
+<editorArea activeWorkbook="DefaultEditorWorkbook">
+<info part="DefaultEditorWorkbook">
+<folder appearance="1" expanded="2">
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+</folder>
+</info>
+</editorArea>
+</editors>
+<views/>
+<perspectives activePerspective="org.csstudio.opibuilder.OPIRunner">
+<perspective editorAreaTrimState="2" editorAreaVisible="1" fixed="0" version="0.016">
+<descriptor class="org.csstudio.opibuilder.runmode.OPIRunnerPerspective" id="org.csstudio.opibuilder.OPIRunner" label="OPI Runtime"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.actionSet"/>
+<alwaysOnActionSet id="org.csstudio.opibuilder.editor.actionSet"/>
+<alwaysOnActionSet id="org.eclipse.search.searchActionSet"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.annotationNavigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.navigation"/>
+<alwaysOnActionSet id="org.eclipse.ui.edit.text.actionSet.convertLineDelimitersTo"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.keyBindings"/>
+<alwaysOnActionSet id="org.eclipse.ui.actionSet.openFiles"/>
+<show_view_action id="org.eclipse.ui.console.ConsoleView"/>
+<show_view_action id="org.eclipse.ui.views.ResourceNavigator"/>
+<hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
+<fastViewBars/>
+<layout>
+<mainWindow>
+<info folder="true" part="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*LEFT" label="LabelNotFound"/>
+<page content="org.eclipse.ui.views.ResourceNavigator" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="stickyFolderRight" ratio="0.7495069" ratioLeft="760" ratioRight="254" relationship="2" relative="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.eclipse.help.ui.HelpView" label="LabelNotFound"/>
+<page content="org.eclipse.ui.internal.introview" label="LabelNotFound"/>
+<page content="org.eclipse.ui.cheatsheets.views.CheatSheetView" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="TOP" ratio="0.2495069" ratioLeft="253" ratioRight="761" relationship="2" relative="LEFT">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*TOP" label="LabelNotFound"/>
+</folder>
+</info>
+<info folder="true" part="RIGHT" ratio="0.7495069" ratioLeft="760" ratioRight="254" relationship="2" relative="TOP">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*RIGHT" label="LabelNotFound"/>
+</folder>
+</info>
+<info part="org.eclipse.ui.editorss" ratio="0.24916388" ratioLeft="149" ratioRight="449" relationship="4" relative="TOP"/>
+<info folder="true" part="BOTTOM" ratio="0.74916387" ratioLeft="448" ratioRight="150" relationship="4" relative="org.eclipse.ui.editorss">
+<folder appearance="2" expanded="2">
+<page content="org.csstudio.opibuilder.opiView:*BOTTOM" label="LabelNotFound"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+</folder>
+</info>
+</mainWindow>
+</layout>
+</perspective>
+</perspectives>
+<workingSets/>
+<navigationHistory/>
+</page>
+<workbenchWindowAdvisor/>
+<actionBarAdvisor/>
+<trimLayout>
+<trimArea IMemento.internal.id="128">
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.WorkbenchWindow.topBar"/>
+</trimArea>
+<trimArea IMemento.internal.id="1024">
+<trimItem IMemento.internal.id="org.eclise.ui.internal.FastViewBar"/>
+<trimItem IMemento.internal.id="org.eclipse.jface.action.StatusLineManager"/>
+<trimItem IMemento.internal.id="org.eclipse.ui.internal.progress.ProgressRegion"/>
+<trimItem IMemento.internal.id="org.csstudio.security.ui.infobar"/>
+</trimArea>
+</trimLayout>
+</window>
+<mruList>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="pdu_test.opi" tooltip="/CSS/APC_PDU/pdu_test.opi">
+<persistable path="/CSS/APC_PDU/pdu_test.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="pdu_test.opi" tooltip="CSS/APC_PDU/pdu_test.opi">
+<persistable path="/CSS/APC_PDU/pdu_test.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name=".project" tooltip="CSS/.project">
+<persistable path="/CSS/.project"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="printer_opi.opi" tooltip="/CSS/printer_opi.opi">
+<persistable path="/CSS/printer_opi.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="Text_version.opi" tooltip="CSS/Text_version.opi">
+<persistable path="/CSS/Text_version.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="printer_opi_ex.opi" tooltip="CSS/printer_opi_ex.opi">
+<persistable path="/CSS/printer_opi_ex.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="printer_opi_test.opi" tooltip="CSS/printer_opi_test.opi">
+<persistable path="/CSS/printer_opi_test.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.jseditor" name="hextest.js" tooltip="CSS/CSS/hextest.js">
+<persistable path="/CSS/CSS/hextest.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.jseditor" name="kyocera_state.js" tooltip="CSS/kyocera_state.js">
+<persistable path="/CSS/kyocera_state.js"/>
+</file>
+<file factoryID="org.csstudio.opibuilder.runmode.RunnerInputFactory" id="org.csstudio.opibuilder.OPIRunner" name="Text_version.opi" tooltip="/CSS/Text_version.opi">
+<persistable path="/CSS/Text_version.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.jseditor" name="sub_state.js" tooltip="CSS/sub_state.js">
+<persistable path="/CSS/sub_state.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.jseditor" name="xerox_state.js" tooltip="CSS/xerox_state.js">
+<persistable path="/CSS/xerox_state.js"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="printer_opi.opi" tooltip="CSS/printer_opi.opi">
+<persistable path="/CSS/printer_opi.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.OPIEditor" name="ts.opi" tooltip="BOY Examples/ts.opi">
+<persistable path="/BOY Examples/ts.opi"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.csstudio.opibuilder.jseditor" name="paper_size.js" tooltip="CSS/paper_size.js">
+<persistable path="/CSS/paper_size.js"/>
+</file>
+</mruList>
+</workbench>
