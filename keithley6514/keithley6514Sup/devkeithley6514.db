@@ -282,6 +282,15 @@ record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetCurrRange")
     field(EIST, "2 mA")
     field(NIVL, "2")
     field(NIST, "20 mA")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
+    field(IVOA, "Don't drive outputs")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
 }
 
@@ -310,6 +319,14 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetCurrRangeRB")
     field(EIST, "2 mA")
     field(NIVL, "2")
     field(NIST, "20 mA")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
     field(PINI, "YES")
 }
 
@@ -358,14 +375,6 @@ record(stringin, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError")
     field(PINI, "YES")
 }
 
-# record(waveform, "$(SYS)-$(SUBSYS):$(DEV):GetSystemError")
-# {
-#     field(DESC, "SCPI identification string")
-#     field(DTYP, "stream")
-#     field( INP, "@devkeithley6514.proto getError $(PORT) $(A)")
-# #    field(PINI, "YES")
-# }
-#
 # Power line frequency 
 # 50 or 60 (Hz)
 # caput ECR11-Diag:FC01:SetLineFreq 60
@@ -382,7 +391,23 @@ record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetLineFreq")
     field(ZRST, "50")
     field(ONVL, "60")
     field(ONST, "60")
-#    field(PINI, "YES")
+    field(TWSV, "INVALID")
+    field(THSV, "INVALID")
+    field(FRSV, "INVALID")
+    field(FVSV, "INVALID")
+    field(SXSV, "INVALID")
+    field(SVSV, "INVALID")
+    field(EISV, "INVALID")
+    field(NISV, "INVALID")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
+    field(IVOA, "Don't drive outputs")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
 }
 
@@ -395,6 +420,22 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetLineFreq")
     field(ZRST, "50")
     field(ONVL, "60")
     field(ONST, "60")
+    field(TWSV, "INVALID")
+    field(THSV, "INVALID")
+    field(FRSV, "INVALID")
+    field(FVSV, "INVALID")
+    field(SXSV, "INVALID")
+    field(SVSV, "INVALID")
+    field(EISV, "INVALID")
+    field(NISV, "INVALID")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
     field(PINI, "YES")
 }
 
@@ -435,6 +476,7 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
     field( INP, "@devkeithley6514.proto getF(CURR:NPLC) $(PORT) $(A)")
 }
 
+#
 # RATE :  Integration time of the A/D converter, see 6-6 Rate
 # 
 # In the most case, we don't need to use SetNPLC individually.
@@ -448,64 +490,6 @@ record(ai, "$(SYS)-$(SUBSYS):$(DEV):GetNPLC")
 # 1: MED  : 1   PLC
 # 2: FAST : 0.1 PLC
 #
-# If we set SetADRate outside of the enum index, such as -1, 3,4,5, etc
-#
-# $ caput  ECR11-Diag:FC01:SetADRate 0 && bash test.sh
-# Old : ECR11-Diag:FC01:SetADRate      Illegal Value
-# New : ECR11-Diag:FC01:SetADRate      Slow
-# ECR11-Diag:FC01:SetADRate.VAL  Slow
-# ECR11-Diag:FC01:SetADRate.RVAL 0
-# ECR11-Diag:FC01:SetADRate.STAT NO_ALARM
-# ECR11-Diag:FC01:SetADRate.SEVR NO_ALARM
-#
-# $ caput  ECR11-Diag:FC01:SetADRate -1 && bash test.sh
-# Old : ECR11-Diag:FC01:SetADRate      Slow
-# CA.Client.Exception...............................................
-#     Warning: "Channel write request failed"
-#     Context: "op=1, channel=ECR11-Diag:FC01:SetADRate, type=DBR_DOUBLE, count=1, ctx="ECR11-Diag:FC01:SetADRate""
-#     Source File: ../oldChannelNotify.cpp line 160
-# New : ECR11-Diag:FC01:SetADRate      Illegal Value
-#     Current Time: Wed Mar 04 2015 07:56:05.867136097
-# ..................................................................
-# ECR11-Diag:FC01:SetADRate.VAL  Illegal Value
-# ECR11-Diag:FC01:SetADRate.RVAL 0
-# ECR11-Diag:FC01:SetADRate.STAT SOFT
-# ECR11-Diag:FC01:SetADRate.SEVR INVALID
-#
-#
-# $ caput  ECR11-Diag:FC01:SetADRate 0 && bash test.sh
-# Old : ECR11-Diag:FC01:SetADRate      Illegal Value
-# New : ECR11-Diag:FC01:SetADRate      Slow
-# ECR11-Diag:FC01:SetADRate.VAL  Slow
-# ECR11-Diag:FC01:SetADRate.RVAL 0
-# ECR11-Diag:FC01:SetADRate.STAT NO_ALARM
-# ECR11-Diag:FC01:SetADRate.SEVR NO_ALARM
-#
-# $ caput  ECR11-Diag:FC01:SetADRate 3 && bash test.sh
-# Warning: enum index value '3' may be too large.
-# Old : ECR11-Diag:FC01:SetADRate      Slow
-# CA.Client.Exception...............................................
-#    Warning: "Channel write request failed"
-#    Context: "op=1, channel=ECR11-Diag:FC01:SetADRate, type=DBR_DOUBLE, count=1, ctx="ECR11-Diag:FC01:SetADRate""
-#    Source File: ../oldChannelNotify.cpp line 160
-# New : ECR11-Diag:FC01:SetADRate      
-#    Current Time: Wed Mar 04 2015 07:56:12.932662247
-# ..................................................................
-# ECR11-Diag:FC01:SetADRate.VAL  
-# ECR11-Diag:FC01:SetADRate.RVAL 0
-# ECR11-Diag:FC01:SetADRate.STAT CALC
-# ECR11-Diag:FC01:SetADRate.SEVR INVALID
-#
-# $ caput  ECR11-Diag:FC01:SetADRate 0 && bash test.sh
-# Old : ECR11-Diag:FC01:SetADRate      
-# New : ECR11-Diag:FC01:SetADRate      Slow
-# ECR11-Diag:FC01:SetADRate.VAL  Slow
-# ECR11-Diag:FC01:SetADRate.RVAL 0
-# ECR11-Diag:FC01:SetADRate.STAT NO_ALARM
-# ECR11-Diag:FC01:SetADRate.SEVR NO_ALARM
-#
-#
-#
 ################################################################################
 record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate") 
 {
@@ -518,7 +502,22 @@ record(mbbo, "$(SYS)-$(SUBSYS):$(DEV):SetADRate")
     field(ONVL, "1")
     field(TWST, "Fast")
     field(TWVL, "2")
-#    field(IVOA, "NO_OUTPUT")
+    field(THSV, "INVALID")
+    field(FRSV, "INVALID")
+    field(FVSV, "INVALID")
+    field(SXSV, "INVALID")
+    field(SVSV, "INVALID")
+    field(EISV, "INVALID")
+    field(NISV, "INVALID")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
+    field(IVOA, "Don't drive outputs")
     field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")
 }
 
@@ -527,12 +526,26 @@ record(mbbi, "$(SYS)-$(SUBSYS):$(DEV):GetADRate")
     field(DESC, "Get Predefined Rate")
     field(DTYP, "stream")
     field( INP, "@devkeithley6514.proto getADRate $(PORT) $(A)")
-# need to modify
     field(ZRST, "Slow")
     field(ZRVL, "0")
     field(ONST, "Med")
     field(ONVL, "1")
     field(TWST, "Fast")
     field(TWVL, "2")
+    field(THSV, "INVALID")
+    field(FRSV, "INVALID")
+    field(FVSV, "INVALID")
+    field(SXSV, "INVALID")
+    field(SVSV, "INVALID")
+    field(EISV, "INVALID")
+    field(NISV, "INVALID")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
     field(PINI, "YES")
 }

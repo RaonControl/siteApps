@@ -26,6 +26,6 @@ caput  ECR11-Diag:FC01:SetZeroCorrect 1
 caput  ECR11-Diag:FC01:CurrAutoRangeEnable Auto
 caput  ECR11-Diag:FC01:SetZeroCheck 0
 caput  ECR11-Diag:FC01:SetLineFreq 60
-#caput  ECR11-Diag:FC01:SetADRate Med
-caput  ECR11-Diag:FC01:SetADRate Fast
+caput  ECR11-Diag:FC01:SetADRate Med
+#caput  ECR11-Diag:FC01:SetADRate Fast
 caput  ECR11-Diag:FC01:MeasureCurrent 0

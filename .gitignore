@@ -16,3 +16,6 @@ edl
 bin
 lib
 envPaths
+#*
+*#
+.#*
