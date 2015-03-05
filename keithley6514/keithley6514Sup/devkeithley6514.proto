@@ -125,6 +125,10 @@ setLineF
 }
 
 
+##
+##
+##
+
 setADRate 
 {
     out "CURR:NPLC %{6.00|1.00|0.10}";
