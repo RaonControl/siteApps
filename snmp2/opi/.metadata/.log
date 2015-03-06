@@ -370,3 +370,16 @@ java.io.FileNotFoundException
 	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:404)
 	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:409)
 	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+!SESSION 2015-03-05 15:53:58.240 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - snmp2/
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - snmp2/
+
+!ENTRY org.eclipse.core.resources 2 10035 2015-03-05 15:54:01.343
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-03-05 15:54:11.234
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
