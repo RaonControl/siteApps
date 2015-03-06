@@ -7,11 +7,11 @@ echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
-caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W WIENER:CRATE3_FanNominalSpeed_W.RVAL
+caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
 echo "caput ---------------------------------------------------------"
-caput WIENER:CRATE3_FanNominalSpeed_W.RVAL $i
+caput WIENER:CRATE3_FanNominalSpeed_W $i
 # echo "snmpset -------------------------------------------------------"
 # snmpset -v 3 -u admin -l authPriv -a MD5 -A MySecret -x DES -X MySecret 10.1.5.123 WIENER-CRATE-MIB::fanNominalSpeed.0 i $i
 # echo $i
@@ -24,11 +24,11 @@ echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
-caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W WIENER:CRATE3_FanNominalSpeed_W.RVAL
+caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_CrateStatus WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W
 echo "snmpget -------------------------------------------------------"
 snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
 echo "caput ---------------------------------------------------------"
-caput WIENER:CRATE3_FanNominalSpeed_W.RVAL $i
+caput WIENER:CRATE3_FanNominalSpeed_W $i
 # echo "snmpset -------------------------------------------------------"
 # snmpset -v 3 -u admin -l authPriv -a MD5 -A MySecret -x DES -X MySecret 10.1.5.123 WIENER-CRATE-MIB::fanNominalSpeed.0 i $i
 # echo $i
