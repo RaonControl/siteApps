@@ -186,7 +186,7 @@ setSourceVoltageProtectionClear {
 # Sets the output voltage to ramp from the present value to the specified value(first argument)
 # in the specified time(second argument).
 setSourceVoltageRamp {
-	out "SOUR:VOLT:RAMP %f %f";
+	out "SOUR:VOLT:RAMP %s";
 }
 
 # Returns 1 if the ramp is in progress, and 0 if the ramp is completed.
