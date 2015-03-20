@@ -13,7 +13,7 @@ epicsEnvSet "STREAM_PROTOCOL_PATH" "../../proto"
 dbLoadDatabase "dbd/sgi.dbd"
 sgi_registerRecordDeviceDriver pdbbase
 
-drvAsynIPPortConfigure("port16", "10.1.5.80:4010", 0, 0, 0)
+drvAsynIPPortConfigure("port16", "192.168.1.140:4016", 0, 0, 0)
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=scwookHost")
