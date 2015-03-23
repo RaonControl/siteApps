@@ -40,6 +40,13 @@ sgi_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================
 
+ifneq ($(SNCSEQ),)
+    sgi_DBD += seqRamp.dbd
+    sgi_SRCS += seqRamp.stt
+    sgi_LIBS += seq pv
+endif
+
+
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE

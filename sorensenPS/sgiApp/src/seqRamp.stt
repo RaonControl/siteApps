@@ -1,0 +1,93 @@
+program seqRamp
+
+int runV;
+int runI;
+int stopV;
+int stopI;
+float delV;
+float delI;
+float delT;
+
+assign runV to "SEQ:RUN:V";
+assign runI to "SEQ:RUN:I";
+assign stopV to "SEQ:STOP:V";
+assign stopI to "SEQ:STOP:I";
+assign delV to "SEQ:DEL:V";
+assign delI to "SEQ:DEL:I";
+assign delT to "SEQ:DEL:T";
+
+monitor runV;
+monitor runI;
+monitor	stopV;
+monitor stopI;
+
+ss ssMain
+{
+  state init
+  {
+    when(delay(0.1))
+    {
+	runV = 0;
+	runI = 0;
+	stopV = 1;
+	stopI = 1;
+	delV = 0.0;
+	delI = 0.0;
+	delT = 0.0;
+
+	pvPut(runV);
+	pvPut(runI);
+	pvPut(stopV);
+	pvPut(stopI);
+	pvPut(delV);
+	pvPut(delI);
+	pvPut(delT);
+
+    } state Stop
+  }
+
+  state VoltageRamp
+  {
+	when(stopV)
+	{
+
+	}
+
+	when(delay(delT))
+	{
+	
+	} state VoltageRamp
+
+  }
+  
+  state CurrentRamp
+  {
+	when(stopI)
+	{
+
+	}
+
+	when(delay(delT))
+	{
+
+	} state CurrentRamp
+
+  }
+
+  state Stop
+  {
+	when(runV == 1)
+	{
+		pvGet(delV);
+		pvGet(delT);
+
+	} state VoltageRamp
+
+	when(runI == 1)
+	{
+		pvGet(delI);
+		pvGet(delT);
+	
+	} state CurrentRamp
+  }
+}
