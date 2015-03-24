@@ -26,7 +26,7 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 10
+sleep 60
 done
 
 
@@ -53,7 +53,7 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 10
+sleep 60
 done
 done
 done
