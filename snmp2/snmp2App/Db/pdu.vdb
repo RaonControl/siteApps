@@ -260,7 +260,6 @@ record(snmp, "${A}:${P}_Outlet8_R") {
     field(HOST, "${HOST}")
     field(COMM, "${COM}")
     field(OIDS, "${PO}sPDUOutletCtl.8")
-    field(MDEL, "-1")
 }
 record(snmp, "${A}:${P}_Outlet8_W") {
     field(DESC, "PDU outlet8 control")
@@ -272,7 +271,6 @@ record(snmp, "${A}:${P}_Outlet8_W") {
     field(HOST, "${HOST}")
     field(COMM, "${USER}")
     field(OIDS, "${PO}sPDUOutletCtl.8")
-    field(MDEL, "-1")
 }
 # ----------------------------------------------------------------------
 ## Set time OutletOffWithDelay

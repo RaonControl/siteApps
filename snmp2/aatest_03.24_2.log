@@ -1,33 +1,33 @@
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:44:42
+SNMPIOC:TIMESTAMP              2015/03/24 17:41:54
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1200 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       25
-WIENER:CRATE3_FanNominalSpeed_R 2000
-WIENER:CRATE3_FanNominalSpeed_W 2000
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1200
+WIENER:CRATE3_FanNominalSpeed_W 0
 APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
+APC:PDU2_Outlet8_W             0
 caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
+Old : APC:PDU2_Outlet8_W             0
 New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 2000
+Old : WIENER:CRATE3_FanNominalSpeed_W 0
 New : WIENER:CRATE3_FanNominalSpeed_W 1200
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:45:43
+SNMPIOC:TIMESTAMP              2015/03/24 17:42:55
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1200 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
@@ -45,7 +45,7 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 1200
 New : WIENER:CRATE3_FanNominalSpeed_W 1300
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:46:43
+SNMPIOC:TIMESTAMP              2015/03/24 17:43:55
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -57,7 +57,7 @@ PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanairTemp       25
 WIENER:CRATE3_FanNominalSpeed_R 1300
 WIENER:CRATE3_FanNominalSpeed_W 1300
 APC:PDU2_Outlet8_R             2
@@ -68,7 +68,7 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 1300
 New : WIENER:CRATE3_FanNominalSpeed_W 1400
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:47:43
+SNMPIOC:TIMESTAMP              2015/03/24 17:44:55
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -91,7 +91,7 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 1400
 New : WIENER:CRATE3_FanNominalSpeed_W 1500
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:48:44
+SNMPIOC:TIMESTAMP              2015/03/24 17:45:56
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -114,12 +114,12 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 1500
 New : WIENER:CRATE3_FanNominalSpeed_W 1600
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:49:44
+SNMPIOC:TIMESTAMP              2015/03/24 17:46:56
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
@@ -137,7 +137,7 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 1600
 New : WIENER:CRATE3_FanNominalSpeed_W 1700
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:50:44
+SNMPIOC:TIMESTAMP              2015/03/24 17:47:56
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -149,7 +149,7 @@ PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanairTemp       23
 WIENER:CRATE3_FanNominalSpeed_R 1700
 WIENER:CRATE3_FanNominalSpeed_W 1700
 APC:PDU2_Outlet8_R             2
@@ -160,7 +160,7 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 1700
 New : WIENER:CRATE3_FanNominalSpeed_W 1800
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:51:45
+SNMPIOC:TIMESTAMP              2015/03/24 17:48:57
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -183,7 +183,7 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 1800
 New : WIENER:CRATE3_FanNominalSpeed_W 1900
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:52:45
+SNMPIOC:TIMESTAMP              2015/03/24 17:49:57
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -206,19 +206,19 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 1900
 New : WIENER:CRATE3_FanNominalSpeed_W 2000
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:53:45
+SNMPIOC:TIMESTAMP              2015/03/24 17:50:57
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanairTemp       25
 WIENER:CRATE3_FanNominalSpeed_R 2000
 WIENER:CRATE3_FanNominalSpeed_W 2000
 APC:PDU2_Outlet8_R             1
@@ -229,7 +229,7 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2000
 New : WIENER:CRATE3_FanNominalSpeed_W 2100
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:54:46
+SNMPIOC:TIMESTAMP              2015/03/24 17:51:58
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -252,19 +252,19 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2100
 New : WIENER:CRATE3_FanNominalSpeed_W 2200
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:55:46
+SNMPIOC:TIMESTAMP              2015/03/24 17:52:58
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanairTemp       24
 WIENER:CRATE3_FanNominalSpeed_R 2200
 WIENER:CRATE3_FanNominalSpeed_W 2200
 APC:PDU2_Outlet8_R             1
@@ -275,12 +275,12 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2200
 New : WIENER:CRATE3_FanNominalSpeed_W 2300
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:56:46
+SNMPIOC:TIMESTAMP              2015/03/24 17:53:58
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
@@ -298,12 +298,12 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2300
 New : WIENER:CRATE3_FanNominalSpeed_W 2400
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:57:47
+SNMPIOC:TIMESTAMP              2015/03/24 17:54:59
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
@@ -321,19 +321,19 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2400
 New : WIENER:CRATE3_FanNominalSpeed_W 2500
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:58:47
+SNMPIOC:TIMESTAMP              2015/03/24 17:55:59
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanairTemp       23
 WIENER:CRATE3_FanNominalSpeed_R 2500
 WIENER:CRATE3_FanNominalSpeed_W 2500
 APC:PDU2_Outlet8_R             2
@@ -344,7 +344,7 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2500
 New : WIENER:CRATE3_FanNominalSpeed_W 2600
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 16:59:47
+SNMPIOC:TIMESTAMP              2015/03/24 17:56:59
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -356,7 +356,7 @@ PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanairTemp       22
 WIENER:CRATE3_FanNominalSpeed_R 2600
 WIENER:CRATE3_FanNominalSpeed_W 2600
 APC:PDU2_Outlet8_R             1
@@ -367,7 +367,7 @@ New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2600
 New : WIENER:CRATE3_FanNominalSpeed_W 2700
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:00:48
+SNMPIOC:TIMESTAMP              2015/03/24 17:58:00
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -390,12 +390,104 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2700
 New : WIENER:CRATE3_FanNominalSpeed_W 2800
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:01:48
+SNMPIOC:TIMESTAMP              2015/03/24 17:59:00
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2800 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 2800
+WIENER:CRATE3_FanNominalSpeed_W 2800
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2800
+New : WIENER:CRATE3_FanNominalSpeed_W 2900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:00:00
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2900 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 2900
+WIENER:CRATE3_FanNominalSpeed_W 2900
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2900
+New : WIENER:CRATE3_FanNominalSpeed_W 3000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:01:01
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 3000 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 3000
+WIENER:CRATE3_FanNominalSpeed_W 3000
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 3000
+New : WIENER:CRATE3_FanNominalSpeed_W 2900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:02:01
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2900 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2900
+WIENER:CRATE3_FanNominalSpeed_W 2900
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2900
+New : WIENER:CRATE3_FanNominalSpeed_W 2800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:03:01
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2800 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
@@ -411,9 +503,745 @@ caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
 New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2800
+New : WIENER:CRATE3_FanNominalSpeed_W 2700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:04:02
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2700 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2700
+WIENER:CRATE3_FanNominalSpeed_W 2700
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2700
+New : WIENER:CRATE3_FanNominalSpeed_W 2600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:05:02
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2600 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2600
+WIENER:CRATE3_FanNominalSpeed_W 2600
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2600
+New : WIENER:CRATE3_FanNominalSpeed_W 2500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:06:02
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 2500
+WIENER:CRATE3_FanNominalSpeed_W 2500
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2500
+New : WIENER:CRATE3_FanNominalSpeed_W 2400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:07:03
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2400
+WIENER:CRATE3_FanNominalSpeed_W 2400
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2400
+New : WIENER:CRATE3_FanNominalSpeed_W 2300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:08:03
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2300
+WIENER:CRATE3_FanNominalSpeed_W 2300
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2300
+New : WIENER:CRATE3_FanNominalSpeed_W 2200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:09:03
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2200
+WIENER:CRATE3_FanNominalSpeed_W 2200
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2200
+New : WIENER:CRATE3_FanNominalSpeed_W 2100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:10:04
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2100 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2100
+WIENER:CRATE3_FanNominalSpeed_W 2100
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2100
+New : WIENER:CRATE3_FanNominalSpeed_W 2000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:11:04
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2000
+WIENER:CRATE3_FanNominalSpeed_W 2000
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2000
+New : WIENER:CRATE3_FanNominalSpeed_W 1900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:12:04
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1900 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 1900
+WIENER:CRATE3_FanNominalSpeed_W 1900
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1900
+New : WIENER:CRATE3_FanNominalSpeed_W 1800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:13:05
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1800 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 1800
+WIENER:CRATE3_FanNominalSpeed_W 1800
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 1800
+New : WIENER:CRATE3_FanNominalSpeed_W 1700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:14:05
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1700 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1700
+WIENER:CRATE3_FanNominalSpeed_W 1700
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1700
+New : WIENER:CRATE3_FanNominalSpeed_W 1600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:15:05
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1600
+WIENER:CRATE3_FanNominalSpeed_W 1600
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 1600
+New : WIENER:CRATE3_FanNominalSpeed_W 1500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:16:06
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1500 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1500
+WIENER:CRATE3_FanNominalSpeed_W 1500
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1500
+New : WIENER:CRATE3_FanNominalSpeed_W 1400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:17:06
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1400 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 1400
+WIENER:CRATE3_FanNominalSpeed_W 1400
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 1400
+New : WIENER:CRATE3_FanNominalSpeed_W 1300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:18:06
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1300 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 1300
+WIENER:CRATE3_FanNominalSpeed_W 1300
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1300
+New : WIENER:CRATE3_FanNominalSpeed_W 1200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:19:07
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1200 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1200
+WIENER:CRATE3_FanNominalSpeed_W 1200
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 1200
+New : WIENER:CRATE3_FanNominalSpeed_W 1300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:20:07
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1300 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1300
+WIENER:CRATE3_FanNominalSpeed_W 1300
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1300
+New : WIENER:CRATE3_FanNominalSpeed_W 1400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:21:08
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1400 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 1400
+WIENER:CRATE3_FanNominalSpeed_W 1400
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 1400
+New : WIENER:CRATE3_FanNominalSpeed_W 1500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:22:08
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1500 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1500
+WIENER:CRATE3_FanNominalSpeed_W 1500
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1500
+New : WIENER:CRATE3_FanNominalSpeed_W 1600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:23:08
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1600
+WIENER:CRATE3_FanNominalSpeed_W 1600
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 1600
+New : WIENER:CRATE3_FanNominalSpeed_W 1700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:24:09
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1700 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1700
+WIENER:CRATE3_FanNominalSpeed_W 1700
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1700
+New : WIENER:CRATE3_FanNominalSpeed_W 1800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:25:09
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1800 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 1800
+WIENER:CRATE3_FanNominalSpeed_W 1800
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 1800
+New : WIENER:CRATE3_FanNominalSpeed_W 1900
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:26:09
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 26 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1900 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 1900
+WIENER:CRATE3_FanNominalSpeed_W 1900
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 1900
+New : WIENER:CRATE3_FanNominalSpeed_W 2000
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:27:10
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       25
+WIENER:CRATE3_FanNominalSpeed_R 2000
+WIENER:CRATE3_FanNominalSpeed_W 2000
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2000
+New : WIENER:CRATE3_FanNominalSpeed_W 2100
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:28:10
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2100 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2100
+WIENER:CRATE3_FanNominalSpeed_W 2100
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2100
+New : WIENER:CRATE3_FanNominalSpeed_W 2200
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:29:10
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanNominalSpeed_R 2200
+WIENER:CRATE3_FanNominalSpeed_W 2200
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2200
+New : WIENER:CRATE3_FanNominalSpeed_W 2300
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:30:11
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2300
+WIENER:CRATE3_FanNominalSpeed_W 2300
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2300
+New : WIENER:CRATE3_FanNominalSpeed_W 2400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:31:11
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2400
+WIENER:CRATE3_FanNominalSpeed_W 2400
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2400
+New : WIENER:CRATE3_FanNominalSpeed_W 2500
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:32:11
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2500
+WIENER:CRATE3_FanNominalSpeed_W 2500
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2500
+New : WIENER:CRATE3_FanNominalSpeed_W 2600
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:33:12
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2600 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 2600
+WIENER:CRATE3_FanNominalSpeed_W 2600
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2600
+New : WIENER:CRATE3_FanNominalSpeed_W 2700
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:34:12
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2700 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       25
+WIENER:CRATE3_FanNominalSpeed_R 2700
+WIENER:CRATE3_FanNominalSpeed_W 2700
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2700
+New : WIENER:CRATE3_FanNominalSpeed_W 2800
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:35:12
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2800 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2800
+WIENER:CRATE3_FanNominalSpeed_W 2800
+APC:PDU2_Outlet8_R             1
+APC:PDU2_Outlet8_W             1
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
+Old : WIENER:CRATE3_FanNominalSpeed_W 2800
 New : WIENER:CRATE3_FanNominalSpeed_W 2900
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:02:48
+SNMPIOC:TIMESTAMP              2015/03/24 18:36:13
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -425,7 +1253,7 @@ PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       25
+WIENER:CRATE3_FanairTemp       23
 WIENER:CRATE3_FanNominalSpeed_R 2900
 WIENER:CRATE3_FanNominalSpeed_W 2900
 APC:PDU2_Outlet8_R             2
@@ -436,7 +1264,7 @@ New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2900
 New : WIENER:CRATE3_FanNominalSpeed_W 3000
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:03:49
+SNMPIOC:TIMESTAMP              2015/03/24 18:37:13
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -448,92 +1276,92 @@ PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanairTemp       25
 WIENER:CRATE3_FanNominalSpeed_R 3000
 WIENER:CRATE3_FanNominalSpeed_W 3000
 APC:PDU2_Outlet8_R             1
 APC:PDU2_Outlet8_W             1
 caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 3000
 New : WIENER:CRATE3_FanNominalSpeed_W 2900
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:04:49
+SNMPIOC:TIMESTAMP              2015/03/24 18:38:13
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
 WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2900 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanairTemp       23
 WIENER:CRATE3_FanNominalSpeed_R 2900
 WIENER:CRATE3_FanNominalSpeed_W 2900
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
 caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
+Old : APC:PDU2_Outlet8_W             2
 New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2900
 New : WIENER:CRATE3_FanNominalSpeed_W 2800
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:05:49
+SNMPIOC:TIMESTAMP              2015/03/24 18:39:14
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2800 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanairTemp       23
 WIENER:CRATE3_FanNominalSpeed_R 2800
 WIENER:CRATE3_FanNominalSpeed_W 2800
 APC:PDU2_Outlet8_R             1
 APC:PDU2_Outlet8_W             1
 caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2800
 New : WIENER:CRATE3_FanNominalSpeed_W 2700
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:06:50
+SNMPIOC:TIMESTAMP              2015/03/24 18:40:14
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2700 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanairTemp       25
 WIENER:CRATE3_FanNominalSpeed_R 2700
 WIENER:CRATE3_FanNominalSpeed_W 2700
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
 caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
+Old : APC:PDU2_Outlet8_W             2
 New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2700
 New : WIENER:CRATE3_FanNominalSpeed_W 2600
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:07:50
+SNMPIOC:TIMESTAMP              2015/03/24 18:41:14
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2600 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
@@ -547,85 +1375,85 @@ APC:PDU2_Outlet8_R             1
 APC:PDU2_Outlet8_W             1
 caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2600
 New : WIENER:CRATE3_FanNominalSpeed_W 2500
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:08:50
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
-WIENER:CRATE3_FanNominalSpeed_R 2500
-WIENER:CRATE3_FanNominalSpeed_W 2500
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 2500
-New : WIENER:CRATE3_FanNominalSpeed_W 2400
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:09:51
+SNMPIOC:TIMESTAMP              2015/03/24 18:42:15
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
 WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       24
+WIENER:CRATE3_FanNominalSpeed_R 2500
+WIENER:CRATE3_FanNominalSpeed_W 2500
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 2500
+New : WIENER:CRATE3_FanNominalSpeed_W 2400
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/03/24 18:43:15
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanairTemp       24
 WIENER:CRATE3_FanNominalSpeed_R 2400
 WIENER:CRATE3_FanNominalSpeed_W 2400
 APC:PDU2_Outlet8_R             1
 APC:PDU2_Outlet8_W             1
 caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2400
 New : WIENER:CRATE3_FanNominalSpeed_W 2300
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:10:51
+SNMPIOC:TIMESTAMP              2015/03/24 18:44:15
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanairTemp       23
 WIENER:CRATE3_FanNominalSpeed_R 2300
 WIENER:CRATE3_FanNominalSpeed_W 2300
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
 caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
+Old : APC:PDU2_Outlet8_W             2
 New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2300
 New : WIENER:CRATE3_FanNominalSpeed_W 2200
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:11:51
+SNMPIOC:TIMESTAMP              2015/03/24 18:45:16
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
@@ -639,34 +1467,34 @@ APC:PDU2_Outlet8_R             1
 APC:PDU2_Outlet8_W             1
 caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2200
 New : WIENER:CRATE3_FanNominalSpeed_W 2100
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:12:51
+SNMPIOC:TIMESTAMP              2015/03/24 18:46:16
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2100 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
+WIENER:CRATE3_FanairTemp       24
 WIENER:CRATE3_FanNominalSpeed_R 2100
 WIENER:CRATE3_FanNominalSpeed_W 2100
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
 caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
+Old : APC:PDU2_Outlet8_W             2
 New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 2100
 New : WIENER:CRATE3_FanNominalSpeed_W 2000
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:13:52
+SNMPIOC:TIMESTAMP              2015/03/24 18:47:16
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
@@ -685,18 +1513,18 @@ APC:PDU2_Outlet8_R             1
 APC:PDU2_Outlet8_W             1
 caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2000
 New : WIENER:CRATE3_FanNominalSpeed_W 1900
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:14:52
+SNMPIOC:TIMESTAMP              2015/03/24 18:48:17
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
 WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1900 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
@@ -704,45 +1532,45 @@ WIENER:CRATE3_PS_Status        80 mainOn(0)
 WIENER:CRATE3_FanairTemp       22
 WIENER:CRATE3_FanNominalSpeed_R 1900
 WIENER:CRATE3_FanNominalSpeed_W 1900
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
 caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
+Old : APC:PDU2_Outlet8_W             2
 New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 1900
 New : WIENER:CRATE3_FanNominalSpeed_W 1800
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:15:52
+SNMPIOC:TIMESTAMP              2015/03/24 18:49:17
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1800 RPM
 PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
 WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanairTemp       24
 WIENER:CRATE3_FanNominalSpeed_R 1800
 WIENER:CRATE3_FanNominalSpeed_W 1800
 APC:PDU2_Outlet8_R             1
 APC:PDU2_Outlet8_W             1
 caput ---------------------------------------------------------
 Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
+New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 1800
 New : WIENER:CRATE3_FanNominalSpeed_W 1700
 ***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:16:53
+SNMPIOC:TIMESTAMP              2015/03/24 18:50:17
 ---------------------------------------------------------------
 snmpget -------------------------------------------------------
 WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
 WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
 WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1700 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
 ---------------------------------------------------------------
 caget ---------------------------------------------------------
 WIENER:CRATE3_MainPower_R      1
@@ -750,424 +1578,10 @@ WIENER:CRATE3_PS_Status        80 mainOn(0)
 WIENER:CRATE3_FanairTemp       24
 WIENER:CRATE3_FanNominalSpeed_R 1700
 WIENER:CRATE3_FanNominalSpeed_W 1700
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
 caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
+Old : APC:PDU2_Outlet8_W             2
 New : APC:PDU2_Outlet8_W             1
 Old : WIENER:CRATE3_FanNominalSpeed_W 1700
 New : WIENER:CRATE3_FanNominalSpeed_W 1600
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:17:53
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       25
-WIENER:CRATE3_FanNominalSpeed_R 1600
-WIENER:CRATE3_FanNominalSpeed_W 1600
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 1600
-New : WIENER:CRATE3_FanNominalSpeed_W 1500
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:18:53
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1500 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
-WIENER:CRATE3_FanNominalSpeed_R 1500
-WIENER:CRATE3_FanNominalSpeed_W 1500
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 1500
-New : WIENER:CRATE3_FanNominalSpeed_W 1400
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:19:54
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1400 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
-WIENER:CRATE3_FanNominalSpeed_R 1400
-WIENER:CRATE3_FanNominalSpeed_W 1400
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 1400
-New : WIENER:CRATE3_FanNominalSpeed_W 1300
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:20:54
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1300 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
-WIENER:CRATE3_FanNominalSpeed_R 1300
-WIENER:CRATE3_FanNominalSpeed_W 1300
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 1300
-New : WIENER:CRATE3_FanNominalSpeed_W 1200
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:21:54
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1200 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
-WIENER:CRATE3_FanNominalSpeed_R 1200
-WIENER:CRATE3_FanNominalSpeed_W 1200
-APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 1200
-New : WIENER:CRATE3_FanNominalSpeed_W 1300
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:22:55
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1300 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
-WIENER:CRATE3_FanNominalSpeed_R 1300
-WIENER:CRATE3_FanNominalSpeed_W 1300
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 1300
-New : WIENER:CRATE3_FanNominalSpeed_W 1400
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:23:55
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1400 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
-WIENER:CRATE3_FanNominalSpeed_R 1400
-WIENER:CRATE3_FanNominalSpeed_W 1400
-APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 1400
-New : WIENER:CRATE3_FanNominalSpeed_W 1500
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:24:55
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1500 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       25
-WIENER:CRATE3_FanNominalSpeed_R 1500
-WIENER:CRATE3_FanNominalSpeed_W 1500
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 1500
-New : WIENER:CRATE3_FanNominalSpeed_W 1600
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:25:56
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1600 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
-WIENER:CRATE3_FanNominalSpeed_R 1600
-WIENER:CRATE3_FanNominalSpeed_W 1600
-APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 1600
-New : WIENER:CRATE3_FanNominalSpeed_W 1700
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:26:56
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 25 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1700 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       24
-WIENER:CRATE3_FanNominalSpeed_R 1700
-WIENER:CRATE3_FanNominalSpeed_W 1700
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 1700
-New : WIENER:CRATE3_FanNominalSpeed_W 1800
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:27:56
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1800 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       25
-WIENER:CRATE3_FanNominalSpeed_R 1800
-WIENER:CRATE3_FanNominalSpeed_W 1800
-APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 1800
-New : WIENER:CRATE3_FanNominalSpeed_W 1900
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:28:57
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 1900 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
-WIENER:CRATE3_FanNominalSpeed_R 1900
-WIENER:CRATE3_FanNominalSpeed_W 1900
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 1900
-New : WIENER:CRATE3_FanNominalSpeed_W 2000
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:29:57
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2000 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       25
-WIENER:CRATE3_FanNominalSpeed_R 2000
-WIENER:CRATE3_FanNominalSpeed_W 2000
-APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 2000
-New : WIENER:CRATE3_FanNominalSpeed_W 2100
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:30:57
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2100 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
-WIENER:CRATE3_FanNominalSpeed_R 2100
-WIENER:CRATE3_FanNominalSpeed_W 2100
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 2100
-New : WIENER:CRATE3_FanNominalSpeed_W 2200
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:31:58
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 23 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2200 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
-WIENER:CRATE3_FanNominalSpeed_R 2200
-WIENER:CRATE3_FanNominalSpeed_W 2200
-APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 2200
-New : WIENER:CRATE3_FanNominalSpeed_W 2300
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:32:58
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
-WIENER:CRATE3_FanNominalSpeed_R 2300
-WIENER:CRATE3_FanNominalSpeed_W 2300
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 2300
-New : WIENER:CRATE3_FanNominalSpeed_W 2400
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:33:58
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 21 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2400 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       22
-WIENER:CRATE3_FanNominalSpeed_R 2400
-WIENER:CRATE3_FanNominalSpeed_W 2400
-APC:PDU2_Outlet8_R             2
-APC:PDU2_Outlet8_W             2
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             2
-New : APC:PDU2_Outlet8_W             1
-Old : WIENER:CRATE3_FanNominalSpeed_W 2400
-New : WIENER:CRATE3_FanNominalSpeed_W 2500
-***************************************************************
-SNMPIOC:TIMESTAMP              2015/03/24 17:34:59
----------------------------------------------------------------
-snmpget -------------------------------------------------------
-WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
-WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
-WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 24 \ufffdC
-WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2500 RPM
-PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOn(1)
----------------------------------------------------------------
-caget ---------------------------------------------------------
-WIENER:CRATE3_MainPower_R      1
-WIENER:CRATE3_PS_Status        80 mainOn(0)
-WIENER:CRATE3_FanairTemp       23
-WIENER:CRATE3_FanNominalSpeed_R 2500
-WIENER:CRATE3_FanNominalSpeed_W 2500
-APC:PDU2_Outlet8_R             1
-APC:PDU2_Outlet8_W             1
-caput ---------------------------------------------------------
-Old : APC:PDU2_Outlet8_W             1
-New : APC:PDU2_Outlet8_W             2
-Old : WIENER:CRATE3_FanNominalSpeed_W 2500
-New : WIENER:CRATE3_FanNominalSpeed_W 2600
