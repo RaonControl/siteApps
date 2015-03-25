@@ -1,12 +1,12 @@
 record(bo, "GPIO:OUT1")
 {
   field(DTYP, "GPIO")
-  field(OUT, "@1")
+  field(OUT, "@27")
 }
 
 record(bi, "GPIO:INP1")
 {
   field(DTYP, "GPIO")
-  field(INP, "@2")
+  field(INP, "@28")
   field(SCAN, ".1 second")
 }
