@@ -734,7 +734,7 @@ record(snmp, "${A}:${P}_OutletOntime8_W") {
 
 # ----------------------------------------------------------------------
 ## Power Load
-# Getting/setting this OID will return/set the Power Factor in thousanths (1000 is power factor of 1). Valid range is from 0 to 1000.
+# Getting this OID will return the phase/bank load measured in tenths of Amps.
 record(snmp, "${A}:${P}_PowerLoad") {
     field(DESC, "PDU PowerLoad")
     field(DTYP, "SNMP Read")
