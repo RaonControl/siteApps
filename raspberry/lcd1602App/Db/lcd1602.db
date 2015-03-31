@@ -8,12 +8,16 @@ record(ao, "LCD:B")
   field(FLNK, "LCD:STR")
 }
 
+
 record(lcdout, "LCD:STR")
 {
   field(DTYP, "LCD1602")
+  field(OUT, "@2 16 4 4 5 0 1 2 3")
+  field(DIRS, "1")
   field(INPA, "LCD:A")
   field(STRA, "StringA")
+  field(UNIA, "C")
   field(INPB, "LCD:B")
   field(STRB, "StringB")
-
+  field(UNIB, "%")
 }
