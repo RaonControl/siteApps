@@ -1,0 +1,13 @@
+importPackage(Packages.org.csstudio.opibuilder.scriptUtil);
+
+var status = PVUtil.getString(pvs[0]);
+
+if (status == "80 vmeSysfail(7)") {
+widget.setPropertyValue("on_label", "VME SYSFAIL");
+widget.setPropertyValue("on_color","Major");
+
+} else {
+widget.setPropertyValue("on_label", "OFF");
+widget.setPropertyValue("on_state",0);
+widget.setPropertyValue("on_color",ColorFontUtil.getColorFromRGB(176,5,0));
+}

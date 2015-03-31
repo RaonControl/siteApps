@@ -1,0 +1,12 @@
+importPackage(Packages.org.csstudio.opibuilder.scriptUtil);
+
+var status = PVUtil.getString(pvs[0]);
+
+if (status == "80 fantrayFailure(5)") {
+widget.setPropertyValue("on_state",1);
+widget.setPropertyValue("on_color",ColorFontUtil.getColorFromRGB(255,255,0));
+
+} else {
+widget.setPropertyValue("on_state",0);
+widget.setPropertyValue("on_color",ColorFontUtil.getColorFromRGB(170,170,8));
+}
