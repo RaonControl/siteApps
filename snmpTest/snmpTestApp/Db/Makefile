@@ -12,8 +12,6 @@ include $(TOP)/configure/CONFIG
 # databases, templates, substitutions like this
 #DB += xxx.db
 DB += xerox.vdb
-DB += kyocera.vdb
-DB += timestamp.vdb
 
 
 #----------------------------------------------------

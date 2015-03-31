@@ -10,7 +10,6 @@ USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
 snmpMon_DIR += ${RAON_SITELIBS}/lib/$(T_A)
 timeStamp_DIR += $(RAON_SITELIBS)/lib/$(T_A)
 
-
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
@@ -18,38 +17,36 @@ timeStamp_DIR += $(RAON_SITELIBS)/lib/$(T_A)
 #=============================
 # Build the IOC application
 
-PROD_IOC = snmp2
-# snmp2.dbd will be created and installed
-DBD += snmp2.dbd
+PROD_IOC = snmpTest
+# snmpTest.dbd will be created and installed
+DBD += snmpTest.dbd
 
-# snmp2.dbd will be made up from these files:
-snmp2_DBD += base.dbd
-snmp2_DBD += snmpRecord.dbd
-snmp2_DBD += timestampRecord.dbd
-
+# snmpTest.dbd will be made up from these files:
+snmpTest_DBD += base.dbd
+snmpTest_DBD += snmpRecord.dbd
+snmpTest_DBD += timestampRecord.dbd
 
 # Include dbd files from all support applications:
-#snmp2_DBD += xxx.dbd
-snmp2_DBD += snmpDevSoft.dbd
-snmp2_DBD += timestampDevSoft.dbd
+#snmpTest_DBD += xxx.dbd
+snmpTest_DBD += snmpDevSoft.dbd
+snmpTest_DBD += timestampDevSoft.dbd
 
 # Add all the support libraries needed by this IOC
-#snmp2_LIBS += xxx
-snmp2_LIBS += snmpMon timeStamp
+#snmpTest_LIBS += xxx
+snmpTest_LIBS += snmpMon timeStamp
 
-
-# snmp2_registerRecordDeviceDriver.cpp derives from snmp2.dbd
-snmp2_SRCS += snmp2_registerRecordDeviceDriver.cpp
+# snmpTest_registerRecordDeviceDriver.cpp derives from snmpTest.dbd
+snmpTest_SRCS += snmpTest_registerRecordDeviceDriver.cpp
 
 # Build the main IOC entry point on workstation OSs.
-snmp2_SRCS_DEFAULT += snmp2Main.cpp
-snmp2_SRCS_vxWorks += -nil-
+snmpTest_SRCS_DEFAULT += snmpTestMain.cpp
+snmpTest_SRCS_vxWorks += -nil-
 
 # Add support from base/src/vxWorks if needed
-#snmp2_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
+#snmpTest_OBJS_vxWorks += $(EPICS_BASE_BIN)/vxComLibrary
 
 # Finally link to the EPICS Base libraries
-snmp2_LIBS += $(EPICS_BASE_IOC_LIBS)
+snmpTest_LIBS += $(EPICS_BASE_IOC_LIBS)
 
 #===========================
 
