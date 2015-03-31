@@ -11,6 +11,8 @@ epicsEnvSet "SUBSYS" "$(SUBSYS=Diag)"
 epicsEnvSet "DEV" "$(DEV=FC01)"
 #epicsEnvSet "TTY" "$(TTY=/dev/ttyUSB0)"
 epicsEnvSet "TTY" "$(TTY=/dev/ttyS0)"
+epicsEnvSet "EPICS_CA_SERVER_PORT" "15065"
+
 
 cd ${TOP}
 ## Register all support components
