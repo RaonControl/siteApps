@@ -1,8 +1,17 @@
 #!/bin/bash
 
-while [ : ]; do  
+x=1
+
+while [ $x ]; do  
 #++
+
 for i in {1200..2200..100};do
+
+echo ""
+echo "COUNT : $x"
+echo ""
+x=$(( $x + 1 ))
+
 echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
@@ -15,11 +24,18 @@ caput WIENER:CRATE3_FanNominalSpeed_W $i
 # echo "snmpset -------------------------------------------------------"
 # snmpset -v 3 -u admin -l authPriv -a MD5 -A MySecret -x DES -X MySecret 10.1.5.123 WIENER-CRATE-MIB::fanNominalSpeed.0 i $i
 # echo $i
-sleep 60
+sleep 10
 done
 
 #--
+
 for i in {2100..1300..100};do
+
+echo ""
+echo "COUNT : $x"
+echo ""
+x=$(( $x + 1 ))
+
 echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
@@ -32,6 +48,6 @@ caput WIENER:CRATE3_FanNominalSpeed_W $i
 # echo "snmpset -------------------------------------------------------"
 # snmpset -v 3 -u admin -l authPriv -a MD5 -A MySecret -x DES -X MySecret 10.1.5.123 WIENER-CRATE-MIB::fanNominalSpeed.0 i $i
 # echo $i
-sleep 60
+sleep 10
 done
 done

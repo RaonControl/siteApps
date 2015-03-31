@@ -1,9 +1,17 @@
 #!/bin/bash
 
-while [ : ]; do  
+x=1
+
+while [ $x ]; do  
 #++
 
 for i in {1200..3000..100};do
+
+echo ""
+echo "COUNT : $x"
+echo ""
+x=$(( $x + 1 ))
+
 stat=`caget APC:PDU2_Outlet8_R`
 echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
@@ -27,12 +35,18 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 60
+sleep 30
 done
 
 
 #--
 for i in {2900..1300..100};do
+
+echo ""
+echo "COUNT : $x"
+echo ""
+x=$(( $x + 1 ))
+
 stat=`caget APC:PDU2_Outlet8_R`
 echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
@@ -55,7 +69,7 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 60
+sleep 30
 done
 done
 done

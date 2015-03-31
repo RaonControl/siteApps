@@ -399,3 +399,19 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 - snmp2/
 
 !ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-03-24 15:55:24.385
 !MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-03-25 13:39:06.790
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.AnimationManager$1
+
+!ENTRY org.eclipse.core.jobs 2 2 2015-03-25 13:39:06.791
+!MESSAGE Job found still running after platform shutdown.  Jobs should be canceled by the plugin that scheduled them during shutdown: org.eclipse.ui.internal.progress.ProgressViewUpdater$1
+!SESSION 2015-03-25 13:49:40.965 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.7.0_25
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Framework arguments:  - snmp2/
+Command-line arguments:  -os linux -ws gtk -arch x86_64 - snmp2/
+
+!ENTRY org.eclipse.equinox.p2.metadata.repository 4 1000 2015-03-25 13:49:57.632
+!MESSAGE No repository found at http://cs-studio.sourceforge.net/nsls2/updates.
