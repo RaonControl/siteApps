@@ -43,7 +43,7 @@ We are developing a script to overcome these drawbacks or failures, so by using 
 2. if there is the existent session, it will attach to that sesseion.
 
 
-## Few command for GNU Screen
+## Few commands for GNU Screen
 
 ### Inside GNU Screen
 
