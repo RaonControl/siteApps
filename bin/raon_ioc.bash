@@ -40,8 +40,19 @@ host_name=${HOSTNAME}
 # default_version="3.14.12.5"
 
 goApps() {
-    cd ${RAON_SITEAPPS}
-    cd $1
+
+    if [ -z ${RAON_SITEAPPS} ]; then
+	echo "No EPICS environment variables are found. Force to set the default one."
+	echo "~/epics/R3.14.12.5/setEpicsEnv.sh"
+	. ~/epics/R3.14.12.5/setEpicsEnv.sh
+    fi
+
+    if [[ $# -eq 0 ]] ; then
+	cd ${RAON_SITEAPPS}
+    else
+	cd ${RAON_SITEAPPS}
+	cd $1
+    fi
 }
 
 goIoc() {
@@ -70,7 +81,7 @@ case "$ioc_name" in
 	CHECKPLAT=$(eval screen -ls |grep ${ioc_name})
 	if [ -z "$CHECKPLAT" ] ; then
 #    echo "No ${ioc_name} IOC on $HOSTNAME, executing......"
-	    screen -fn -S ${ioc_name} -L -c ${RAON_SITEAPPS}/scripts/ioc_screenrc -t ${ioc_name} ./st.cmd
+	    screen -fn -S ${ioc_name} -c ${RAON_SITEAPPS}/bin/ioc_screenrc -t ${ioc_name} ./st.cmd
 	else
 	    echo "${ioc_name} IOC is running o $HOSTNAME, attaching ...."
 	    screen -x $ioc_name
