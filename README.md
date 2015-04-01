@@ -2,7 +2,7 @@
 
 ## Requirements
 
-Need to install EPICS_BASE, RAON_SITELIBS, and synApps
+Need to install EPICS_BASE, RAON_SITELIBS, and synApps, please see http://github.com/jeonghanlee/scripts_for_epics 
 
 ## IOC running with GNU SCREEN
 
@@ -12,7 +12,7 @@ Need to install EPICS_BASE, RAON_SITELIBS, and synApps
    $ . ~/epics/R3.14.12.5/setEpicsEnv.sh
    ```
 
-   or if one has the provided .bash_aliases
+   or if one has the provided .bash_aliases, type
 
    ```bash
    $ epicsenv
@@ -24,19 +24,21 @@ Need to install EPICS_BASE, RAON_SITELIBS, and synApps
    jhlee@kaffee:~$ epicsenv 
    jhlee@kaffee:~$ raon_ioc.bash snmp2
    ```
+   Note that *an app name* must be matched to the real application name. In the above example, **snmp2** is the application name.
 
-## why do we need this?
+## Why we DOES need it?
 
-IOC can be run by anyone who has the right to use a PC. And we usually, do not prefer to write any activity on a logbook, and do not prefer to read the logbook even if a person made a really good log entry on that. And it is quite to difficult to find where the terminal, which is used for a running IOC, is on local PC, and almost impossible to see an IOC through a remote connection. The GNU Screen can do this for our purpose.
+An EPICS IOC can be run by anyone who has the right permission to use a PC. And we usually, do not prefer to write any activity on a logbook, and do not prefer to read the logbook even if a person made a really good log entry on that. And it is quite to difficult to find where the terminal, which is used for a running IOC, is on a local PC, and almost impossible to see an IOC through a remote connection. In order to overcome these issues, the most cost-effective way is to use the GNU Screen. 
 
+We are developing a script to overcome these drawbacks or failures, so by using this script, we can *attach* to a running EPICS IOC if the IOC is running, and we can *create* an IOC, if there is no same name IOC running on that machine. Moreover, we can access the running IOC through a remote connection. 
 
 ## Deep inside in that raon_ioc.bash script.
 
 1. it creates the screen zero session with ${ioc_name} name. The ${ioc_name} must be the same as the Application name, and so on. For example, 
 
-```bash raon_ioc.bash keithley6514``` 
+  ```bash raon_ioc.bash keithley6514``` 
 
-it will create the screen session with keithley6514 if there is no keithley6514 screen session. 
+  it will create the screen session with keithley6514 if there is no keithley6514 screen session. 
 
 2. if there is the existent session, it will attach to that sesseion.
 
