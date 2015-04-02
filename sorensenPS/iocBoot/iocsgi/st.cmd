@@ -23,4 +23,4 @@ cd ${TOP}/iocBoot/${IOC}
 iocInit
 
 ## Start any sequence programs
-#seq sncxxx,"user=scwookHost"
+#seq seqRamp,"SYS=ECRIS,SUBSYS=Mag,DEV=PS001"

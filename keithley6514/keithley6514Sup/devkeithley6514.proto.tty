@@ -1,3 +1,14 @@
+#
+#
+
+@writetimeout { disconnect; }
+@replytimeout { disconnect; }
+@readtimeout  { disconnect; }
+@mismatch     { disconnect; }
+
+ReplyTimeout = 3000;
+InTerminator = "\r";
+OutTerminator = "\r";
 Terminator = CR LF;
 
 getIDN 

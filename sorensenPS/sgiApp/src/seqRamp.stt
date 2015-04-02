@@ -1,5 +1,9 @@
 program seqRamp
 
+%%#include <math.h>
+
+float setV;
+float setI;
 int runV;
 int runI;
 int stopV;
@@ -8,6 +12,8 @@ float delV;
 float delI;
 float delT;
 
+assign setV to "SEQ:SET:V";
+assign setI to "SEQ:SET:I";
 assign runV to "SEQ:RUN:V";
 assign runI to "SEQ:RUN:I";
 assign stopV to "SEQ:STOP:V";
@@ -20,6 +26,19 @@ monitor runV;
 monitor runI;
 monitor	stopV;
 monitor stopI;
+
+float devSetI;
+float devSetV;
+float devMonI;
+float devMonV;
+
+assign devSetI to "{SYS}-{SUBSYS}:{DEV}:Iset";
+assign devSetV to "{SYS}-{SUBSYS}:{DEV}:Vset";
+assign devMonI to "{SYS}-{SUBSYS}:{DEV}:Imon";
+assign devMonV to "{SYS}-{SUBSYS}:{DEV}:Vmon";
+
+float realI;
+int dir;
 
 ss ssMain
 {
@@ -43,6 +62,9 @@ ss ssMain
 	pvPut(delI);
 	pvPut(delT);
 
+	realI = 0.0f;
+	dir = 1;
+
     } state Stop
   }
 
@@ -51,7 +73,7 @@ ss ssMain
 	when(stopV)
 	{
 
-	}
+	} state Stop
 
 	when(delay(delT))
 	{
@@ -64,12 +86,26 @@ ss ssMain
   {
 	when(stopI)
 	{
+		runI = 0;
 
-	}
+	} state Stop
 
 	when(delay(delT))
 	{
+		realI += delI;
+		
+		%{
+		if(realI > abs(setI))
+		{
+			realI = setI;
+			stopI = 1;
+		}
+		}%
 
+		devSetI = realI;
+
+		pvPut(devSetI);		
+	
 	} state CurrentRamp
 
   }
@@ -85,8 +121,23 @@ ss ssMain
 
 	when(runI == 1)
 	{
+		pvGet(devMonI);
 		pvGet(delI);
+		pvGet(setI);
 		pvGet(delT);
+
+		if(setI < devMonI)
+		{
+			%% delI = (-1) * abs(delI);
+		}
+		else
+		{
+			%% delI = abs(delI);
+		}
+
+		realI = devMonI;
+		
+		stopI = 0;
 	
 	} state CurrentRamp
   }
