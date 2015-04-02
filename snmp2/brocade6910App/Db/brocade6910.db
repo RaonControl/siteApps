@@ -1,0 +1,119 @@
+record(snmp, "${L}:${D}:Port1") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.1")
+}
+
+record(snmp, "${L}:${D}:Port2") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.2")
+}
+
+record(snmp, "${L}:${D}:Port3") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.3")
+}
+
+record(snmp, "${L}:${D}:Port4") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.4")
+}
+
+record(snmp, "${L}:${D}:Port5") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.5")
+}
+
+record(snmp, "${L}:${D}:Port6") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.6")
+}
+
+record(snmp, "${L}:${D}:Port7") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.7")
+}
+
+record(snmp, "${L}:${D}:Port8") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.8")
+}
+
+record(snmp, "${L}:${D}:Port9") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.9")
+}
+
+record(snmp, "${L}:${D}:Port10") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.10")
+}
+
+record(snmp, "${L}:${D}:Port11") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.11")
+}
+
+record(snmp, "${L}:${D}:Port12") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${IF}::ifOperStatus.12")
+}

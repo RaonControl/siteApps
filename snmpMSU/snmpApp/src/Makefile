@@ -27,7 +27,7 @@ snmp_DBD += snmpRecord.dbd
 
 # Include dbd files from all support applications:
 #snmp_DBD += xxx.dbd
-snmp_DBD += snmpDevSoft.dbd
+snmp_DBD += snmpMSUDevSoft.dbd
 
 
 # Add all the support libraries needed by this IOC
