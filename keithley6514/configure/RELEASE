@@ -36,5 +36,5 @@ EPICS_BASE=${EPICS_PATH}/base
 #STREAM=${EPICS_PATH}/epicsLibs/synApps_5_8/support/stream-2-6a
 
 
-ASYN=${EPICS_PATH}/epicsLibs/synApps_5_7/support/asyn-4-21
-STREAM=${EPICS_PATH}/epicsLibs/synApps_5_7/support/stream-2-6
+ASYN=${EPICS_SYNAPPS}/asyn-4-26
+STREAM=${EPICS_SYNAPPS}/stream-2-6a

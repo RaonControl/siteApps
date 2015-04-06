@@ -18,9 +18,11 @@ brocade6910_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
-dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC1, HOST=10.1.4.205, COM=public, V2C=SNMP_VERSION_2c, IF=IF-MIB::")
+dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC1, HOST=10.1.5.230, COM=public, V2C=SNMP_VERSION_2c")
+#dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC2, HOST=192.168.1.22, COM=public, V2C=SNMP_VERSION_2c")
+#dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC3, HOST=192.168.1.23, COM=public, V2C=SNMP_VERSION_2c")
+#dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC4, HOST=192.168.1.24, COM=public, V2C=SNMP_VERSION_2c")
 
-dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC2, HOST=10.1.4.205, COM=public, V2C=SNMP_VERSION_2c, IF=IF-MIB::")
 cd ${TOP}/iocBoot/${IOC}
 iocInit
 
