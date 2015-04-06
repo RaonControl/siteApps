@@ -1,5 +1,5 @@
 # Port Status
-record(snmp, "${L}:${D}:Port1") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port1") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -9,7 +9,7 @@ record(snmp, "${L}:${D}:Port1") {
   field(OIDS, "IF-MIB::ifOperStatus.1")
 }
 
-record(snmp, "${L}:${D}:Port2") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port2") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -19,7 +19,7 @@ record(snmp, "${L}:${D}:Port2") {
   field(OIDS, "IF-MIB::ifOperStatus.2")
 }
 
-record(snmp, "${L}:${D}:Port3") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port3") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -29,7 +29,7 @@ record(snmp, "${L}:${D}:Port3") {
   field(OIDS, "IF-MIB::ifOperStatus.3")
 }
 
-record(snmp, "${L}:${D}:Port4") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port4") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -39,7 +39,7 @@ record(snmp, "${L}:${D}:Port4") {
   field(OIDS, "IF-MIB::ifOperStatus.4")
 }
 
-record(snmp, "${L}:${D}:Port5") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port5") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -49,7 +49,7 @@ record(snmp, "${L}:${D}:Port5") {
   field(OIDS, "IF-MIB::ifOperStatus.5")
 }
 
-record(snmp, "${L}:${D}:Port6") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port6") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -59,7 +59,7 @@ record(snmp, "${L}:${D}:Port6") {
   field(OIDS, "IF-MIB::ifOperStatus.6")
 }
 
-record(snmp, "${L}:${D}:Port7") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port7") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -69,7 +69,7 @@ record(snmp, "${L}:${D}:Port7") {
   field(OIDS, "IF-MIB::ifOperStatus.7")
 }
 
-record(snmp, "${L}:${D}:Port8") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port8") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -79,7 +79,7 @@ record(snmp, "${L}:${D}:Port8") {
   field(OIDS, "IF-MIB::ifOperStatus.8")
 }
 
-record(snmp, "${L}:${D}:Port9") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port9") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -89,7 +89,7 @@ record(snmp, "${L}:${D}:Port9") {
   field(OIDS, "IF-MIB::ifOperStatus.9")
 }
 
-record(snmp, "${L}:${D}:Port10") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port10") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -99,7 +99,7 @@ record(snmp, "${L}:${D}:Port10") {
   field(OIDS, "IF-MIB::ifOperStatus.10")
 }
 
-record(snmp, "${L}:${D}:Port11") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port11") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -109,7 +109,7 @@ record(snmp, "${L}:${D}:Port11") {
   field(OIDS, "IF-MIB::ifOperStatus.11")
 }
 
-record(snmp, "${L}:${D}:Port12") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port12") {
   field(DESC, "Brocade 6910 Switch")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -119,8 +119,8 @@ record(snmp, "${L}:${D}:Port12") {
   field(OIDS, "IF-MIB::ifOperStatus.12")
 }
 
-# Switch Temperature
-record(snmp, "${L}:${D}:Tem") {
+# Connection Type
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Tem") {
   field(DESC, "Switch Temperature")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -131,36 +131,36 @@ record(snmp, "${L}:${D}:Tem") {
 }
 
 # Connector Type
-record(fanout, "${L}:${D}:ReadType")
+record(fanout, "${SYS}-${SUBSYS}:${DEV}:ReadType")
 {
-  field(LNK1, "${L}:${D}:FAN1")
-  field(LNK2, "${L}:${D}:FAN2")
+  field(LNK1, "${SYS}-${SUBSYS}:${DEV}:FAN1")
+  field(LNK2, "${SYS}-${SUBSYS}:${DEV}:FAN2")
   field(PINI, "YES")
   field(VAL, "1")
 }
 
-record(fanout, "${L}:${D}:FAN1")
+record(fanout, "${SYS}-${SUBSYS}:${DEV}:FAN1")
 {
-  field(LNK1, "${L}:${D}:Type1")
-  field(LNK2, "${L}:${D}:Type2")
-  field(LNK3, "${L}:${D}:Type3")
-  field(LNK4, "${L}:${D}:Type4")
-  field(LNK5, "${L}:${D}:Type5")
-  field(LNK6, "${L}:${D}:Type6")
+  field(LNK1, "${SYS}-${SUBSYS}:${DEV}:Type1")
+  field(LNK2, "${SYS}-${SUBSYS}:${DEV}:Type2")
+  field(LNK3, "${SYS}-${SUBSYS}:${DEV}:Type3")
+  field(LNK4, "${SYS}-${SUBSYS}:${DEV}:Type4")
+  field(LNK5, "${SYS}-${SUBSYS}:${DEV}:Type5")
+  field(LNK6, "${SYS}-${SUBSYS}:${DEV}:Type6")
 }
 
-record(fanout, "${L}:${D}:FAN2")
+record(fanout, "${SYS}-${SUBSYS}:${DEV}:FAN2")
 {
-  field(LNK1, "${L}:${D}:Type7")
-  field(LNK2, "${L}:${D}:Type8")
-  field(LNK3, "${L}:${D}:Type9")
-  field(LNK4, "${L}:${D}:Type10")
-  field(LNK5, "${L}:${D}:Type11")
-  field(LNK6, "${L}:${D}:Type12")
+  field(LNK1, "${SYS}-${SUBSYS}:${DEV}:Type7")
+  field(LNK2, "${SYS}-${SUBSYS}:${DEV}:Type8")
+  field(LNK3, "${SYS}-${SUBSYS}:${DEV}:Type9")
+  field(LNK4, "${SYS}-${SUBSYS}:${DEV}:Type10")
+  field(LNK5, "${SYS}-${SUBSYS}:${DEV}:Type11")
+  field(LNK6, "${SYS}-${SUBSYS}:${DEV}:Type12")
 }
 
-record(snmp, "${L}:${D}:Type1") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type1") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -168,8 +168,8 @@ record(snmp, "${L}:${D}:Type1") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.1")
 }
 
-record(snmp, "${L}:${D}:Type2") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type2") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -177,8 +177,8 @@ record(snmp, "${L}:${D}:Type2") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.2")
 }
 
-record(snmp, "${L}:${D}:Type3") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type3") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -186,8 +186,8 @@ record(snmp, "${L}:${D}:Type3") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.3")
 }
 
-record(snmp, "${L}:${D}:Type4") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type4") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -195,8 +195,8 @@ record(snmp, "${L}:${D}:Type4") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.4")
 }
 
-record(snmp, "${L}:${D}:Type5") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type5") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -204,8 +204,8 @@ record(snmp, "${L}:${D}:Type5") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.5")
 }
 
-record(snmp, "${L}:${D}:Type6") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type6") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -213,8 +213,8 @@ record(snmp, "${L}:${D}:Type6") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.6")
 }
 
-record(snmp, "${L}:${D}:Type7") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type7") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -222,8 +222,8 @@ record(snmp, "${L}:${D}:Type7") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.7")
 }
 
-record(snmp, "${L}:${D}:Type8") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type8") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -231,8 +231,8 @@ record(snmp, "${L}:${D}:Type8") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.8")
 }
 
-record(snmp, "${L}:${D}:Type9") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type9") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -240,8 +240,8 @@ record(snmp, "${L}:${D}:Type9") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.9")
 }
 
-record(snmp, "${L}:${D}:Type10") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type10") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -249,8 +249,8 @@ record(snmp, "${L}:${D}:Type10") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.10")
 }
 
-record(snmp, "${L}:${D}:Type11") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type11") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
@@ -258,8 +258,8 @@ record(snmp, "${L}:${D}:Type11") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.11")
 }
 
-record(snmp, "${L}:${D}:Type12") {
-  field(DESC, "Switch Temperature")
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type12") {
+  field(DESC, "Connection Type")
   field(DTYP, "SNMP Read")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
