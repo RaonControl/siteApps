@@ -6,8 +6,8 @@ include $(TOP)/configure/CONFIG
 USR_INCLUDES += -I${RAON_SITELIBS}/include/
 USR_DBDFLAGS += -I${RAON_SITELIBS}/dbd/
 USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
-USR_DBDFLAGS += -I${EPICS_PATH}/epicsLibs/synApps_5_8/support/alive-1-0/aliveApp/src
-USR_INCLUDES += -I${EPICS_PATH}/epicsLibs/synApps_5_8/support/alive-1-0/include
+USR_DBDFLAGS += -I${EPICS_SYNAPPS}/alive-1-0/aliveApp/src
+USR_INCLUDES += -I${EPICS_SYNAPPS}/alive-1-0/include
 
 snmpMon_DIR += ${RAON_SITELIBS}/lib/$(T_A)
 timeStamp_DIR += $(RAON_SITELIBS)/lib/$(T_A)
