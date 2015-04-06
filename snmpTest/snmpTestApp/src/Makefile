@@ -6,10 +6,12 @@ include $(TOP)/configure/CONFIG
 USR_INCLUDES += -I${RAON_SITELIBS}/include/
 USR_DBDFLAGS += -I${RAON_SITELIBS}/dbd/
 USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
+USR_DBDFLAGS += -I${EPICS_SYNAPPS}/alive-1-0/aliveApp/src
+USR_INCLUDES += -I${EPICS_SYNAPPS}/alive-1-0/include
 
 snmpMon_DIR += ${RAON_SITELIBS}/lib/$(T_A)
 timeStamp_DIR += $(RAON_SITELIBS)/lib/$(T_A)
-
+alive_DIR += ${EPICS_PATH}/epicsLibs/synApps_5_8/support/alive-1-0/lib/$(T_A)
 #----------------------------------------
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
@@ -25,7 +27,8 @@ DBD += snmpTest.dbd
 snmpTest_DBD += base.dbd
 snmpTest_DBD += snmpRecord.dbd
 snmpTest_DBD += timestampRecord.dbd
-
+snmpTest_DBD += aliveRecord.dbd
+snmpTest_DBD += aliveSupport.dbd
 # Include dbd files from all support applications:
 #snmpTest_DBD += xxx.dbd
 snmpTest_DBD += snmpDevSoft.dbd
@@ -34,7 +37,7 @@ snmpTest_DBD += timestampDevSoft.dbd
 # Add all the support libraries needed by this IOC
 #snmpTest_LIBS += xxx
 snmpTest_LIBS += snmpMon timeStamp
-
+snmpTest_LIBS += alive
 # snmpTest_registerRecordDeviceDriver.cpp derives from snmpTest.dbd
 snmpTest_SRCS += snmpTest_registerRecordDeviceDriver.cpp
 

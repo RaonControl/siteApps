@@ -14,6 +14,8 @@ snmpTest_registerRecordDeviceDriver pdbbase
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
 dbLoadRecords("db/xerox.vdb", "HOST=10.1.4.182, COM=public, V2C=SNMP_VERSION_2c, PR=Printer-MIB::")
+dbLoadRecords("db/timestamp.vdb", "S=SNMPIOC")
+dbLoadRecords "db/alive.db", "P=aliveEx:,RHOST=10.1.4.191"
 
 cd "${TOP}/iocBoot/${IOC}"
 iocInit
