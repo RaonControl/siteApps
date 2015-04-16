@@ -1,4 +1,4 @@
-#!../../bin/linux-x86_64/brocade6910
+#!../../bin/linux-x86_64/moxa6650
 
 ## You may have to change snmp2 to something else
 ## everywhere it appears in this file
@@ -10,15 +10,15 @@ cd ${TOP}
 #epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib/mibs")
 
 ## Register all support components
-dbLoadDatabase "dbd/brocade6910.dbd"
-brocade6910_registerRecordDeviceDriver pdbbase
+dbLoadDatabase "dbd/moxa6650.dbd"
+moxa6650_registerRecordDeviceDriver pdbbase
 
 #drvSNMPConnInit("10.1.5.142", "qwertyuiop12345", "qwertyuiop12345");
 #drvSNMPConnInit("SNMP_VERSION_2c", "10.1.5.142", "public", NULL, NULL);
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
-dbLoadRecords("db/brocade6910.db", "SYS=ECRIS, SUBSYS=TEST, DEV=SWC1, HOST=10.1.5.230, COM=public, V2C=SNMP_VERSION_2c")
+dbLoadRecords("db/moxa6650.db", "SYS=ECRIS, SUBSYS=TEST, DEV=MOXA1, HOST=10.1.4.209, COM=public, V2C=SNMP_VERSION_2c")
 #dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC2, HOST=192.168.1.22, COM=public, V2C=SNMP_VERSION_2c")
 #dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC3, HOST=192.168.1.23, COM=public, V2C=SNMP_VERSION_2c")
 #dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC4, HOST=192.168.1.24, COM=public, V2C=SNMP_VERSION_2c")

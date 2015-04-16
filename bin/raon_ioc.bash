@@ -76,12 +76,31 @@ case "$ioc_name" in
 	exit 0
         ;;
     *)
-	goIoc ${ioc_name}
-	echo $PWD
 	CHECKPLAT=$(eval screen -ls |grep ${ioc_name})
 	if [ -z "$CHECKPLAT" ] ; then
-#    echo "No ${ioc_name} IOC on $HOSTNAME, executing......"
-	    screen -fn -S ${ioc_name} -c ${RAON_SITEAPPS}/bin/ioc_screenrc -t ${ioc_name} ./st.cmd
+	    
+	    case `uname -sm` in
+		"Linux i386" | "Linux i486" | "Linux i586" | "Linux i686")
+		    EPICS_HOST_ARCH=linux-x86
+		    ;;
+		"Linux x86_64")
+		    EPICS_HOST_ARCH=linux-x86_64
+		    ;;
+		"Linux armv6l")
+		    EPICS_HOST_ARCH=linux-arm
+		    ;;
+		"Linux armv7l")
+		    EPICS_HOST_ARCH=linux-arm
+		    ;;
+		*)
+		    echo "This script  doesn't support this architecture : `uname -sm`"
+		    exit 1
+		    ;;
+	    esac
+	    
+	    goIoc ${ioc_name}
+	    screen -fn -S ${ioc_name} -c ${RAON_SITEAPPS}/bin/ioc_screenrc -t ${ioc_name} ${RAON_SITEAPPS}/${ioc_name}/bin/${EPICS_HOST_ARCH}/${ioc_name} st.cmd
+	    
 	else
 	    echo "${ioc_name} IOC is running o $HOSTNAME, attaching ...."
 	    screen -x $ioc_name
