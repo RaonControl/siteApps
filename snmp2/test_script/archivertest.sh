@@ -5,7 +5,7 @@ x=1
 while [ $x ]; do  
 #++
 
-for i in {1200..3000..100};do
+for i in {1200..3600..100};do
 
 echo ""
 echo "COUNT : $x"
@@ -35,12 +35,12 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 30
+sleep 60
 done
 
 
 #--
-for i in {2900..1300..100};do
+for i in {3500..1300..100};do
 
 echo ""
 echo "COUNT : $x"
@@ -69,7 +69,7 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 30
+sleep 60
 done
 done
 done

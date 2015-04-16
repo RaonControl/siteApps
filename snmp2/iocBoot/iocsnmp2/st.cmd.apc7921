@@ -4,6 +4,8 @@
 ## everywhere it appears in this file
 
 < envPaths
+epicsEnvSet("EPICS_CA_SERVER_PORT", "10064")
+
 
 cd "${TOP}"
 
@@ -16,11 +18,9 @@ apc7921_registerRecordDeviceDriver pdbbase
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
 dbLoadRecords("db/pdu.vdb", "A=APC, P=PDU2, HOST=10.1.5.142, COM=public, USER=mijoy, V2C=SNMP_VERSION_2c, V3=SNMP_VERSION_3, PO=PowerNet-MIB::, AUTH_P=qwertyuiop12345, PRIV_P=qwertyuiop12345")
-dbLoadRecords("db/timestamp.vdb", "S=SNMPIOC")
+#dbLoadRecords("db/timestamp.vdb", "S=SNMPIOC")
 
 
-
-cd "${TOP}/iocBoot/${IOC}"
 iocInit
 
 ## Start any sequence programs
