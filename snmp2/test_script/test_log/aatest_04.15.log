@@ -57900,3 +57900,29 @@ Old : APC:PDU2_Outlet8_W             1
 New : APC:PDU2_Outlet8_W             2
 Old : WIENER:CRATE3_FanNominalSpeed_W 2900
 New : WIENER:CRATE3_FanNominalSpeed_W 3000
+
+COUNT : 2228
+
+***************************************************************
+SNMPIOC:TIMESTAMP              2015/04/17 09:05:59
+---------------------------------------------------------------
+snmpget -------------------------------------------------------
+WIENER-CRATE-MIB::sysMainSwitch.0 = INTEGER: ON(1)
+WIENER-CRATE-MIB::sysStatus.0 = BITS: 80 mainOn(0) 
+WIENER-CRATE-MIB::fanAirTemperature.0 = INTEGER: 22 \ufffdC
+WIENER-CRATE-MIB::fanNominalSpeed.0 = INTEGER: 2300 RPM
+PowerNet-MIB::sPDUOutletCtl.8 = INTEGER: outletOff(2)
+---------------------------------------------------------------
+caget ---------------------------------------------------------
+WIENER:CRATE3_MainPower_R      1
+WIENER:CRATE3_PS_Status        80 mainOn(0)
+WIENER:CRATE3_FanairTemp       22
+WIENER:CRATE3_FanNominalSpeed_R 2300
+WIENER:CRATE3_FanNominalSpeed_W 3000
+APC:PDU2_Outlet8_R             2
+APC:PDU2_Outlet8_W             2
+caput ---------------------------------------------------------
+Old : APC:PDU2_Outlet8_W             2
+New : APC:PDU2_Outlet8_W             1
+Old : WIENER:CRATE3_FanNominalSpeed_W 3000
+New : WIENER:CRATE3_FanNominalSpeed_W 3100
