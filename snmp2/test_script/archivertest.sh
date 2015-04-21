@@ -18,8 +18,8 @@ caget SNMPIOC:TIMESTAMP
 
 echo "---------------------------------------------------------------"
 echo "snmpget -------------------------------------------------------"
-snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
-snmpget -v 1 -c public 10.1.5.142 PowerNet-MIB::sPDUOutletCtl.8
+snmpget -v 1 -c public 10.1.5.142 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
+snmpget -v 1 -c public 10.1.5.123 PowerNet-MIB::sPDUOutletCtl.8
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
 caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_PS_Status WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W APC:PDU2_Outlet8_R APC:PDU2_Outlet8_W 
@@ -52,8 +52,8 @@ echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
 echo "snmpget -------------------------------------------------------"
-snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
-snmpget -v 1 -c public 10.1.5.142 PowerNet-MIB::sPDUOutletCtl.8
+snmpget -v 1 -c public 10.1.5.142 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
+snmpget -v 1 -c public 10.1.5.123 PowerNet-MIB::sPDUOutletCtl.8
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
 caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_PS_Status WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W APC:PDU2_Outlet8_R APC:PDU2_Outlet8_W 
