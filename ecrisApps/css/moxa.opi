@@ -11,9 +11,9 @@
   <height>1080</height>
   <name></name>
   <snap_to_geometry>true</snap_to_geometry>
-  <show_grid>true</show_grid>
+  <show_grid>false</show_grid>
   <background_color>
-    <color red="240" green="240" blue="240" />
+    <color red="255" green="255" blue="255" />
   </background_color>
   <foreground_color>
     <color red="192" green="192" blue="192" />
