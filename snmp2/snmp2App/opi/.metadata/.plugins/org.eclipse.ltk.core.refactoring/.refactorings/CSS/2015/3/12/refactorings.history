@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename resource &apos;CSS/snmp2/overheat.js&apos; to &apos;wiener_overheat.js&apos;" description="Rename resource &apos;overheat.js&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="snmp2/overheat.js" name="wiener_overheat.js" stamp="1426815894230" updateReferences="true"/>
-</session>
