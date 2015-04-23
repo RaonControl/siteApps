@@ -11,6 +11,6 @@ text_box="text_set_voltage_" + par
 
 value=display.getWidget(text_box).getPropertyValue("text")
 
-#PVUtil.writePV(pv_name, value)
+PVUtil.writePV(pv_name, value)
 
-ConsoleUtil.writeInfo(value)
+#ConsoleUtil.writeInfo(value)
