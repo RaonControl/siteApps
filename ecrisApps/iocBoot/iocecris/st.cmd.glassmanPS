@@ -9,6 +9,7 @@ cd ${TOP}
 
 epicsEnvSet "STREAM_PROTOCOL_PATH" "../../proto"
 
+#Currently supported PS are et50p40, fj01n120, fj10n12, fj50n024, fj50p024
 epicsEnvSet "ET50P40_VOLTAGE", "48.875855327468230"
 epicsEnvSet "ET50P40_CURRENT", "0.0391006842619745"
 epicsEnvSet "FJ01N120_VOLTAGE", "0.977517106549364"
@@ -24,15 +25,16 @@ epicsEnvSet "FJ50P024_CURRENT", "0.002346041055718"
 dbLoadDatabase "dbd/glassmanPS.dbd"
 glassmanPS_registerRecordDeviceDriver pdbbase
 
+# 80kV Platform
 drvAsynIPPortConfigure("port1", "192.168.1.142:4001", 0, 0, 0)
-#drvAsynIPPortConfigure("port1", "192.168.1.141:4001", 0, 0, 0)
-#drvAsynIPPortConfigure("port1", "192.168.1.142:4001", 0, 0, 0)
 
-## Load record instances
-#dbLoadRecords("db/xxx.db","user=scwookHost")
-
-#Currently supported PS are et50p40, fj01n120, fj10n12, fj50n024, fj50p024
 dbLoadRecords("db/glassmanPS.db", "SYS=ECRIS,SUBSYS=BIAS,DEV=PS001,PS=fj01n120,P=port1,VCOF=$(FJ01N120_VOLTAGE),CCOF=$(FJ01N120_CURRENT)")
+
+# 50kV Platform
+#drvAsynIPPortConfigure("port1", "192.168.1.141:4001", 0, 0, 0)
+
+# Ground
+#drvAsynIPPortConfigure("port1", "192.168.1.140:4001", 0, 0, 0)
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
