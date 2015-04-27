@@ -19205,7 +19205,25 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <wuid>-2376dd93:14cbbb37e85:4beb</wuid>
       <password></password>
-      <scripts />
+      <scripts>
+        <path pathString="EmbeddedPy" checkConnect="true" sfe="false" seoe="false">
+          <scriptName>value_init</scriptName>
+          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
+
+sys = widget.getMacroValue("SYS")
+subsys = widget.getMacroValue("SUBSYS")
+dev= widget.getMacroValue("DEV")
+par= widget.getMacroValue("PAR")
+
+pv_voltage = sys + "-" + subsys + ":" + dev + ":" + "v0set"
+
+power_state = PVUtil.getLong(pvs[0])
+
+if power_state == 0:
+	PVUtil.writePV(pv_voltage, "0.0")]]></scriptText>
+          <pv trig="true">${SYS}-${SUBSYS}:${DEV}:ST.B2</pv>
+        </path>
+      </scripts>
       <on_color>
         <color red="0" green="255" blue="0" />
       </on_color>
@@ -21065,10 +21083,10 @@ Platform</text>
       <SYS>ECRIS</SYS>
       <SUBSYS>BIAS</SUBSYS>
       <DEV>PS002</DEV>
-      <PAR>50kV</PAR>
+      <PAR>50kv</PAR>
     </macros>
     <visible>true</visible>
-    <wuid>58ed98ee:14cdf752452:-51ed</wuid>
+    <wuid>6dc5d0d6:14ce39bd7f6:-493d</wuid>
     <scripts />
     <height>78</height>
     <name>Grouping Container_4</name>
@@ -21101,7 +21119,7 @@ Platform</text>
     </border_color>
     <y>237</y>
     <actions hook="false" hook_all="false" />
-    <x>126</x>
+    <x>125</x>
     <tooltip></tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -21110,7 +21128,7 @@ Platform</text>
       <line_color>
         <color red="0" green="0" blue="0" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51ec</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-493c</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21167,7 +21185,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51eb</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-493b</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21224,7 +21242,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51ea</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-493a</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21281,7 +21299,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51e9</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4939</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21338,7 +21356,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51e8</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4938</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21393,7 +21411,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-51e7</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4937</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -21445,7 +21463,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51e6</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4936</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21502,7 +21520,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51e5</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4935</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21559,7 +21577,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51e4</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4934</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21616,7 +21634,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51e3</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4933</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21671,7 +21689,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-51e2</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4932</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -21723,7 +21741,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51e1</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4931</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21785,7 +21803,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-51e0</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4930</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -21829,7 +21847,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51df</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-492f</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21890,7 +21908,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-51de</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-492e</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -21934,7 +21952,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-51dd</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-492d</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -21996,7 +22014,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-51dc</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-492c</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -22062,7 +22080,7 @@ $(pv_value)</tooltip>
       <minimum>-1.7976931348623157E308</minimum>
       <next_focus>0</next_focus>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-51db</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-492b</wuid>
       <style>1</style>
       <name>text_set_current_${PAR}</name>
       <format_type>1</format_type>
@@ -22092,7 +22110,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-51da</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-492a</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -22158,7 +22176,7 @@ $(pv_value)</tooltip>
       <minimum>-1.7976931348623157E308</minimum>
       <next_focus>0</next_focus>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-51d9</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4929</wuid>
       <style>1</style>
       <name>text_set_voltage_${PAR}</name>
       <format_type>1</format_type>
@@ -22188,7 +22206,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-51d8</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4928</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -22228,7 +22246,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <visible>true</visible>
-      <wuid>58ed98ee:14cdf752452:-51d7</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4927</wuid>
       <scripts />
       <height>55</height>
       <style>1</style>
@@ -22277,7 +22295,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-51d6</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4926</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -22317,9 +22335,27 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.BoolButton" version="1.0.0">
       <border_alarm_sensitive>true</border_alarm_sensitive>
       <visible>true</visible>
-      <wuid>58ed98ee:14cdf752452:-51d5</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4925</wuid>
       <password></password>
-      <scripts />
+      <scripts>
+        <path pathString="EmbeddedPy" checkConnect="true" sfe="false" seoe="false">
+          <scriptName>value_init</scriptName>
+          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
+
+sys = widget.getMacroValue("SYS")
+subsys = widget.getMacroValue("SUBSYS")
+dev= widget.getMacroValue("DEV")
+par= widget.getMacroValue("PAR")
+
+pv_voltage = sys + "-" + subsys + ":" + dev + ":" + "v0set"
+
+power_state = PVUtil.getLong(pvs[0])
+
+if power_state == 0:
+	PVUtil.writePV(pv_voltage, "0.0")]]></scriptText>
+          <pv trig="true">${SYS}-${SUBSYS}:${DEV}:ST.B2</pv>
+        </path>
+      </scripts>
       <on_color>
         <color red="0" green="255" blue="0" />
       </on_color>
@@ -22407,7 +22443,7 @@ $(pv_value)</tooltip>
       <PAR>SPT</PAR>
     </macros>
     <visible>true</visible>
-    <wuid>58ed98ee:14cdf752452:-3df7</wuid>
+    <wuid>6dc5d0d6:14ce39bd7f6:-4909</wuid>
     <scripts />
     <height>78</height>
     <name>Grouping Container_5</name>
@@ -22440,7 +22476,7 @@ $(pv_value)</tooltip>
     </border_color>
     <y>314</y>
     <actions hook="false" hook_all="false" />
-    <x>126</x>
+    <x>125</x>
     <tooltip></tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -22449,7 +22485,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="0" green="0" blue="0" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3df6</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4908</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22506,7 +22542,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3df5</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4907</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22563,7 +22599,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3df4</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4906</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22620,7 +22656,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3df3</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4905</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22677,7 +22713,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3df2</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4904</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22732,7 +22768,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3df1</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4903</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -22784,7 +22820,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3df0</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4902</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22841,7 +22877,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3def</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4901</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22898,7 +22934,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dee</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-4900</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -22955,7 +22991,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3ded</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48ff</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -23010,7 +23046,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3dec</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48fe</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -23062,7 +23098,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3deb</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48fd</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -23124,7 +23160,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3dea</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48fc</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -23168,7 +23204,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3de9</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48fb</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -23229,7 +23265,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3de8</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48fa</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -23273,7 +23309,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3de7</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f9</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -23335,7 +23371,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3de6</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f8</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -23401,7 +23437,7 @@ $(pv_value)</tooltip>
       <minimum>-1.7976931348623157E308</minimum>
       <next_focus>0</next_focus>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3de5</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f7</wuid>
       <style>1</style>
       <name>text_set_current_${PAR}</name>
       <format_type>1</format_type>
@@ -23431,7 +23467,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3de4</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f6</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -23497,7 +23533,7 @@ $(pv_value)</tooltip>
       <minimum>-1.7976931348623157E308</minimum>
       <next_focus>0</next_focus>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3de3</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f5</wuid>
       <style>1</style>
       <name>text_set_voltage_${PAR}</name>
       <format_type>1</format_type>
@@ -23527,7 +23563,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3de2</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f4</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -23567,7 +23603,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <visible>true</visible>
-      <wuid>58ed98ee:14cdf752452:-3de1</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f3</wuid>
       <scripts />
       <height>55</height>
       <style>1</style>
@@ -23616,7 +23652,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3de0</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f2</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -23656,9 +23692,27 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.BoolButton" version="1.0.0">
       <border_alarm_sensitive>true</border_alarm_sensitive>
       <visible>true</visible>
-      <wuid>58ed98ee:14cdf752452:-3ddf</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48f1</wuid>
       <password></password>
-      <scripts />
+      <scripts>
+        <path pathString="EmbeddedPy" checkConnect="true" sfe="false" seoe="false">
+          <scriptName>value_init</scriptName>
+          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
+
+sys = widget.getMacroValue("SYS")
+subsys = widget.getMacroValue("SUBSYS")
+dev= widget.getMacroValue("DEV")
+par= widget.getMacroValue("PAR")
+
+pv_voltage = sys + "-" + subsys + ":" + dev + ":" + "v0set"
+
+power_state = PVUtil.getLong(pvs[0])
+
+if power_state == 0:
+	PVUtil.writePV(pv_voltage, "0.0")]]></scriptText>
+          <pv trig="true">${SYS}-${SUBSYS}:${DEV}:ST.B2</pv>
+        </path>
+      </scripts>
       <on_color>
         <color red="0" green="255" blue="0" />
       </on_color>
@@ -23742,11 +23796,11 @@ $(pv_value)</tooltip>
       <include_parent_macros>true</include_parent_macros>
       <SYS>ECRIS</SYS>
       <SUBSYS>BIAS</SUBSYS>
-      <DEV>P004</DEV>
+      <DEV>PS004</DEV>
       <PAR>BIA</PAR>
     </macros>
     <visible>true</visible>
-    <wuid>58ed98ee:14cdf752452:-3dc3</wuid>
+    <wuid>6dc5d0d6:14ce39bd7f6:-48d5</wuid>
     <scripts />
     <height>78</height>
     <name>Grouping Container_6</name>
@@ -23779,7 +23833,7 @@ $(pv_value)</tooltip>
     </border_color>
     <y>391</y>
     <actions hook="false" hook_all="false" />
-    <x>126</x>
+    <x>125</x>
     <tooltip></tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
@@ -23788,7 +23842,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="0" green="0" blue="0" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dc2</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48d4</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -23845,7 +23899,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dc1</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48d3</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -23902,7 +23956,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dc0</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48d2</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -23959,7 +24013,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dbf</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48d1</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24016,7 +24070,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dbe</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48d0</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24071,7 +24125,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3dbd</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48cf</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -24123,7 +24177,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dbc</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48ce</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24180,7 +24234,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dbb</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48cd</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24237,7 +24291,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3dba</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48cc</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24294,7 +24348,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3db9</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48cb</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24349,7 +24403,7 @@ $(pv_value)</tooltip>
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3db8</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48ca</wuid>
       <auto_size>false</auto_size>
       <rotation_angle>0.0</rotation_angle>
       <scripts />
@@ -24401,7 +24455,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3db7</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c9</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24463,7 +24517,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3db6</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c8</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -24507,7 +24561,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3db5</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c7</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24568,7 +24622,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3db4</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c6</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -24612,7 +24666,7 @@ $(pv_value)</tooltip>
       <line_color>
         <color red="128" green="0" blue="255" />
       </line_color>
-      <wuid>58ed98ee:14cdf752452:-3db3</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c5</wuid>
       <bg_gradient_color>
         <color red="255" green="255" blue="255" />
       </bg_gradient_color>
@@ -24674,7 +24728,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3db2</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c4</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -24740,7 +24794,7 @@ $(pv_value)</tooltip>
       <minimum>-1.7976931348623157E308</minimum>
       <next_focus>0</next_focus>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3db1</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c3</wuid>
       <style>1</style>
       <name>text_set_current_${PAR}</name>
       <format_type>1</format_type>
@@ -24770,7 +24824,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3db0</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c2</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -24836,7 +24890,7 @@ $(pv_value)</tooltip>
       <minimum>-1.7976931348623157E308</minimum>
       <next_focus>0</next_focus>
       <show_units>true</show_units>
-      <wuid>58ed98ee:14cdf752452:-3daf</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c1</wuid>
       <style>1</style>
       <name>text_set_voltage_${PAR}</name>
       <format_type>1</format_type>
@@ -24866,7 +24920,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3dae</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48c0</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -24906,7 +24960,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.ActionButton" version="2.0.0">
       <border_alarm_sensitive>false</border_alarm_sensitive>
       <visible>true</visible>
-      <wuid>58ed98ee:14cdf752452:-3dad</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48bf</wuid>
       <scripts />
       <height>55</height>
       <style>1</style>
@@ -24955,7 +25009,7 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.Label" version="1.0.0">
       <visible>true</visible>
       <vertical_alignment>1</vertical_alignment>
-      <wuid>58ed98ee:14cdf752452:-3dac</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48be</wuid>
       <auto_size>false</auto_size>
       <scripts />
       <height>21</height>
@@ -24995,9 +25049,27 @@ $(pv_value)</tooltip>
     <widget typeId="org.csstudio.opibuilder.widgets.BoolButton" version="1.0.0">
       <border_alarm_sensitive>true</border_alarm_sensitive>
       <visible>true</visible>
-      <wuid>58ed98ee:14cdf752452:-3dab</wuid>
+      <wuid>6dc5d0d6:14ce39bd7f6:-48bd</wuid>
       <password></password>
-      <scripts />
+      <scripts>
+        <path pathString="EmbeddedPy" checkConnect="true" sfe="false" seoe="false">
+          <scriptName>value_init</scriptName>
+          <scriptText><![CDATA[from org.csstudio.opibuilder.scriptUtil import PVUtil
+
+sys = widget.getMacroValue("SYS")
+subsys = widget.getMacroValue("SUBSYS")
+dev= widget.getMacroValue("DEV")
+par= widget.getMacroValue("PAR")
+
+pv_voltage = sys + "-" + subsys + ":" + dev + ":" + "v0set"
+
+power_state = PVUtil.getLong(pvs[0])
+
+if power_state == 0:
+	PVUtil.writePV(pv_voltage, "0.0")]]></scriptText>
+          <pv trig="true">${SYS}-${SUBSYS}:${DEV}:ST.B2</pv>
+        </path>
+      </scripts>
       <on_color>
         <color red="0" green="255" blue="0" />
       </on_color>
