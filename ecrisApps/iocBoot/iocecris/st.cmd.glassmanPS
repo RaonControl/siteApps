@@ -28,7 +28,7 @@ glassmanPS_registerRecordDeviceDriver pdbbase
 # 80kV Platform
 drvAsynIPPortConfigure("port1", "192.168.1.142:4001", 0, 0, 0)
 
-dbLoadRecords("db/glassmanPS.db", "SYS=ECRIS,SUBSYS=BIAS,DEV=PS001,PS=fj01n120,P=port1,VCOF=$(FJ01N120_VOLTAGE),CCOF=$(FJ01N120_CURRENT)")
+dbLoadRecords("db/glassmanPS.db", "SYS=ECR11,SUBSYS=PCU,DEV=PS001,PS=fj01n120,P=port1,VCOF=$(FJ01N120_VOLTAGE),CCOF=$(FJ01N120_CURRENT)")
 
 # 50kV Platform
 #drvAsynIPPortConfigure("port1", "192.168.1.141:4001", 0, 0, 0)

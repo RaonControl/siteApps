@@ -17,7 +17,7 @@ drvAsynIPPortConfigure("port16", "192.168.1.140:4016", 0, 0, 0)
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=scwookHost")
-dbLoadRecords("db/sgi.db", "SYS=ECRIS,SUBSYS=Mag,DEV=PS001,P=port16")
+dbLoadRecords("db/sgi.db", "SYS=ECR11,SUBSYS=MAG,DEV=PS001,P=port16")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
