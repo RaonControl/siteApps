@@ -18,7 +18,7 @@ moxa6650_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
-dbLoadRecords("db/moxa6650.db", "SYS=ECRIS, SUBSYS=TEST, DEV=MOXA1, HOST=10.1.4.209, COM=public, V2C=SNMP_VERSION_2c")
+dbLoadRecords("db/moxa6650.db", "SYS=CTRL, SUBSYS=NET, DEV=MX001, HOST=10.1.4.209, COM=public, V2C=SNMP_VERSION_2c")
 #dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC2, HOST=192.168.1.22, COM=public, V2C=SNMP_VERSION_2c")
 #dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC3, HOST=192.168.1.23, COM=public, V2C=SNMP_VERSION_2c")
 #dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC4, HOST=192.168.1.24, COM=public, V2C=SNMP_VERSION_2c")
