@@ -19,4 +19,4 @@ cd ${TOP}/iocBoot/${IOC}
 iocInit
 
 ## Start any sequence programs
-seq seqStep
+seq seqStep "SYS=ECR11,SUBSYS=PCU,DEV=SMO"

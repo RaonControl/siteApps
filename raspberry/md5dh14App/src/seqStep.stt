@@ -21,25 +21,25 @@ int min;
 int maxFlag;
 int minFlag;
 
-assign spd to "(SYS)-(SUBSYS):(DEV):SEQ:Sset";
-assign speed to "(SYS)-(SUBSYS):(DEV):SEQ:Scvt";
-assign current to "(SYS)-(SUBSYS):(DEV):SEQ:Pcur";
-assign pwm to "(SYS)-(SUBSYS):(DEV):PWM";
-assign dir to "(SYS)-(SUBSYS):(DEV):DIR";
-assign stop to "(SYS)-(SUBSYS):(DEV):SEQ:STOP";
-assign reset to "(SYS)-(SUBSYS):(DEV):SEQ:RST";
-assign relMove to "(SYS)-(SUBSYS):(DEV):SEQ:Mrel";
-assign absMove to "(SYS)-(SUBSYS):(DEV):SEQ:Mabs";
-assign relPulse to "(SYS)-(SUBSYS):(DEV):SEQ:Prel";
-assign absPulse to "(SYS)-(SUBSYS):(DEV):SEQ:Pabs";
+assign spd to "{SYS}-{SUBSYS}:{DEV}:SEQ:Sset";
+assign speed to "{SYS}-{SUBSYS}:{DEV}:SEQ:Scvt";
+assign current to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pcur";
+assign pwm to "{SYS}-{SUBSYS}:{DEV}:PWM";
+assign dir to "{SYS}-{SUBSYS}:{DEV}:DIR";
+assign stop to "{SYS}-{SUBSYS}:{DEV}:SEQ:STOP";
+assign reset to "{SYS}-{SUBSYS}:{DEV}:SEQ:RST";
+assign relMove to "{SYS}-{SUBSYS}:{DEV}:SEQ:Mrel";
+assign absMove to "{SYS}-{SUBSYS}:{DEV}:SEQ:Mabs";
+assign relPulse to "{SYS}-{SUBSYS}:{DEV}:SEQ:Prel";
+assign absPulse to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pabs";
 
-assign jogCW to "(SYS)-(SUBSYS):(DEV):SEQ:JCW";
-assign jogCCW to "(SYS)-(SUBSYS):(DEV):SEQ:JCCW";
+assign jogCW to "{SYS}-{SUBSYS}:{DEV}:SEQ:JCW";
+assign jogCCW to "{SYS}-{SUBSYS}:{DEV}:SEQ:JCCW";
 
-assign max to "(SYS)-(SUBSYS):(DEV):SEQ:Pmax";
-assign min to "(SYS)-(SUBSYS):(DEV):SEQ:Pmin";
-assign maxFlag to "(SYS)-(SUBSYS):(DEV):SEQ:Fmax";
-assign minFlag to "(SYS)-(SUBSYS):(DEV):SEQ:Fmin";
+assign max to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pmax";
+assign min to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pmin";
+assign maxFlag to "{SYS}-{SUBSYS}:{DEV}:SEQ:Fmax";
+assign minFlag to "{SYS}-{SUBSYS}:{DEV}:SEQ:Fmin";
 
 monitor reset;
 monitor stop;
