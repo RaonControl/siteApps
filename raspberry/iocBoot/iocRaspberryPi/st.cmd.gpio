@@ -13,7 +13,7 @@ gpio_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=piHost")
-dbLoadRecords("db/gpio.db")
+dbLoadRecords("db/gpio.db", "SYS=CTRL,SUBSYS=ENV,DEV=PI001")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit

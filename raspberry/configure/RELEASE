@@ -27,7 +27,6 @@ SNCSEQ=${EPICS_SYNAPPS}/seq-2-2-1
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=${EPICS_PATH}/base
-
 # Set RULES here if you want to take build rules from somewhere
 # other than EPICS_BASE:
 #RULES=/path/to/epics/support/module/rules/x-y

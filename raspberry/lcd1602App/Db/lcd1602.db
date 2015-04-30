@@ -1,23 +1,23 @@
-record(ao, "LCD:A")
+record(ao, "$(SYS)-$(SUBSYS):$(DEV):A")
 {
-  field(FLNK, "LCD:STR")
+  field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):STR")
 }
 
-record(ao, "LCD:B")
+record(ao, "$(SYS)-$(SUBSYS):$(DEV):B")
 {
-  field(FLNK, "LCD:STR")
+  field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):STR")
 }
 
 
-record(lcdout, "LCD:STR")
+record(lcdout, "$(SYS)-$(SUBSYS):$(DEV):STR")
 {
   field(DTYP, "LCD1602")
   field(OUT, "@2 16 4 4 5 0 1 2 3")
   field(DIRS, "1")
-  field(INPA, "LCD:A")
-  field(STRA, "StringA")
-  field(UNIA, "C")
-  field(INPB, "LCD:B")
-  field(STRB, "StringB")
-  field(UNIB, "%")
+  field(INPA, "$(SYS)-$(SUBSYS):$(DEV):A")
+  field(STRA, "StringA ")
+  field(UNIA, " C")
+  field(INPB, "$(SYS)-$(SUBSYS):$(DEV):B")
+  field(STRB, "StringB ")
+  field(UNIB, " %")
 }

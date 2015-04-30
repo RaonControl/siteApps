@@ -13,7 +13,7 @@ dht11_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=piHost")
-dbLoadRecords("db/dht11.db")
+dbLoadRecords("db/dht11.db", "SYS=CTRL,SUBSYS=ENV,DEV=PI001")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
