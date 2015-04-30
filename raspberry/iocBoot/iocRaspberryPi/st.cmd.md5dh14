@@ -3,7 +3,7 @@
 ## You may have to change RaspberryPi to something else
 ## everywhere it appears in this file
 
-< /home/pi/epics/R3.14.12.4/siteApps/raspSTEP/iocBoot/iocstep/envPaths
+< envPaths
 
 cd ${TOP}
 
