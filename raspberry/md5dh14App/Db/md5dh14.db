@@ -47,10 +47,10 @@ record(calc, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Scvt")
 record(longin, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Pcur")
 {
   field(DESC, "Current Pulse")
-  field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Acur")
+  field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Pang")
 }
 
-record(calc, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Acur")
+record(calc, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Pang")
 {
   field(DESC, "Convert pulse to angle")
   field(CALC, "A*0.072")
