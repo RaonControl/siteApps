@@ -22,7 +22,7 @@ DBD += snmp.dbd
 
 # snmp.dbd will be made up from these files:
 snmp_DBD += base.dbd
-snmp_DBD += snmpRecord.dbd
+snmp_DBD += snmpMSURecord.dbd
 
 
 # Include dbd files from all support applications:
