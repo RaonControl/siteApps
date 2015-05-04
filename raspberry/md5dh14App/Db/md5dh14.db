@@ -1,13 +1,13 @@
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):PWM")
 {
   field(DTYP, "GPIO")
-  field(OUT, "@1")
+  field(OUT, "@0")
 }
 
 record(bo, "$(SYS)-$(SUBSYS):$(DEV):DIR")
 {
   field(DTYP, "GPIO")
-  field(OUT, "@4")
+  field(OUT, "@1")
 }
 
 record(bi, "$(SYS)-$(SUBSYS):$(DEV):SEQ:JCCW")

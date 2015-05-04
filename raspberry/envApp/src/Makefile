@@ -15,6 +15,8 @@ USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
 USR_INCLUDES += -I/home/pi/wiringPi/wiringPi
 wiringPi_DIR += /home/pi/wiringPi/wiringPi /home/pi/wiringPi/devLib
 
+raspDS1820_DIR += $(RAON_SITELIBS)/lib/$(T_A)
+
 PROD_IOC = env
 # env.dbd will be created and installed
 DBD += env.dbd
