@@ -28,6 +28,7 @@ env_DBD += base.dbd
 #env_DBD += xxx.dbd
 env_DBD += devDS1820.dbd
 env_DBD += stream.dbd
+env_DBD += asyn.dbd
 env_DBD += drvAsynSerialPort.dbd
 
 # Add all the support libraries needed by this IOC

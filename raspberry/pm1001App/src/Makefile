@@ -25,6 +25,7 @@ pm1001_DBD += base.dbd
 # Include dbd files from all support applications:
 #pm1001_DBD += xxx.dbd
 pm1001_DBD += stream.dbd
+pm1001_DBD += asyn.dbd
 pm1001_DBD += drvAsynSerialPort.dbd
 
 # Add all the support libraries needed by this IOC
