@@ -90,7 +90,7 @@ record(calc, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Pabs")
 record(calc, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Prel")
 {
   field(DESC, "Convert Relative Degree to Pulse")
-  field(INPA, "$(SYS)-$(SUBSYS):$(DEV):ANG:REL")
+  field(INPA, "$(SYS)-$(SUBSYS):$(DEV):SEQ:Arel")
   field(CALC, "A/0.072")
 }
 
