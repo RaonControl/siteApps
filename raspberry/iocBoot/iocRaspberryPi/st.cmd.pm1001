@@ -21,7 +21,7 @@ asynSetOption("UART", 0, "parity", "none")
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=piHost")
-dbLoadRecords("db/pm1001.db")
+dbLoadRecords("db/pm1001.db", "SYS=CTRL,SUBSYS=ENV,DEV=PI001")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit

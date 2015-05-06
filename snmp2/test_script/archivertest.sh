@@ -5,7 +5,7 @@ x=1
 while [ $x ]; do  
 #++
 
-for i in {1200..3000..100};do
+for i in {1200..3600..100};do
 
 echo ""
 echo "COUNT : $x"
@@ -18,8 +18,8 @@ caget SNMPIOC:TIMESTAMP
 
 echo "---------------------------------------------------------------"
 echo "snmpget -------------------------------------------------------"
-snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
-snmpget -v 1 -c public 10.1.5.142 PowerNet-MIB::sPDUOutletCtl.8
+snmpget -v 1 -c public 10.1.5.142 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
+snmpget -v 1 -c public 10.1.5.123 PowerNet-MIB::sPDUOutletCtl.8
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
 caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_PS_Status WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W APC:PDU2_Outlet8_R APC:PDU2_Outlet8_W 
@@ -35,12 +35,12 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 30
+sleep 60
 done
 
 
 #--
-for i in {2900..1300..100};do
+for i in {3500..1300..100};do
 
 echo ""
 echo "COUNT : $x"
@@ -52,8 +52,8 @@ echo "***************************************************************"
 caget SNMPIOC:TIMESTAMP
 echo "---------------------------------------------------------------"
 echo "snmpget -------------------------------------------------------"
-snmpget -v 1 -c public 10.1.5.123 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
-snmpget -v 1 -c public 10.1.5.142 PowerNet-MIB::sPDUOutletCtl.8
+snmpget -v 1 -c public 10.1.5.142 WIENER-CRATE-MIB::sysMainSwitch.0  WIENER-CRATE-MIB::sysStatus.0  WIENER-CRATE-MIB::fanAirTemperature.0 WIENER-CRATE-MIB::fanNominalSpeed.0
+snmpget -v 1 -c public 10.1.5.123 PowerNet-MIB::sPDUOutletCtl.8
 echo "---------------------------------------------------------------"
 echo "caget ---------------------------------------------------------"
 caget WIENER:CRATE3_MainPower_R WIENER:CRATE3_PS_Status WIENER:CRATE3_FanairTemp WIENER:CRATE3_FanNominalSpeed_R WIENER:CRATE3_FanNominalSpeed_W APC:PDU2_Outlet8_R APC:PDU2_Outlet8_W 
@@ -69,7 +69,7 @@ echo "error";;
 esac
 
 caput WIENER:CRATE3_FanNominalSpeed_W $i
-sleep 30
+sleep 60
 done
 done
 done

@@ -4,13 +4,7 @@
 ## everywhere it appears in this file
 
 < envPaths
-
-epicsEnvSet "STREAM_PROTOCOL_PATH" "$(TOP)/db" 
-epicsEnvSet "SYS" "$(SYS=ECR11)"
-epicsEnvSet "SUBSYS" "$(SUBSYS=Diag)"
-epicsEnvSet "DEV" "$(DEV=FC01)"
-
-#epicsEnvSet "EPICS_CA_SERVER_PORT" "15065"
+< keithleyEnvPaths
 
 cd ${TOP}
 ## Register all support components

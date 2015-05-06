@@ -22,14 +22,17 @@
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 # If using the sequencer, point SNCSEQ at its top directory:
-SNCSEQ=${EPICS_PATH}/epicsLibs/synApps_5_7/support/seq-2-1-13
+SNCSEQ=${EPICS_SYNAPPS}/seq-2-2-1
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=${EPICS_PATH}/base
-
 # Set RULES here if you want to take build rules from somewhere
 # other than EPICS_BASE:
 #RULES=/path/to/epics/support/module/rules/x-y
 
-ASYN=${EPICS_PATH}/epicsLibs/synApps_5_7/support/asyn-4-21
-STREAM=${EPICS_PATH}/epicsLibs/synApps_5_7/support/stream-2-6
+#ASYN=${EPICS_PATH}/epicsLibs/synApps_5_7/support/asyn-4-21
+#STREAM=${EPICS_PATH}/epicsLibs/synApps_5_7/support/stream-2-6
+
+ASYN=${EPICS_SYNAPPS}/asyn-4-26
+STREAM=${EPICS_SYNAPPS}/stream-2-6a
+
