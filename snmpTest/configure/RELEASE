@@ -32,8 +32,6 @@ EPICS_BASE=${EPICS_PATH}/base
 #RULES=/path/to/epics/support/module/rules/x-y
 
 
-<<<<<<< HEAD
-=======
 ASYN=${EPICS_SYNAPPS}/asyn-4-26
 STREAM=${EPICS_SYNAPPS}/stream-2-6a
->>>>>>> 819c8d744821a74e7e1403fb34d8757b9b372aa3
+ 
