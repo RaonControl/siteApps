@@ -8,7 +8,7 @@ epicsEnvSet("EPICS_CA_SERVER_PORT", "10074")
 
 cd "${TOP}"
 
-epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib/mibs")
+#epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib/mibs")
 
 ## Register all support components
 dbLoadDatabase "dbd/wiener6023.dbd"
