@@ -57,7 +57,8 @@
 #define INT_START_INDEX   23                  // 연속된 Int 변수들의 시작 Index       
 #define NUMBER_TO_READ    5                   // 읽어올 변수의 개수                   
 
-#define READ_COMMANDMSG_SIZE    11
+//#define READ_COMMANDMSG_SIZE    11
+#define READ_COMMANDMSG_SIZE    9
 
 #define FCSINIT			0xFFFF
 #define DEFAULT_RING_BUFFER_SIZE 10
@@ -159,6 +160,7 @@ typedef struct devPvt{
     char              *userParam;
     int               addr;
 }devPvt;
+
 typedef struct {
     char              *IPDeviceName;
     char              *IPHostName;
@@ -181,7 +183,8 @@ public:
 
 	//float ReadValue();
 	int ConnectDevice(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect);
-	int ReadSFloatData(epicsFloat64 &fvalue);
+	//int ReadSFloatData(epicsFloat64 &fvalue);
+	int ReadSFloatData(epicsFloat32 &fvalue);
 
 private:
 	ttyController_t *mptty;
@@ -190,6 +193,7 @@ private:
 	int	 readMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread);
 	unsigned char maskBit[8] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
 	void ttyCleanup(ttyController_t *tty);
+ 	int setNonBlock(SOCKET fd, int nonBlockFlag);
 };
 
 #endif // __RTP_DEV_MANAGER_H

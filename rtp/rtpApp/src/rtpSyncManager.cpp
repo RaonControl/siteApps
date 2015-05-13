@@ -40,7 +40,9 @@ static RTPSyncManager mrtpSyncManager;
 static long	convertAi(void *precord, int pass);
 static long	processAi (void *precord);
 static long	initAi (void *prec);
-devRTP devSyncRTPRead  ={6, NULL, NULL, initAi, NULL, processAi, convertAi};
+//devRTP devSyncRTPRead  ={6, NULL, NULL, initAi, NULL, processAi, convertAi};
+devRTP devSyncRTPRead  ={6, 0, 0, initAi, 0, processAi, 0};
+//devRTP devSyncRTPRead  ={5, NULL, NULL, initAi, NULL, processAi};
 //devRTP devSyncRTPWrite ={6, NULL, NULL, initAo, getIoIntInfo, processAo, convertAo};
 
 epicsExportAddress(dset,devSyncRTPRead);
@@ -52,7 +54,7 @@ static long initAi (void *prec)
 	if(recGblInitConstantLink(&pr->inp,DBF_DOUBLE,&pr->val))
 		pr->udf = FALSE;
 
-    convertAi(pr, 1);
+    //convertAi(pr, 1);
 
 	return (0);
 }
@@ -61,21 +63,29 @@ static long processAi (void *precord)
 {
 	aiRecord *pr = (aiRecord*)precord;
 
-	long status = dbGetLink(&(pr->inp),DBF_DOUBLE, &(pr->val),0,0);
+	//long status = dbGetLink(&(pr->inp),DBF_DOUBLE, &(pr->val),0,0);
+    //	status = dbGetLink(&(prdbpostgreSQL->inp),DBF_DOUBLE, &(prdbpostgreSQL->val),0,0);
 
 	/*If return was succesful then set undefined false*/
-	if(!status) pr->udf = FALSE;
+	//if(!status) pr->udf = FALSE;
 
-	status = mrtpSyncManager.ReadSFloatData(pr->val);
-	if(!status) pr->udf = FALSE;
+	epicsFloat32 fvalue;
 
-	return (0);
+	mrtpSyncManager.ReadSFloatData(fvalue);
+	pr->val = (epicsFloat64)fvalue;
+	//	pr->rval = fvalue;
+
+	printf("RTP AI:%f\n", pr->val);
+
+	return (2);
 }
 
 static long	convertAi(void *precord, int pass)
 {
 	aiRecord *airec = (aiRecord*)precord;
     if (pass==0) return 0;
+
+	airec->val = airec->rval*2;
     return 0;
 }
 
@@ -275,12 +285,11 @@ int RTPSyncManager::ConnectDevice(const char *portName, const char *hostInfo, un
         epicsSocketDestroy(fd);
         return asynError;
     }
+
 #if 0
 	//NonBlock Mode
     if (setNonBlock(fd, 1) < 0) {
-        epicsSnprintf(pasynUser->errorMessage,pasynUser->errorMessageSize,
-                               "Can't set %s O_NONBLOCK option: %s",
-                                       mtty->IPDeviceName, strerror(SOCKERRNO));
+        printf("Can't set %s O_NONBLOCK option: %s", mptty->IPDeviceName, strerror(SOCKERRNO));
         epicsSocketDestroy(fd);
         return asynError;
     }
@@ -290,6 +299,20 @@ int RTPSyncManager::ConnectDevice(const char *portName, const char *hostInfo, un
     mptty->fd = fd;
     return asynSuccess;
 
+}
+
+int RTPSyncManager::setNonBlock(SOCKET fd, int nonBlockFlag)
+{
+    int flags;
+    if ((flags = fcntl(fd, F_GETFL, 0)) < 0)
+        return -1;
+    if (nonBlockFlag)
+        flags |= O_NONBLOCK;
+    else
+        flags &= ~O_NONBLOCK;
+    if (fcntl(fd, F_SETFL, flags) < 0)
+        return -1;
+    return 0;
 }
 
 /*
@@ -335,20 +358,43 @@ int RTPSyncManager::readMsgCommand(const int node, const int type, const int mul
 	mCommand[3]= node;  //Node = 0
 	mCommand[4]= type; // FLOAT_READ = 0x9D, INT_READ = 0x8D, BOOL_READ = 0x82
 	mCommand[5] = (unsigned char)(index % 256); // BOOL_START_INDEX = 485, FLOAT_START_INDEX = 9, INT_START_INDEX = 23
-	mCommand[6] = 0x00;
-	mCommand[7] = (unsigned char)(numtoread % 256);
-	mCommand[8] = (unsigned char)(numtoread / 256);
-	getCRC((unsigned char*)mCommand, 9);                                     						// CRC °Ë»ç
+	mCommand[6] = (unsigned char)(index / 256);
+	//mCommand[7] = (unsigned char)(numtoread % 256);
+	//mCommand[8] = (unsigned char)(numtoread / 256);
+	unsigned short check = getCRC((unsigned char*)mCommand, 7);
+	
+	printf("CRC-Check:%d\n", check);
 
-	return send(mptty->fd, (const char*)mCommand, sizeof(mCommand), 0);
+	//getCRC((unsigned char*)mCommand, sizeof(&mCommand));
+	printf("Cmd Size:%d\n", sizeof(mCommand));
+	//return send(mptty->fd, (const char*)mCommand, sizeof(mCommand), 0);
+	return send(mptty->fd, (const char*)mCommand, 9, 0);
 }
 
-int RTPSyncManager::ReadSFloatData(epicsFloat64 &fvalue)
+int RTPSyncManager::ReadSFloatData(epicsFloat32 &fvalue)
 {
-	int recByte = readMsgCommand(0,FLOAT_READ, 3, FLOAT_START_INDEX, 1);
-	char ReadData[12];                 // float ÀÐ±â ¸í·É
-	recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+	//int recByte = readMsgCommand(0,FLOAT_READ, 3, FLOAT_START_INDEX, 1);
+	int recByte = readMsgCommand(0,FLOAT_READ, 3, 95, 1);
+	printf("Socket(%p),ReadByte: %d\n", mptty->fd, recByte);
 
-	memcpy(&fvalue, (float*)&ReadData[5], sizeof(float));
+	char ReadData[12];                 // float ÀÐ±â ¸í·É
+	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	printf("RecvByte:%d\n", recvbyte);
+
+	if(recvbyte < 0)
+	{
+		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
+	}
+	//memcpy(&fvalue, (float*)&ReadData[5], sizeof(float));
+	
+#if 0
+	float fval;
+	memcpy(&fval, (float*)&ReadData[5], sizeof(float));
+	printf("RTP-Value:%f\n",fval);
+#else
+	memcpy(&fvalue, (epicsFloat32*)&ReadData[5], sizeof(epicsFloat32));
+	printf("RTP-Value:%f\n",fvalue);
+#endif
 	return (0);
 }
