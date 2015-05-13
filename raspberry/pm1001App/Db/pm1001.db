@@ -1,4 +1,4 @@
-record(ai,"PM1001:DUST")
+record(ai,"$(SYS)-$(SUBSYS):$(DEV):DUST")
 {
   field(DTYP, "stream")
   field(INP, "@pm1001.proto get_data UART")

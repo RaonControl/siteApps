@@ -3,7 +3,6 @@
 *.svn-base
 *~
 *Common
-*linux-x86_64
 dbd
 include
 doc
@@ -13,9 +12,11 @@ adl
 alh
 cfg
 edl
-bin
 lib
 envPaths
 #*
 *#
 .#*
+*log.*
+bin
+O.*

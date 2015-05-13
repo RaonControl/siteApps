@@ -21,25 +21,25 @@ int min;
 int maxFlag;
 int minFlag;
 
-assign spd to "STEP:SET:SPD";
-assign speed to "STEP:CVT:SPD";
-assign current to "STEP:PLS:CUR";
-assign pwm to "STEP:PWM";
-assign dir to "STEP:DIR";
-assign stop to "STEP:STOP";
-assign reset to "STEP:RST";
-assign relMove to "STEP:MOVR";
-assign absMove to "STEP:MOVA";
-assign relPulse to "STEP:PLS:REL";
-assign absPulse to "STEP:PLS:ABS";
+assign spd to "{SYS}-{SUBSYS}:{DEV}:SEQ:Sset";
+assign speed to "{SYS}-{SUBSYS}:{DEV}:SEQ:Scvt";
+assign current to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pcur";
+assign pwm to "{SYS}-{SUBSYS}:{DEV}:PWM";
+assign dir to "{SYS}-{SUBSYS}:{DEV}:DIR";
+assign stop to "{SYS}-{SUBSYS}:{DEV}:SEQ:STOP";
+assign reset to "{SYS}-{SUBSYS}:{DEV}:SEQ:RST";
+assign relMove to "{SYS}-{SUBSYS}:{DEV}:SEQ:Mrel";
+assign absMove to "{SYS}-{SUBSYS}:{DEV}:SEQ:Mabs";
+assign relPulse to "{SYS}-{SUBSYS}:{DEV}:SEQ:Prel";
+assign absPulse to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pabs";
 
-assign jogCW to "STEP:JCW";
-assign jogCCW to "STEP:JCCW";
+assign jogCW to "{SYS}-{SUBSYS}:{DEV}:SEQ:JCW";
+assign jogCCW to "{SYS}-{SUBSYS}:{DEV}:SEQ:JCCW";
 
-assign max to "STEP:PLS:MAX";
-assign min to "STEP:PLS:MIN";
-assign maxFlag to "STEP:MAXF";
-assign minFlag to "STEP:MINF";
+assign max to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pmax";
+assign min to "{SYS}-{SUBSYS}:{DEV}:SEQ:Pmin";
+assign maxFlag to "{SYS}-{SUBSYS}:{DEV}:SEQ:Fmax";
+assign minFlag to "{SYS}-{SUBSYS}:{DEV}:SEQ:Fmin";
 
 monitor reset;
 monitor stop;
@@ -115,6 +115,8 @@ ss ssMain
 
       if(current >= max) maxFlag = 1;      
       else if(current <= min) minFlag = 1;      
+
+      if(count % 200 == 0) pvPut(current);
 
     } state High
   }
@@ -297,6 +299,8 @@ ss ssMain
 
       if(current >= max) maxFlag = 1;
       else if(current <= min) minFlag = 1;
+
+      if(count % 200 == 0) pvPut(current);
 
     } state JogHigh
   }
