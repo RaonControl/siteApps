@@ -9,9 +9,20 @@ record(ai, RTP_AI_TEST) {
   field(PINI, "YES")
   field(DTYP, "rtpSyncReadAI")
   field(VAL, "0")
-  field(INP, "@0")
+  field(INP, "@RTP(0,95)")
+}
+
+record(bi, RTP_BI_TEST) {
+  field(DESC, "Bool value")
+  field(SCAN, "1 second")
+  field(PINI, "YES")
+  field(DTYP, "rtpSyncReadBI")
+  field(INP, "@RTP(0,93)")
+  field(ZNAM, "OFF")
+  field(ONAM, "ON")
 }
 
 #! Further lines contain data used by VisualDCT
 #! View(2000,2115,1.0)
 #! Record(RTP_AI_TEST,2280,2214,0,1,"RTP_AI_TEST")
+#! Record(RTP_BI_TEST,2460,2186,0,1,"RTP_BI_TEST")

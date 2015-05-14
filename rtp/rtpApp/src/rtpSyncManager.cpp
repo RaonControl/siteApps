@@ -37,26 +37,50 @@
 #endif
 
 static RTPSyncManager mrtpSyncManager;
-static long	convertAi(void *precord, int pass);
-static long	processAi (void *precord);
-static long	initAi (void *prec);
-//devRTP devSyncRTPRead  ={6, NULL, NULL, initAi, NULL, processAi, convertAi};
-devRTP devSyncRTPRead  ={6, 0, 0, initAi, 0, processAi, 0};
-//devRTP devSyncRTPRead  ={5, NULL, NULL, initAi, NULL, processAi};
+static bool bInit = false;
+static epicsTimeStamp globalEPICSTime;
+
+//devRTP devSyncRTPReadAI  ={5, NULL, NULL, initAi, NULL, processAi};
+//devRTP devSyncRTPReadAI  ={6, NULL, NULL, initAi, NULL, processAi, convertAi};
 //devRTP devSyncRTPWrite ={6, NULL, NULL, initAo, getIoIntInfo, processAo, convertAo};
 
-epicsExportAddress(dset,devSyncRTPRead);
 //epicsExportAddress(dset,devSyncRTPWrite);
+
+static int RTPConnectionTask(RTPSyncManager *pSyncMgr)
+{
+	return (pSyncMgr->ConnectDevice());
+
+};
+
+devRTP devSyncRTPReadAI  ={6, 0, 0, initAi, 0, processAi, 0};
+epicsExportAddress(dset,devSyncRTPReadAI);
 
 static long initAi (void *prec)
 {
 	aiRecord *pr = (aiRecord*)prec;
-	if(recGblInitConstantLink(&pr->inp,DBF_DOUBLE,&pr->val))
-		pr->udf = FALSE;
+	devPvt *rtpDevice = (devPvt*)malloc(sizeof(devPvt));
+	// ai.inp must be an INST_IO
+	int status = -1;
+	switch (pr->inp.type) {
+		case INST_IO:
+			{
+				status = mrtpSyncManager.ParseLink(pr->inp.value.instio.string, rtpDevice);
+			};
+			break;
+		default :
+			recGblRecordError(S_db_badField,(void *)pr,
+					"devSyncRTPReadAI (init_record) Illegal INP field");
+			return(S_db_badField);
+	};
 
-    //convertAi(pr, 1);
+	if(status < 0)
+		recGblRecordError(S_db_badField,(void *)pr,
+				"devSyncRTPReadAI (init_record) Syntax error: INP field");
 
-	return (0);
+	pr->dpvt = rtpDevice;
+
+	pr->udf = false;
+	return (status);
 }
 
 static long processAi (void *precord)
@@ -64,18 +88,56 @@ static long processAi (void *precord)
 	aiRecord *pr = (aiRecord*)precord;
 
 	//long status = dbGetLink(&(pr->inp),DBF_DOUBLE, &(pr->val),0,0);
-    //	status = dbGetLink(&(prdbpostgreSQL->inp),DBF_DOUBLE, &(prdbpostgreSQL->val),0,0);
-
 	/*If return was succesful then set undefined false*/
 	//if(!status) pr->udf = FALSE;
 
 	epicsFloat32 fvalue;
 
-	mrtpSyncManager.ReadSFloatData(fvalue);
+	mrtpSyncManager.ReadSFloatData(pr, fvalue);
 	pr->val = (epicsFloat64)fvalue;
-	//	pr->rval = fvalue;
 
-	printf("RTP AI:%f\n", pr->val);
+	//pr->rval = fvalue;
+	//printf("INP:%s\n", instioStr);
+	//printf("RTP AI:%f\n", pr->val);
+
+	return (2);
+}
+
+devRTP devSyncRTPReadAO  ={6, 0, 0, initAo, 0, processAo, 0};
+epicsExportAddress(dset,devSyncRTPReadAO);
+
+static long initAo (void *prec)
+{
+	aoRecord *pr = (aoRecord*)prec;
+	devPvt *rtpDevice = (devPvt*)malloc(sizeof(devPvt));
+	// ao.inp must be an INST_IO
+	int status = -1;
+	switch (pr->out.type) {
+		case INST_IO:
+			{
+				status = mrtpSyncManager.ParseLink(pr->out.value.instio.string, rtpDevice);
+			};
+			break;
+		default :
+			recGblRecordError(S_db_badField,(void *)pr,
+					"devSyncRTPReadAO (init_record) Illegal OUT field");
+			return(S_db_badField);
+	};
+
+	if(status < 0)
+		recGblRecordError(S_db_badField,(void *)pr,
+				"devSyncRTPReadAO (init_record) Syntax error: OUT field");
+
+	pr->dpvt = rtpDevice;
+	pr->udf = false;
+	return (status);
+}
+
+static long processAo (void *precord)
+{
+	aoRecord *pr = (aoRecord*)precord;
+
+	mrtpSyncManager.WriteSFloatData(pr, pr->val);
 
 	return (2);
 }
@@ -89,6 +151,89 @@ static long	convertAi(void *precord, int pass)
     return 0;
 }
 
+devRTP devSyncRTPReadBI  ={6, 0, 0, initBi, 0, processBi, 0};
+epicsExportAddress(dset,devSyncRTPReadBI);
+
+static long initBi (void *prec)
+{
+	biRecord *pr = (biRecord*)prec;
+	devPvt *rtpDevice = (devPvt*)malloc(sizeof(devPvt));
+	// bi.inp must be an INST_IO
+	int status = -1;
+	switch (pr->inp.type) {
+		case INST_IO:
+			{
+				status = mrtpSyncManager.ParseLink(pr->inp.value.instio.string, rtpDevice);
+			};
+			break;
+		default :
+			recGblRecordError(S_db_badField,(void *)pr,
+					"devSyncRTPReadBI (init_record) Illegal INP field");
+			return(S_db_badField);
+	};
+
+	if(status < 0)
+		recGblRecordError(S_db_badField,(void *)pr,
+				"devSyncRTPReadBI (init_record) Syntax error: INP field");
+
+	pr->dpvt = rtpDevice;
+	pr->udf = false;
+	return (status);
+}
+
+static long processBi (void *precord)
+{
+	biRecord *pr = (biRecord*)precord;
+
+	bool bvalue;
+
+	mrtpSyncManager.ReadSBoolData(pr, bvalue);
+	pr->val = (epicsEnum16)bvalue;
+
+	return (2);
+}
+
+devRTP devSyncRTPReadLI  ={6, 0, 0, initLi, 0, processLi, 0};
+epicsExportAddress(dset,devSyncRTPReadLI);
+
+static long initLi (void *prec)
+{
+	longinRecord *pr = (longinRecord*)prec;
+	devPvt *rtpDevice = (devPvt*)malloc(sizeof(devPvt));
+	// longin.inp must be an INST_IO
+	int status = -1;
+	switch (pr->inp.type) {
+		case INST_IO:
+			{
+				status = mrtpSyncManager.ParseLink(pr->inp.value.instio.string, rtpDevice);
+			};
+			break;
+		default :
+			recGblRecordError(S_db_badField,(void *)pr,
+					"devSyncRTPReadLI (init_record) Illegal INP field");
+			return(S_db_badField);
+	};
+
+	if(status < 0)
+		recGblRecordError(S_db_badField,(void *)pr,
+				"devSyncRTPReadLI (init_record) Syntax error: INP field");
+
+	pr->dpvt = rtpDevice;
+	pr->udf = false;
+	return (status);
+}
+
+static long processLi (void *precord)
+{
+	longinRecord *pr = (longinRecord*)precord;
+
+	epicsInt32 ivalue;
+
+	mrtpSyncManager.ReadSIntData(pr, ivalue);
+	pr->val = (epicsInt32)ivalue;
+
+	return (2);
+}
 
 epicsShareFunc int drvSyncRTPConfigure(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect)
 {
@@ -117,8 +262,9 @@ epicsShareFunc int drvSyncRTPConfigure(const char *portName, const char *hostInf
             return -1;
         }
     }
+
 	///mptty
-	mrtpSyncManager.ConnectDevice(portName, hostInfo, priority, noAutoConnect);
+	mrtpSyncManager.ConnectThread(portName, hostInfo, priority, noAutoConnect);
 
 #if 0
     /*
@@ -126,7 +272,6 @@ epicsShareFunc int drvSyncRTPConfigure(const char *portName, const char *hostInf
      */
     epicsAtExit(cleanup, tty);
 #endif
-
     return 0;
 }
 
@@ -167,10 +312,11 @@ epicsExportRegistrar(drvSyncRTPRegisterCommands);
 RTPSyncManager::RTPSyncManager()
 {
 	mptty = new ttyController_t;
-	mCommand = new char(READ_COMMANDMSG_SIZE);
+	sRCommand = new char(SINGLE_READ_COMMANDMSG_SIZE);
+	sWCommand = new char(SINGLE_WRITE_COMMANDMSG_SIZE);
 }
 
-int RTPSyncManager::ConnectDevice(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect)
+int RTPSyncManager::ConnectDevice()
 {
     /*
      * Create a driver
@@ -183,8 +329,8 @@ int RTPSyncManager::ConnectDevice(const char *portName, const char *hostInfo, un
     char protocol[6];
 
     mptty->fd = INVALID_SOCKET;
-    mptty->IPDeviceName = epicsStrDup(hostInfo);
-    mptty->portName = epicsStrDup(portName);
+    mptty->IPDeviceName = epicsStrDup(shostInfo.c_str());
+    mptty->portName = epicsStrDup(sportName.c_str());
     /*
      * Parse configuration parameters
      */
@@ -278,9 +424,16 @@ int RTPSyncManager::ConnectDevice(const char *portName, const char *hostInfo, un
 		mptty->haveAddress = 0;
 		return asynError;
 	}
+
     i = 1;
+
+	//struct timeval timeout;
+	//timeout.tv_sec = 2;
+	//timeout.tv_usec = 0;
+
     if ((mptty->socketType == SOCK_STREAM)
      && (setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, (void *)&i, sizeof i) < 0)) {
+     //&& (setsockopt(fd, SOL_SOCKET, SO_SNDTIMEO, (char *)&timeout, sizeof (timeout)) < 0)) {
         printf("Can't set %s socket NODELAY option: %s", mptty->IPDeviceName, strerror(SOCKERRNO));
         epicsSocketDestroy(fd);
         return asynError;
@@ -332,14 +485,14 @@ void RTPSyncManager::ttyCleanup(ttyController_t *tty)
 RTPSyncManager::~RTPSyncManager()
 {
 	delete mptty;
+	delete sRCommand;
+	delete sWCommand;
 }
 unsigned short RTPSyncManager::getCRC(unsigned char *writecmd, int loopcnt) 
 {
-	int i;
-
 	unsigned short fcsval = FCSINIT;
 	
-	for(i = 1; i < loopcnt; i++)
+	for(int i = 1; i < loopcnt; i++)
 	{
 		fcsval = ((fcsval >> 8) & 0xff) ^ fcstab[(fcsval ^ writecmd[i]) & 0xff]; 
 	};
@@ -350,51 +503,198 @@ unsigned short RTPSyncManager::getCRC(unsigned char *writecmd, int loopcnt)
 	return fcsval;
 }
 
-int RTPSyncManager::readMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread)
+//int RTPSyncManager::readSMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread)
+int RTPSyncManager::readSMsgCommand(const int type, const int mul_single, const int cpu_node, const int index_value)
 {
-	mCommand[0]= SYNC_BYTE;
-	mCommand[1]= mul_single; //Multi = 5, Single = 3
-	mCommand[2]= 0x00; 
-	mCommand[3]= node;  //Node = 0
-	mCommand[4]= type; // FLOAT_READ = 0x9D, INT_READ = 0x8D, BOOL_READ = 0x82
-	mCommand[5] = (unsigned char)(index % 256); // BOOL_START_INDEX = 485, FLOAT_START_INDEX = 9, INT_START_INDEX = 23
-	mCommand[6] = (unsigned char)(index / 256);
-	//mCommand[7] = (unsigned char)(numtoread % 256);
-	//mCommand[8] = (unsigned char)(numtoread / 256);
-	unsigned short check = getCRC((unsigned char*)mCommand, 7);
-	
-	printf("CRC-Check:%d\n", check);
+	sRCommand[0]= SYNC_BYTE;
+	sRCommand[1]= mul_single; //Multi = 5, Single = 3
+	sRCommand[2]= 0x00; 
+	sRCommand[3]= cpu_node;  //Node = 0
+	sRCommand[4]= type; // FLOAT_READ = 0x9D, INT_READ = 0x8D, BOOL_READ = 0x82
+	sRCommand[5] = (unsigned char)(index_value % 256); // BOOL_START_INDEX = 485, FLOAT_START_INDEX = 9, INT_START_INDEX = 23
+	sRCommand[6] = (unsigned char)(index_value / 256);
+	unsigned short check = getCRC((unsigned char*)sRCommand, SINGLE_CRC_RINDEX);
 
-	//getCRC((unsigned char*)mCommand, sizeof(&mCommand));
-	printf("Cmd Size:%d\n", sizeof(mCommand));
-	//return send(mptty->fd, (const char*)mCommand, sizeof(mCommand), 0);
-	return send(mptty->fd, (const char*)mCommand, 9, 0);
+	//printf("CRC-Check:%d\n", check);
+	//getCRC((unsigned char*)sRCommand, sizeof(&sRCommand));
+	//printf("Cmd Size:%d\n", sizeof(sRCommand));
+	//return send(mptty->fd, (const char*)sRCommand, sizeof(sRCommand), 0);
+
+	return send(mptty->fd, (const char*)sRCommand, SINGLE_READ_COMMANDMSG_SIZE, 0);
 }
 
-int RTPSyncManager::ReadSFloatData(epicsFloat32 &fvalue)
+int RTPSyncManager::writeSMsgCommand(const int type, const int length, const int cpu_node, const int index_value, epicsFloat32 fvalue)
+{
+	sWCommand[0]= SYNC_BYTE;
+	sWCommand[1]= length; //Float Write Length = 7, Single = 3
+	sWCommand[2]= 0x00; 
+	sWCommand[3]= cpu_node;  //Node = 0
+	sWCommand[4]= type;		// FLOAT_WRITE = 0x9E, INT_WRITE = 0x8E, BOOL_WRITE = 0x83
+	sWCommand[5] = (unsigned char)(index_value % 256); // BOOL_START_INDEX = 485, FLOAT_START_INDEX = 9, INT_START_INDEX = 23
+	sWCommand[6] = (unsigned char)(index_value / 256);
+
+	memcpy(&sWCommand[7], &fvalue, sizeof(epicsFloat32));
+	unsigned short check = getCRC((unsigned char*)sWCommand, SINGLE_CRC_WINDEX);
+
+	return send(mptty->fd, (const char*)sWCommand, SINGLE_WRITE_COMMANDMSG_SIZE, 0);
+}
+
+int RTPSyncManager::readMMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread)
+{
+	sRCommand[0]= SYNC_BYTE;
+	sRCommand[1]= mul_single; //Multi = 5, Single = 3
+	sRCommand[2]= 0x00; 
+	sRCommand[3]= node;  //Node = 0
+	sRCommand[4]= type; // FLOAT_READ = 0x9D, INT_READ = 0x8D, BOOL_READ = 0x82
+	sRCommand[5] = (unsigned char)(index % 256); // BOOL_START_INDEX = 485, FLOAT_START_INDEX = 9, INT_START_INDEX = 23
+	sRCommand[6] = (unsigned char)(index / 256);
+	sRCommand[7] = (unsigned char)(numtoread % 256);
+	sRCommand[8] = (unsigned char)(numtoread / 256);
+	unsigned short check = getCRC((unsigned char*)sRCommand, 7);
+
+	//getCRC((unsigned char*)sRCommand, sizeof(&sRCommand));
+	//printf("Cmd Size:%d\n", sizeof(sRCommand));
+	//return send(mptty->fd, (const char*)sRCommand, sizeof(sRCommand), 0);
+	return send(mptty->fd, (const char*)sRCommand, 11, 0);
+}
+
+int RTPSyncManager::ReadSFloatData(const aiRecord *pr, epicsFloat32 &fvalue)
 {
 	//int recByte = readMsgCommand(0,FLOAT_READ, 3, FLOAT_START_INDEX, 1);
-	int recByte = readMsgCommand(0,FLOAT_READ, 3, 95, 1);
-	printf("Socket(%p),ReadByte: %d\n", mptty->fd, recByte);
+	//int recByte = readSMsgCommand(0,FLOAT_READ, 3, 95, 1);
+	devPvt *pRtp = (devPvt*)pr->dpvt;
+	int recByte = readSMsgCommand(FLOAT_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
 
-	char ReadData[12];                 // float ÀÐ±â ¸í·É
+	//printf("Socket(%p),ReadByte: %d\n", mptty->fd, recByte);
+
+	char ReadData[SINGLE_FLOAT_VALUE_SIZE];                 // float ÀÐ±â ¸í·É
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
 
-	printf("RecvByte:%d\n", recvbyte);
+	//printf("RecvByte:%d\n", recvbyte);
 
 	if(recvbyte < 0)
 	{
 		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
-	}
-	//memcpy(&fvalue, (float*)&ReadData[5], sizeof(float));
-	
-#if 0
-	float fval;
-	memcpy(&fval, (float*)&ReadData[5], sizeof(float));
-	printf("RTP-Value:%f\n",fval);
-#else
+		return -1;
+	};
+
 	memcpy(&fvalue, (epicsFloat32*)&ReadData[5], sizeof(epicsFloat32));
-	printf("RTP-Value:%f\n",fvalue);
-#endif
+
+	//printf("RTP-Value:%f\n",fvalue);
 	return (0);
+}
+
+int RTPSyncManager::WriteSFloatData(const aoRecord *pr, epicsFloat32 fvalue)
+{
+	devPvt *pRtp = (devPvt*)pr->dpvt;
+	int recByte = writeSMsgCommand(FLOAT_WRITE, 7, pRtp->cpu_node, pRtp->index_value, fvalue);
+
+	char ReadData[7];
+	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	if(recvbyte < 0) {
+		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
+		return -1;
+	};
+
+	char resp = ReadData[4];
+	printf("Response-code: %d\n", resp);
+
+	return (0);
+}
+
+int RTPSyncManager::ReadSBoolData(const biRecord *pr, bool &bvalue)
+{
+	devPvt *pRtp = (devPvt*)pr->dpvt;
+	int recByte = readSMsgCommand(BOOL_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
+
+	char ReadData[SINGLE_BOOL_VALUE_SIZE];                 // float ÀÐ±â ¸í·É
+	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	if(recvbyte < 0) {
+		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
+		return recvbyte;
+	};
+
+	memcpy(&bvalue, (bool*)&ReadData[5], sizeof(bool));
+
+	return (0);
+}
+
+int RTPSyncManager::ReadSIntData(const longinRecord *pr, epicsInt32 &ivalue)
+{
+	devPvt *pRtp = (devPvt*)pr->dpvt;
+	int recByte = readSMsgCommand(INT_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
+
+	char ReadData[SINGLE_INT_VALUE_SIZE]; 
+	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	if(recvbyte < 0) {
+		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
+		return recvbyte;
+	};
+
+	memcpy(&ivalue, (epicsInt32*)&ReadData[5], sizeof(epicsInt32));
+
+	return (0);
+}
+
+int RTPSyncManager::ConnectThread(const char *portName, const char *hostInfo, unsigned int prio, int noAuto)
+{
+	sportName = string(portName);
+	shostInfo = string(hostInfo);
+	priority = prio;
+	noAutoConnect = noAuto;
+
+	connThread_id = epicsThreadCreate("RTPConnThread", epicsThreadPriorityHigh,
+                                 epicsThreadGetStackSize(epicsThreadStackSmall),
+                                 (EPICSTHREADFUNC) RTPConnectionTask, this);
+
+	return(0);
+}
+
+int RTPSyncManager::ParseLink(const char *linkString, devPvt *rtpDevice)
+{
+	//printf("LinkString:%s\n",linkString);
+	const char seps[] = "(), \t";
+	char *token = strtok((char*)linkString, seps);
+	int index = 0;
+	char *end;
+	while (token != NULL)
+	{
+		printf("Token - %s\n", token);
+		switch(index)
+		{
+			case 0:
+				if(strcasecmp(token, "rtp") !=0) return (-1);
+				break;
+			case 1:
+				if( checkValue(token) == 0 ) return (-1);
+				rtpDevice->cpu_node = atoi(token);
+				//cpu_node = atoi(token);
+				break;
+			case 2:
+				if( checkValue(token) == 0 ) return (-1);
+				rtpDevice->index_value = atoi(token);
+				break;
+		};
+		token = strtok(NULL, seps);
+		index++;
+	};
+
+	return (0);
+}
+
+int RTPSyncManager::checkValue(const char *sval)
+{
+	size_t size = strlen(sval);
+	if (size == 0) return 0;
+
+	for (int i = 0; i < (int) size; i++) 
+	{
+		//if (sval[i] == '.' || sval[i] == '-' || sval[i] == '+') continue; //exponential
+		if (sval[i] < '0' || sval[i] > '9') return 0; 
+	}
+
+	return 1; // value
 }

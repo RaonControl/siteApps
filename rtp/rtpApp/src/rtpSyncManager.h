@@ -41,6 +41,11 @@
 #include "asynEpicsUtils.h"
 #include "asynFloat64.h"
 #include "aiRecord.h"
+#include "aoRecord.h"
+#include "biRecord.h"
+#include "boRecord.h"
+#include "longinRecord.h"
+#include "longoutRecord.h"
 
 
 // RTP 프로토콜 관련
@@ -58,10 +63,21 @@
 #define NUMBER_TO_READ    5                   // 읽어올 변수의 개수                   
 
 //#define READ_COMMANDMSG_SIZE    11
-#define READ_COMMANDMSG_SIZE    9
+#define SINGLE_READ_COMMANDMSG_SIZE		9
+#define SINGLE_WRITE_COMMANDMSG_SIZE	13
 
 #define FCSINIT			0xFFFF
 #define DEFAULT_RING_BUFFER_SIZE 10
+
+#define SINGLE_BOOL_VALUE_SIZE	9
+#define SINGLE_INT_VALUE_SIZE	10
+#define SINGLE_FLOAT_VALUE_SIZE	12
+
+#define SINGLE_CRC_RINDEX 7
+#define SINGLE_CRC_WINDEX 11
+
+#define MULTIPLE	5
+#define SINGLE	3
 
 
 #ifdef __cplusplus
@@ -73,16 +89,22 @@ typedef struct devRTP{
 	DEVSUPFUN	report;
 	DEVSUPFUN	init;
 	DEVSUPFUN	init_record;
-	long  (*get_ioint_info) (int, dbCommon*, IOSCANPVT*);
-	//DEVSUPFUN	get_ioint_info;
+	//long  (*get_ioint_info) (int, dbCommon*, IOSCANPVT*);
+	DEVSUPFUN	get_ioint_info;
 	DEVSUPFUN	process;
-	//DEVSUPFUN	special_linconv;
-	long  (*special_linconv) (void *, int pass);
+	DEVSUPFUN	special_linconv;
+	//long  (*special_linconv) (void *, int pass);
 }devRTP;
 
-//long	convertAi(void *precord, int pass);
-//long	processAi (void *precord);
-//long	initAi (void *prec);
+static long	convertAi(void *precord, int pass);
+static long	initAi (void *prec);
+static long	processAi (void *precord);
+static long	initAo (void *prec);
+static long	processAo (void *precord);
+static long	initBi (void *prec);
+static long	processBi (void *precord);
+static long	initLi (void *prec);
+static long	processLi (void *precord);
 epicsShareFunc int drvSyncRTPConfigure(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect);
 
 #ifdef __cplusplus
@@ -128,6 +150,7 @@ static unsigned short fcstab[256] = {
 };
 
 
+#if 0
 typedef struct ringBufferElement {
     epicsFloat64    value;
     epicsTimeStamp  time;
@@ -160,6 +183,13 @@ typedef struct devPvt{
     char              *userParam;
     int               addr;
 }devPvt;
+#endif
+
+typedef struct devPvt{
+	int cpu_node;
+	int index_value;
+}devPvt;
+
 
 typedef struct {
     char              *IPDeviceName;
@@ -181,19 +211,40 @@ public:
 	RTPSyncManager();
 	~RTPSyncManager();
 
-	//float ReadValue();
-	int ConnectDevice(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect);
-	//int ReadSFloatData(epicsFloat64 &fvalue);
-	int ReadSFloatData(epicsFloat32 &fvalue);
+	//int ReadSFloatData(epicsFloat32 &fvalue);
+	int ReadSBoolData(const biRecord *pr, bool &bvalue);
+	int ReadSIntData(const longinRecord *pr, epicsInt32 &ivalue);
+	int ReadSFloatData(const aiRecord *pr, epicsFloat32 &fvalue);
+	int WriteSFloatData(const aoRecord *pr, epicsFloat32 fvalue);
+	int ConnectThread(const char *portName, const char *hostInfo, unsigned int prio, int noAuto);
+	int ConnectDevice();
+	//int ParseLink(const char *linkString);
+	int ParseLink(const char *linkString, devPvt *rtpDevice);
 
 private:
 	ttyController_t *mptty;
-	char		*mCommand;
+	char		*sRCommand;
+	char		*sWCommand;
 	unsigned short getCRC(unsigned char *writecmd, int loopcnt);
-	int	 readMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread);
+
+	//int	readSMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread);
+	//int readSMsgCommand(const int type, const int mul_single);
+	int readSMsgCommand(const int type, const int mul_single, const int cpu_node, const int index_value);
+	int readMMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread);
+	//int writeSMsgCommand(const int type, const int length, epicsFloat32 fvalue);
+	int writeSMsgCommand(const int type, const int length, const int cpu_node, const int index_value, epicsFloat32 fvalue);
+
 	unsigned char maskBit[8] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80};
 	void ttyCleanup(ttyController_t *tty);
  	int setNonBlock(SOCKET fd, int nonBlockFlag);
+	epicsThreadId	connThread_id;
+	string sportName;
+	string shostInfo;
+	unsigned int priority;
+	unsigned int noAutoConnect;
+
+	//int connectDevice(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect);
+	int checkValue(const char *sval);
 };
 
 #endif // __RTP_DEV_MANAGER_H
