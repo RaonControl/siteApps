@@ -18,6 +18,7 @@ drvSyncRTPConfigure("RTPDevice", "89.89.80.30:50199 TCP", 0, 0)
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=sileeHost")
 dbLoadRecords("db/RTPTest.vdb")
+#dbLoadRecords("db/RTPOneTest.vdb")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit

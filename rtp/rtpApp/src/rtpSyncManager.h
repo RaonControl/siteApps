@@ -74,7 +74,10 @@
 #define SINGLE_FLOAT_VALUE_SIZE	12
 
 #define SINGLE_CRC_RINDEX 7
-#define SINGLE_CRC_WINDEX 11
+
+#define SINGLE_CRC_WBOOL_INDEX 8
+#define SINGLE_CRC_WINT_INDEX 9
+#define SINGLE_CRC_WFLOAT_INDEX 11
 
 #define MULTIPLE	5
 #define SINGLE	3
@@ -103,8 +106,13 @@ static long	initAo (void *prec);
 static long	processAo (void *precord);
 static long	initBi (void *prec);
 static long	processBi (void *precord);
+static long	initBo (void *prec);
+static long	processBo (void *precord);
 static long	initLi (void *prec);
 static long	processLi (void *precord);
+static long	initLo (void *prec);
+static long	processLo (void *precord);
+
 epicsShareFunc int drvSyncRTPConfigure(const char *portName, const char *hostInfo, unsigned int priority, int noAutoConnect);
 
 #ifdef __cplusplus
@@ -215,7 +223,9 @@ public:
 	int ReadSBoolData(const biRecord *pr, bool &bvalue);
 	int ReadSIntData(const longinRecord *pr, epicsInt32 &ivalue);
 	int ReadSFloatData(const aiRecord *pr, epicsFloat32 &fvalue);
-	int WriteSFloatData(const aoRecord *pr, epicsFloat32 fvalue);
+	int WriteSFloatData(const aoRecord *pr);
+	int WriteSBoolData(const boRecord *pr);
+	int WriteSIntData(const longoutRecord *pr);
 	int ConnectThread(const char *portName, const char *hostInfo, unsigned int prio, int noAuto);
 	int ConnectDevice();
 	//int ParseLink(const char *linkString);
@@ -223,6 +233,8 @@ public:
 
 private:
 	ttyController_t *mptty;
+    epicsMutexId mutex;
+
 	char		*sRCommand;
 	char		*sWCommand;
 	unsigned short getCRC(unsigned char *writecmd, int loopcnt);

@@ -92,7 +92,6 @@ static long processAi (void *precord)
 	//if(!status) pr->udf = FALSE;
 
 	epicsFloat32 fvalue;
-
 	mrtpSyncManager.ReadSFloatData(pr, fvalue);
 	pr->val = (epicsFloat64)fvalue;
 
@@ -136,10 +135,11 @@ static long initAo (void *prec)
 static long processAo (void *precord)
 {
 	aoRecord *pr = (aoRecord*)precord;
+	if(pr->dpvt == NULL) return(-1);
 
-	mrtpSyncManager.WriteSFloatData(pr, pr->val);
+	mrtpSyncManager.WriteSFloatData(pr);
 
-	return (2);
+	return (0);
 }
 
 static long	convertAi(void *precord, int pass)
@@ -193,6 +193,47 @@ static long processBi (void *precord)
 	return (2);
 }
 
+devRTP devSyncRTPReadBO  ={6, 0, 0, initBo, 0, processBo, 0};
+epicsExportAddress(dset,devSyncRTPReadBO);
+
+static long initBo (void *prec)
+{
+	boRecord *pr = (boRecord*)prec;
+	devPvt *rtpDevice = (devPvt*)malloc(sizeof(devPvt));
+	// bi.inp must be an INST_IO
+	int status = -1;
+	switch (pr->out.type) {
+		case INST_IO:
+			{
+				status = mrtpSyncManager.ParseLink(pr->out.value.instio.string, rtpDevice);
+			};
+			break;
+		default :
+			recGblRecordError(S_db_badField,(void *)pr,
+					"devSyncRTPReadBI (init_record) Illegal INP field");
+			return(S_db_badField);
+	};
+
+	if(status < 0)
+		recGblRecordError(S_db_badField,(void *)pr,
+				"devSyncRTPReadBI (init_record) Syntax error: INP field");
+
+	pr->dpvt = rtpDevice;
+	pr->udf = false;
+	return (status);
+}
+
+static long processBo (void *precord)
+{
+	boRecord *pr = (boRecord*)precord;
+
+	if(pr->dpvt == NULL) return(-1);
+
+	mrtpSyncManager.WriteSBoolData(pr);
+
+	return (0);
+}
+
 devRTP devSyncRTPReadLI  ={6, 0, 0, initLi, 0, processLi, 0};
 epicsExportAddress(dset,devSyncRTPReadLI);
 
@@ -231,6 +272,45 @@ static long processLi (void *precord)
 
 	mrtpSyncManager.ReadSIntData(pr, ivalue);
 	pr->val = (epicsInt32)ivalue;
+
+	return (2);
+}
+
+devRTP devSyncRTPReadLO  ={6, 0, 0, initLo, 0, processLo, 0};
+epicsExportAddress(dset,devSyncRTPReadLO);
+
+static long initLo (void *prec)
+{
+	longoutRecord *pr = (longoutRecord*)prec;
+	devPvt *rtpDevice = (devPvt*)malloc(sizeof(devPvt));
+	// bi.inp must be an INST_IO
+	int status = -1;
+	switch (pr->out.type) {
+		case INST_IO:
+			{
+				status = mrtpSyncManager.ParseLink(pr->out.value.instio.string, rtpDevice);
+			};
+			break;
+		default :
+			recGblRecordError(S_db_badField,(void *)pr,
+					"devSyncRTPReadLO (init_record) Illegal OUT field");
+			return(S_db_badField);
+	};
+
+	if(status < 0)
+		recGblRecordError(S_db_badField,(void *)pr,
+				"devSyncRTPReadLO (init_record) Syntax error: OUT field");
+
+	pr->dpvt = rtpDevice;
+	pr->udf = false;
+	return (status);
+}
+
+static long processLo (void *precord)
+{
+	longoutRecord *pr = (longoutRecord*)precord;
+
+	mrtpSyncManager.WriteSIntData(pr);
 
 	return (2);
 }
@@ -314,6 +394,7 @@ RTPSyncManager::RTPSyncManager()
 	mptty = new ttyController_t;
 	sRCommand = new char(SINGLE_READ_COMMANDMSG_SIZE);
 	sWCommand = new char(SINGLE_WRITE_COMMANDMSG_SIZE);
+	mutex    = epicsMutexCreate();
 }
 
 int RTPSyncManager::ConnectDevice()
@@ -487,6 +568,11 @@ RTPSyncManager::~RTPSyncManager()
 	delete mptty;
 	delete sRCommand;
 	delete sWCommand;
+	if (mutex) {
+			epicsMutexDestroy(mutex);
+			mutex = 0;
+	}
+
 }
 unsigned short RTPSyncManager::getCRC(unsigned char *writecmd, int loopcnt) 
 {
@@ -533,10 +619,38 @@ int RTPSyncManager::writeSMsgCommand(const int type, const int length, const int
 	sWCommand[5] = (unsigned char)(index_value % 256); // BOOL_START_INDEX = 485, FLOAT_START_INDEX = 9, INT_START_INDEX = 23
 	sWCommand[6] = (unsigned char)(index_value / 256);
 
-	memcpy(&sWCommand[7], &fvalue, sizeof(epicsFloat32));
-	unsigned short check = getCRC((unsigned char*)sWCommand, SINGLE_CRC_WINDEX);
+	size_t msgSize = 0;
 
-	return send(mptty->fd, (const char*)sWCommand, SINGLE_WRITE_COMMANDMSG_SIZE, 0);
+	switch(type)
+	{
+		case BOOL_WRITE:
+			{
+				bool bval = (bool)fvalue;
+				memcpy(&sWCommand[7], &bval, sizeof(bool));
+				unsigned short check = getCRC((unsigned char*)sWCommand, SINGLE_CRC_WBOOL_INDEX);
+				msgSize = SINGLE_CRC_WBOOL_INDEX + 2;
+			}
+			break;
+		case INT_WRITE:	
+			{
+				int ival = (int)fvalue;
+				memcpy(&sWCommand[7], &ival, sizeof(ival));
+				unsigned short check = getCRC((unsigned char*)sWCommand, SINGLE_CRC_WINT_INDEX);
+				msgSize = SINGLE_CRC_WINT_INDEX + 2;
+			}
+			break;
+		case FLOAT_WRITE:
+		default:
+			{
+				memcpy(&sWCommand[7], &fvalue, sizeof(epicsFloat32));
+				unsigned short check = getCRC((unsigned char*)sWCommand, SINGLE_CRC_WFLOAT_INDEX);
+				msgSize = SINGLE_CRC_WFLOAT_INDEX + 2;
+			}
+			break;
+	}
+
+	//return send(mptty->fd, (const char*)sWCommand, SINGLE_WRITE_COMMANDMSG_SIZE, 0);
+	return send(mptty->fd, (const char*)sWCommand, msgSize, 0);
 }
 
 int RTPSyncManager::readMMsgCommand(const int node, const int type, const int mul_single, const int index, const int numtoread)
@@ -563,14 +677,15 @@ int RTPSyncManager::ReadSFloatData(const aiRecord *pr, epicsFloat32 &fvalue)
 	//int recByte = readMsgCommand(0,FLOAT_READ, 3, FLOAT_START_INDEX, 1);
 	//int recByte = readSMsgCommand(0,FLOAT_READ, 3, 95, 1);
 	devPvt *pRtp = (devPvt*)pr->dpvt;
+
+	epicsMutexLock(mutex);
 	int recByte = readSMsgCommand(FLOAT_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
 
 	//printf("Socket(%p),ReadByte: %d\n", mptty->fd, recByte);
-
 	char ReadData[SINGLE_FLOAT_VALUE_SIZE];                 // float ÀÐ±â ¸í·É
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
 
-	//printf("RecvByte:%d\n", recvbyte);
+	//printf("PVName(%s), RecvByte:%d\n", pr->name, recvbyte);
 
 	if(recvbyte < 0)
 	{
@@ -579,15 +694,57 @@ int RTPSyncManager::ReadSFloatData(const aiRecord *pr, epicsFloat32 &fvalue)
 	};
 
 	memcpy(&fvalue, (epicsFloat32*)&ReadData[5], sizeof(epicsFloat32));
+	epicsMutexUnlock(mutex);
 
 	//printf("RTP-Value:%f\n",fvalue);
 	return (0);
 }
 
-int RTPSyncManager::WriteSFloatData(const aoRecord *pr, epicsFloat32 fvalue)
+int RTPSyncManager::WriteSFloatData(const aoRecord *pr)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
-	int recByte = writeSMsgCommand(FLOAT_WRITE, 7, pRtp->cpu_node, pRtp->index_value, fvalue);
+	epicsMutexLock(mutex);
+	int recByte = writeSMsgCommand(FLOAT_WRITE, 7, pRtp->cpu_node, pRtp->index_value, pr->val);
+
+	char ReadData[7];
+	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	if(recvbyte < 0) {
+		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
+		return -1;
+	};
+	epicsMutexUnlock(mutex);
+
+	char resp = ReadData[4];
+	//printf("Response-code: %d\n", resp);
+
+	return (0);
+}
+int RTPSyncManager::WriteSBoolData(const boRecord *pr)
+{
+	devPvt *pRtp = (devPvt*)pr->dpvt;
+
+	epicsMutexLock(mutex);
+	int recByte = writeSMsgCommand(BOOL_WRITE, 4, pRtp->cpu_node, pRtp->index_value, pr->val);
+
+	char ReadData[7];
+	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	if(recvbyte < 0) {
+		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
+		return -1;
+	};
+	epicsMutexUnlock(mutex);
+
+	//char resp = ReadData[4];
+	//printf("Response-code: %d\n", resp);
+	return (0);
+}
+int RTPSyncManager::WriteSIntData(const longoutRecord *pr)
+{
+	devPvt *pRtp = (devPvt*)pr->dpvt;
+	epicsMutexLock(mutex);
+	int recByte = writeSMsgCommand(INT_WRITE, 5, pRtp->cpu_node, pRtp->index_value, pr->val);
 
 	char ReadData[7];
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
@@ -597,8 +754,9 @@ int RTPSyncManager::WriteSFloatData(const aoRecord *pr, epicsFloat32 fvalue)
 		return -1;
 	};
 
+	epicsMutexUnlock(mutex);
 	char resp = ReadData[4];
-	printf("Response-code: %d\n", resp);
+	//printf("Response-code: %d\n", resp);
 
 	return (0);
 }
@@ -606,6 +764,7 @@ int RTPSyncManager::WriteSFloatData(const aoRecord *pr, epicsFloat32 fvalue)
 int RTPSyncManager::ReadSBoolData(const biRecord *pr, bool &bvalue)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
+	epicsMutexLock(mutex);
 	int recByte = readSMsgCommand(BOOL_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
 
 	char ReadData[SINGLE_BOOL_VALUE_SIZE];                 // float ÀÐ±â ¸í·É
@@ -617,6 +776,7 @@ int RTPSyncManager::ReadSBoolData(const biRecord *pr, bool &bvalue)
 	};
 
 	memcpy(&bvalue, (bool*)&ReadData[5], sizeof(bool));
+	epicsMutexUnlock(mutex);
 
 	return (0);
 }
@@ -624,6 +784,7 @@ int RTPSyncManager::ReadSBoolData(const biRecord *pr, bool &bvalue)
 int RTPSyncManager::ReadSIntData(const longinRecord *pr, epicsInt32 &ivalue)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
+	epicsMutexLock(mutex);
 	int recByte = readSMsgCommand(INT_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
 
 	char ReadData[SINGLE_INT_VALUE_SIZE]; 
@@ -635,6 +796,7 @@ int RTPSyncManager::ReadSIntData(const longinRecord *pr, epicsInt32 &ivalue)
 	};
 
 	memcpy(&ivalue, (epicsInt32*)&ReadData[5], sizeof(epicsInt32));
+	epicsMutexUnlock(mutex);
 
 	return (0);
 }

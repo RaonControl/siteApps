@@ -12,6 +12,7 @@ include $(TOP)/configure/CONFIG
 # databases, templates, substitutions like this
 #DB += xxx.db
 DB += RTPTest.vdb
+DB += RTPOneTest.vdb
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
