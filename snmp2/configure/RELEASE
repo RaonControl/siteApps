@@ -23,6 +23,12 @@ TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
 EPICS_BASE=${EPICS_PATH}/base
 
+# MIB PATH
+MIBDIRS=${EPICS_PATH}/siteLibs/snmpLib/mibs
+#MIBDIRS=$(RAON_SITELIBS)/snmpLib/mibs
+
+
+
 # If using the sequencer, point SNCSEQ at its top directory:
 #SNCSEQ=$(EPICS_BASE)/../modules/soft/seq
 
