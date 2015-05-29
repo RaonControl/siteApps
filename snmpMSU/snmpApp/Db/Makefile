@@ -16,7 +16,7 @@ include $(TOP)/configure/CONFIG
 #DB += wiener_fan.vdb
 #DB += snmp.vdb
 DB += printer.vdb
-
+DB += timestamp.vdb
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_template = <templatename>
