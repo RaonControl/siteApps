@@ -5,11 +5,11 @@ include $(TOP)/configure/CONFIG
 #  ADD MACRO DEFINITIONS AFTER THIS LINE
 #=============================
 LIBRARY_IOC     += rdbMySQL
-#USR_CXXFLAGS += -Wno-unused-function -fpermissive
+USR_CXXFLAGS += -Wno-unused-function -fpermissive
 
-#DBD         += rdbmySQLRecord.dbd
-#DBD         += rdbmySQLDevSoft.dbd
-#DBDINC      += rdbmySQLRecord
+DBD         += rdbmySQLRecord.dbd
+DBD         += rdbmySQLDevSoft.dbd
+DBDINC      += rdbmySQLRecord
 
 MYSQLLIB = /usr/lib/x86_64-linux-gnu/
 
@@ -18,7 +18,8 @@ USR_INCLUDES  += -I$(RAON_SITELIBS)/include
 USR_INCLUDES  += -I$(MYSQLINC)
 
 rdbMySQL_DIR  += $(MYSQLLIB)
-rdbMySQL_SRCS += rdbmySQLRecord.c
+#rdbMySQL_SRCS += rdbmySQLRecord.cpp
+rdbMySQL_SRCS += rdbmySQLRecord.cpp rdbmySQLConnManager.cpp 
 
 mysqlclient_DIR += $(MYSQLLIB)
 
