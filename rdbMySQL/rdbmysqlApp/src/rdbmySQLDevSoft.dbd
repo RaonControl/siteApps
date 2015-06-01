@@ -1,0 +1,3 @@
+device(rdbmySQL,CONSTANT,rdbReadmySQL, "ReadData")
+device(rdbmySQL,CONSTANT,rdbWritemySQL, "WriteData")
+#registrar(drvRDBConnInitRegisterCommands)
