@@ -11,8 +11,11 @@ cd "${TOP}"
 dbLoadDatabase "dbd/rdbmysql.dbd"
 rdbmysql_registerRecordDeviceDriver pdbbase
 
+drvMySQLConnInit("epics_db","root","qwer1234","127.0.0.1","3306");
+
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=ctrluserHost")
+dbLoadRecords("db/MYSQL_EPICS.vdb","SYS=MYSQL")
 
 cd "${TOP}/iocBoot/${IOC}"
 iocInit

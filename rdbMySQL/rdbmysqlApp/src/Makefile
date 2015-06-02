@@ -35,9 +35,11 @@ DBD += rdbmysql.dbd
 
 # rdbmysql.dbd will be made up from these files:
 rdbmysql_DBD += base.dbd
+rdbmysql_DBD += rdbmySQLRecord.dbd 
 
 # Include dbd files from all support applications:
 #rdbmysql_DBD += xxx.dbd
+rdbmysql_DBD += rdbmySQLDevSoft.dbd 
 
 # Add all the support libraries needed by this IOC
 rdbmysql_LIBS += rdbMySQL

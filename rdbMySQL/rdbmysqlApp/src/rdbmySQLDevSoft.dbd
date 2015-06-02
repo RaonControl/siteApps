@@ -1,3 +1,4 @@
 device(rdbmySQL,CONSTANT,rdbReadmySQL, "ReadData")
 device(rdbmySQL,CONSTANT,rdbWritemySQL, "WriteData")
-#registrar(drvRDBConnInitRegisterCommands)
+registrar(drvMySQLConnInitRegisterCommands)
+variable(RdbmySQLDebug)

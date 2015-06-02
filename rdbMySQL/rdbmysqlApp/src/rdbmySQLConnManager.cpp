@@ -37,14 +37,14 @@ static void drvMySQLConnInitRegisterCommands(void)
 }
 epicsExportRegistrar(drvMySQLConnInitRegisterCommands);
 
-//static RDBManager mRdbManager;
+static MySQLConnManager mRdbManager;
 static ELLLIST    devRDBList;
 
 //drvMySQLConnInit
 epicsShareFunc int drvMySQLConnInit(const char *dbname, const char *user, const char *password, 
 		const char *hostaddr, const char *port )
 {
-//	mRdbManager.Connect(dbname, user, password, hostaddr, port);
+	mRdbManager.Connect(dbname, user, password, hostaddr, port);
 	ellInit(&devRDBList);
 
     epicsThreadCreate("drvMySQLConnInit", epicsThreadPriorityHigh, epicsThreadGetStackSize(epicsThreadStackSmall),
@@ -146,8 +146,8 @@ long read_rdb(void	*precord)
     if(!status) prdbmySQL->udf = FALSE;
 
 	//ReadValue(const char *table, const char *field)
-	//prdbmySQL->val = mRdbManager.ReadValue(prdbmySQL->tabl,prdbmySQL->fild);
-	//prdbmySQL->oval = prdbmySQL->val;
+	prdbmySQL->val = mRdbManager.ReadValue(prdbmySQL->tabl,prdbmySQL->fild);
+	prdbmySQL->oval = prdbmySQL->val;
 
     return(0);
 }
@@ -166,7 +166,7 @@ long write_rdb(void	*precord)
     if(!status) prdbmySQL->udf = FALSE;
 
 	if(prdbmySQL->oval!=prdbmySQL->val)
-		//mRdbManager.WriteValue(prdbmySQL);
+		mRdbManager.WriteValue(prdbmySQL);
 #if 0
 	switch(rdbpostgreSQL->qry)
 	{
@@ -200,6 +200,8 @@ MySQLConnManager::MySQLConnManager()
 
 MySQLConnManager::~MySQLConnManager()
 {
+	if(conn != 0)
+		mysql_close(conn);
 }
 
 int MySQLConnManager::initialize()
@@ -211,21 +213,101 @@ int MySQLConnManager::initialize()
 		return (-1);
 	}
 
-	if (mysql_real_connect(conn, "localhost", "root", "qwer1234", NULL, 0, NULL, 0) == NULL) 
-	{
-		fprintf(stderr, "%s\n", mysql_error(conn));
-		mysql_close(conn);
-		return (-1);
-	}  
-
+#if 0
 	if (mysql_query(conn, "CREATE DATABASE testdb")) 
 	{
 		fprintf(stderr, "%s\n", mysql_error(conn));
 		mysql_close(conn);
 		return (-1);
 	}
-
 	mysql_close(conn);
+#endif
 	return (-1);
 }
 
+int MySQLConnManager::Connect(const char *dbname, const char *user, const char *password,
+			const char *hostaddr, const char* port)
+{
+	//connection *mpConn = 0;
+	//if (mysql_real_connect(conn, "localhost", "root", "qwer1234", NULL, 0, NULL, 0) == NULL) 
+	if (mysql_real_connect(conn, hostaddr, user, password, dbname, atoi(port), NULL, 0) == NULL) 
+	{
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		mysql_close(conn);
+		return (-1);
+	}  
+
+	return (0);
+}
+
+float MySQLConnManager::ReadValue(const char *table, const char *field)
+{
+	//string sql = "select data_float from epics_table where id=1";
+	string sql = string("select ") + string(field) + string (" from ") + string(table) + string(" where id = 1");
+
+	float fdata = 0.f;
+
+	if(mysql_query(conn, sql.c_str()))
+	{
+		fprintf(stderr, "Query Error:%s\n", mysql_error(conn));
+	};
+
+	MYSQL_RES *res = mysql_store_result(conn);
+
+	if(res==0)
+	{
+		fprintf(stderr, "Query Result - Error:%s\n", mysql_error(conn));
+	};
+
+	int fields = mysql_num_fields(res);
+
+	MYSQL_ROW row;
+
+	while((row=mysql_fetch_row(res)))
+	{
+		for(int i = 0; i < fields; i++)
+		{
+			fdata = strtof(row[i], 0);
+		};
+	};
+
+	mysql_free_result(res);
+
+	return fdata;
+}
+
+int MySQLConnManager::WriteValue(const void *precord)
+{
+	rdbmySQLRecord	*prdbmySQL = (rdbmySQLRecord*)precord;
+
+	switch(prdbmySQL->qry)
+	{
+		case queryUpdate:
+			updateValue(precord);
+			break;
+		case queryInsert:
+			//insertValue(prdbpostgreSQL->tabl,prdbpostgreSQL->fild);
+			break;
+	};
+
+	return(0);
+}
+
+int MySQLConnManager::updateValue(const void *precord)
+{
+	rdbmySQLRecord	*prdbmySQL = (rdbmySQLRecord*)precord;
+
+	string field = string (prdbmySQL->fild);
+	string table = string (prdbmySQL->tabl);
+	string sval = valtostr(prdbmySQL->val);
+	string sql = string("update ") + table + string (" set ") + field + string("=")+ sval+ string(" where id = 1");
+
+	
+	if(mysql_query(conn, sql.c_str()))
+	{
+		fprintf(stderr, "%s\n", mysql_error(conn));
+		return (-1);
+	}
+
+	return (0);
+};
