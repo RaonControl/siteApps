@@ -80,6 +80,7 @@ private:
 //member data
 private:
 	MYSQL *conn;
+    epicsMutexId mutex;
 		
 };
 

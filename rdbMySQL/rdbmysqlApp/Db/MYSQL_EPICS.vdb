@@ -5,6 +5,7 @@
 
 
 record(rdbmySQL, "$(SYS):READ_DATA") {
+#  field(SCAN, "1 second")
   field(SCAN, "I/O Intr")
   field(PINI, "YES")
   field(DTYP, "ReadData")
@@ -14,6 +15,7 @@ record(rdbmySQL, "$(SYS):READ_DATA") {
 
 
 record(rdbmySQL, "$(SYS):WRITE_DATA") {
+#  field(SCAN, "1 second")
   field(SCAN, "I/O Intr")
   field(PINI, "YES")
   field(DTYP, "WriteData")
