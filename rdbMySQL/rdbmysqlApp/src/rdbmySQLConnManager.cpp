@@ -253,7 +253,8 @@ int MySQLConnManager::Connect(const char *dbname, const char *user, const char *
 float MySQLConnManager::ReadValue(const char *table, const char *field)
 {
 	//string sql = "select data_float from epics_table where id=1";
-	string sql = string("select ") + string(field) + string (" from ") + string(table) + string(" where id = 1");
+	//string sql = string("select ") + string(field) + string (" from ") + string(table) + string(" where id = 1");
+	string sql = string("select ") + string(field) + string (" from ") + string(table);
 
 	if(RdbmySQLDebug)
 		printf("Connection to MySQL:%d, MySQL Conn:%p\n", mysql_ping(conn), conn);
