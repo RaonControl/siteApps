@@ -15,7 +15,7 @@ integrateTest_registerRecordDeviceDriver pdbbase
 dbLoadTemplate "db/userHost.substitutions"
 dbLoadRecords "db/dbSubExample.db", "user=namshHost"
 
-dbLoadRecords "db/alive.db", "P=aliveEx:,RHOST=10.1.6.104"
+dbLoadRecords "db/alive.db", "P=aliveEx:,RHOST=10.1.4.61"
 #dbLoadDatabase("dbd/testIocStats.dbd",0,0)
 ## Load all record instances (VxWorks)
 #dbLoadRecords("db/iocAdminVxWorks.db","IOC=IOCTEST")
