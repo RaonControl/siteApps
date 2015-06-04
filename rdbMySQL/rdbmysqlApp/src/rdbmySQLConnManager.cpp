@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "rdbmySQLConnManager.h"
+#include "longinRecord.h"
 
 typedef struct devMySQLPvt {
 	ELLNODE		devRDBNode;
@@ -145,8 +146,8 @@ long read_rdb(void	*precord)
     /*If return was succesful then set undefined false*/
     if(!status) prdbmySQL->udf = FALSE;
 
-	//ReadValue(const char *table, const char *field)
-	prdbmySQL->val = mRdbManager.ReadValue(prdbmySQL->tabl,prdbmySQL->fild);
+	//prdbmySQL->val = mRdbManager.ReadValue(prdbmySQL->tabl,prdbmySQL->fild);
+	prdbmySQL->val = mRdbManager.ReadValue(prdbmySQL);
 	prdbmySQL->oval = prdbmySQL->val;
 
     return(0);
@@ -250,11 +251,165 @@ int MySQLConnManager::Connect(const char *dbname, const char *user, const char *
 	return (0);
 }
 
+float MySQLConnManager::ReadValue(const void *precord)
+{
+	rdbmySQLRecord	*prdbmySQL = (rdbmySQLRecord*)precord;
+	//string sql = string("select ") + string(field) + string (" from ") + string(table);
+	string sql = prdbmySQL->qry + string(";");
+
+	if(RdbmySQLDebug)
+	{
+		//printf("Queray:%s\n", sql.c_str());
+		printf("Connection to MySQL:%d, MySQL Conn:%p\n", mysql_ping(conn), conn);
+	};
+
+	float fdata = 0.f;
+
+	epicsMutexLock(mutex);
+	if(mysql_query(conn, sql.c_str()))
+	{
+		fprintf(stderr, "Query Error:%s\n", mysql_error(conn));
+	};
+
+	MYSQL_RES *res = mysql_store_result(conn);
+
+	if(res==0)
+	{
+		fprintf(stderr, "Query Result - Error:%s\n", mysql_error(conn));
+	};
+
+	epicsMutexUnlock(mutex);
+
+	int fields = mysql_num_fields(res);
+	//DBADDR *pdbAddrA = dbGetPdbAddrFromLink(&prdbmySQL->inpa);
+
+	MYSQL_ROW row;
+
+	DBADDR *pdbAddr = 0;
+	while((row=mysql_fetch_row(res)))
+	{
+		for(int i = 0; i < fields; i++)
+		{
+			switch(i)
+			{
+				case 1:
+					{
+					//DBADDR *pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpa);
+					//dbCommon *pCommon = (dbCommon*)pdbAddr->precord;
+					//printf("%s\n", pCommon->rdes->name);
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpa);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 2:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpb);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 3:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpc);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 4:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpd);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 5:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpe);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 6:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpf);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 7:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpg);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 8:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inph);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 9:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpi);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 10:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpj);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 11:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpk);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 12:
+					{
+						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpl);
+						linkUpdate(pdbAddr, row[i]);
+					}
+					break;
+				case 0:
+				default:
+					fdata = strtof(row[i], 0);
+					break;
+			};
+		};
+	};
+
+	mysql_free_result(res);
+
+	return fdata;
+}
+
+int MySQLConnManager::linkUpdate(const DBADDR *pdbAddr, const char *strvalue)
+{
+	dbCommon *pCommon = (dbCommon*)pdbAddr->precord;
+
+	if(RdbmySQLDebug)
+		printf("%s\n", pCommon->rdes->name);
+
+	string record = string(pCommon->rdes->name);
+	if(record.compare("longin") == 0 || record.compare("longout") == 0 || record.compare("bi") == 0 || record.compare("bo") == 0)
+	{
+		long *pfieldLink =  (long*)pdbAddr->pfield;
+		pfieldLink[0] = strtol(strvalue, 0, 10);
+	} 
+	else if(record.compare("ai") == 0 || record.compare("ao") == 0)
+	{
+		double *pfieldLink =  (double*)pdbAddr->pfield;
+		pfieldLink[0] = strtod(strvalue, 0);
+	}
+
+	dbProcess(pCommon);
+	return 0;
+};
+
 float MySQLConnManager::ReadValue(const char *table, const char *field)
 {
 	//string sql = "select data_float from epics_table where id=1";
 	//string sql = string("select ") + string(field) + string (" from ") + string(table) + string(" where id = 1");
-	string sql = string("select ") + string(field) + string (" from ") + string(table);
+	string sql = string("select data_int, ") + string(field) + string (" from ") + string(table);
+
+	printf("QStr:%s\n", sql.c_str());
 
 	if(RdbmySQLDebug)
 		printf("Connection to MySQL:%d, MySQL Conn:%p\n", mysql_ping(conn), conn);
@@ -284,7 +439,9 @@ float MySQLConnManager::ReadValue(const char *table, const char *field)
 	{
 		for(int i = 0; i < fields; i++)
 		{
-			fdata = strtof(row[i], 0);
+			//fdata = strtof(row[i], 0);
+			printf("SData[%d]:%s\n",i, row[i]);
+
 		};
 	};
 
@@ -297,15 +454,17 @@ int MySQLConnManager::WriteValue(const void *precord)
 {
 	rdbmySQLRecord	*prdbmySQL = (rdbmySQLRecord*)precord;
 
+#if 0
 	switch(prdbmySQL->qry)
 	{
 		case queryUpdate:
-			updateValue(precord);
+			//updateValue(precord);
 			break;
 		case queryInsert:
 			//insertValue(prdbpostgreSQL->tabl,prdbpostgreSQL->fild);
 			break;
 	};
+#endif
 
 	return(0);
 }
@@ -317,7 +476,10 @@ int MySQLConnManager::updateValue(const void *precord)
 	string field = string (prdbmySQL->fild);
 	string table = string (prdbmySQL->tabl);
 	string sval = valtostr(prdbmySQL->val);
-	string sql = string("update ") + table + string (" set ") + field + string("=")+ sval+ string(" where id = 1");
+	//string sql = string("update ") + table + string (" set ") + field + string("=")+ sval+ string(" where id = 1");
+	string sql = string("update ") + table + string (" set ") + field;
+
+	printf("UQStr:%s\n", sql.c_str());
 
 	epicsMutexLock(mutex);
 	if(mysql_query(conn, sql.c_str()))
@@ -329,3 +491,4 @@ int MySQLConnManager::updateValue(const void *precord)
 
 	return (0);
 };
+

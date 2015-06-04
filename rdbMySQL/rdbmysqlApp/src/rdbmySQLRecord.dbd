@@ -1,9 +1,9 @@
-menu(queryType) {
-	choice(queryNone, "None")
-	choice(querySelect, "Select")
-	choice(queryUpdate, "Update")
-	choice(queryInsert, "Insert")
-}
+#menu(queryType) {
+#choice(queryNone, "None")
+#choice(querySelect, "Select")
+#choice(queryUpdate, "Update")
+#choice(queryInsert, "Insert")
+#}
 
 recordtype(rdbmySQL) {
 	include "dbCommon.dbd" 
@@ -199,14 +199,14 @@ recordtype(rdbmySQL) {
 		interest(1)
 		size(26)
 	}
-	field(QRY,DBF_MENU) {
-		prompt("Query type")
+	field(QRY,DBF_STRING) {
+		prompt("Query String")
 		promptgroup(GUI_DISPLAY)
-		interest(2)
-		menu(queryType)
+		interest(1)
+		size(120)
 	}
 	field(OVAL,DBF_DOUBLE) {
-		prompt(" Old Value")
+		prompt("Old Value")
 		asl(ASL0)
 	}
 }

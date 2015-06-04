@@ -11,8 +11,9 @@ record(rdbmySQL, "$(SYS):READ_DATA") {
   field(DTYP, "ReadData")
   field(TABL, "epics_view")
   field(FILD, "data_float")
+  field(INPA, "$(SYS)_READ_RMS1")
+  field(QRY, "select data_float,data_int from epics_view")
 }
-
 
 record(rdbmySQL, "$(SYS):WRITE_DATA") {
 #  field(SCAN, "1 second")
@@ -21,10 +22,17 @@ record(rdbmySQL, "$(SYS):WRITE_DATA") {
   field(DTYP, "WriteData")
   field(TABL, "epics_table")
   field(FILD, "data_float")
-  field(QRY, "Update")
+}
+
+record(longin, "$(SYS)_READ_RMS1") {
+  field(SCAN, "Passive")
 }
 
 #! Further lines contain data used by VisualDCT
 #! View(1730,2039,1.0)
-#! Record("$(SYS):READ_DATA",1840,2274,0,1,"$(SYS):READ_DATA")
-#! Record("$(SYS):WRITE_DATA",2080,2260,0,1,"$(SYS):WRITE_DATA")
+#! Record("$(SYS):READ_DATA",1880,2186,0,1,"$(SYS):READ_DATA")
+#! Field("$(SYS):READ_DATA.INPA",16777215,1,"$(SYS):READ_DATA.INPA")
+#! Link("$(SYS):READ_DATA.INPA","$(SYS)_READ_RMS1.VAL")
+#! Record("$(SYS):WRITE_DATA",2360,2114,0,1,"$(SYS):WRITE_DATA")
+#! Record("$(SYS)_READ_RMS1",2140,2290,0,1,"$(SYS)_READ_RMS1")
+#! Field("$(SYS)_READ_RMS1.VAL",16777215,0,"$(SYS)_READ_RMS1.VAL")
