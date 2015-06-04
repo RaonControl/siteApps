@@ -197,7 +197,7 @@ recordtype(rdbmySQL) {
 		prompt("Field")
 		promptgroup(GUI_DISPLAY)
 		interest(1)
-		size(16)
+		size(26)
 	}
 	field(QRY,DBF_MENU) {
 		prompt("Query type")

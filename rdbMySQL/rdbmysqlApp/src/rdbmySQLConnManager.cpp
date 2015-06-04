@@ -202,6 +202,11 @@ MySQLConnManager::~MySQLConnManager()
 {
 	if(conn != 0)
 		mysql_close(conn);
+
+	if (mutex) {
+		epicsMutexDestroy(mutex);
+		mutex = 0;
+	}
 }
 
 int MySQLConnManager::initialize()
@@ -212,6 +217,8 @@ int MySQLConnManager::initialize()
 		fprintf(stderr, "%s\n", mysql_error(conn));
 		return (-1);
 	}
+
+	mutex    = epicsMutexCreate();
 
 #if 0
 	if (mysql_query(conn, "CREATE DATABASE testdb")) 
@@ -237,16 +244,24 @@ int MySQLConnManager::Connect(const char *dbname, const char *user, const char *
 		return (-1);
 	}  
 
+	my_bool reconnect = 0;
+	mysql_options(conn, MYSQL_OPT_RECONNECT, &reconnect);
+
 	return (0);
 }
 
 float MySQLConnManager::ReadValue(const char *table, const char *field)
 {
 	//string sql = "select data_float from epics_table where id=1";
-	string sql = string("select ") + string(field) + string (" from ") + string(table) + string(" where id = 1");
+	//string sql = string("select ") + string(field) + string (" from ") + string(table) + string(" where id = 1");
+	string sql = string("select ") + string(field) + string (" from ") + string(table);
+
+	if(RdbmySQLDebug)
+		printf("Connection to MySQL:%d, MySQL Conn:%p\n", mysql_ping(conn), conn);
 
 	float fdata = 0.f;
 
+	epicsMutexLock(mutex);
 	if(mysql_query(conn, sql.c_str()))
 	{
 		fprintf(stderr, "Query Error:%s\n", mysql_error(conn));
@@ -258,6 +273,8 @@ float MySQLConnManager::ReadValue(const char *table, const char *field)
 	{
 		fprintf(stderr, "Query Result - Error:%s\n", mysql_error(conn));
 	};
+
+	epicsMutexUnlock(mutex);
 
 	int fields = mysql_num_fields(res);
 
@@ -302,12 +319,13 @@ int MySQLConnManager::updateValue(const void *precord)
 	string sval = valtostr(prdbmySQL->val);
 	string sql = string("update ") + table + string (" set ") + field + string("=")+ sval+ string(" where id = 1");
 
-	
+	epicsMutexLock(mutex);
 	if(mysql_query(conn, sql.c_str()))
 	{
 		fprintf(stderr, "%s\n", mysql_error(conn));
 		return (-1);
 	}
+	epicsMutexUnlock(mutex);
 
 	return (0);
 };
