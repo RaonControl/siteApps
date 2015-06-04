@@ -70,12 +70,14 @@ public:
 	int Version();
 	int Connect(const char *dbname, const char *user, const char *password, const char *hostaddr, const char* port);
 	float ReadValue(const char *table, const char *field);
-	int WriteValue(const void *precord);
+	float ReadValue(const void *precord);
+	int   WriteValue(const void *precord);
 
 	//member function
 private:
 	int initialize();
 	int updateValue(const void *precord);
+	int linkUpdate(const DBADDR *pdbAddr, const char *strvalue);
 
 //member data
 private:
