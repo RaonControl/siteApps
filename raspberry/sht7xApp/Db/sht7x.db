@@ -1,0 +1,28 @@
+record(sht, "SHT")
+{
+  field(DTYP, "SHT71")
+  field(INP, "@4 5")
+  field(SCAN, "1 second")
+  field(FLNK, "SHT:FAN")
+}
+
+record(fanout, "SHT:FAN")
+{
+  field(LNK1, "SHT:TEM")
+  field(LNK2, "SHT:HUM")
+}
+
+record(calc, "SHT:TEM")
+{
+  field(INPA, "SHT.TEM")
+  field(CALC, "A")
+  field(PREC, "2")
+}
+
+record(calc, "SHT:HUM")
+{
+  field(INPA, "SHT.HUM")
+  field(CALC, "A")
+  field(PREC, "2")
+}
+
