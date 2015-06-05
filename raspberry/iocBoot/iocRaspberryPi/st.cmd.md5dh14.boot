@@ -8,16 +8,14 @@ epicsEnvSet("IOC","iocRaspberryPi")
 epicsEnvSet("TOP","/home/pi/epics/R3.14.12.5/siteApps/raspberry")
 
 
-
 cd ${TOP}
 
 ## Register all support components
-dbLoadDatabase "dbd/md5dh14.dbd"
+dbLoadDatabase "${TOP}/dbd/md5dh14.dbd"
 md5dh14_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
-#dbLoadRecords("db/xxx.db","user=piHost")
-dbLoadRecords("db/md5dh14.db", "SYS=ECR11,SUBSYS=PCU,DEV=SMO")
+dbLoadRecords("${TOP}/db/md5dh14.db", "SYS=ECR11,SUBSYS=PCU,DEV=SMO")
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit

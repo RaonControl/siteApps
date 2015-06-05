@@ -204,7 +204,7 @@ ss ssMain
 
     } state High
 
-    when(jogCW == 1)
+    when(jogCW == 1 && minFlag == 0)
     { 
       pvGet(speed);
       pvGet(min);
@@ -228,7 +228,7 @@ ss ssMain
 
     } state JogHigh
 
-    when(jogCCW == 1)
+    when(jogCCW == 1 && maxFlag == 0)
     { 
       pvGet(speed);
       pvGet(min);
