@@ -69,8 +69,8 @@ public:
 
 	int Version();
 	int Connect(const char *dbname, const char *user, const char *password, const char *hostaddr, const char* port);
-	float ReadValue(const char *table, const char *field);
-	float ReadValue(const void *precord);
+	int ReadValue(const char *table, const char *field);
+	int ReadValue(const void *precord);
 	int   WriteValue(const void *precord);
 
 	//member function

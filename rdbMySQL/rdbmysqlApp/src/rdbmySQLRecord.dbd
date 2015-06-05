@@ -7,7 +7,7 @@
 
 recordtype(rdbmySQL) {
 	include "dbCommon.dbd" 
-	field(VAL,DBF_DOUBLE) {
+	field(VAL,DBF_LONG) {
 		prompt("Current EGU Value")
 		asl(ASL0)
 		pp(TRUE)
@@ -15,7 +15,7 @@ recordtype(rdbmySQL) {
 	field(INP,DBF_INLINK) {
 		prompt("Input Specification")
 		promptgroup(GUI_INPUTS)
-		special(SPC_NOMOD)
+#special(SPC_NOMOD)
 		interest(1)
 	}
 	field(INPA,DBF_INLINK) {
