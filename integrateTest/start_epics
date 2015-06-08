@@ -1,1 +1,5 @@
-/home/namsh/epics/R3.14.12.5/epicsLibs/synApps_5_8/support/alive-1-0/start_epics
+#!/bin/sh
+#
+#Author : Seung Hee Nam
+#start alive-1-0 ioc ui
+medm -x -macro "P=aliveEx:" ${EPICS_SYNAPPS}/alive-1-0/aliveApp/op/adl/aliveRecord.adl &
