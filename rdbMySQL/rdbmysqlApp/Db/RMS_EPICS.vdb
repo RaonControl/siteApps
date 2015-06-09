@@ -5,18 +5,24 @@
 
 
 record(stringin, "$(SYS)_RMS_INDATE") {
+  field(SCAN, "Passive")
 }
 
 record(longin, "$(SYS)_RMS_EID") {
+  field(SCAN, "Passive")
 }
 
+
 record(longin, "$(SYS)_RMS_CHANNELNO") {
+  field(SCAN, "Passive")
 }
 
 record(stringin, "$(SYS)_RMS_VALUES1") {
+  field(SCAN, "Passive")
 }
 
 record(stringin, "$(SYS)_RMS_VALUES2") {
+  field(SCAN, "Passive")
 }
 
 record(rdbmySQL, "$(SYS):READ_RMS") {
@@ -24,11 +30,9 @@ record(rdbmySQL, "$(SYS):READ_RMS") {
   field(SCAN, "I/O Intr")
   field(PINI, "YES")
   field(DTYP, "ReadData")
-  field(TABL, "epics_view")
-  field(FILD, "data_float")
-  field(INPA, "$(SYS)_RMS_INDATE")
   field(QRY, "select E_ID, InDate, ChannelNo, Value1, Value2 from t_values_epics")
   field(INP, "$(SYS)_RMS_EID")
+  field(INPA, "$(SYS)_RMS_INDATE")
   field(INPB, "$(SYS)_RMS_CHANNELNO")
   field(INPC, "$(SYS)_RMS_VALUES1")
   field(INPD, "$(SYS)_RMS_VALUES2")
@@ -36,17 +40,17 @@ record(rdbmySQL, "$(SYS):READ_RMS") {
 
 #! Further lines contain data used by VisualDCT
 #! View(1730,2039,1.0)
-#! Record("$(SYS)_RMS_INDATE",2160,2223,0,1,"$(SYS)_RMS_INDATE")
+#! Record("$(SYS)_RMS_INDATE",2160,2210,0,1,"$(SYS)_RMS_INDATE")
 #! Field("$(SYS)_RMS_INDATE.VAL",16777215,0,"$(SYS)_RMS_INDATE.VAL")
-#! Record("$(SYS)_RMS_EID",2160,2123,0,1,"$(SYS)_RMS_EID")
+#! Record("$(SYS)_RMS_EID",2160,2110,0,1,"$(SYS)_RMS_EID")
 #! Field("$(SYS)_RMS_EID.VAL",16777215,0,"$(SYS)_RMS_EID.VAL")
-#! Record("$(SYS)_RMS_CHANNELNO",2160,2343,0,1,"$(SYS)_RMS_CHANNELNO")
+#! Record("$(SYS)_RMS_CHANNELNO",2160,2330,0,1,"$(SYS)_RMS_CHANNELNO")
 #! Field("$(SYS)_RMS_CHANNELNO.VAL",16777215,0,"$(SYS)_RMS_CHANNELNO.VAL")
-#! Record("$(SYS)_RMS_VALUES1",2160,2443,0,1,"$(SYS)_RMS_VALUES1")
+#! Record("$(SYS)_RMS_VALUES1",2160,2430,0,1,"$(SYS)_RMS_VALUES1")
 #! Field("$(SYS)_RMS_VALUES1.VAL",16777215,0,"$(SYS)_RMS_VALUES1.VAL")
-#! Record("$(SYS)_RMS_VALUES2",2160,2563,0,1,"$(SYS)_RMS_VALUES2")
+#! Record("$(SYS)_RMS_VALUES2",2160,2550,0,1,"$(SYS)_RMS_VALUES2")
 #! Field("$(SYS)_RMS_VALUES2.VAL",16777215,0,"$(SYS)_RMS_VALUES2.VAL")
-#! Record("$(SYS):READ_RMS",1840,2131,0,1,"$(SYS):READ_RMS")
+#! Record("$(SYS):READ_RMS",1840,2139,0,1,"$(SYS):READ_RMS")
 #! Field("$(SYS):READ_RMS.INPD",16777215,1,"$(SYS):READ_RMS.INPD")
 #! Link("$(SYS):READ_RMS.INPD","$(SYS)_RMS_VALUES2.VAL")
 #! Field("$(SYS):READ_RMS.INPC",16777215,1,"$(SYS):READ_RMS.INPC")

@@ -1,10 +1,3 @@
-#menu(queryType) {
-#choice(queryNone, "None")
-#choice(querySelect, "Select")
-#choice(queryUpdate, "Update")
-#choice(queryInsert, "Insert")
-#}
-
 recordtype(rdbmySQL) {
 	include "dbCommon.dbd" 
 	field(VAL,DBF_LONG) {
@@ -15,7 +8,7 @@ recordtype(rdbmySQL) {
 	field(INP,DBF_INLINK) {
 		prompt("Input Specification")
 		promptgroup(GUI_INPUTS)
-#special(SPC_NOMOD)
+		special(SPC_NOMOD)
 		interest(1)
 	}
 	field(INPA,DBF_INLINK) {
@@ -203,7 +196,7 @@ recordtype(rdbmySQL) {
 		prompt("Query String")
 		promptgroup(GUI_DISPLAY)
 		interest(1)
-		size(120)
+		size(200)
 	}
 	field(OVAL,DBF_DOUBLE) {
 		prompt("Old Value")

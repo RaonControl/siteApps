@@ -293,14 +293,14 @@ int MySQLConnManager::ReadValue(const void *precord)
 		{
 			switch(i)
 			{
-				case 0:
+				case SQL_FILD:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inp);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 1:
+				case SQL_FILDA:
 					{
 					//DBADDR *pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpa);
 					//dbCommon *pCommon = (dbCommon*)pdbAddr->precord;
@@ -310,77 +310,77 @@ int MySQLConnManager::ReadValue(const void *precord)
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 2:
+				case SQL_FILDB:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpb);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 3:
+				case SQL_FILDC:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpc);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 4:
+				case SQL_FILDD:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpd);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 5:
+				case SQL_FILDE:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpe);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 6:
+				case SQL_FILDF:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpf);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 7:
+				case SQL_FILDG:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpg);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 8:
+				case SQL_FILDH:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inph);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 9:
+				case SQL_FILDI:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpi);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 10:
+				case SQL_FILDJ:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpj);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 11:
+				case SQL_FILDK:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpk);
 						if(!pdbAddr) break;
 						linkUpdate(pdbAddr, row[i]);
 					}
 					break;
-				case 12:
+				case SQL_FILDL:
 					{
 						pdbAddr = dbGetPdbAddrFromLink(&prdbmySQL->inpl);
 						if(!pdbAddr) break;
