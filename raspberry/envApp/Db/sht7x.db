@@ -1,7 +1,7 @@
 record(sht, "$(SYS)-$(SUBSYS):$(DEV):SHT")
 {
   field(DTYP, "SHT71")
-  field(INP, "@4 5")
+  field(INP, "@0 1")
   field(SCAN, "1 second")
   field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):FAN")
 }

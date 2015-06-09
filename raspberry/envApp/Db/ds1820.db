@@ -1,6 +1,6 @@
-record(ai, "$(SYS)-$(SUBSYS):$(DEV):TEM")
+record(ai, "$(SYS)-$(SUBSYS):$(DEV):DS:TEM")
 {
   field(DTYP, "DS1820")
-  field(SCAN, "5 second")
+  field(SCAN, "1 second")
   field(INP, "@29")
 }

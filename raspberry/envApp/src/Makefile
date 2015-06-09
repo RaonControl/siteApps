@@ -15,6 +15,7 @@ USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
 USR_INCLUDES += -I/home/pi/wiringPi/wiringPi
 wiringPi_DIR += /home/pi/wiringPi/wiringPi /home/pi/wiringPi/devLib
 
+raspSHT7x_DIR += $(RAON_SITELIBS)/lib/$(T_A)
 raspDS1820_DIR += $(RAON_SITELIBS)/lib/$(T_A)
 
 PROD_IOC = env
@@ -26,6 +27,8 @@ env_DBD += base.dbd
 
 # Include dbd files from all support applications:
 #env_DBD += xxx.dbd
+env_DBD += shtRecord.dbd
+env_DBD += devSHT7x.dbd
 env_DBD += devDS1820.dbd
 env_DBD += stream.dbd
 env_DBD += asyn.dbd
@@ -34,6 +37,7 @@ env_DBD += drvAsynSerialPort.dbd
 # Add all the support libraries needed by this IOC
 #env_LIBS += xxx
 env_LIBS += wiringPi
+env_LIBS += raspSHT7x
 env_LIBS += raspDS1820
 env_LIBS += stream
 env_LIBS += asyn
