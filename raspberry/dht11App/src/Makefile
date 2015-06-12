@@ -26,6 +26,7 @@ dht11_DBD += base.dbd
 
 # Include dbd files from all support applications:
 #dht11_DBD += xxx.dbd
+dht11_DBD += dhtRecord.dbd
 dht11_DBD += devDHT11.dbd
 
 # Add all the support libraries needed by this IOC
