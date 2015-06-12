@@ -7,7 +7,8 @@
 
 cd ${TOP}
 
-#epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib/mibs")
+epicsEnvSet("MIBS", +ALL)
+epicsEnvSet("MIBDIRS", "+${RAON_SITELIBS}/snmpLib/mibs")
 
 ## Register all support components
 dbLoadDatabase "dbd/brocade6910.dbd"
@@ -18,10 +19,11 @@ brocade6910_registerRecordDeviceDriver pdbbase
 
 ## Load record instances
 #dbLoadRecords("db/xxx.db","user=mijoy0909Host")
-dbLoadRecords("db/brocade6910.db", "SYS=CTRL, SUBSYS=NET, DEV=SW001, HOST=10.1.5.230, COM=public, V2C=SNMP_VERSION_2c")
-#dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC2, HOST=192.168.1.22, COM=public, V2C=SNMP_VERSION_2c")
-#dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC3, HOST=192.168.1.23, COM=public, V2C=SNMP_VERSION_2c")
-#dbLoadRecords("db/brocade6910.db", "L=MUNJI, D=SWC4, HOST=192.168.1.24, COM=public, V2C=SNMP_VERSION_2c")
+dbLoadRecords("db/brocade6910.db", "SYS=CTRL, SUBSYS=NET, DEV=SW001, HOST=192.168.1.21, COM=public, V2C=SNMP_VERSION_2c")
+#dbLoadRecords("db/brocade6910.db","SYS=CTRL, SUBSYS=NET, DEV=SW002, HOST=192.168.1.22, COM=public, V2C=SNMP_VERSION_2c")
+dbLoadRecords("db/brocade6910.db", "SYS=CTRL, SUBSYS=NET, DEV=SW003, HOST=192.168.1.23, COM=public, V2C=SNMP_VERSION_2c")
+dbLoadRecords("db/brocade6910.db", "SYS=CTRL, SUBSYS=NET, DEV=SW004, HOST=192.168.1.24, COM=public, V2C=SNMP_VERSION_2c")
+
 
 cd ${TOP}/iocBoot/${IOC}
 iocInit
