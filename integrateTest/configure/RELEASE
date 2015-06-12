@@ -31,12 +31,12 @@ EPICS_BASE=/home/namsh/epics/R3.14.12.5/base
 # other than EPICS_BASE:
 #RULES=/path/to/epics/support/module/rules/x-y
 
-alive_DIR += ${EPICS_SYNAPPS}/alive-1-0/lib/$(T_A)
-devIocStats_DIR += ${EPICS_SYNAPPS}/devIocStats-3-1-13/lib/$(T_A)
-snmpMon_DIR += ${RAON_SITELIBS}/lib/$(T_A)
-timeStamp_DIR += $(RAON_SITELIBS)/lib/$(T_A)
+#alive_DIR += ${EPICS_SYNAPPS}/alive-1-0/lib/$(T_A)
+#devIocStats_DIR += ${EPICS_SYNAPPS}/devIocStats-3-1-13/lib/$(T_A)
 
-CMD_DBDFLAGS += -I${EPICS_SYNAPPS}/alive-1-0/aliveApp/src
-CMD_DBDFLAGS += -I${EPICS_SYNAPPS}/devIocStats-3-1-13/dbd
-CMD_DBDFLAGS += -I${RAON_SITELIBS}/dbd/
+#CMD_DBDFLAGS += -I${EPICS_SYNAPPS}/alive-1-0/aliveApp/src
+#CMD_DBDFLAGS += -I${EPICS_SYNAPPS}/devIocStats-3-1-13/dbd
+#CMD_DBDFLAGS += -I${RAON_SITELIBS}/dbd/
 
+alive=${EPICS_SYNAPPS}/alive-1-0
+devIocStats=${EPICS_SYNAPPS}/devIocStats-3-1-13

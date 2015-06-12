@@ -7,6 +7,7 @@ USR_INCLUDES += -I${RAON_SITELIBS}/include
 USR_DBDFLAGS += -I${RAON_SITELIBS}/dbd
 
 devSnmp_DIR += ${RAON_SITELIBS}/lib/$(T_A)
+timeStamp_DIR += $(RAON_SITELIBS)/lib/$(T_A)
 
 
 #----------------------------------------
@@ -23,16 +24,17 @@ DBD += snmp.dbd
 # snmp.dbd will be made up from these files:
 snmp_DBD += base.dbd
 snmp_DBD += snmpMSURecord.dbd
-
+snmp_DBD += timestampRecord.dbd
 
 # Include dbd files from all support applications:
 #snmp_DBD += xxx.dbd
 snmp_DBD += snmpMSUDevSoft.dbd
-
+snmp_DBD += timestampDevSoft.dbd
 
 # Add all the support libraries needed by this IOC
 #snmp_LIBS += xxx
-snmp_LIBS += devSnmp
+snmp_LIBS += devSnmp timeStamp
+
 
 
 # snmp_registerRecordDeviceDriver.cpp derives from snmp.dbd
