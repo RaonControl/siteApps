@@ -1,13 +1,28 @@
-record(ai, "DHT22:TEM")
+record(dht, "$(SYS)-$(SUBSYS):$(DEV):DHT")
 {
   field(DTYP, "DHT22")
-  field(SCAN, "1 second")
-  field(INP, "@1 temperature")
+  field(INP, "@1")
+  field(SCAN, "2 second")
+  field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):FAN")
 }
 
-record(ai, "DHT22:HUM")
+record(fanout, "$(SYS)-$(SUBSYS):$(DEV):FAN")
 {
-  field(DTYP, "DHT22")
-  field(SCAN, "1 second")
-  field(INP, "@1 humidity")
+  field(LNK1, "$(SYS)-$(SUBSYS):$(DEV):TEM")
+  field(LNK2, "$(SYS)-$(SUBSYS):$(DEV):HUM")
 }
+
+record(calc, "$(SYS)-$(SUBSYS):$(DEV):TEM")
+{
+  field(INPA, "$(SYS)-$(SUBSYS):$(DEV):DHT.TEM")
+  field(CALC, "A")
+  field(PREC, "2")
+}
+
+record(calc, "$(SYS)-$(SUBSYS):$(DEV):HUM")
+{
+  field(INPA, "$(SYS)-$(SUBSYS):$(DEV):DHT.HUM")
+  field(CALC, "A")
+  field(PREC, "2")
+}
+
