@@ -1,0 +1,116 @@
+#CPU Statistics
+
+# #Load Averages
+record(snmpstr, "${ASUS}:Load_1m") {
+  field(DESC, "1 minute Load")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}laLoad.1")
+}
+
+record(snmpstr, "${ASUS}:Load_5m") {
+  field(DESC, "5 minute Load")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}laLoad.2")
+}
+
+record(snmpstr, "${ASUS}:Load_15m") {
+  field(DESC, "15 minute Load")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}laLoad.3")
+}
+
+#CPU
+record(snmp, "${ASUS}:user_CPU_time") {
+  field(DESC, "Percentage of user CPU time")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}ssCpuUser.0")
+}
+
+record(snmp, "${ASUS}:system_CPU_time") {
+  field(DESC, "Percentage of system CPU time")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}ssCpuSystem.0")
+}
+
+record(snmp, "${ASUS}:idle_CPU_time") {
+  field(DESC, "Percentage of idle CPU time")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}ssCpuIdle.0")
+}
+
+
+#Memory
+record(snmp, "${ASUS}:mem_Total_Real") {
+  field(DESC, "Total RAM in machine")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}memTotalReal.0")
+}
+
+
+record(snmp, "${ASUS}:mem_Total_Free") {
+  field(DESC, "Total RAM Free")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}memTotalFree.0")
+}
+
+record(snmp, "${ASUS}:mem_Total_Shared") {
+  field(DESC, "Total RAM Shared")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}memShared.0")
+}
+
+record(snmp, "${ASUS}:mem_Total_Buffer") {
+  field(DESC, "Total RAM Buffered")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}memBuffer.0")
+}
+
+record(snmp, "${ASUS}:mem_Total_Cached") {
+  field(DESC, "Total RAM Cached")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "${UCD}memCached.0")
+}
