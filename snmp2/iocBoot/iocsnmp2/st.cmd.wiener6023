@@ -11,7 +11,7 @@ cd "${TOP}"
 ##epicsEnvSet("MIBDIRS", "${EPICS_PATH}/siteLibs/snmpLib/mibs")
 ##epicsEnvSet("MIBDIRS", "${RAON_SITELIBS}/snmpLibs/mibs")
 #epicsEnvSet("MIBS", "+ALL")
-#epicsEnvSet("MIBDIRS", "+${RAON_SITELIBS}/snmpLib/mibs")
+epicsEnvSet("MIBDIRS", "+${RAON_SITELIBS}/snmpLib/mibs")
 
 
 ## Register all support components
