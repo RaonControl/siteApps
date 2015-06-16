@@ -1,0 +1,38 @@
+record(snmp, "${SYS}-${SUBSYS}:${DEV}${N}:Port${P}") {
+  field(DESC, "Brocade 6910 Switch")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "IF-MIB::ifOperStatus.${T}")
+}
+
+record(snmp, "${SYS}-${SUBSYS}:${DEV}${N}:Type${T}") {
+  field(DESC, "Connection Type")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.${T}")
+}
+
+
+# # Temperature
+# # Each unit is 0.5 degrees Celcius.
+# record(snmp, "${SYS}-${SUBSYS}:${DEV}:orginalTemp") {
+#   field(DESC, "Switch Temperature")
+#   field(DTYP, "SNMP Read")
+#   field(SCAN, "5 second")
+#   field(VERS, "${V2C}")
+#   field(HOST, "${HOST}")
+#   field(COMM, "${COM}")
+#   field(OIDS, "Brocade-MIB::snChasActualTemperature.0")
+# }
+
+# record(calc, "${SYS}-${SUBSYS}:${DEV}:Temp") {
+#   field(SCAN, "5 second")
+#   field(CALC, "A*0.5")
+#   field(INPA, "${SYS}-${SUBSYS}:${DEV}:orginalTemp")
+# }
