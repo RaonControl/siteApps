@@ -271,7 +271,8 @@ record(snmp, "${SYS}-${SUBSYS}:${DEV}:orginalTemp") {
 }
 
 record(calc, "${SYS}-${SUBSYS}:${DEV}:Temp") {
-  field(CALC, "0.5*A")
+  field(SCAN, "5 second")
+  field(CALC, "A*0.5")
   field(INPA, "${SYS}-${SUBSYS}:${DEV}:orginalTemp")
 }
 
