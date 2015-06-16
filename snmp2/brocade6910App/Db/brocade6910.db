@@ -260,7 +260,7 @@ record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type12") {
 
 # Temperature
 # Each unit is 0.5 degrees Celcius.
-record(snmp, "${SYS}-${SUBSYS}:${DEV}:SNMPTemp") {
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:orginalTemp") {
   field(DESC, "Switch Temperature")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
@@ -270,18 +270,13 @@ record(snmp, "${SYS}-${SUBSYS}:${DEV}:SNMPTemp") {
   field(OIDS, "Brocade-MIB::snChasActualTemperature.0")
 }
 
-
-record(calcout, "${SYS}-${SUBSYS}:${DEV}:CalcTemp") {
-  field(CALC, "A*0.5")
-  field(INPA, "${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL")
-  field(OUT, "${SYS}-${SUBSYS}:${DEV}:Temp")
-}
-
-record(ai, "${SYS}-${SUBSYS}:${DEV}:Temp") {
+record(calc, "${SYS}-${SUBSYS}:${DEV}:Temp") {
+  field(CALC, "0.5*A")
+  field(INPA, "${SYS}-${SUBSYS}:${DEV}:orginalTemp")
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(2546,260,1.0)
+#! View(1366,259,1.0)
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port1",20,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port1")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port2",260,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port2")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port3",500,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port3")
@@ -337,12 +332,8 @@ record(ai, "${SYS}-${SUBSYS}:${DEV}:Temp") {
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type10",1220,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type10")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type11",1460,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type11")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type12",1700,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type12")
-#! Record("${SYS}-${SUBSYS}:${DEV}:SNMPTemp",2680,346,0,0,"${SYS}-${SUBSYS}:${DEV}:SNMPTemp")
-#! Field("${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL",16777215,1,"${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL")
-#! Record("${SYS}-${SUBSYS}:${DEV}:CalcTemp",3020,342,0,1,"${SYS}-${SUBSYS}:${DEV}:CalcTemp")
-#! Field("${SYS}-${SUBSYS}:${DEV}:CalcTemp.INPA",16777215,0,"${SYS}-${SUBSYS}:${DEV}:CalcTemp.INPA")
-#! Link("${SYS}-${SUBSYS}:${DEV}:CalcTemp.INPA","${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL")
-#! Field("${SYS}-${SUBSYS}:${DEV}:CalcTemp.OUT",16777215,1,"${SYS}-${SUBSYS}:${DEV}:CalcTemp.OUT")
-#! Link("${SYS}-${SUBSYS}:${DEV}:CalcTemp.OUT","${SYS}-${SUBSYS}:${DEV}:Temp.VAL")
-#! Record("${SYS}-${SUBSYS}:${DEV}:Temp",3300,403,0,1,"${SYS}-${SUBSYS}:${DEV}:Temp")
-#! Field("${SYS}-${SUBSYS}:${DEV}:Temp.VAL",16777215,0,"${SYS}-${SUBSYS}:${DEV}:Temp.VAL")
+#! Record("${SYS}-${SUBSYS}:${DEV}:orginalTemp",1980,386,0,0,"${SYS}-${SUBSYS}:${DEV}:orginalTemp")
+#! Field("${SYS}-${SUBSYS}:${DEV}:orginalTemp.VAL",16777215,1,"${SYS}-${SUBSYS}:${DEV}:orginalTemp.VAL")
+#! Record("${SYS}-${SUBSYS}:${DEV}:Temp",2240,456,0,1,"${SYS}-${SUBSYS}:${DEV}:Temp")
+#! Field("${SYS}-${SUBSYS}:${DEV}:Temp.INPA",16777215,0,"${SYS}-${SUBSYS}:${DEV}:Temp.INPA")
+#! Link("${SYS}-${SUBSYS}:${DEV}:Temp.INPA","${SYS}-${SUBSYS}:${DEV}:orginalTemp.VAL")

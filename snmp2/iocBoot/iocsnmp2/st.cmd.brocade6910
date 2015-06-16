@@ -7,11 +7,6 @@
 
 cd ${TOP}
 
-<<<<<<< HEAD
-#epicsEnvSet("MIBS", +ALL)
-=======
-
->>>>>>> 53e1b52764f541c3e66c5a59e210a4f656298530
 epicsEnvSet("MIBDIRS", "+${RAON_SITELIBS}/snmpLib/mibs")
 
 ## Register all support components
