@@ -124,18 +124,6 @@ record(snmp, "${SYS}-${SUBSYS}:${DEV}:Port12") {
   field(OIDS, "IF-MIB::ifOperStatus.12")
 }
 
-# Temperature
-# Each unit is 0.5 degrees Celcius.
-record(snmp, "${SYS}-${SUBSYS}:${DEV}:Tem_") {
-  field(DESC, "Switch Temperature")
-  field(DTYP, "SNMP Read")
-  field(SCAN, "5 second")
-  field(VERS, "${V2C}")
-  field(HOST, "${HOST}")
-  field(COMM, "${COM}")
-  field(OIDS, "Brocade-MIB::snChasActualTemperature.0")
-}
-
 # Connector Type
 record(fanout, "${SYS}-${SUBSYS}:${DEV}:ReadType") {
   field(LNK1, "${SYS}-${SUBSYS}:${DEV}:FAN1")
@@ -270,10 +258,26 @@ record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type12") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.12")
 }
 
-record(calcout, "${SYS}-${SUBSYS}:${DEV}:Tem") {
+# Temperature
+# Each unit is 0.5 degrees Celcius.
+record(snmp, "${SYS}-${SUBSYS}:${DEV}:SNMPTemp") {
+  field(DESC, "Switch Temperature")
+  field(DTYP, "SNMP Read")
+  field(SCAN, "5 second")
+  field(VERS, "${V2C}")
+  field(HOST, "${HOST}")
+  field(COMM, "${COM}")
+  field(OIDS, "Brocade-MIB::snChasActualTemperature.0")
+}
+
+
+record(calcout, "${SYS}-${SUBSYS}:${DEV}:CalcTemp") {
   field(CALC, "A*0.5")
-  field(INPA, "${SYS}-${SUBSYS}:${DEV}:Tem_")
-  field(OUT, "${SYS}-${SUBSYS}:${DEV}:Tem_")
+  field(INPA, "${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL")
+  field(OUT, "${SYS}-${SUBSYS}:${DEV}:Temp")
+}
+
+record(ai, "${SYS}-${SUBSYS}:${DEV}:Temp") {
 }
 
 #! Further lines contain data used by VisualDCT
@@ -290,8 +294,6 @@ record(calcout, "${SYS}-${SUBSYS}:${DEV}:Tem") {
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port10",2180,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port10")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port11",2420,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port11")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port12",2660,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port12")
-#! Record("${SYS}-${SUBSYS}:${DEV}:Tem_",2680,346,0,0,"${SYS}-${SUBSYS}:${DEV}:Tem_")
-#! Field("${SYS}-${SUBSYS}:${DEV}:Tem_.VAL",16777215,1,"${SYS}-${SUBSYS}:${DEV}:Tem_.VAL")
 #! Record("${SYS}-${SUBSYS}:${DEV}:ReadType",3140,28,0,0,"${SYS}-${SUBSYS}:${DEV}:ReadType")
 #! Field("${SYS}-${SUBSYS}:${DEV}:ReadType.LNK1",16777215,1,"${SYS}-${SUBSYS}:${DEV}:ReadType.LNK1")
 #! Link("${SYS}-${SUBSYS}:${DEV}:ReadType.LNK1","${SYS}-${SUBSYS}:${DEV}:FAN1")
@@ -335,8 +337,12 @@ record(calcout, "${SYS}-${SUBSYS}:${DEV}:Tem") {
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type10",1220,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type10")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type11",1460,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type11")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type12",1700,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type12")
-#! Record("${SYS}-${SUBSYS}:${DEV}:Tem",3020,342,0,1,"${SYS}-${SUBSYS}:${DEV}:Tem")
-#! Field("${SYS}-${SUBSYS}:${DEV}:Tem.INPA",16777215,0,"${SYS}-${SUBSYS}:${DEV}:Tem.INPA")
-#! Link("${SYS}-${SUBSYS}:${DEV}:Tem.INPA","${SYS}-${SUBSYS}:${DEV}:Tem_.VAL")
-#! Field("${SYS}-${SUBSYS}:${DEV}:Tem.OUT",16777215,0,"${SYS}-${SUBSYS}:${DEV}:Tem.OUT")
-#! Link("${SYS}-${SUBSYS}:${DEV}:Tem.OUT","${SYS}-${SUBSYS}:${DEV}:Tem_.VAL")
+#! Record("${SYS}-${SUBSYS}:${DEV}:SNMPTemp",2680,346,0,0,"${SYS}-${SUBSYS}:${DEV}:SNMPTemp")
+#! Field("${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL",16777215,1,"${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL")
+#! Record("${SYS}-${SUBSYS}:${DEV}:CalcTemp",3020,342,0,1,"${SYS}-${SUBSYS}:${DEV}:CalcTemp")
+#! Field("${SYS}-${SUBSYS}:${DEV}:CalcTemp.INPA",16777215,0,"${SYS}-${SUBSYS}:${DEV}:CalcTemp.INPA")
+#! Link("${SYS}-${SUBSYS}:${DEV}:CalcTemp.INPA","${SYS}-${SUBSYS}:${DEV}:SNMPTemp.VAL")
+#! Field("${SYS}-${SUBSYS}:${DEV}:CalcTemp.OUT",16777215,1,"${SYS}-${SUBSYS}:${DEV}:CalcTemp.OUT")
+#! Link("${SYS}-${SUBSYS}:${DEV}:CalcTemp.OUT","${SYS}-${SUBSYS}:${DEV}:Temp.VAL")
+#! Record("${SYS}-${SUBSYS}:${DEV}:Temp",3300,403,0,1,"${SYS}-${SUBSYS}:${DEV}:Temp")
+#! Field("${SYS}-${SUBSYS}:${DEV}:Temp.VAL",16777215,0,"${SYS}-${SUBSYS}:${DEV}:Temp.VAL")
