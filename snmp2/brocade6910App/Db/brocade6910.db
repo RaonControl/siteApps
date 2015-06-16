@@ -270,15 +270,14 @@ record(snmp, "${SYS}-${SUBSYS}:${DEV}:Type12") {
   field(OIDS, "Brocade-MIB::snSwIfInfoConnectorType.12")
 }
 
-
-record(calc, "${SYS}-${SUBSYS}:${DEV}:Tem") {
-  field(INPA, "${SYS}-${SUBSYS}:${DEV}:Tem_")
+record(calcout, "${SYS}-${SUBSYS}:${DEV}:Tem") {
   field(CALC, "A*0.5")
-
+  field(INPA, "${SYS}-${SUBSYS}:${DEV}:Tem_")
+  field(OUT, "${SYS}-${SUBSYS}:${DEV}:Tem_")
 }
 
 #! Further lines contain data used by VisualDCT
-#! View(1786,0,1.0)
+#! View(2546,260,1.0)
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port1",20,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port1")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port2",260,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port2")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Port3",500,26,0,0,"${SYS}-${SUBSYS}:${DEV}:Port3")
@@ -336,6 +335,8 @@ record(calc, "${SYS}-${SUBSYS}:${DEV}:Tem") {
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type10",1220,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type10")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type11",1460,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type11")
 #! Record("${SYS}-${SUBSYS}:${DEV}:Type12",1700,380,0,1,"${SYS}-${SUBSYS}:${DEV}:Type12")
-#! Record("${SYS}-${SUBSYS}:${DEV}:Tem",2980,356,0,1,"${SYS}-${SUBSYS}:${DEV}:Tem")
+#! Record("${SYS}-${SUBSYS}:${DEV}:Tem",3020,342,0,1,"${SYS}-${SUBSYS}:${DEV}:Tem")
 #! Field("${SYS}-${SUBSYS}:${DEV}:Tem.INPA",16777215,0,"${SYS}-${SUBSYS}:${DEV}:Tem.INPA")
 #! Link("${SYS}-${SUBSYS}:${DEV}:Tem.INPA","${SYS}-${SUBSYS}:${DEV}:Tem_.VAL")
+#! Field("${SYS}-${SUBSYS}:${DEV}:Tem.OUT",16777215,0,"${SYS}-${SUBSYS}:${DEV}:Tem.OUT")
+#! Link("${SYS}-${SUBSYS}:${DEV}:Tem.OUT","${SYS}-${SUBSYS}:${DEV}:Tem_.VAL")
