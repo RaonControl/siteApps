@@ -13281,6 +13281,39 @@ $(pv_value)</tooltip>
 $(pv_value)</tooltip>
           <x>164</x>
         </widget>
+        <widget typeId="org.csstudio.opibuilder.widgets.webbrowser" version="1.0.0">
+          <visible>true</visible>
+          <wuid>36b11418:14de14cb787:-7e64</wuid>
+          <scripts />
+          <height>300</height>
+          <name>Web Browser</name>
+          <scale_options>
+            <width_scalable>true</width_scalable>
+            <height_scalable>true</height_scalable>
+            <keep_wh_ratio>false</keep_wh_ratio>
+          </scale_options>
+          <foreground_color>
+            <color red="192" green="192" blue="192" />
+          </foreground_color>
+          <background_color>
+            <color red="240" green="240" blue="240" />
+          </background_color>
+          <enabled>true</enabled>
+          <widget_type>Web Browser</widget_type>
+          <width>450</width>
+          <border_style>1</border_style>
+          <rules />
+          <url></url>
+          <border_width>1</border_width>
+          <border_color>
+            <color red="192" green="192" blue="192" />
+          </border_color>
+          <show_toolbar>true</show_toolbar>
+          <y>55</y>
+          <actions hook="false" hook_all="false" />
+          <x>354</x>
+          <tooltip></tooltip>
+        </widget>
       </widget>
       <widget typeId="org.csstudio.opibuilder.widgets.groupingContainer" version="1.0.0">
         <macros>

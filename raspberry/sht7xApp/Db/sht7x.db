@@ -1,28 +1,27 @@
-record(sht, "SHT")
+record(sht, "$(SYS)-$(SUBSYS):$(DEV):SHT")
 {
   field(DTYP, "SHT71")
   field(INP, "@4 5")
   field(SCAN, "1 second")
-  field(FLNK, "SHT:FAN")
+  field(FLNK, "$(SYS)-$(SUBSYS):$(DEV):FAN")
 }
 
-record(fanout, "SHT:FAN")
+record(fanout, "$(SYS)-$(SUBSYS):$(DEV):FAN")
 {
-  field(LNK1, "SHT:TEM")
-  field(LNK2, "SHT:HUM")
+  field(LNK1, "$(SYS)-$(SUBSYS):$(DEV):TEM")
+  field(LNK2, "$(SYS)-$(SUBSYS):$(DEV):HUM")
 }
 
-record(calc, "SHT:TEM")
+record(calc, "$(SYS)-$(SUBSYS):$(DEV):TEM")
 {
-  field(INPA, "SHT.TEM")
+  field(INPA, "$(SYS)-$(SUBSYS):$(DEV):SHT.TEM")
   field(CALC, "A")
   field(PREC, "2")
 }
 
-record(calc, "SHT:HUM")
+record(calc, "$(SYS)-$(SUBSYS):$(DEV):HUM")
 {
-  field(INPA, "SHT.HUM")
+  field(INPA, "$(SYS)-$(SUBSYS):$(DEV):SHT.HUM")
   field(CALC, "A")
   field(PREC, "2")
 }
-

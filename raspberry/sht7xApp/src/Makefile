@@ -7,7 +7,6 @@ include $(TOP)/configure/CONFIG
 
 #=============================
 # Build the IOC application
-
 USR_INCLUDES  += -I$(RAON_SITELIBS)/include
 USR_DBDFLAGS  += -I$(RAON_SITELIBS)/dbd
 USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include

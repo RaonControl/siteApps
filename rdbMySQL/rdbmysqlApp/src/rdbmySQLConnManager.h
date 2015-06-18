@@ -83,6 +83,8 @@ private:
 private:
 	MYSQL *conn;
     epicsMutexId mutex;
+	enum INPUT{SQL_FILD=0,
+	SQL_FILDA, SQL_FILDB, SQL_FILDC, SQL_FILDD, SQL_FILDE, SQL_FILDF, SQL_FILDG, SQL_FILDH, SQL_FILDI, SQL_FILDJ, SQL_FILDK, SQL_FILDL };
 		
 };
 

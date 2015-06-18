@@ -12,6 +12,10 @@ include $(TOP)/configure/CONFIG
 # databases, templates, substitutions like this
 #DB += xxx.db
 DB += brocade6910.db
+DB += brocade_port.db
+DB += brocade_temp.db
+DB += brocade.substitutions
+
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
 # <anyname>_template = <templatename>
