@@ -1,52 +1,232 @@
-record(stringin, "$(P)XGS600:SW_VER")
-{
+#
+# EPICS DB with STREAM for Agilent XGS-600
+#
+# jhlee@ibs.re.kr
+#
+# Software Revision
+#
+record(stringin, "$(SYSDEV)SWRev") {
     field(DESC, "XGS-600 Software revision")
     field(DTYP, "stream")
-    field(INP, "@xgs600.proto sw-revision(00) $(PORT)")
+    field( INP, "@xgs600.proto sw-rev($(ID)) $(PORT)")
     field(PINI, "YES")
 }
-record(ai, "$(P)XGS600:PRES1")
-{
-    field(DESC, "Pressure ch1")
+
+#
+# System Reset
+# Command       #aa06
+# Response      >
+#
+# Still don't understand what this command means
+# Thursday, June 18 22:26:46 KST 2015, jhlee
+##############################################################
+
+record(bo, "$(SYSDEV)Rst") {
+    field(DESC, "XGS 600 Reset")
     field(DTYP, "stream")
-    field(INP, "@xgs600.proto press1_si(00) $(PORT)")
-    field(PINI, "NO")
-    field(SCAN, "1 second")
-    field(EGU, "Torr")
+    field( OUT, "@xgs600.proto rst($(ID)) $(PORT)")
+#    field(PINI, "YES")
+#   This field "clear"s camonitor SWRev returns. 
+#   RFQ:VAC:SWRev                  2015-06-18 20:32:39.598655  
+#   Without this field,
+#   RFQ:VAC:SWRev                  2015-06-18 20:33:47.871343 0203,0150,0150
 }
-record(ai, "$(P)XGS600:PRES2")
-{
-    field(DESC, "Pressure ch2")
+
+
+
+# Read XGS contents
+#
+# command           #aa01 
+# response          >hhhhhhhhhhhh
+#
+# 6 hhs represents "slot 0,1,2,3,4,5"
+# 10 = Hot Filament Ion Gauge board (HFIG)
+# 3A = Inverted Magnetron board (IMG)
+# 40 = convection board (CNV)
+# 4C = Analog Board
+# FE = Empty Slot 
+############################################################
+record(stringin, "$(SYSDEV)Contents") {
+    field(DESC, "XGS-600 contents")
     field(DTYP, "stream")
-    field(INP, "@xgs600.proto press2_si(00) $(PORT)")
-    field(PINI, "NO")
-    field(SCAN, "1 second")
-    field(EGU, "Torr")
+    field( INP, "@xgs600.proto read-xgs($(ID),$(SYSDEV)) $(PORT)")
+    field(PINI, "YES")
 }
-record(ai, "$(P)XGS600:PRES3")
+
+record(stringin, "$(SYSDEV)Slot0") {
+    field(DESC, "XGS-600 slot0")
+    field(DTYP, "Soft Channel")
+}
+
+record(stringin, "$(SYSDEV)Slot1") {
+    field(DESC, "XGS-600 slot1")
+    field(DTYP, "Soft Channel")
+}
+
+record(stringin, "$(SYSDEV)Slot2") {
+    field(DESC, "XGS-600 slot2")
+    field(DTYP, "Soft Channel")
+}
+
+
+record(stringin, "$(SYSDEV)Slot3") {
+    field(DESC, "XGS-600 slot3")
+    field(DTYP, "Soft Channel")
+}
+
+
+record(stringin, "$(SYSDEV)Slot4") {
+    field(DESC, "XGS-600 slot4")
+    field(DTYP, "Soft Channel")
+}
+
+record(stringin, "$(SYSDEV)Slot5") {
+    field(DESC, "XGS-600 slot5")
+    field(DTYP, "Soft Channel")
+}
+
+
+
+
+#
+# Pressure Unit : Table B-1
+#  
+# Set the unit to 
+# Unit   command      response
+# Torr   #aa01        >
+# mBar   #aa11        >
+# Pascal #aa12        >
+#
+# Examples : 
+# 
+# caput RFQ:VAC::SetPUnit {0|1|2}
+# caput RFQ:VAC::SetPUnit {Torr|mBar|Pascal}
+#
+#############################################################
+
+# record(ao, "$(SYSDEV):SetPUnit") {
+#     field(DESC, "Set Pressure Unit")
+#     field(DTYP, "stream")
+#     field( OUT, "@xgs600.proto setPresUnit($(ID)) $(PORT) ")
+#     field(FLNK, "$(SYSDEV):GetPUnit")
+# }
+
+# record(ai, "$(SYSDEV):GetPUnit") {
+#     field(DESC, "Get Pressure Unit")
+#     field(DTYP, "stream")
+#     field( INP, "@xgs600.proto getPresUnit($(ID))  $(PORT)")
+#     field(PINI, "YES")
+# }
+
+record(mbbo, "$(SYSDEV):SetPUnit") 
 {
-    field(DESC, "Pressure ch3")
+    field(DESC, "Set Pressure Unit")
     field(DTYP, "stream")
-    field(INP, "@xgs600.proto press3_si(00) $(PORT)")
-    field(PINI, "NO")
-    field(SCAN, "1 second")
-    field(EGU, "Torr")
+    field( OUT, "@xgs600.proto setPresUnit($(ID)) $(PORT) ")
+    field(ZRST, "Torr")
+    field(ZRVL, "0")
+    field(ONST, "mBar")
+    field(ONVL, "1")
+    field(TWST, "Pascal")
+    field(TWVL, "2")
+    field(THSV, "INVALID")
+    field(FRSV, "INVALID")
+    field(FVSV, "INVALID")
+    field(SXSV, "INVALID")
+    field(SVSV, "INVALID")
+    field(EISV, "INVALID")
+    field(NISV, "INVALID")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
+    field(IVOA, "Don't drive outputs")
+    field(FLNK, "$(SYSDEV):GetPUnit")
 }
-record(ai, "$(P)XGS600:PRES4")
-{
-    field(DESC, "Pressure ch4")
+
+# Read the unit 
+# Unit   command      response  
+# Torr     #aa13        >00        
+# mBar     #aa13        >01        
+# Pascal   #aa13        >02        
+# 
+
+record(mbbi, "$(SYSDEV):GetPUnit") {
+    field(DESC, "Get Pressure Unit")
     field(DTYP, "stream")
-    field(INP, "@xgs600.proto press4_si(00) $(PORT)")
-    field(PINI, "NO")
-    field(SCAN, "1 second")
-    field(EGU, "Torr")
+    field( INP, "@xgs600.proto getPresUnit($(ID)) $(PORT)")
+    field(ZRST, "Torr")
+    field(ZRVL, "0")
+    field(ONST, "mBar")
+    field(ONVL, "1")
+    field(TWST, "Pascal")
+    field(TWVL, "2")
+    field(THSV, "INVALID")
+    field(FRSV, "INVALID")
+    field(FVSV, "INVALID")
+    field(SXSV, "INVALID")
+    field(SVSV, "INVALID")
+    field(EISV, "INVALID")
+    field(NISV, "INVALID")
+    field(TESV, "INVALID")
+    field(ELSV, "INVALID")
+    field(TVSV, "INVALID")
+    field(TTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FTSV, "INVALID")
+    field(FFSV, "INVALID")
+    field(UNSV, "INVALID")
+    field(PINI, "YES")
 }
-record(ai, "$(P)XGS600:PRES5")
-{
-    field(DESC, "Pressure ch5")
-    field(DTYP, "stream")
-    field(INP, "@xgs600.proto press5_si(00) $(PORT)")
-    field(PINI, "NO")
-    field(SCAN, "1 second")
-    field(EGU, "Torr")
-}
+
+
+
+# record(ai, "$(SYSDEV):PRES1")
+# {
+#     field(DESC, "Pressure ch1")
+#     field(DTYP, "stream")
+#     field(INP, "@xgs600.proto press1_si$(ID))")
+#     field(PINI, "NO")
+#     field(SCAN, "1 second")
+#     field(EGU, "Torr")
+# }
+# record(ai, "$(SYSDEV):PRES2")
+# {
+#     field(DESC, "Pressure ch2")
+#     field(DTYP, "stream")
+#     field(INP, "@xgs600.proto press2_si$(ID))")
+#     field(PINI, "NO")
+#     field(SCAN, "1 second")
+#     field(EGU, "Torr")
+# }
+# record(ai, "$(SYSDEV):PRES3")
+# {
+#     field(DESC, "Pressure ch3")
+#     field(DTYP, "stream")
+#     field(INP, "@xgs600.proto press3_si$(ID))")
+#     field(PINI, "NO")
+#     field(SCAN, "1 second")
+#     field(EGU, "Torr")
+# }
+# record(ai, "$(SYSDEV):PRES4")
+# {
+#     field(DESC, "Pressure ch4")
+#     field(DTYP, "stream")
+#     field(INP, "@xgs600.proto press4_si$(ID))")
+#     field(PINI, "NO")
+#     field(SCAN, "1 second")
+#     field(EGU, "Torr")
+# }
+# record(ai, "$(SYSDEV):PRES5")
+# {
+#     field(DESC, "Pressure ch5")
+#     field(DTYP, "stream")
+#     field(INP, "@xgs600.proto press5_si$(ID))")
+#     field(PINI, "NO")
+#     field(SCAN, "1 second")
+#     field(EGU, "Torr")
+# }

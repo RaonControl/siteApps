@@ -1,0 +1,139 @@
+# 
+# XGS-600 Stream protocol file
+#
+# jhlee@ibs.re.kr
+#
+# 
+Terminator = CR;
+ReplyTimeout = 10000;
+ReadTimeout = 1000;
+
+sw-rev 
+{
+    out "#\$105";
+    in ">%s";
+    ExtraInput = Ignore;
+}
+
+rst 
+{
+    out "#\$106";
+}
+
+read-xgs
+{
+    out "#\$101";
+    in ">%(\$2Slot0.VAL)2s"
+    "%(\$2Slot1.VAL)2s"
+    "%(\$2Slot2.VAL)2s"
+    "%(\$2Slot3.VAL)2s"
+    "%(\$2Slot4.VAL)2s"
+    "%(\$2Slot5.VAL)2s";   
+    ExtraInput = Ignore;
+
+}
+
+
+getPresUnit
+{
+    out "#\$113";
+    in  ">%d";
+    ExtraInput = Ignore;
+}
+
+## #0010 > Torr
+## #0011 > mBar
+## #0012 > Pascal
+# 
+# If Set command returns ">", it must be "in" in protocol definition
+# Thursday, June 18 22:20:45 KST 2015, jhlee
+#
+setPresUnit
+{
+    out "#\$1%{10|11|12}";
+    in ">";
+    ExtraInput = Ignore;
+#    @init {out "#\$113"; in ">%d"; }
+}
+
+
+
+# press1_si {
+#     out "#\$102UHFIG1";
+#     in ">%e";
+#     @mismatch {
+#         in ">%s";
+#     }
+# }
+# press2_si {
+#     out "#\$102UAUX1";
+#     in ">%e";
+#     @mismatch {
+#         in ">%s";
+#     }
+# }
+# press3_si {
+#     out "#\$102UAUX2";
+#     in ">%e";
+#     @mismatch {
+#         in ">%s";
+#     }
+# }
+# press4_si {
+#     out "#\$102UCNV1";
+#     in ">%e";
+#     @mismatch {
+#         in ">%s";
+#     }
+# }
+# press5_si {
+#     out "#\$102UCNV2";
+#     in ">%e";
+#     @mismatch {
+#         in ">%s";
+#     }
+# }
+
+# sys_reset {
+#     out "#\$106";
+# }
+
+# set_pres_unit {
+#     out "#\$11%d";
+# }
+
+
+# set_lock_on {
+#     out "#\$12%d";
+# }
+
+# read_lock_on {
+#     out "#\$122";
+#     in ">%d";
+# }
+
+# read_setpoint_st {
+#     out "#\$103";
+#     in ">00%x";
+# }
+
+# set_setpoint {
+#     out "#\$15E\$2%d";
+# }
+
+# read_setpoint {
+#     out "#\$15F%d";
+#     in ">%d";
+# }
+
+# set_setpoint_val {
+#     out "#\$16UHFIG111.000E-2";
+# }
+
+# set_setpoint_delay_on {
+#     out "#\$1C%d%.1f";
+# }
+
+# set_setpoint_delay_off {
+#     out "#\$1D%d%.1f";
+# }
