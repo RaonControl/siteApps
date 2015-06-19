@@ -99,8 +99,8 @@ record(stringin, "$(SYSDEV)Slot5") {
 #
 # Examples : 
 # 
-# caput RFQ:VAC::SetPUnit {0|1|2}
-# caput RFQ:VAC::SetPUnit {Torr|mBar|Pascal}
+# caput RFQ:VAC::PUnitSet {0|1|2}
+# caput RFQ:VAC::PUnitSet {Torr|mBar|Pascal}
 #
 #############################################################
 
@@ -118,7 +118,7 @@ record(stringin, "$(SYSDEV)Slot5") {
 #     field(PINI, "YES")
 # }
 
-record(mbbo, "$(SYSDEV):SetPUnit") 
+record(mbbo, "$(SYSDEV)PUnitSet") 
 {
     field(DESC, "Set Pressure Unit")
     field(DTYP, "stream")
@@ -145,7 +145,7 @@ record(mbbo, "$(SYSDEV):SetPUnit")
     field(FFSV, "INVALID")
     field(UNSV, "INVALID")
     field(IVOA, "Don't drive outputs")
-    field(FLNK, "$(SYSDEV):GetPUnit")
+    field(FLNK, "$(SYSDEV)PUnitGet")
 }
 
 # Read the unit 
@@ -155,7 +155,7 @@ record(mbbo, "$(SYSDEV):SetPUnit")
 # Pascal   #aa13        >02        
 # 
 
-record(mbbi, "$(SYSDEV):GetPUnit") {
+record(mbbi, "$(SYSDEV)PUnitGet") {
     field(DESC, "Get Pressure Unit")
     field(DTYP, "stream")
     field( INP, "@xgs600.proto getPresUnit($(ID)) $(PORT)")
@@ -184,49 +184,192 @@ record(mbbi, "$(SYSDEV):GetPUnit") {
 }
 
 
+#
+# Setup Lockout : 3-16 / Table B-3 
+#
+# Toggle this to ON to make all filed on the SYSTEM SETUP and
+# SENSOR SETUP screen display-only (except for this field). This
+# provides a layer of security to prevent inadvertent change.
+# 
+# So, the initial value within IOC is set to ON
+# Friday, June 19 15:44:16 KST 2015, jhlee
+#  
+# Status       command      response
+# Lockout OFF  #aa20        >
+# Lockout ON   #aa21        >
+# Examples : 
+# 
+# caput RFQ:VAC:LockoutSet {Off|On}
+# caput RFQ:VAC:LockoutSet {0|1}
+#############################################################
 
-# record(ai, "$(SYSDEV):PRES1")
-# {
-#     field(DESC, "Pressure ch1")
-#     field(DTYP, "stream")
-#     field(INP, "@xgs600.proto press1_si$(ID))")
-#     field(PINI, "NO")
-#     field(SCAN, "1 second")
-#     field(EGU, "Torr")
-# }
-# record(ai, "$(SYSDEV):PRES2")
-# {
-#     field(DESC, "Pressure ch2")
-#     field(DTYP, "stream")
-#     field(INP, "@xgs600.proto press2_si$(ID))")
-#     field(PINI, "NO")
-#     field(SCAN, "1 second")
-#     field(EGU, "Torr")
-# }
-# record(ai, "$(SYSDEV):PRES3")
-# {
-#     field(DESC, "Pressure ch3")
-#     field(DTYP, "stream")
-#     field(INP, "@xgs600.proto press3_si$(ID))")
-#     field(PINI, "NO")
-#     field(SCAN, "1 second")
-#     field(EGU, "Torr")
-# }
-# record(ai, "$(SYSDEV):PRES4")
-# {
-#     field(DESC, "Pressure ch4")
-#     field(DTYP, "stream")
-#     field(INP, "@xgs600.proto press4_si$(ID))")
-#     field(PINI, "NO")
-#     field(SCAN, "1 second")
-#     field(EGU, "Torr")
-# }
-# record(ai, "$(SYSDEV):PRES5")
-# {
-#     field(DESC, "Pressure ch5")
-#     field(DTYP, "stream")
-#     field(INP, "@xgs600.proto press5_si$(ID))")
-#     field(PINI, "NO")
-#     field(SCAN, "1 second")
-#     field(EGU, "Torr")
-# }
+record(bo, "$(SYSDEV)LockoutSet") 
+{
+    field(DESC, "Lockout OFF or ON")
+    field(DTYP, "stream")
+    field( OUT, "@xgs600.proto setLockout($(ID)) $(PORT) ")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+    field(PINI, "YES")
+    field( VAL, "1")
+    field(FLNK, "$(SYSDEV)LockoutGet")
+}
+
+
+# caget  RFQ:VAC:LockoutGet
+# RFQ:VAC:LockoutGet             On
+record(bi, "$(SYSDEV)LockoutGet") 
+{
+    field(DESC, "Readback zero check status")
+    field(DTYP, "stream")
+    field( INP, "@xgs600.proto getLockout($(ID)) $(PORT)")
+    field(ZNAM, "Off")
+    field(ONAM, "On")
+}
+
+
+#
+# For a testing system, I have HFIG1 and CNV1/2, 
+# So, the fixed pressure reading function is used.
+# 
+# I would like to use the Pressure unit got from $(SYSDEV)PUnitGet 
+# dynamically, so FLNK to $(SYSDEV)PRES1_EGU, and use DOL field
+# in stringout with OMSL (output mode selection) as closed_loop.
+# So whenever reading a pressure, it get the current pressure unit,
+# and put it into EGU field in the signal PRES1. 
+# It is really nice to have them dynamically, because it will remove
+# the possibility that someone may change the pressure unit while
+# we are scanning the pressure value. I think, it may be very rare
+# events. 
+#
+# Friday, June 19 19:24:29 KST 2015, jhlee 
+
+
+
+record(ai, "$(SYSDEV)HFIG1")
+{
+    field(DESC, "Pressure HFIG1")
+    field(DTYP, "stream")
+    field( INP, "@xgs600.proto readPressHFIG1($(ID)) $(PORT)")
+    field(PINI, "NO")
+    field(SCAN, "1 second")
+#
+#   for camonitor triggering...
+#   field(MDEL, "-1")
+#
+    field(FLNK, "$(SYSDEV)HFIG1_EGU")
+}
+ 
+
+
+# From https://wiki-ext.aps.anl.gov/epics/index.php/RRM_3-14_String_Output
+# The string output record must specify from where it gets its desired output string. 
+# The first field that determines where the desired output originates is the output 
+# mode select (OSML) field, which can have two possible value: closed_loop or supervisory. 
+#
+# If supervisory is specified, DOL is ignored, the current value of VAL is written, and 
+# the VAL can be changed externally via dbPuts at run-time. 
+#
+# If closed_loop is specified, the VAL field's value is obtained from the address 
+# specified in the desired output location field (DOL) which can be either a database 
+# link or a channel access link. 
+
+
+
+record(stringout, "$(SYSDEV)HFIG1_EGU")
+{
+#   does't matter it has the inital constant VAL or not.
+#
+#    field( VAL, "Torr")
+#
+    field( OUT, "$(SYSDEV)HFIG1.EGU")
+    field( DOL, "$(SYSDEV)PUnitGet.VAL")
+    field(OMSL, "closed_loop")
+#
+#    field(OMSL, "supervisory")
+#    with "supervisory", I can change VAL by
+#    caput RFQ:VAC:PRES1_EGU "mBar"
+#    even if this record is stringout.
+#
+
+}
+
+
+record(ai, "$(SYSDEV)CNV1")
+{
+    field(DESC, "Pressure CNV1")
+    field(DTYP, "stream")
+    field( INP, "@xgs600.proto readPressCNV1($(ID)) $(PORT)")
+    field(PINI, "NO")
+    field(SCAN, "1 second")
+    field(FLNK, "$(SYSDEV)CNV1_EGU")
+}
+ 
+record(stringout, "$(SYSDEV)CNV1_EGU")
+{
+    field( OUT, "$(SYSDEV)CNV1.EGU")
+    field( DOL, "$(SYSDEV)PUnitGet.VAL")
+    field(OMSL, "closed_loop")
+}
+
+
+
+
+record(ai, "$(SYSDEV)CNV2")
+{
+    field(DESC, "Pressure CNV2")
+    field(DTYP, "stream")
+    field( INP, "@xgs600.proto readPressCNV2($(ID)) $(PORT)")
+    field(PINI, "NO")
+    field(SCAN, "1 second")
+    field(FLNK, "$(SYSDEV)CNV2_EGU")
+}
+ 
+record(stringout, "$(SYSDEV)CNV2_EGU")
+{
+    field( OUT, "$(SYSDEV)CNV2.EGU")
+    field( DOL, "$(SYSDEV)PUnitGet.VAL")
+    field(OMSL, "closed_loop")
+}
+
+
+
+
+record(ai, "$(SYSDEV)AUX1")
+{
+    field(DESC, "Pressure AUX1")
+    field(DTYP, "stream")
+    field( INP, "@xgs600.proto readPressAUX1($(ID)) $(PORT)")
+    field(PINI, "NO")
+    field(SCAN, "1 second")
+    field(FLNK, "$(SYSDEV)AUX1_EGU")
+}
+ 
+record(stringout, "$(SYSDEV)AUX1_EGU")
+{
+    field( OUT, "$(SYSDEV)AUX1.EGU")
+    field( DOL, "$(SYSDEV)PUnitGet.VAL")
+    field(OMSL, "closed_loop")
+}
+
+
+
+record(ai, "$(SYSDEV)AUX2")
+{
+    field(DESC, "Pressure AUX2")
+    field(DTYP, "stream")
+    field( INP, "@xgs600.proto readPressAUX2($(ID)) $(PORT)")
+    field(PINI, "NO")
+    field(SCAN, "1 second")
+    field(FLNK, "$(SYSDEV)AUX2_EGU")
+}
+ 
+record(stringout, "$(SYSDEV)AUX2_EGU")
+{
+    field( OUT, "$(SYSDEV)AUX2.EGU")
+    field( DOL, "$(SYSDEV)PUnitGet.VAL")
+    field(OMSL, "closed_loop")
+}
+
+
+

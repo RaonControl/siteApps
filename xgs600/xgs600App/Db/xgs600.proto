@@ -5,8 +5,8 @@
 #
 # 
 Terminator = CR;
-ReplyTimeout = 10000;
-ReadTimeout = 1000;
+ReplyTimeout = 1000;
+ReadTimeout = 100;
 
 sw-rev 
 {
@@ -34,6 +34,10 @@ read-xgs
 }
 
 
+## Pressure Unit
+##
+##
+
 getPresUnit
 {
     out "#\$113";
@@ -52,66 +56,94 @@ setPresUnit
 {
     out "#\$1%{10|11|12}";
     in ">";
-    ExtraInput = Ignore;
-#    @init {out "#\$113"; in ">%d"; }
+#    ExtraInput = Ignore;
+    @init {out "#\$113"; in ">%d"; }
 }
 
 
 
-# press1_si {
-#     out "#\$102UHFIG1";
-#     in ">%e";
-#     @mismatch {
-#         in ">%s";
-#     }
-# }
-# press2_si {
-#     out "#\$102UAUX1";
-#     in ">%e";
-#     @mismatch {
-#         in ">%s";
-#     }
-# }
-# press3_si {
-#     out "#\$102UAUX2";
-#     in ">%e";
-#     @mismatch {
-#         in ">%s";
-#     }
-# }
-# press4_si {
-#     out "#\$102UCNV1";
-#     in ">%e";
-#     @mismatch {
-#         in ">%s";
-#     }
-# }
-# press5_si {
-#     out "#\$102UCNV2";
-#     in ">%e";
-#     @mismatch {
-#         in ">%s";
-#     }
-# }
+## Lockout 
+## >00 : OFF
+## >01 : ON
+getLockout
+{
+    out "#\$122";
+    in  ">%d";
+    ExtraInput = Ignore;
+}
 
-# sys_reset {
-#     out "#\$106";
-# }
-
-# set_pres_unit {
-#     out "#\$11%d";
-# }
+setLockout
+{
+    out "#\$1%{20|21}";
+    in ">";
+    ExtraInput = Ignore;
+}
 
 
-# set_lock_on {
-#     out "#\$12%d";
-# }
 
-# read_lock_on {
-#     out "#\$122";
-#     in ">%d";
-# }
+#
+# How can I put these ugly pressure reading function
+# in more general way..... 
+# Friday, June 19 19:54:10 KST 2015, jhlee
+#
 
+
+
+readPressHFIG1 
+{
+    out "#\$102UHFIG1";
+    in ">%e";
+    @mismatch {
+        in ">%s";
+    }
+}
+
+readPressCNV1 
+{
+    out "#\$102UCNV1";
+    in ">%e";
+    @mismatch {
+        in ">%s";
+    }
+}
+
+
+readPressCNV2 
+{
+    out "#\$102UCNV2";
+    in ">%e";
+    @mismatch {
+        in ">%s";
+    }
+}
+
+readPressAUX1
+{
+    out "#\$102UAUX1";
+    in ">%e";
+    @mismatch {
+        in ">%s";
+    }
+}
+
+readPressAUX2
+{
+    out "#\$102UAUX2";
+    in ">%e";
+    @mismatch {
+        in ">%s";
+    }
+}
+
+
+# The below code came from HumanTec's work
+# of the vacuum control system testbed.
+#
+# Just keep it if we need to add additional 
+# functionalities into the protocol file
+#
+# Friday, June 19 19:52:15 KST 2015, jhlee 
+#
 # read_setpoint_st {
 #     out "#\$103";
 #     in ">00%x";
