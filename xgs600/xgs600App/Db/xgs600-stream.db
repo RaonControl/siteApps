@@ -1,16 +1,34 @@
 #
-# EPICS DB with STREAM for Agilent XGS-600
+# EPICS STREAM DB with STREAM for Agilent XGS-600
 #
-# jhlee@ibs.re.kr
+# - Author  : Jeong Han Lee    
+# - email   : jhlee@ibs.re.kr
+# - license : EPICS open license
+# 
+#  v0.9    Sunday, June 21 18:47:41 KST 2015, jhlee
+#         - 
+# 
+#
+# TODO
+# - need "General Error Codes handling logic" in Manual 4-6 
+#   For CNV, introduce a logic to handle Open, but I never test them in various
+#   situations. And in others sensors type case, should add that logic into...
+#   Sunday, June 21 18:50:26 KST 2015, jhlee
+
+
+
 #
 # Software Revision
 #
-record(stringin, "$(SYSDEV)SWRev") {
+##############################################################
+record(stringin, "$(SYSDEV)SWRev") 
+{
     field(DESC, "XGS-600 Software revision")
     field(DTYP, "stream")
     field( INP, "@xgs600.proto sw-rev($(ID)) $(PORT)")
     field(PINI, "YES")
 }
+
 
 #
 # System Reset
@@ -21,7 +39,8 @@ record(stringin, "$(SYSDEV)SWRev") {
 # Thursday, June 18 22:26:46 KST 2015, jhlee
 ##############################################################
 
-record(bo, "$(SYSDEV)Rst") {
+record(bo, "$(SYSDEV)Rst") 
+{
     field(DESC, "XGS 600 Reset")
     field(DTYP, "stream")
     field( OUT, "@xgs600.proto rst($(ID)) $(PORT)")
@@ -46,45 +65,49 @@ record(bo, "$(SYSDEV)Rst") {
 # 4C = Analog Board
 # FE = Empty Slot 
 ############################################################
-record(stringin, "$(SYSDEV)Contents") {
+record(stringin, "$(SYSDEV)Contents") 
+{
     field(DESC, "XGS-600 contents")
     field(DTYP, "stream")
     field( INP, "@xgs600.proto read-xgs($(ID),$(SYSDEV)) $(PORT)")
     field(PINI, "YES")
 }
 
-record(stringin, "$(SYSDEV)Slot0") {
+record(stringin, "$(SYSDEV)Slot0") 
+{
     field(DESC, "XGS-600 slot0")
     field(DTYP, "Soft Channel")
 }
 
-record(stringin, "$(SYSDEV)Slot1") {
+record(stringin, "$(SYSDEV)Slot1") 
+{
     field(DESC, "XGS-600 slot1")
     field(DTYP, "Soft Channel")
 }
 
-record(stringin, "$(SYSDEV)Slot2") {
+record(stringin, "$(SYSDEV)Slot2") 
+{
     field(DESC, "XGS-600 slot2")
     field(DTYP, "Soft Channel")
 }
 
-
-record(stringin, "$(SYSDEV)Slot3") {
+record(stringin, "$(SYSDEV)Slot3") 
+{
     field(DESC, "XGS-600 slot3")
     field(DTYP, "Soft Channel")
 }
 
-
-record(stringin, "$(SYSDEV)Slot4") {
+record(stringin, "$(SYSDEV)Slot4") 
+{
     field(DESC, "XGS-600 slot4")
     field(DTYP, "Soft Channel")
 }
 
-record(stringin, "$(SYSDEV)Slot5") {
+record(stringin, "$(SYSDEV)Slot5") 
+{
     field(DESC, "XGS-600 slot5")
     field(DTYP, "Soft Channel")
 }
-
 
 
 
@@ -155,7 +178,8 @@ record(mbbo, "$(SYSDEV)PUnitSet")
 # Pascal   #aa13        >02        
 # 
 
-record(mbbi, "$(SYSDEV)PUnitGet") {
+record(mbbi, "$(SYSDEV)PUnitGet") 
+{
     field(DESC, "Get Pressure Unit")
     field(DTYP, "stream")
     field( INP, "@xgs600.proto getPresUnit($(ID)) $(PORT)")
@@ -294,12 +318,26 @@ record(stringout, "$(SYSDEV)HFIG1_EGU")
 
 }
 
+#
+# http://epics.web.psi.ch/software/streamdevice/doc/tipsandtricks.html#argvar
+#
+# If there is no Convection sensor detected,
+# "readpress returns 'OPEN'. 
+# So, we need the mismatch to pass them into string
+# Sunday, June 21 18:45:33 KST 2015, jhlee
+
+
+
+record (stringin, "$(SYSDEV)CNV1_MSG") 
+{
+} 
+
 
 record(ai, "$(SYSDEV)CNV1")
 {
     field(DESC, "Pressure CNV1")
     field(DTYP, "stream")
-    field( INP, "@xgs600.proto readPressCNV1($(ID)) $(PORT)")
+    field( INP, "@xgs600.proto readPressCNV1($(ID),$(SYSDEV)CNV1_MSG) $(PORT)")
     field(PINI, "NO")
     field(SCAN, "1 second")
     field(FLNK, "$(SYSDEV)CNV1_EGU")
@@ -312,7 +350,22 @@ record(stringout, "$(SYSDEV)CNV1_EGU")
     field(OMSL, "closed_loop")
 }
 
+# Must verify, how it works.
+# Still don't understand how it works....
+record (calcout, "$(SYSDEV):CNV1_clean1") 
+{
+  field (INPA, "$(SYSDEV)CNV1.SEVR CP")
+  
+  field (CALC, "A!=2")
+  field (OOPT, "When Non-zero")
+  field ( OUT, "$(SYSDEV):CNV1_clean2.PROC")
+}
 
+record (stringout, "$(SYSDEV):CNV1_clean2") 
+{
+  field (VAL, "CNV1 Detected")
+  field (OUT, "$(SYSDEV)CNV1_MSG PP")
+}
 
 
 record(ai, "$(SYSDEV)CNV2")
@@ -324,7 +377,7 @@ record(ai, "$(SYSDEV)CNV2")
     field(SCAN, "1 second")
     field(FLNK, "$(SYSDEV)CNV2_EGU")
 }
- 
+
 record(stringout, "$(SYSDEV)CNV2_EGU")
 {
     field( OUT, "$(SYSDEV)CNV2.EGU")

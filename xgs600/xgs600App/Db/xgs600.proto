@@ -98,12 +98,17 @@ readPressHFIG1
     }
 }
 
+# If there is no Convection sensor detected,
+# "readpress returns 'OPEN'. 
+# So, we need the mismatch to pass them into string
+# Sunday, June 21 18:45:33 KST 2015, jhlee
+
 readPressCNV1 
 {
     out "#\$102UCNV1";
     in ">%e";
     @mismatch {
-        in ">%s";
+        in ">%(\$2)s";
     }
 }
 
