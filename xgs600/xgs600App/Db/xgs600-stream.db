@@ -261,28 +261,49 @@ record(bi, "$(SYSDEV)LockoutGet")
 # This commmand has the same function as CAL on the main screen, i.e.
 # used for both atmosphere and vacuum calibartions.
 # 
-#
-# command       return
-# #aaA1CNV      > 
-# #aaA1AUX      >
+# So, this function returns ?FF Error, I don't know why...
+# Monday, June 22 14:55:13 KST 2015, jhlee
 
-record(bo, "$(SYSDEV)CalCNV") 
-{
-    field(DESC, "XGS 600 CNV calibrate")
-    field(DTYP, "stream")
-    field( OUT, "@xgs600.proto calibrateCNV($(ID)) $(PORT)")
-#    field(PINI, "YES")$
-}
-
-record(bo, "$(SYSDEV)CalAUX") 
-{
-    field(DESC, "XGS 600 AUX calibrate")
-    field(DTYP, "stream")
-    field( OUT, "@xgs600.proto calibrateAUX($(ID)) $(PORT)")
-#    field(PINI, "YES")$
-}
+# 2015/06/22 14:53:38.146537 XGS600 RFQ:VAC1:Cal: Input "?FF (RetSensor)" mismatch after 0 bytes
+# 2015/06/22 14:53:38.146692 XGS600 RFQ:VAC1:Cal: got "?FF (RetSensor)" where ">" was expected
 
 
+# # command       return
+# # #aaA1CNV      > 
+# # #aaA1AUX      >
+
+# record(bo, "$(SYSDEV)CalCNV") 
+# {
+#     field(DESC, "XGS 600 CNV calibrate")
+#     field(DTYP, "stream")
+#     field( OUT, "@xgs600.proto calibrateCNV($(ID)) $(PORT)")
+# #    field(PINI, "YES")$
+# }
+
+
+# record(bo, "$(SYSDEV)CalAUX") 
+# {
+#     field(DESC, "XGS 600 AUX calibrate")
+#     field(DTYP, "stream")
+#     field( OUT, "@xgs600.proto calibrateAUX($(ID)) $(PORT)")
+#     field(ZNAM, "Off")
+#     field(ONAM, "On")
+# #    field(PINI, "YES")
+#     # field( VAL, "1")
+#     # field(FLNK, "$(SYSDEV)AtmSet")
+# #    field(PINI, "YES")$
+# }
+
+
+
+# record(ao, "$(SYSDEV)AtmSet")
+# {
+#     field(DESC, "XGS 600 Atomosphere value")
+#     field(DTYP, "stream")
+#     field( OUT, "@xgs600.proto setAtmValue($(ID)) $(PORT)") 
+#     field( VAL, "$(ATMVALUE)")
+#     field(PINI, "YES")
+# }
 
 #
 # For a testing system, I have HFIG1 and CNV1/2, 
@@ -302,11 +323,16 @@ record(bo, "$(SYSDEV)CalAUX")
 
 
 
+record (stringin, "$(SYSDEV)HFIG1_MSG") 
+{
+} 
+
+
 record(ai, "$(SYSDEV)HFIG1")
 {
     field(DESC, "Pressure HFIG1")
     field(DTYP, "stream")
-    field( INP, "@xgs600.proto readPressHFIG1($(ID)) $(PORT)")
+    field( INP, "@xgs600.proto readPressHFIG1($(ID),$(SYSDEV)HFIG1_MSG) $(PORT)")
     field(PINI, "NO")
     field(SCAN, "1 second")
 #
@@ -349,6 +375,27 @@ record(stringout, "$(SYSDEV)HFIG1_EGU")
 #
 
 }
+
+
+# Must verify, how it works.
+# Still don't understand how it works....
+record (calcout, "$(SYSDEV)HFIG1_clean1") 
+{
+  field (INPA, "$(SYSDEV)HFIG1 CP")
+  field (CALC, "A!=2")
+  field (OOPT, "When Non-zero")
+  field ( OUT, "$(SYSDEV)HFIG1_clean2.PROC")
+}
+
+record (stringout, "$(SYSDEV)HFIG1_clean2") 
+{
+  field (VAL, "HFIG1 Detected")
+  field (OUT, "$(SYSDEV)HFIG1_MSG PP")
+}
+
+
+
+
 
 #
 # http://epics.web.psi.ch/software/streamdevice/doc/tipsandtricks.html#argvar
@@ -481,7 +528,7 @@ record (calcout, "$(SYSDEV)AUX1_clean1")
 
 record (stringout, "$(SYSDEV)AUX1_clean2") 
 {
-  field (VAL, "AUX1 Detected")
+  field (VAL, "AUX1 Cable is ACTIVE")
   field (OUT, "$(SYSDEV)AUX1_MSG PP")
 }
 
@@ -510,9 +557,20 @@ record(stringout, "$(SYSDEV)AUX2_EGU")
     field(OMSL, "closed_loop")
 }
 
+#
+# It returns 
+# - >NOCBL : No active gauge cable detectd
+# - >FAULT : Active gauge voltage < 0.5 V
+# 
+#rfquser@rfqpc0:~/epics/R3.14.12.5$ camonitor  RFQ:VAC1:AUX1_MSG RFQ:VAC1:AUX2_MSG
+#RFQ:VAC1:AUX1_MSG              2015-06-22 13:39:22.525954 >NOCBL  
+#RFQ:VAC1:AUX2_MSG              2015-06-22 13:26:42.553686 AUX2 Cable is ACTIVE
+#RFQ:VAC1:AUX2_MSG              2015-06-22 13:39:40.553674 >NOCBL  
+#RFQ:VAC1:AUX2_MSG              2015-06-22 13:39:40.553855 AUX2 Cable is ACTIVE  
+#RFQ:VAC1:AUX2_MSG              2015-06-22 13:39:41.553440 >NOCBL  
+#RFQ:VAC1:AUX1_MSG              2015-06-22 13:39:44.525875 >FAULT  
+#RFQ:VAC1:AUX1_MSG              2015-06-22 13:39:46.526031 AUX1 Cable is ACTIVE 
 
-# Must verify, how it works.
-# Still don't understand how it works....
 record (calcout, "$(SYSDEV)AUX2_clean1") 
 {
   field (INPA, "$(SYSDEV)AUX2.SEVR CP")
@@ -523,7 +581,7 @@ record (calcout, "$(SYSDEV)AUX2_clean1")
 
 record (stringout, "$(SYSDEV)AUX2_clean2") 
 {
-  field (VAL, "AUX2 Detected")
+  field (VAL, "AUX2 Cable is ACTIVE")
   field (OUT, "$(SYSDEV)AUX2_MSG PP")
 }
 
