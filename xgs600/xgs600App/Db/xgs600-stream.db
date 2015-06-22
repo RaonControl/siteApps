@@ -5,9 +5,12 @@
 # - email   : jhlee@ibs.re.kr
 # - license : EPICS open license
 # 
-#  v0.9    Sunday, June 21 18:47:41 KST 2015, jhlee
-#         - 
-# 
+#  -0.9       Sunday, June 21 18:47:41 KST 2015, jhlee
+#
+#  -0.9.1     Monday, June 22 08:56:01 KST 2015, jhlee
+#             * extend "MSG handler in CNV2, AUX1, and AUX2"
+#               I think, this is the quick-and-dirty solution
+#   
 #
 # TODO
 # - need "General Error Codes handling logic" in Manual 4-6 
@@ -16,8 +19,6 @@
 #   Sunday, June 21 18:50:26 KST 2015, jhlee
 
 
-
-#
 # Software Revision
 #
 ##############################################################
@@ -252,6 +253,37 @@ record(bi, "$(SYSDEV)LockoutGet")
 }
 
 
+
+#
+# AUX and CNV commands
+#
+# Calibrate
+# This commmand has the same function as CAL on the main screen, i.e.
+# used for both atmosphere and vacuum calibartions.
+# 
+#
+# command       return
+# #aaA1CNV      > 
+# #aaA1AUX      >
+
+record(bo, "$(SYSDEV)CalCNV") 
+{
+    field(DESC, "XGS 600 CNV calibrate")
+    field(DTYP, "stream")
+    field( OUT, "@xgs600.proto calibrateCNV($(ID)) $(PORT)")
+#    field(PINI, "YES")$
+}
+
+record(bo, "$(SYSDEV)CalAUX") 
+{
+    field(DESC, "XGS 600 AUX calibrate")
+    field(DTYP, "stream")
+    field( OUT, "@xgs600.proto calibrateAUX($(ID)) $(PORT)")
+#    field(PINI, "YES")$
+}
+
+
+
 #
 # For a testing system, I have HFIG1 and CNV1/2, 
 # So, the fixed pressure reading function is used.
@@ -352,27 +384,34 @@ record(stringout, "$(SYSDEV)CNV1_EGU")
 
 # Must verify, how it works.
 # Still don't understand how it works....
-record (calcout, "$(SYSDEV):CNV1_clean1") 
+record (calcout, "$(SYSDEV)CNV1_clean1") 
 {
   field (INPA, "$(SYSDEV)CNV1.SEVR CP")
   
   field (CALC, "A!=2")
   field (OOPT, "When Non-zero")
-  field ( OUT, "$(SYSDEV):CNV1_clean2.PROC")
+  field ( OUT, "$(SYSDEV)CNV1_clean2.PROC")
 }
 
-record (stringout, "$(SYSDEV):CNV1_clean2") 
+record (stringout, "$(SYSDEV)CNV1_clean2") 
 {
   field (VAL, "CNV1 Detected")
   field (OUT, "$(SYSDEV)CNV1_MSG PP")
 }
 
 
+
+
+record (stringin, "$(SYSDEV)CNV2_MSG") 
+{
+} 
+
+
 record(ai, "$(SYSDEV)CNV2")
 {
     field(DESC, "Pressure CNV2")
     field(DTYP, "stream")
-    field( INP, "@xgs600.proto readPressCNV2($(ID)) $(PORT)")
+    field( INP, "@xgs600.proto readPressCNV2($(ID),$(SYSDEV)CNV2_MSG) $(PORT)")
     field(PINI, "NO")
     field(SCAN, "1 second")
     field(FLNK, "$(SYSDEV)CNV2_EGU")
@@ -387,12 +426,36 @@ record(stringout, "$(SYSDEV)CNV2_EGU")
 
 
 
+# Must verify, how it works.
+# Still don't understand how it works....
+record (calcout, "$(SYSDEV)CNV2_clean1") 
+{
+  field (INPA, "$(SYSDEV)CNV2.SEVR CP")
+  field (CALC, "A!=2")
+  field (OOPT, "When Non-zero")
+  field ( OUT, "$(SYSDEV)CNV2_clean2.PROC")
+}
+
+record (stringout, "$(SYSDEV)CNV2_clean2") 
+{
+  field (VAL, "CNV2 Detected")
+  field (OUT, "$(SYSDEV)CNV2_MSG PP")
+}
+
+
+
+
+
+record (stringin, "$(SYSDEV)AUX1_MSG") 
+{
+} 
+
 
 record(ai, "$(SYSDEV)AUX1")
 {
     field(DESC, "Pressure AUX1")
     field(DTYP, "stream")
-    field( INP, "@xgs600.proto readPressAUX1($(ID)) $(PORT)")
+    field( INP, "@xgs600.proto readPressAUX1($(ID),$(SYSDEV)AUX1_MSG) $(PORT)")
     field(PINI, "NO")
     field(SCAN, "1 second")
     field(FLNK, "$(SYSDEV)AUX1_EGU")
@@ -406,12 +469,35 @@ record(stringout, "$(SYSDEV)AUX1_EGU")
 }
 
 
+# Must verify, how it works.
+# Still don't understand how it works....
+record (calcout, "$(SYSDEV)AUX1_clean1") 
+{
+  field (INPA, "$(SYSDEV)AUX1.SEVR CP")
+  field (CALC, "A!=2")
+  field (OOPT, "When Non-zero")
+  field ( OUT, "$(SYSDEV)AUX1_clean2.PROC")
+}
+
+record (stringout, "$(SYSDEV)AUX1_clean2") 
+{
+  field (VAL, "AUX1 Detected")
+  field (OUT, "$(SYSDEV)AUX1_MSG PP")
+}
+
+
+
+record (stringin, "$(SYSDEV)AUX2_MSG") 
+{
+} 
+
+
 
 record(ai, "$(SYSDEV)AUX2")
 {
     field(DESC, "Pressure AUX2")
     field(DTYP, "stream")
-    field( INP, "@xgs600.proto readPressAUX2($(ID)) $(PORT)")
+    field( INP, "@xgs600.proto readPressAUX2($(ID),$(SYSDEV)AUX2_MSG) $(PORT)")
     field(PINI, "NO")
     field(SCAN, "1 second")
     field(FLNK, "$(SYSDEV)AUX2_EGU")
@@ -425,4 +511,19 @@ record(stringout, "$(SYSDEV)AUX2_EGU")
 }
 
 
+# Must verify, how it works.
+# Still don't understand how it works....
+record (calcout, "$(SYSDEV)AUX2_clean1") 
+{
+  field (INPA, "$(SYSDEV)AUX2.SEVR CP")
+  field (CALC, "A!=2")
+  field (OOPT, "When Non-zero")
+  field ( OUT, "$(SYSDEV)AUX2_clean2.PROC")
+}
+
+record (stringout, "$(SYSDEV)AUX2_clean2") 
+{
+  field (VAL, "AUX2 Detected")
+  field (OUT, "$(SYSDEV)AUX2_MSG PP")
+}
 
