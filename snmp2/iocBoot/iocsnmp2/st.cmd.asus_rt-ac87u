@@ -7,7 +7,7 @@
 
 cd "${TOP}"
 
-epicsEnvSet("MIBS", "+ALL")
+#epicsEnvSet("MIBS", "+ALL")
 epicsEnvSet("MIBDIRS", "+${RAON_SITELIBS}/snmpLib/mibs")
 
 ## Register all support components

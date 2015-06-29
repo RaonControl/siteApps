@@ -1,34 +1,34 @@
 #CPU Statistics
 
 # #Load Averages
-record(snmpstr, "${ASUS}:Load_1m") {
+record(snmp, "${ASUS}:Load_1m") {
   field(DESC, "1 minute Load")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
-  field(OIDS, "${UCD}laLoad.1")
+  field(OIDS, "${UCD}laLoadInt.1")
 }
 
-record(snmpstr, "${ASUS}:Load_5m") {
+record(snmp, "${ASUS}:Load_5m") {
   field(DESC, "5 minute Load")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
-  field(OIDS, "${UCD}laLoad.2")
+  field(OIDS, "${UCD}laLoadInt.2")
 }
 
-record(snmpstr, "${ASUS}:Load_15m") {
+record(snmp, "${ASUS}:Load_15m") {
   field(DESC, "15 minute Load")
   field(DTYP, "SNMP Read")
   field(SCAN, "5 second")
   field(VERS, "${V2C}")
   field(HOST, "${HOST}")
   field(COMM, "${COM}")
-  field(OIDS, "${UCD}laLoad.3")
+  field(OIDS, "${UCD}laLoadInt.3")
 }
 
 #CPU
