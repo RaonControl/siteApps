@@ -7,11 +7,11 @@ include $(TOP)/configure/CONFIG
 
 #ASYN += ${EPICS_PATH}/modules/synApps_5_7/support/asyn-4-21
 
-USR_INCLUDES  += -I$(RAON_SITELIBS)/include
-USR_DBDFLAGS  += -I$(RAON_SITELIBS)/dbd
-USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
+#USR_INCLUDES  += -I$(RAON_SITELIBS)/include
+#USR_DBDFLAGS  += -I$(RAON_SITELIBS)/dbd
+#USR_INCLUDES  += -I$(EPICS_EXTENSIONS)/include
 
-asyn_DIR += $(ASYN)/lib/$(T_A)
+#asyn_DIR += $(ASYN)/lib/$(T_A)
 
 
 #=============================
@@ -22,14 +22,15 @@ PROD_IOC = exAsyn
 DBD += exAsyn.dbd
 
 # exAsyn.dbd will be made up from these files:
-exAsyn_DBD += base.dbd
+exAsyn_DBD += asynTest.dbd
 
 # Include dbd files from all support applications:
 #exAsyn_DBD += xxx.dbd
-exAsyn_DBD += asyn.dbd
+#exAsyn_DBD += asyn.dbd
 
 # Add all the support libraries needed by this IOC
 exAsyn_LIBS += asyn
+exAsyn_LIBS += stream
 
 # exAsyn_registerRecordDeviceDriver.cpp derives from exAsyn.dbd
 exAsyn_SRCS += exAsyn_registerRecordDeviceDriver.cpp

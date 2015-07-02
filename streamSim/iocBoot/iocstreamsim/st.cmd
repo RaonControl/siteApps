@@ -18,7 +18,7 @@ streamsim_registerRecordDeviceDriver pdbbase
 dbLoadRecords("db/streamsim.db","PREFIX=STREAMSIM")
 
 drvAsynIPPortConfigure("Sim1","10.1.4.64:9004",0,0,1)
-#asynOctetSetInputEos("Sim1",0,"\r\n")
+asynOctetSetInputEos("Sim1",0,"\r\n")
 asynOctetSetOutputEos("Sim1",0,"\r\n")
 
 cd "${TOP}/iocBoot/${IOC}"

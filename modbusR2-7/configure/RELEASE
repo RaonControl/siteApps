@@ -10,14 +10,7 @@
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
-#SUPPORT=/corvette/home/epics/devel
-#-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
-SUPPORT=${EPICS_PATH}/siteLibs/
--include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)^M 
-
-#INSTALL_LOCATION_APP=${HOME}/epics/R3.14.12.4/siteLibs
-
-ASYN=$(SUPPORT)/asyn-4-21
+ASYN=${EPICS_SYNAPPS}/asyn-4-26
 
 # If you don't want to install into $(TOP) then
 # define INSTALL_LOCATION_APP here

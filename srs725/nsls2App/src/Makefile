@@ -37,10 +37,11 @@ streamApp_SRCS += timedbuffer.c
 streamApp_DBD += $(COMM_DBD)
 streamApp_DBD += wfcalc.dbd
 streamApp_DBD += devtimediff.dbd
-streamApp_DBD += calcSupport.dbd
+#streamApp_DBD += calcSupport.dbd
 streamApp_DBD += stream.dbd
 streamApp_DBD += asyn.dbd drvAsynIPPort.dbd drvAsynSerialPort.dbd
-streamApp_LIBS += calc sscan stream asyn
+#streamApp_LIBS += calc sscan stream asyn
+streamApp_LIBS += sscan stream asyn
 #### End Stream IOC
 
 #===========================

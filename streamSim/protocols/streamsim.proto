@@ -9,3 +9,7 @@ li {
     in "%d";
 }
 
+lo { 
+    out "%(NAME)s=%i";
+}
+

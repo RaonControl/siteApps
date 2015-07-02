@@ -29,19 +29,9 @@ EPICS_BASE=${EPICS_PATH}/base
 # Required Modules
 # These modules must be present
 
-#DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-7
-#AUTOSAVE=$(SUPPORT)/autosave-5-1
-#ASYN=$(SUPPORT)/asyn-4-21
-#CALC=$(SUPPORT)/calc-3-2
-#STREAM=$(SUPPORT)/stream-2-6
-#SSCAN=$(SUPPORT)/sscan-2-9
-
-SUPPORT=${EPICS_PATH}/epicsLibs/synApps_5_7/support
-
-DEVIOCSTATS=$(SUPPORT)/devIocStats-3-1-7
-AUTOSAVE=$(SUPPORT)/autosave-5-1
-ASYN=$(SUPPORT)/asyn-4-21
-CALC=$(SUPPORT)/calc-3-2
-STREAM=$(SUPPORT)/stream-2-6
-SSCAN=$(SUPPORT)/sscan-2-9
-
+DEVIOCSTATS=${EPICS_SYNAPPS}/devIocStats-3-1-13
+AUTOSAVE=${EPICS_SYNAPPS}/autosave-5-6-1
+ASYN=${EPICS_SYNAPPS}/asyn-4-26
+STREAM=${EPICS_SYNAPPS}/stream-2-6a
+#CALC=${EPICS_SYNAPPS}/calc-3-4-2-1
+SSCAN=${EPICS_SYNAPPS}/sscan-2-10-1
