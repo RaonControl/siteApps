@@ -1,4 +1,4 @@
-#***********************************************************************
+***********************************************************************
 # WIENER CRATE
 #***********************************************************************
 ## Main switch power_R/W
@@ -13,8 +13,6 @@ record(snmp, "${W}:${C}_MainPower_W") {
   field(HOST, "${HOST}")
   field(COMM, "${USER}")
   field(OIDS, "${WI}sysMainSwitch.0")
-  field(MDEL, "-1")
-  field(RVAL, "1")
 }
 
 record(snmp, "${W}:${C}_MainPower_R") {
