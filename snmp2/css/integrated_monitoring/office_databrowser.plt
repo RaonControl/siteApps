@@ -169,7 +169,7 @@
                 <blue>0</blue>
             </color>
             <min>1.9011406844106489</min>
-            <max>301.9011406844106</max>
+            <max>500.0</max>
             <grid>false</grid>
             <autoscale>false</autoscale>
             <log_scale>false</log_scale>
