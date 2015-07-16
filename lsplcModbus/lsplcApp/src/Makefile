@@ -11,11 +11,16 @@ include $(TOP)/configure/CONFIG
 PROD_IOC = lsplc
 # lsplc.dbd will be created and installed
 #DBD += $(MODBUS)/dbd/modbus.dbd
-#DBD += $(MODBUS)/dbd/modbusSupport.dbd
+DBD += $(MODBUS)/dbd/modbusSupport.dbd
+DBD += $(ASYN)/dbd/drvAsynIPPort.dbd
+DBD += $(ASYN)/dbd/asyn.dbd
 DBD += lsplc.dbd
 
 # lsplc.dbd will be made up from these files:
 lsplc_DBD += base.dbd
+lsplc_DBD += $(TOP)/dbd/modbusSupport.dbd
+lsplc_DBD += $(TOP)/dbd/drvAsynIPPort.dbd
+lsplc_DBD += $(TOP)/dbd/asyn.dbd
 
 # Include dbd files from all support applications:
 

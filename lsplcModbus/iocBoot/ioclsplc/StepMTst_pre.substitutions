@@ -1,0 +1,14 @@
+# These are the Digital Coil inputs with StepMTst
+file "../../db/bi_bit.template" { pattern
+{P,           R,         PORT,             OFFSET,   ZNAM,   ONAM,  ZSV,       OSV,    SCAN}
+{STEP:,    CInB0,     Step_Motor_CIn_Bit,     0,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+{STEP:,    CInB1,     Step_Motor_CIn_Bit,     1,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+{STEP:,    CInB2,     Step_Motor_CIn_Bit,     2,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+}
+
+file "../../db/bo_bit.template" { pattern
+{P,        R,		   PORT,              OFFSET,   ZNAM,   ONAM}
+{STEP:,    COutB0,     Step_Motor_BOut,     0,        Low,    High}
+{STEP:,    COutB1,     Step_Motor_BOut,     1,        Low,    High}
+{STEP:,    COutB2,     Step_Motor_BOut,     2,        Low,    High}
+}
