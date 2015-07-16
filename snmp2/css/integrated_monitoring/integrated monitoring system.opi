@@ -51,7 +51,7 @@ $(pv_value)</tooltip>
     </bg_gradient_color>
     <scripts />
     <border_alarm_sensitive>false</border_alarm_sensitive>
-    <height>638</height>
+    <height>526</height>
     <border_width>1</border_width>
     <scale_options>
       <width_scalable>true</width_scalable>
@@ -157,7 +157,7 @@ $(pv_value)</tooltip>
     <wuid>-6664704c:14dfedb31a1:159d</wuid>
     <transparent>false</transparent>
     <auto_size>false</auto_size>
-    <text>SRF Test Facility Network</text>
+    <text>SRF TF Network</text>
     <scripts />
     <height>25</height>
     <border_width>1</border_width>
@@ -12943,7 +12943,7 @@ $(pv_value)</tooltip>
     <pv_name></pv_name>
     <gradient>false</gradient>
     <border_color>
-      <color red="0" green="128" blue="255" />
+      <color red="26" green="26" blue="26" />
     </border_color>
     <anti_alias>true</anti_alias>
     <line_style>0</line_style>
@@ -12965,7 +12965,7 @@ $(pv_value)</tooltip>
     </foreground_color>
     <actions hook="false" hook_all="false" />
     <font>
-      <fontdata fontName="Droid Sans" height="13" style="1" />
+      <fontdata fontName="Droid Sans" height="13" style="0" />
     </font>
     <line_color>
       <color red="128" green="0" blue="255" />
@@ -12980,7 +12980,7 @@ $(pv_value)</tooltip>
     <wuid>-6664704c:14e004ca02a:-46d8</wuid>
     <transparent>false</transparent>
     <auto_size>false</auto_size>
-    <text>SRF Test Facility Environment</text>
+    <text>SRF TF Environment</text>
     <scripts />
     <height>25</height>
     <border_width>1</border_width>
@@ -14538,7 +14538,7 @@ $(pv_value)</tooltip>
     <enabled>true</enabled>
     <wuid>-144f8e34:14e8f6468da:2f99</wuid>
     <transparent>true</transparent>
-    <lock_children>true</lock_children>
+    <lock_children>false</lock_children>
     <scripts />
     <height>632</height>
     <border_width>1</border_width>
@@ -18271,8 +18271,8 @@ $(pv_value)</tooltip>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
-        <width>414</width>
-        <x>30</x>
+        <width>410</width>
+        <x>34</x>
         <name>Label_2</name>
         <y>120</y>
         <foreground_color>
@@ -18320,8 +18320,8 @@ $(pv_value)</tooltip>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
-        <width>414</width>
-        <x>30</x>
+        <width>410</width>
+        <x>34</x>
         <name>Label_3</name>
         <y>100</y>
         <foreground_color>
@@ -18341,7 +18341,7 @@ $(pv_value)</tooltip>
       <enabled>true</enabled>
       <wuid>-144f8e34:14e8f6468da:2b4f</wuid>
       <transparent>true</transparent>
-      <lock_children>true</lock_children>
+      <lock_children>false</lock_children>
       <scripts />
       <height>308</height>
       <border_width>1</border_width>
@@ -18577,7 +18577,7 @@ $(pv_value)</tooltip>
           <color red="255" green="255" blue="255" />
         </background_color>
         <width>103</width>
-        <x>30</x>
+        <x>34</x>
         <name>job activity</name>
         <y>101</y>
         <foreground_color>
@@ -18629,7 +18629,7 @@ $(pv_value)</tooltip>
           <color red="255" green="255" blue="255" />
         </background_color>
         <width>103</width>
-        <x>120</x>
+        <x>124</x>
         <name>job_activity</name>
         <y>101</y>
         <foreground_color>
@@ -18677,8 +18677,8 @@ $(pv_value)</tooltip>
         <background_color>
           <color red="255" green="255" blue="255" />
         </background_color>
-        <width>414</width>
-        <x>30</x>
+        <width>410</width>
+        <x>34</x>
         <name>Label_4</name>
         <y>121</y>
         <foreground_color>
@@ -21639,7 +21639,7 @@ $(pv_value)</tooltip>
         <wuid>2e6a34d3:14dfade04ec:-151e</wuid>
         <transparent>true</transparent>
         <auto_size>false</auto_size>
-        <text>Last modified : 2015/06/18</text>
+        <text>Last modified : 2015/07/16</text>
         <scripts />
         <height>20</height>
         <border_width>1</border_width>
@@ -21679,7 +21679,7 @@ $(pv_value)</tooltip>
     <enabled>true</enabled>
     <wuid>-144f8e34:14e8f6468da:57c0</wuid>
     <transparent>true</transparent>
-    <lock_children>true</lock_children>
+    <lock_children>false</lock_children>
     <scripts />
     <height>200</height>
     <border_width>1</border_width>
@@ -21817,7 +21817,7 @@ $(pv_value)</tooltip>
       <enabled>true</enabled>
       <wuid>2e6a34d3:14dfc1463a6:-3f7c</wuid>
       <transparent>true</transparent>
-      <lock_children>true</lock_children>
+      <lock_children>false</lock_children>
       <scripts />
       <height>162</height>
       <border_width>1</border_width>
@@ -21880,7 +21880,7 @@ $(pv_value)</tooltip>
         <pv_name></pv_name>
         <gradient>false</gradient>
         <border_color>
-          <color red="0" green="128" blue="255" />
+          <color red="26" green="26" blue="26" />
         </border_color>
         <anti_alias>true</anti_alias>
         <line_style>0</line_style>
@@ -22637,7 +22637,7 @@ $(pv_value)</tooltip>
       <enabled>true</enabled>
       <wuid>2e6a34d3:14dfc1463a6:-3f6c</wuid>
       <transparent>true</transparent>
-      <lock_children>true</lock_children>
+      <lock_children>false</lock_children>
       <scripts />
       <height>162</height>
       <border_width>1</border_width>
@@ -22700,7 +22700,7 @@ $(pv_value)</tooltip>
         <pv_name></pv_name>
         <gradient>false</gradient>
         <border_color>
-          <color red="0" green="128" blue="255" />
+          <color red="26" green="26" blue="26" />
         </border_color>
         <anti_alias>true</anti_alias>
         <line_style>0</line_style>
@@ -23457,7 +23457,7 @@ $(pv_value)</tooltip>
       <enabled>true</enabled>
       <wuid>2e6a34d3:14dfc1463a6:-3f5c</wuid>
       <transparent>true</transparent>
-      <lock_children>true</lock_children>
+      <lock_children>false</lock_children>
       <scripts />
       <height>162</height>
       <border_width>1</border_width>
@@ -23520,7 +23520,7 @@ $(pv_value)</tooltip>
         <pv_name></pv_name>
         <gradient>false</gradient>
         <border_color>
-          <color red="0" green="128" blue="255" />
+          <color red="26" green="26" blue="26" />
         </border_color>
         <anti_alias>true</anti_alias>
         <line_style>0</line_style>
@@ -24277,7 +24277,7 @@ $(pv_value)</tooltip>
       <enabled>true</enabled>
       <wuid>2e6a34d3:14dfc1463a6:-3f4c</wuid>
       <transparent>true</transparent>
-      <lock_children>true</lock_children>
+      <lock_children>false</lock_children>
       <scripts />
       <height>162</height>
       <border_width>1</border_width>
@@ -24340,7 +24340,7 @@ $(pv_value)</tooltip>
         <pv_name></pv_name>
         <gradient>false</gradient>
         <border_color>
-          <color red="0" green="128" blue="255" />
+          <color red="26" green="26" blue="26" />
         </border_color>
         <anti_alias>true</anti_alias>
         <line_style>0</line_style>
@@ -25662,7 +25662,7 @@ $(pv_value)</tooltip>
     <enabled>true</enabled>
     <wuid>-144f8e34:14e914a6b43:-591b</wuid>
     <transparent>true</transparent>
-    <lock_children>true</lock_children>
+    <lock_children>false</lock_children>
     <scripts />
     <height>288</height>
     <border_width>1</border_width>
@@ -25704,7 +25704,7 @@ $(pv_value)</tooltip>
       <wuid>-144f8e34:14e8f6468da:7e38</wuid>
       <transparent>false</transparent>
       <auto_size>false</auto_size>
-      <text>Environment archiver appliance</text>
+      <text>Environ. archiver appliance</text>
       <scripts />
       <height>25</height>
       <border_width>1</border_width>
@@ -25777,5 +25777,121 @@ $(pv_value)</tooltip>
         <fontdata fontName="Droid Sans" height="10" style="0" />
       </font>
     </widget>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <border_style>13</border_style>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <line_width>0</line_width>
+    <horizontal_fill>true</horizontal_fill>
+    <alarm_pulsing>false</alarm_pulsing>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <rules />
+    <enabled>true</enabled>
+    <wuid>33bcaa35:14e945bd366:-7b04</wuid>
+    <transparent>false</transparent>
+    <pv_value />
+    <alpha>255</alpha>
+    <bg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </bg_gradient_color>
+    <scripts />
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <height>502</height>
+    <border_width>1</border_width>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <visible>true</visible>
+    <pv_name></pv_name>
+    <gradient>false</gradient>
+    <border_color>
+      <color red="26" green="26" blue="26" />
+    </border_color>
+    <anti_alias>true</anti_alias>
+    <line_style>0</line_style>
+    <widget_type>Rectangle</widget_type>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <width>722</width>
+    <x>0</x>
+    <name>Environ.</name>
+    <y>660</y>
+    <fill_level>0.0</fill_level>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <actions hook="false" hook_all="false" />
+    <font>
+      <fontdata fontName="Droid Sans" height="13" style="0" />
+    </font>
+    <line_color>
+      <color red="128" green="0" blue="255" />
+    </line_color>
+  </widget>
+  <widget typeId="org.csstudio.opibuilder.widgets.Rectangle" version="1.0.0">
+    <border_style>13</border_style>
+    <forecolor_alarm_sensitive>false</forecolor_alarm_sensitive>
+    <line_width>0</line_width>
+    <horizontal_fill>true</horizontal_fill>
+    <alarm_pulsing>false</alarm_pulsing>
+    <tooltip>$(pv_name)
+$(pv_value)</tooltip>
+    <rules />
+    <enabled>true</enabled>
+    <wuid>33bcaa35:14e945bd366:-7b03</wuid>
+    <transparent>false</transparent>
+    <pv_value />
+    <alpha>255</alpha>
+    <bg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </bg_gradient_color>
+    <scripts />
+    <border_alarm_sensitive>false</border_alarm_sensitive>
+    <height>502</height>
+    <border_width>1</border_width>
+    <scale_options>
+      <width_scalable>true</width_scalable>
+      <height_scalable>true</height_scalable>
+      <keep_wh_ratio>false</keep_wh_ratio>
+    </scale_options>
+    <visible>true</visible>
+    <pv_name></pv_name>
+    <gradient>false</gradient>
+    <border_color>
+      <color red="26" green="26" blue="26" />
+    </border_color>
+    <anti_alias>true</anti_alias>
+    <line_style>0</line_style>
+    <widget_type>Rectangle</widget_type>
+    <fg_gradient_color>
+      <color red="255" green="255" blue="255" />
+    </fg_gradient_color>
+    <backcolor_alarm_sensitive>false</backcolor_alarm_sensitive>
+    <background_color>
+      <color red="255" green="255" blue="255" />
+    </background_color>
+    <width>722</width>
+    <x>712</x>
+    <name>RFQ</name>
+    <y>660</y>
+    <fill_level>0.0</fill_level>
+    <foreground_color>
+      <color red="255" green="0" blue="0" />
+    </foreground_color>
+    <actions hook="false" hook_all="false" />
+    <font>
+      <fontdata fontName="Droid Sans" height="13" style="0" />
+    </font>
+    <line_color>
+      <color red="128" green="0" blue="255" />
+    </line_color>
   </widget>
 </display>
