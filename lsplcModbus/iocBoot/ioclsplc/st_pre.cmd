@@ -18,7 +18,7 @@ modbusInterposeConfig("StepMTst",0,5000,0)
 # Read 32 bits, Discret Input.  Function code=2.   
 
 #drvModbusAsynConfigure("1", "2",3 ,4,"octal value", 6, 7 ,8,9)
-#-> PLC PXXXXX -> Hexa value, octal value convert to Hexa, refer LS-PLC XGK-EFMT Memory Address
+#-> PLC PXXXXX -> Hexa value, convert octal value to Hexa(refer LS-PLC XGK-EFMT Memory Address)
 # Address = 1XXXX, Response Length = 2000 Coils(2000bits)
 drvModbusAsynConfigure("Step_Motor_CIn_Bit",   "StepMTst", 0, 1,  00020, 0007,    0,  100, "Modicon")
 
@@ -64,9 +64,8 @@ asynSetTraceIOMask("Step_Motor_CIn_Bit",0,4)
 asynSetTraceIOTruncateSize("Step_Motor_CIn_Bit",0,512)
 
 cd "${TOP}/iocBoot/${IOC}"
-dbLoadTemplate("StepMTst_pre.substitutions")
 
-cd "${TOP}/iocBoot/${IOC}"
+dbLoadTemplate("StepMTst_pre.substitutions")
 iocInit
 
 ## Start any sequence programs
