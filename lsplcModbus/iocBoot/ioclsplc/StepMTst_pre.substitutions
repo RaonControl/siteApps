@@ -4,11 +4,70 @@ file "../../db/bi_bit.template" { pattern
 {STEP:,    CInB0,     Step_Motor_CIn_Bit,     0,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
 {STEP:,    CInB1,     Step_Motor_CIn_Bit,     1,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
 {STEP:,    CInB2,     Step_Motor_CIn_Bit,     2,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
-}
+{STEP:,    CInB3,     Step_Motor_CIn_Bit,     3,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+{STEP:,    CInB4,     Step_Motor_CIn_Bit,     4,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+{STEP:,    CInB5,     Step_Motor_CIn_Bit,     5,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+{STEP:,    CInB6,     Step_Motor_CIn_Bit,     6,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+{STEP:,    CInB7,     Step_Motor_CIn_Bit,     7,     Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}}
 
 file "../../db/bo_bit.template" { pattern
 {P,        R,		   PORT,              OFFSET,   ZNAM,   ONAM}
 {STEP:,    COutB0,     Step_Motor_BOut,     0,        Low,    High}
 {STEP:,    COutB1,     Step_Motor_BOut,     1,        Low,    High}
 {STEP:,    COutB2,     Step_Motor_BOut,     2,        Low,    High}
+{STEP:,    COutB3,     Step_Motor_BOut,     3,        Low,    High}
+{STEP:,    COutB4,     Step_Motor_BOut,     4,        Low,    High}
+{STEP:,    COutB5,     Step_Motor_BOut,     5,        Low,    High}
+{STEP:,    COutB6,     Step_Motor_BOut,     6,        Low,    High}
+{STEP:,    COutB7,     Step_Motor_BOut,     7,        Low,    High}
+{STEP:,    COutB8,     Step_Motor_BOut,     8,        Low,    High}
+{STEP:,    COutB9,     Step_Motor_BOut,     9,        Low,    High}
+{STEP:,    COutB10,     Step_Motor_BOut,     10,        Low,    High}
+{STEP:,    COutB11,     Step_Motor_BOut,     11,        Low,    High}
+{STEP:,    COutB12,     Step_Motor_BOut,     12,        Low,    High}
+{STEP:,    COutB13,     Step_Motor_BOut,     13,        Low,    High}
+{STEP:,    COutB14,     Step_Motor_BOut,     14,        Low,    High}
+{STEP:,    COutB15,     Step_Motor_BOut,     15,        Low,    High}
 }
+    
+
+## file "../../db/bi_word.template" { pattern
+## {P,           R,         PORT,         OFFSET,     MASK,     ZNAM,    ONAM,  ZSV,       OSV,    SCAN}
+## {STEP:,    WIn0,     Step_Motor_WIn,     0,        0x0001,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## {STEP:,    WIn1,     Step_Motor_WIn,     0,        0x0002,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## {STEP:,    WIn2,     Step_Motor_WIn,     0,        0x0004,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## {STEP:,    WIn3,     Step_Motor_WIn,     0,        0x0008,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## {STEP:,    WIn4,     Step_Motor_WIn,     0,        0x0010,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## {STEP:,    WIn5,     Step_Motor_WIn,     0,        0x0020,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## {STEP:,    WIn6,     Step_Motor_WIn,     0,        0x0040,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## {STEP:,    WIn7,     Step_Motor_WIn,     0,        0x0080,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
+## }
+
+file "../../db/bo_word.template" { pattern
+{P,           R,          PORT,               OFFSET,   MASK,      ZNAM,   ONAM}
+{STEP:,    DOutW0,     Step_Motor_WOut,     0,        0x0001,    Low,    High}
+{STEP:,    DOutW1,     Step_Motor_WOut,     0,        0x0002,    Low,    High}
+{STEP:,    DOutW2,     Step_Motor_WOut,     0,        0x0004,    Low,    High}
+{STEP:,    DOutW3,     Step_Motor_WOut,     0,        0x0008,    Low,    High}
+{STEP:,    DOutW4,     Step_Motor_WOut,     0,        0x0010,    Low,    High}
+{STEP:,    DOutW5,     Step_Motor_WOut,     0,        0x0020,    Low,    High}
+{STEP:,    DOutW6,     Step_Motor_WOut,     0,        0x0040,    Low,    High}
+{STEP:,    DOutW7,     Step_Motor_WOut,     0,        0x0080,    Low,    High}
+#{STEP:,    DOutW16,    Step_Motor_WOut,     0,        0x00010000,    Low,    High}
+#{STEP:,    DOutW17,    Step_Motor_WOut,     0,        0x00020000,    Low,    High}
+#{STEP:,    DOutW18,    Step_Motor_WOut,     0,        0x00040000,    Low,    High}
+#{STEP:,    DOutW19,    Step_Motor_WOut,     0,        0x00080000,    Low,    High}
+#{STEP:,    DOutW20,    Step_Motor_WOut,     0,        0x00100000,    Low,    High}
+#{STEP:,    DOutW21,    Step_Motor_WOut,     0,        0x00200000,    Low,    High}
+#{STEP:,    DOutW22,    Step_Motor_WOut,     0,        0x00400000,    Low,    High}
+#{STEP:,    DOutW23,    Step_Motor_WOut,     0,        0x00800000,    Low,    High}
+#{STEP:,    DOutW24,    Step_Motor_WOut,     0,        0x01000000,    Low,    High}
+#{STEP:,    DOutW25,    Step_Motor_WOut,     0,        0x02000000,    Low,    High}
+#{STEP:,    DOutW26,    Step_Motor_WOut,     0,        0x04000000,    Low,    High}
+#{STEP:,    DOutW27,    Step_Motor_WOut,     0,        0x08000000,    Low,    High}
+#{STEP:,    DOutW28,    Step_Motor_WOut,     0,        0x10000000,    Low,    High}
+#{STEP:,    DOutW29,    Step_Motor_WOut,     0,        0x20000000,    Low,    High}
+#{STEP:,    DOutW30,    Step_Motor_WOut,     0,        0x40000000,    Low,    High}
+#{STEP:,    DOutW31,    Step_Motor_WOut,     0,        0x80000000,    Low,    High}
+}
+

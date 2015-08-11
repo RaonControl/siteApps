@@ -61,6 +61,7 @@ file "../../db/bo_bit.template" { pattern
 {STEP:,    COutB7,     Step_Motor_BOut,     7,        Low,    High}
 }
 
+
 file "../../db/bo_word.template" { pattern
 {P,           R,          PORT,               OFFSET,   MASK,      ZNAM,   ONAM}
 {STEP:,    DOutW0,     Step_Motor_WOut,     0,        0x0001,    Low,    High}
