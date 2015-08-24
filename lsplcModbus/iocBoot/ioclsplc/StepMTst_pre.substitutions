@@ -43,31 +43,61 @@ file "../../db/bo_bit.template" { pattern
 ## {STEP:,    WIn7,     Step_Motor_WIn,     0,        0x0080,    Low,    High,  NO_ALARM,  MAJOR,  "I/O Intr"}
 ## }
 
-file "../../db/bo_word.template" { pattern
-{P,           R,          PORT,               OFFSET,   MASK,      ZNAM,   ONAM}
-{STEP:,    DOutW0,     Step_Motor_WOut,     0,        0x0001,    Low,    High}
-{STEP:,    DOutW1,     Step_Motor_WOut,     0,        0x0002,    Low,    High}
-{STEP:,    DOutW2,     Step_Motor_WOut,     0,        0x0004,    Low,    High}
-{STEP:,    DOutW3,     Step_Motor_WOut,     0,        0x0008,    Low,    High}
-{STEP:,    DOutW4,     Step_Motor_WOut,     0,        0x0010,    Low,    High}
-{STEP:,    DOutW5,     Step_Motor_WOut,     0,        0x0020,    Low,    High}
-{STEP:,    DOutW6,     Step_Motor_WOut,     0,        0x0040,    Low,    High}
-{STEP:,    DOutW7,     Step_Motor_WOut,     0,        0x0080,    Low,    High}
-#{STEP:,    DOutW16,    Step_Motor_WOut,     0,        0x00010000,    Low,    High}
-#{STEP:,    DOutW17,    Step_Motor_WOut,     0,        0x00020000,    Low,    High}
-#{STEP:,    DOutW18,    Step_Motor_WOut,     0,        0x00040000,    Low,    High}
-#{STEP:,    DOutW19,    Step_Motor_WOut,     0,        0x00080000,    Low,    High}
-#{STEP:,    DOutW20,    Step_Motor_WOut,     0,        0x00100000,    Low,    High}
-#{STEP:,    DOutW21,    Step_Motor_WOut,     0,        0x00200000,    Low,    High}
-#{STEP:,    DOutW22,    Step_Motor_WOut,     0,        0x00400000,    Low,    High}
-#{STEP:,    DOutW23,    Step_Motor_WOut,     0,        0x00800000,    Low,    High}
-#{STEP:,    DOutW24,    Step_Motor_WOut,     0,        0x01000000,    Low,    High}
-#{STEP:,    DOutW25,    Step_Motor_WOut,     0,        0x02000000,    Low,    High}
-#{STEP:,    DOutW26,    Step_Motor_WOut,     0,        0x04000000,    Low,    High}
-#{STEP:,    DOutW27,    Step_Motor_WOut,     0,        0x08000000,    Low,    High}
-#{STEP:,    DOutW28,    Step_Motor_WOut,     0,        0x10000000,    Low,    High}
-#{STEP:,    DOutW29,    Step_Motor_WOut,     0,        0x20000000,    Low,    High}
-#{STEP:,    DOutW30,    Step_Motor_WOut,     0,        0x40000000,    Low,    High}
-#{STEP:,    DOutW31,    Step_Motor_WOut,     0,        0x80000000,    Low,    High}
+##file "../../db/bo_word.template" { pattern
+##{P,           R,          PORT,               OFFSET,   MASK,      ZNAM,   ONAM}
+##{STEP:,    DOutW0,     Step_Motor_WOut,     0,        0x0001,    Low,    High}
+##{STEP:,    DOutW1,     Step_Motor_WOut,     0,        0x0002,    Low,    High}
+##{STEP:,    DOutW2,     Step_Motor_WOut,     0,        0x0004,    Low,    High}
+##{STEP:,    DOutW3,     Step_Motor_WOut,     0,        0x0008,    Low,    High}
+##{STEP:,    DOutW4,     Step_Motor_WOut,     0,        0x0010,    Low,    High}
+##{STEP:,    DOutW5,     Step_Motor_WOut,     0,        0x0020,    Low,    High}
+##{STEP:,    DOutW6,     Step_Motor_WOut,     0,        0x0040,    Low,    High}
+##{STEP:,    DOutW7,     Step_Motor_WOut,     0,        0x0080,    Low,    High}
+##}
+
+
+# These are the A0 outputs done with word access.
+file "../../db/longoutInt32.template" { pattern
+{P,           R,               PORT,            OFFSET,   DATA_TYPE}
+{STEP:,    AOutA0,           Step_Motor_AOut,    0,       UINT16}
+{STEP:,    AOutA1,           Step_Motor_AOut,    1,       UINT16}
+{STEP:,    AOutA2,           Step_Motor_AOut,    2,       UINT16}
+{STEP:,    AOutA3,           Step_Motor_AOut,    3,       UINT16}
+{STEP:,    AOutA4,           Step_Motor_AOut,    4,       UINT16}
+{STEP:,    AOutA5,           Step_Motor_AOut,    5,       UINT16}
+{STEP:,    AOutA6,           Step_Motor_AOut,    6,       UINT16}
+{STEP:,    AOutA7,           Step_Motor_AOut,    7,       UINT16}
+{STEP:,    AOutA8,           Step_Motor_AOut,    8,       UINT16}
+{STEP:,    AOutA9,           Step_Motor_AOut,    9,       UINT16}
 }
 
+# These are the A0 inputs done with word access
+file "../../db/longinInt32.template" { pattern
+{P,           R,                PORT,          OFFSET,   DATA_TYPE,         SCAN}
+{STEP:,    AInA0,            Step_Motor_AIn,     10,       UINT16,    "I/O Intr"}
+{STEP:,    AInA1,            Step_Motor_AIn,     11,       UINT16,    "I/O Intr"}
+{STEP:,    AInA2,            Step_Motor_AIn,     12,       UINT16,    "I/O Intr"}
+{STEP:,    AInA3,            Step_Motor_AIn,     13,       UINT16,    "I/O Intr"}
+{STEP:,    AInA4,            Step_Motor_AIn,     14,       UINT16,    "I/O Intr"}
+{STEP:,    AInA5,            Step_Motor_AIn,     15,       UINT16,    "I/O Intr"}
+{STEP:,    AInA6,            Step_Motor_AIn,     16,       UINT16,    "I/O Intr"}
+{STEP:,    AInA7,            Step_Motor_AIn,     17,       UINT16,    "I/O Intr"}
+{STEP:,    AInA8,            Step_Motor_AIn,     18,       UINT16,    "I/O Intr"}
+{STEP:,    AInA9,            Step_Motor_AIn,     19,       UINT16,    "I/O Intr"}
+}
+
+file "../../db/aoFloat64.template" { pattern
+{P,           R,               PORT,      OFFSET,   DATA_TYPE,    LOPR, HOPR, PREC}
+{STEP:,    FOutF0,        Step_Motor_FOut,   0,    FLOAT32_LE,   -1e6,  1e6,    6}
+{STEP:,    FOutF1,        Step_Motor_FOut,   2,    FLOAT32_LE,   -1e6,  1e6,    6}
+{STEP:,    FOutF2,        Step_Motor_FOut,   4,    FLOAT64_LE,   -1e6,  1e6,    6}
+{STEP:,    FOutF3,        Step_Motor_FOut,   8,    FLOAT64_LE,   -1e6,  1e6,    6}
+}
+
+file "../../db/aiFloat64.template" { pattern
+{P,           R,               PORT,      OFFSET,   DATA_TYPE,    LOPR, HOPR, PREC  SCAN}
+{STEP:,    FInF0,        Step_Motor_FIn,   20,    FLOAT32_LE,   -1e6,  1e6,    6   "I/O Intr"}
+{STEP:,    FInF1,        Step_Motor_FIn,   22,    FLOAT32_LE,   -1e6,  1e6,    6   "I/O Intr"}
+{STEP:,    FInF2,        Step_Motor_FIn,   24,    FLOAT64_LE,   -1e6,  1e6,    6   "I/O Intr"}
+{STEP:,    FInF3,        Step_Motor_FIn,   26,    FLOAT64_LE,   -1e6,  1e6,    6   "I/O Intr"}
+}

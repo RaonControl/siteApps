@@ -18,7 +18,7 @@ modbusInterposeConfig("StepMTst",0,5000,0)
 # Read 32 bits, Discret Input.  Function code=2.   
 
 #drvModbusAsynConfigure("1", "2",3 ,4,"octal value", 6, 7 ,8,9)
-#-> PLC PXXXXX -> Hexa value, convert octal value to Hexa(refer LS-PLC XGK-EFMT Memory Address)
+#-> PLC PXXXXX -> Hexa value, octal value convert to Hexa, refer LS-PLC XGK-EFMT Memory Address
 # Address = 1XXXX, Response Length = 2000 Coils(2000bits)
 drvModbusAsynConfigure("Step_Motor_CIn_Bit",   "StepMTst", 0, 1,  00020, 0007,    0,  100, "Modicon")
 
@@ -26,7 +26,7 @@ drvModbusAsynConfigure("Step_Motor_CIn_Bit",   "StepMTst", 0, 1,  00020, 0007,  
 # Address = 0XXXX, Response Length = 1 Coil(1bits)
 #drvModbusAsynConfigure("Step_Motor_BOut",  "StepMTst", 0, 5,  00300, 0007,    0,  1, "Modicon")
 #drvModbusAsynConfigure("Step_Motor_BOut",  "StepMTst", 0, 5,  0x0780, 0007,    0,  1, "Modicon")
-drvModbusAsynConfigure("Step_Motor_BOut",  "StepMTst", 0, 5,  0x0100, 0016,    0,  1, "Modicon")
+drvModbusAsynConfigure("Step_Motor_BOut",  "StepMTst", 0, 5,  0x0100,  100,    0,  1, "Modicon")
 
 
 
@@ -49,9 +49,30 @@ drvModbusAsynConfigure("Step_Motor_BOut",  "StepMTst", 0, 5,  0x0100, 0016,    0
 #drvModbusAsynConfigure("Step_Motor_WOut", "StepMTst", 0, 6, 040500, 010,    0,  1, "Modicon")
 #drvModbusAsynConfigure("Step_Motor_WOut", "StepMTst", 0, 6, 0x1F40, 010,    0,  1, "Modicon")
 # 0 -> P0800
-drvModbusAsynConfigure("Step_Motor_WOut", "StepMTst", 0, 6, 10, 010,    0,  1, "Modicon")
+##drvModbusAsynConfigure("Step_Motor_WOut", "StepMTst", 0, 6, 10, 010,    0,  1, "Modicon")
 
 
+
+# drvModbusAsynConfigure("portName", "tcpPortName", slaveAddress, modbusFunction, modbusStartAddress, modbusLength, dataType, pollMsec, "plcType")
+## drvModbusAsynConfigure("A0_Out_Word", "sim1", 0, 16, 100, 10, 7, 1, "Simulator")
+
+# Write Analog Out (UNINT). Function code= 16.
+
+drvModbusAsynConfigure("Step_Motor_AOut", "StepMTst", 0, 16, 0, 100,   7,  1, "Modicon")
+
+# Write Analog Input (UNINT). Function code= 16.
+
+drvModbusAsynConfigure("Step_Motor_AIn", "StepMTst", 0, 16, 0, 100,   7,  1, "Modicon")
+
+
+
+# Write Analog Out (Float).
+
+drvModbusAsynConfigure("Step_Motor_FOut", "StepMTst", 0, 16, 100, 100,   7,  1, "Modicon")
+
+# Write Analog Input (Float).
+
+drvModbusAsynConfigure("Step_Motor_FIn", "StepMTst", 0, 16, 100, 100,   7,  1, "Modicon")
 
 
 
@@ -64,8 +85,9 @@ asynSetTraceIOMask("Step_Motor_CIn_Bit",0,4)
 asynSetTraceIOTruncateSize("Step_Motor_CIn_Bit",0,512)
 
 cd "${TOP}/iocBoot/${IOC}"
-
 dbLoadTemplate("StepMTst_pre.substitutions")
+
+cd "${TOP}/iocBoot/${IOC}"
 iocInit
 
 ## Start any sequence programs
