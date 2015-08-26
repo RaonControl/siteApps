@@ -28,7 +28,7 @@ ASYN=${EPICS_SYNAPPS}/asyn-4-26
 MODBUS=${EPICS_SYNAPPS}/modbus-2-7
 
 # EPICS_BASE usually appears last so other apps can override stuff:
-EPICS_BASE=/home/hjson/epics/R3.14.12.5/base
+EPICS_BASE=/home/sonhyungjoo/epics/R3.14.12.5/base
 
 # Set RULES here if you want to take build rules from somewhere
 # other than EPICS_BASE:
