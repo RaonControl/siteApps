@@ -42,17 +42,21 @@ file "../../db/bo_bit.template" { pattern
 # These are the A0 outputs done with word access.
 file "../../db/longoutInt32.template" { pattern
 {P,           R,               PORT,            OFFSET,   DATA_TYPE}
-{STEP:,    AOutA0,           Step_Motor_AOut,    0,       UINT16}
-{STEP:,    AOutA1,           Step_Motor_AOut,    1,       UINT16}
-{STEP:,    AOutA2,           Step_Motor_AOut,    2,       UINT16}
-{STEP:,    AOutA3,           Step_Motor_AOut,    3,       UINT16}
-{STEP:,    AOutA4,           Step_Motor_AOut,    4,       UINT16}
-{STEP:,    AOutA5,           Step_Motor_AOut,    5,       UINT16}
-{STEP:,    AOutA6,           Step_Motor_AOut,    6,       UINT16}
-{STEP:,    AOutA7,           Step_Motor_AOut,    7,       UINT16}
-{STEP:,    AOutA8,           Step_Motor_AOut,    8,       UINT16}
-{STEP:,    AOutA9,           Step_Motor_AOut,    9,       UINT16}
+{STEP:,    AOutA0,           Step_Motor_AOut,    0,       INT32_LE}
+{STEP:,    AOutA1,           Step_Motor_AOut,    2,       INT32_LE}
+{STEP:,    AOutA2,           Step_Motor_AOut,    4,       INT32_LE}
+{STEP:,    AOutA3,           Step_Motor_AOut,    6,       INT32_LE}
+{STEP:,    AOutA4,           Step_Motor_AOut,    8,       INT32_LE}
+{STEP:,    AOutA5,           Step_Motor_AOut,    10,      INT32_LE}
+{STEP:,    AOutA6,           Step_Motor_AOut,    12,      INT32_LE}
+{STEP:,    AOutA7,           Step_Motor_AOut,    14,      INT32_LE}
+{STEP:,    AOutA8,           Step_Motor_AOut,    16,      INT32_LE}
+{STEP:,    AOutA9,           Step_Motor_AOut,    18,      INT32_LE}
 }
+
+
+
+
 
 # These are the A0 inputs done with word access
 file "../../db/longinInt32.template" { pattern

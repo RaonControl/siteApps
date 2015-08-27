@@ -31,13 +31,13 @@ drvModbusAsynConfigure("Step_Motor_COut",  "StepMTst", 0, 5,  0x100,  100,    0,
 # drvModbusAsynConfigure("portName", "tcpPortName", slaveAddress, modbusFunction, modbusStartAddress, modbusLength, dataType, pollMsec, "plcType")
 ## drvModbusAsynConfigure("A0_Out_Word", "sim1", 0, 16, 100, 10, 7, 1, "Simulator")
 
-# Write Analog Out (UNINT). Function code= 16.
+# Write Analog Out (INT 32bit). Function code= 16.
 
-drvModbusAsynConfigure("Step_Motor_AOut", "StepMTst",  0, 16, 300, 30,   7,  1, "Modicon")
+drvModbusAsynConfigure("Step_Motor_AOut", "StepMTst",  0, 16, 300, 30,   5,  1, "Modicon")
 
 # Write Analog Input (UNINT). Function code= 16.
 
-drvModbusAsynConfigure("Step_Motor_AIn", "StepMTst", 0, 16, 350, 30,  7,  1, "Modicon")
+drvModbusAsynConfigure("Step_Motor_AIn", "StepMTst", 0, 16, 350, 30,  5,  1, "Modicon")
 
 
 
