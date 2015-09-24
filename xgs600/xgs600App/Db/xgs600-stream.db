@@ -10,14 +10,21 @@
 #  -0.9.1     Monday, June 22 08:56:01 KST 2015, jhlee
 #             * extend "MSG handler in CNV2, AUX1, and AUX2"
 #               I think, this is the quick-and-dirty solution
-#   
+#
+#  -0.9.2    Tuesday, September 15 17:25:37 KST 2015, jhlee
+#            * Fixed INVALID_ALARM in calcout record.
+#              "A#3 is right" that was confirmed by Dirk Zimoch 
+#              through an email communication
+# 
+# 
+#
 #
 # TODO
 # - need "General Error Codes handling logic" in Manual 4-6 
 #   For CNV, introduce a logic to handle Open, but I never test them in various
 #   situations. And in others sensors type case, should add that logic into...
 #   Sunday, June 21 18:50:26 KST 2015, jhlee
-
+#
 
 # Software Revision
 #
@@ -376,13 +383,10 @@ record(stringout, "$(SYSDEV)HFIG1_EGU")
 
 }
 
-
-# Must verify, how it works.
-# Still don't understand how it works....
 record (calcout, "$(SYSDEV)HFIG1_clean1") 
 {
   field (INPA, "$(SYSDEV)HFIG1 CP")
-  field (CALC, "A!=2")
+  field (CALC, "A#3")
   field (OOPT, "When Non-zero")
   field ( OUT, "$(SYSDEV)HFIG1_clean2.PROC")
 }
@@ -429,13 +433,17 @@ record(stringout, "$(SYSDEV)CNV1_EGU")
     field(OMSL, "closed_loop")
 }
 
-# Must verify, how it works.
-# Still don't understand how it works....
+#
+# "A#3 is right" that was confirmed by Dirk Zimoch 
+# through an email communication
+#
+# Tuesday, September 15 17:20:18 KST 2015, jhlee
+#
+
 record (calcout, "$(SYSDEV)CNV1_clean1") 
 {
   field (INPA, "$(SYSDEV)CNV1.SEVR CP")
-  
-  field (CALC, "A!=2")
+  field (CALC, "A#3")
   field (OOPT, "When Non-zero")
   field ( OUT, "$(SYSDEV)CNV1_clean2.PROC")
 }
@@ -472,13 +480,10 @@ record(stringout, "$(SYSDEV)CNV2_EGU")
 }
 
 
-
-# Must verify, how it works.
-# Still don't understand how it works....
 record (calcout, "$(SYSDEV)CNV2_clean1") 
 {
   field (INPA, "$(SYSDEV)CNV2.SEVR CP")
-  field (CALC, "A!=2")
+  field (CALC, "A#3")
   field (OOPT, "When Non-zero")
   field ( OUT, "$(SYSDEV)CNV2_clean2.PROC")
 }
@@ -516,12 +521,10 @@ record(stringout, "$(SYSDEV)AUX1_EGU")
 }
 
 
-# Must verify, how it works.
-# Still don't understand how it works....
 record (calcout, "$(SYSDEV)AUX1_clean1") 
 {
   field (INPA, "$(SYSDEV)AUX1.SEVR CP")
-  field (CALC, "A!=2")
+  field (CALC, "A#3")
   field (OOPT, "When Non-zero")
   field ( OUT, "$(SYSDEV)AUX1_clean2.PROC")
 }
@@ -574,7 +577,7 @@ record(stringout, "$(SYSDEV)AUX2_EGU")
 record (calcout, "$(SYSDEV)AUX2_clean1") 
 {
   field (INPA, "$(SYSDEV)AUX2.SEVR CP")
-  field (CALC, "A!=2")
+  field (CALC, "A#3")
   field (OOPT, "When Non-zero")
   field ( OUT, "$(SYSDEV)AUX2_clean2.PROC")
 }
