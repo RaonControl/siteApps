@@ -12,8 +12,10 @@ include $(TOP)/configure/CONFIG
 # databases, templates, substitutions like this
 #DB += xxx.db
 DB+= xgs600-stream.db
+DB+= lk224-stream.db
 
 DB_INSTALLS += $(TOP)/xgs600App/Db/xgs600.proto
+DB_INSTALLS += $(TOP)/xgs600App/Db/lk224.proto
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add

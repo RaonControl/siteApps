@@ -20,6 +20,7 @@ xgs600_DBD += base.dbd
 xgs600_DBD += stream.dbd
 xgs600_DBD += asyn.dbd
 xgs600_DBD += drvAsynSerialPort.dbd
+xgs600_DBD += drvAsynIPPort.dbd
 
 
 
