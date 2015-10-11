@@ -20,7 +20,7 @@ record(ao, "$(SYS)-$(SUBSYS):$(DEV):D")
 
 record(lcdout, "$(SYS)-$(SUBSYS):$(DEV):STR")
 {
-  field(DTYP, "LCD1602")
+  field(DTYP, "HD44780U")
   field(OUT, "@4 16 8 28 29 0 1 2 3 4 5 6 7")
   field(DIRS, "0")
   field(INPA, "$(SYS)-$(SUBSYS):$(DEV):A")

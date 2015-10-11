@@ -11,11 +11,7 @@ include $(TOP)/configure/CONFIG
 # Create and install (or just install) into <top>/db
 # databases, templates, substitutions like this
 #DB += xxx.db
-#DB += ds1820.db
 DB += charlcd.db
-#DB += pm1001.db
-#DB += sht7x.db
-DB += bme280.db
 
 #----------------------------------------------------
 # If <anyname>.db template is not named <anyname>*.template add
