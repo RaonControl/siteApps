@@ -60,7 +60,6 @@
 #define BOOL_START_INDEX  485                 // 연속된 Bool 변수들의 시작 Index      
 #define FLOAT_START_INDEX 9                   // 연속된 Float 변수들의 시작 Index      
 #define INT_START_INDEX   23                  // 연속된 Int 변수들의 시작 Index       
-#define NUMBER_TO_READ    5                   // 읽어올 변수의 개수                   
 
 //#define READ_COMMANDMSG_SIZE    11
 #define SINGLE_READ_COMMANDMSG_SIZE		9
@@ -92,11 +91,9 @@ typedef struct devRTP{
 	DEVSUPFUN	report;
 	DEVSUPFUN	init;
 	DEVSUPFUN	init_record;
-	//long  (*get_ioint_info) (int, dbCommon*, IOSCANPVT*);
 	DEVSUPFUN	get_ioint_info;
 	DEVSUPFUN	process;
 	DEVSUPFUN	special_linconv;
-	//long  (*special_linconv) (void *, int pass);
 }devRTP;
 
 static long	convertAi(void *precord, int pass);
@@ -157,41 +154,6 @@ static unsigned short fcstab[256] = {
 0x7bc7, 0x6a4e, 0x58d5, 0x495c, 0x3de3, 0x2c6a, 0x1ef1, 0x0f78
 };
 
-
-#if 0
-typedef struct ringBufferElement {
-    epicsFloat64    value;
-    epicsTimeStamp  time;
-    asynStatus      status;
-} ringBufferElement;
-
-typedef struct devPvt{
-    dbCommon          *pr;
-    asynUser          *pasynUser;
-    asynUser          *pasynUserSync;
-    asynFloat64       *pfloat64;
-    void              *float64Pvt;
-    void              *registrarPvt;
-    int               canBlock;
-    epicsMutexId      mutexId;
-    epicsAlarmCondition alarmStat;
-    epicsAlarmSeverity alarmSevr;
-    ringBufferElement *ringBuffer;
-    int               ringHead;
-    int               ringTail;
-    int               ringSize;
-    int               ringBufferOverflows;
-    ringBufferElement result;
-    epicsFloat64      sum;
-    interruptCallbackFloat64 interruptCallback;
-    int               numAverage;
-    CALLBACK          callback;
-    IOSCANPVT         ioScanPvt;
-    char              *portName;
-    char              *userParam;
-    int               addr;
-}devPvt;
-#endif
 
 typedef struct devPvt{
 	int cpu_node;

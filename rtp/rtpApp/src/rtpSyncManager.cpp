@@ -34,17 +34,21 @@
 		CRC[58]				(L)
 						    (H)
 ===============================================	
+	sRCommand[0]= SYNC_BYTE;
+	sRCommand[1]= mul_single; //Multi = 5, Single = 3
+	sRCommand[2]= 0x00; 
+	sRCommand[3]= node;  //Node = 0
+	sRCommand[4]= type; // FLOAT_READ = 0x9D, INT_READ = 0x8D, BOOL_READ = 0x82
+	sRCommand[5] = (unsigned char)(index % 256); // BOOL_START_INDEX = 485, FLOAT_START_INDEX = 9, INT_START_INDEX = 23
+	sRCommand[6] = (unsigned char)(index / 256);
+	sRCommand[7] = (unsigned char)(numtoread % 256);
+	sRCommand[8] = (unsigned char)(numtoread / 256);
+	unsigned short check = getCRC((unsigned char*)sRCommand, 7);
 #endif
 
 static RTPSyncManager mrtpSyncManager;
 static bool bInit = false;
 static epicsTimeStamp globalEPICSTime;
-
-//devRTP devSyncRTPReadAI  ={5, NULL, NULL, initAi, NULL, processAi};
-//devRTP devSyncRTPReadAI  ={6, NULL, NULL, initAi, NULL, processAi, convertAi};
-//devRTP devSyncRTPWrite ={6, NULL, NULL, initAo, getIoIntInfo, processAo, convertAo};
-
-//epicsExportAddress(dset,devSyncRTPWrite);
 
 static int RTPConnectionTask(RTPSyncManager *pSyncMgr)
 {
@@ -87,9 +91,10 @@ static long processAi (void *precord)
 {
 	aiRecord *pr = (aiRecord*)precord;
 
-	//long status = dbGetLink(&(pr->inp),DBF_DOUBLE, &(pr->val),0,0);
+	long status = dbGetLink(&(pr->inp),DBF_DOUBLE, &(pr->val),0,0);
+
 	/*If return was succesful then set undefined false*/
-	//if(!status) pr->udf = FALSE;
+	if(!status) pr->udf = FALSE;
 
 	epicsFloat32 fvalue;
 	mrtpSyncManager.ReadSFloatData(pr, fvalue);
@@ -601,11 +606,6 @@ int RTPSyncManager::readSMsgCommand(const int type, const int mul_single, const 
 	sRCommand[6] = (unsigned char)(index_value / 256);
 	unsigned short check = getCRC((unsigned char*)sRCommand, SINGLE_CRC_RINDEX);
 
-	//printf("CRC-Check:%d\n", check);
-	//getCRC((unsigned char*)sRCommand, sizeof(&sRCommand));
-	//printf("Cmd Size:%d\n", sizeof(sRCommand));
-	//return send(mptty->fd, (const char*)sRCommand, sizeof(sRCommand), 0);
-
 	return send(mptty->fd, (const char*)sRCommand, SINGLE_READ_COMMANDMSG_SIZE, 0);
 }
 
@@ -674,18 +674,17 @@ int RTPSyncManager::readMMsgCommand(const int node, const int type, const int mu
 
 int RTPSyncManager::ReadSFloatData(const aiRecord *pr, epicsFloat32 &fvalue)
 {
-	//int recByte = readMsgCommand(0,FLOAT_READ, 3, FLOAT_START_INDEX, 1);
-	//int recByte = readSMsgCommand(0,FLOAT_READ, 3, 95, 1);
 	devPvt *pRtp = (devPvt*)pr->dpvt;
+	char ReadData[SINGLE_FLOAT_VALUE_SIZE];                 // float ÀÐ±â ¸í·É
 
 	epicsMutexLock(mutex);
+
 	int recByte = readSMsgCommand(FLOAT_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
-
-	//printf("Socket(%p),ReadByte: %d\n", mptty->fd, recByte);
-	char ReadData[SINGLE_FLOAT_VALUE_SIZE];                 // float ÀÐ±â ¸í·É
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+	memcpy(&fvalue, (epicsFloat32*)&ReadData[5], sizeof(epicsFloat32));
 
-	//printf("PVName(%s), RecvByte:%d\n", pr->name, recvbyte);
+	epicsMutexUnlock(mutex);
+
 
 	if(recvbyte < 0)
 	{
@@ -693,27 +692,25 @@ int RTPSyncManager::ReadSFloatData(const aiRecord *pr, epicsFloat32 &fvalue)
 		return -1;
 	};
 
-	memcpy(&fvalue, (epicsFloat32*)&ReadData[5], sizeof(epicsFloat32));
-	epicsMutexUnlock(mutex);
-
-	//printf("RTP-Value:%f\n",fvalue);
 	return (0);
 }
 
 int RTPSyncManager::WriteSFloatData(const aoRecord *pr)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
-	epicsMutexLock(mutex);
-	int recByte = writeSMsgCommand(FLOAT_WRITE, 7, pRtp->cpu_node, pRtp->index_value, pr->val);
-
 	char ReadData[7];
+
+	epicsMutexLock(mutex);
+
+	int recByte = writeSMsgCommand(FLOAT_WRITE, 7, pRtp->cpu_node, pRtp->index_value, pr->val);
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	epicsMutexUnlock(mutex);
 
 	if(recvbyte < 0) {
 		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
 		return -1;
 	};
-	epicsMutexUnlock(mutex);
 
 	char resp = ReadData[4];
 	//printf("Response-code: %d\n", resp);
@@ -723,18 +720,19 @@ int RTPSyncManager::WriteSFloatData(const aoRecord *pr)
 int RTPSyncManager::WriteSBoolData(const boRecord *pr)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
+	char ReadData[7];
 
 	epicsMutexLock(mutex);
-	int recByte = writeSMsgCommand(BOOL_WRITE, 4, pRtp->cpu_node, pRtp->index_value, pr->val);
 
-	char ReadData[7];
+	int recByte = writeSMsgCommand(BOOL_WRITE, 4, pRtp->cpu_node, pRtp->index_value, pr->val);
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+
+	epicsMutexUnlock(mutex);
 
 	if(recvbyte < 0) {
 		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
 		return -1;
 	};
-	epicsMutexUnlock(mutex);
 
 	//char resp = ReadData[4];
 	//printf("Response-code: %d\n", resp);
@@ -743,18 +741,19 @@ int RTPSyncManager::WriteSBoolData(const boRecord *pr)
 int RTPSyncManager::WriteSIntData(const longoutRecord *pr)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
-	epicsMutexLock(mutex);
-	int recByte = writeSMsgCommand(INT_WRITE, 5, pRtp->cpu_node, pRtp->index_value, pr->val);
-
 	char ReadData[7];
+
+	epicsMutexLock(mutex);
+
+	int recByte = writeSMsgCommand(INT_WRITE, 5, pRtp->cpu_node, pRtp->index_value, pr->val);
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+	epicsMutexUnlock(mutex);
 
 	if(recvbyte < 0) {
 		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
 		return -1;
 	};
 
-	epicsMutexUnlock(mutex);
 	char resp = ReadData[4];
 	//printf("Response-code: %d\n", resp);
 
@@ -764,19 +763,21 @@ int RTPSyncManager::WriteSIntData(const longoutRecord *pr)
 int RTPSyncManager::ReadSBoolData(const biRecord *pr, bool &bvalue)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
-	epicsMutexLock(mutex);
-	int recByte = readSMsgCommand(BOOL_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
-
 	char ReadData[SINGLE_BOOL_VALUE_SIZE];                 // float ÀÐ±â ¸í·É
+
+	epicsMutexLock(mutex);
+
+	int recByte = readSMsgCommand(BOOL_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+	memcpy(&bvalue, (bool*)&ReadData[5], sizeof(bool));
+
+	epicsMutexUnlock(mutex);
 
 	if(recvbyte < 0) {
 		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
 		return recvbyte;
 	};
 
-	memcpy(&bvalue, (bool*)&ReadData[5], sizeof(bool));
-	epicsMutexUnlock(mutex);
 
 	return (0);
 }
@@ -784,19 +785,20 @@ int RTPSyncManager::ReadSBoolData(const biRecord *pr, bool &bvalue)
 int RTPSyncManager::ReadSIntData(const longinRecord *pr, epicsInt32 &ivalue)
 {
 	devPvt *pRtp = (devPvt*)pr->dpvt;
-	epicsMutexLock(mutex);
-	int recByte = readSMsgCommand(INT_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
-
 	char ReadData[SINGLE_INT_VALUE_SIZE]; 
+
+	epicsMutexLock(mutex);
+
+	int recByte = readSMsgCommand(INT_READ, SINGLE, pRtp->cpu_node, pRtp->index_value);
 	ssize_t recvbyte = recv(mptty->fd, (char*)&ReadData, sizeof(ReadData), 0);
+	memcpy(&ivalue, (epicsInt32*)&ReadData[5], sizeof(epicsInt32));
+
+	epicsMutexUnlock(mutex);
 
 	if(recvbyte < 0) {
 		printf("Recv-Error: %s\n", strerror(SOCKERRNO));
 		return recvbyte;
 	};
-
-	memcpy(&ivalue, (epicsInt32*)&ReadData[5], sizeof(epicsInt32));
-	epicsMutexUnlock(mutex);
 
 	return (0);
 }
